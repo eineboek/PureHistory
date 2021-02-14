@@ -7,6 +7,10 @@ using System.Text;
 namespace PureHistory
 {
 	/*
+	 * 
+	 */
+
+	/*
 	 * Data structures
 	 */
 	struct MOLine
