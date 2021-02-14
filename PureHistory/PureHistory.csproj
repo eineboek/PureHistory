@@ -10,4 +10,10 @@
     <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Update="data.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
