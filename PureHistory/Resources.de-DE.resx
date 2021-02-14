@@ -141,11 +141,26 @@
   <data name="ArpeggioPrompt" xml:space="preserve">
     <value>Einstellungen für Arpeggio-Schiffe</value>
   </data>
+  <data name="AzurLaneOption1" xml:space="preserve">
+    <value>'AL'-Prefix entfernen</value>
+  </data>
+  <data name="AzurLaneOption2" xml:space="preserve">
+    <value>Schiffsnamen mit regulärem Gegenstück ersetzen</value>
+  </data>
+  <data name="AzurLaneOption3" xml:space="preserve">
+    <value>- Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>
+  </data>
+  <data name="AzurLaneOption4" xml:space="preserve">
+    <value>Schiffsvorschau ersetzen</value>
+  </data>
   <data name="AzurLanePrompt" xml:space="preserve">
     <value>Einstellungen für Azur Lane-Schiffe</value>
   </data>
+  <data name="AzurLaneWarning" xml:space="preserve">
+    <value>Achtung : Azur Lane-Schiffe haben ähnliche, aber nicht identische Eigenschaften zu ihren regulären Gegenstücken. Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann es zu einer Fehleinschätzung der Gefechtssituation führen.</value>
+  </data>
   <data name="ClientSelection" xml:space="preserve">
-    <value>Geben sie den Pfad der gewünschten World of Warships-Installation an</value>
+    <value>Geben sie den Pfad der gewünschten World of Warships-Installation ein</value>
   </data>
   <data name="Continue" xml:space="preserve">
     <value>Weiter</value>
@@ -160,7 +175,7 @@
     <value>Ungültige Eingabe.</value>
   </data>
   <data name="ModVersion" xml:space="preserve">
-    <value>PureHistory Version 1.0 Release 1</value>
+    <value>PureHistory Version 1.0.0</value>
   </data>
   <data name="NavigationHelp1" xml:space="preserve">
     <value>Pfeiltaste oben/unten zum Bewegen</value>

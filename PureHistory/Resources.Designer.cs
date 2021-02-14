@@ -133,7 +133,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;AL&apos; prefix ähnelt.
         /// </summary>
         internal static string AzurLaneOption1 {
             get {
@@ -142,7 +142,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship name with regular counterpart ähnelt.
         /// </summary>
         internal static string AzurLaneOption2 {
             get {
@@ -151,7 +151,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die - Update ship description for distinguishment in port ähnelt.
         /// </summary>
         internal static string AzurLaneOption3 {
             get {
@@ -160,7 +160,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship preview ähnelt.
         /// </summary>
         internal static string AzurLaneOption4 {
             get {
@@ -178,7 +178,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Caution : Azur Lane ships have similar, but not identical performance to their regular counterparts. Replacing the ship name with the regular counterpart name could lead to a misjudgement of the battle situation. ähnelt.
         /// </summary>
         internal static string AzurLaneWarning {
             get {
@@ -187,7 +187,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Input the path to the desired World of Warships installation ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enter the path to the desired World of Warships installation ähnelt.
         /// </summary>
         internal static string ClientSelection {
             get {
@@ -232,7 +232,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die PureHistory Version 1.0 Release 1 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die PureHistory Version 1.0.0 ähnelt.
         /// </summary>
         internal static string ModVersion {
             get {

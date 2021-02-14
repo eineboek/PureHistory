@@ -185,6 +185,48 @@ namespace PureHistory
             AzurLaneOptions azurLaneOptions = new AzurLaneOptions();
             Clear();
 
+            string prompt = Resources.AzurLanePrompt + "\n" + Resources.AzurLaneWarning;
+            string[] options = { Resources.AzurLaneOption1, Resources.AzurLaneOption2, Resources.AzurLaneOption3, Resources.AzurLaneOption4};
+            bool[] optionSelection = { false, false, false, false};
+            Option _azurLaneOptions = new Option(prompt, options, optionSelection);
+            int selectedIndex = 0;
+            while (true)
+            {
+                selectedIndex = _azurLaneOptions.Init();
+                if (selectedIndex == -1)
+                {
+                    break;
+                }
+                if (optionSelection[selectedIndex] == true)
+                {
+                    optionSelection[selectedIndex] = false;
+                }
+                else if (optionSelection[selectedIndex] == false)
+                {
+                    optionSelection[selectedIndex] = true;
+                }
+
+                if (optionSelection[0] == true)
+                {
+                    optionSelection[1] = false;
+                }
+                if (optionSelection[1] == true)
+                {
+                    optionSelection[0] = false;
+                }
+
+                if (optionSelection[2] == true || optionSelection[1] == false)
+                {
+                    optionSelection[2] = false;
+                }
+
+                _azurLaneOptions.UpdateOptionSelection(optionSelection);
+            }
+            azurLaneOptions.removePrefixes = optionSelection[0];
+            azurLaneOptions.replaceNames = optionSelection[1];
+            azurLaneOptions.updateDescription = optionSelection[2];
+            azurLaneOptions.replacePreviews = optionSelection[3];
+
             modInstallation.azurLane = azurLaneOptions;
             HighSchoolFleetSelection();
         }

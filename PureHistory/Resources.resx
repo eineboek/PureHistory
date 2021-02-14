@@ -142,25 +142,25 @@
     <value>Settings for Arpeggio Ships</value>
   </data>
   <data name="AzurLaneOption1" xml:space="preserve">
-    <value />
+    <value>Remove 'AL' prefix</value>
   </data>
   <data name="AzurLaneOption2" xml:space="preserve">
-    <value />
+    <value>Replace ship name with regular counterpart</value>
   </data>
   <data name="AzurLaneOption3" xml:space="preserve">
-    <value />
+    <value>- Update ship description for distinguishment in port</value>
   </data>
   <data name="AzurLaneOption4" xml:space="preserve">
-    <value />
+    <value>Replace ship preview</value>
   </data>
   <data name="AzurLanePrompt" xml:space="preserve">
     <value>Settings for Azur Lane Ships</value>
   </data>
   <data name="AzurLaneWarning" xml:space="preserve">
-    <value />
+    <value>Caution : Azur Lane ships have similar, but not identical performance to their regular counterparts. Replacing the ship name with the regular counterpart name could lead to a misjudgement of the battle situation.</value>
   </data>
   <data name="ClientSelection" xml:space="preserve">
-    <value>Input the path to the desired World of Warships installation</value>
+    <value>Enter the path to the desired World of Warships installation</value>
   </data>
   <data name="Continue" xml:space="preserve">
     <value>Continue</value>
@@ -175,7 +175,7 @@
     <value>Invalid Response.</value>
   </data>
   <data name="ModVersion" xml:space="preserve">
-    <value>PureHistory Version 1.0 Release 1</value>
+    <value>PureHistory Version 1.0.0</value>
   </data>
   <data name="NavigationHelp1" xml:space="preserve">
     <value>Arrow Keys up/down for movement</value>
