@@ -1,27 +1,36 @@
 ﻿using System;
 using static System.Console;
-
 namespace PureHistory
 {
-    class Menu
+    class Option
     {
         private int selectedIndex;
         private string[] options;
+        bool[] optionSelection;
         private string prompt;
 
-        public Menu(string _prompt, string[] _options)
+        public Option(string _prompt, string[] _options, bool[] _optionSelection)
         {
             prompt = _prompt;
             options = _options;
+            optionSelection = _optionSelection;
             selectedIndex = 0;
         }
 
+        public void UpdateOptionSelection(bool[] _optionSelection)
+        {
+            optionSelection = _optionSelection;
+        }
         private void Draw()
         {
-            WriteLine(prompt);
-            for (int i = 0; i < options.Length; i++)
+            WriteLine(prompt+"\n");
+            for (int i = 0; i < options.Length - 1; i++)
             {
                 string currentOption = options[i];
+                if (currentOption == null)
+                {
+                    currentOption = string.Empty;
+                }
                 string prefix;
 
                 if (i == selectedIndex)
@@ -36,7 +45,15 @@ namespace PureHistory
                     ForegroundColor = ConsoleColor.White;
                     BackgroundColor = ConsoleColor.Black;
                 }
-                WriteLine($"{prefix} << {currentOption} >>");
+                    if (optionSelection[i] == true)
+                    {
+                        WriteLine($"{prefix} {currentOption} >>" + " - " + Resources.Yes);
+                    }
+                    else if (optionSelection[i] == false)
+                    {
+                        WriteLine($"{prefix} {currentOption} >>" + " - " + Resources.No);
+                    }
+                
             }
             ResetColor();
         }
@@ -68,10 +85,15 @@ namespace PureHistory
                         selectedIndex = 0;
                     }
                 }
+                else if (keyPressed == ConsoleKey.RightArrow)
+                {
+                    selectedIndex = -1;
+                }
             }
-            while (keyPressed != ConsoleKey.Enter);
+            while (keyPressed != ConsoleKey.Enter && keyPressed != ConsoleKey.RightArrow);
 
             return selectedIndex;
         }
     }
+
 }

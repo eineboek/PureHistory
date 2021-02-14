@@ -120,8 +120,35 @@
   <data name="About" xml:space="preserve">
     <value>erstellt von eineboek</value>
   </data>
+  <data name="ArpeggioOption1" xml:space="preserve">
+    <value>'ARP'-Prefix entfernen</value>
+  </data>
+  <data name="ArpeggioOption2" xml:space="preserve">
+    <value>Schiffsnamen mit respektivem Klassennamen ersetzen</value>
+  </data>
+  <data name="ArpeggioOption3" xml:space="preserve">
+    <value> - Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>
+  </data>
+  <data name="ArpeggioOption4" xml:space="preserve">
+    <value>Sillhouette ersetzen</value>
+  </data>
+  <data name="ArpeggioOption5" xml:space="preserve">
+    <value>Schiffsvorschau ersetzen</value>
+  </data>
+  <data name="ArpeggioOption6" xml:space="preserve">
+    <value>Arpeggio-Flagge ersetzen</value>
+  </data>
+  <data name="ArpeggioPrompt" xml:space="preserve">
+    <value>Einstellungen für Arpeggio-Schiffe</value>
+  </data>
+  <data name="AzurLanePrompt" xml:space="preserve">
+    <value>Einstellungen für Azur Lane-Schiffe</value>
+  </data>
   <data name="ClientSelection" xml:space="preserve">
     <value>Geben sie den Pfad der gewünschten World of Warships-Installation an</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Weiter</value>
   </data>
   <data name="Examples" xml:space="preserve">
     <value>Beispiele :</value>
@@ -136,13 +163,16 @@
     <value>PureHistory Version 1.0 Release 1</value>
   </data>
   <data name="NavigationHelp1" xml:space="preserve">
-    <value>Pfeiltasten hoch/runter zum bewegen</value>
+    <value>Pfeiltaste oben/unten zum Bewegen</value>
   </data>
   <data name="NavigationHelp2" xml:space="preserve">
-    <value>Pfeiltaste rechts zum ändern einer Option</value>
+    <value>Pfeiltaste rechts zum Fortfahren zur nächsten Seite</value>
   </data>
   <data name="NavigationHelp3" xml:space="preserve">
-    <value>ENTER zum bestätigen</value>
+    <value>ENTER um eine Option zu ändern</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nein</value>
   </data>
   <data name="PathCorrection" xml:space="preserve">
     <value>Ist dieser Pfad korrekt?</value>
@@ -155,5 +185,8 @@
   </data>
   <data name="WOWSNotFound" xml:space="preserve">
     <value>World of Warships scheint nicht unter diesem Pfad installiert zu sein. Installation trotzdem fortsetzen?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ja</value>
   </data>
 </root>

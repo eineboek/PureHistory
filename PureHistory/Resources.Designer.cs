@@ -70,11 +70,137 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;ARP&apos; prefix ähnelt.
+        /// </summary>
+        internal static string ArpeggioOption1 {
+            get {
+                return ResourceManager.GetString("ArpeggioOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship name with respective class name ähnelt.
+        /// </summary>
+        internal static string ArpeggioOption2 {
+            get {
+                return ResourceManager.GetString("ArpeggioOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  - Update ship description for distinguishment in port ähnelt.
+        /// </summary>
+        internal static string ArpeggioOption3 {
+            get {
+                return ResourceManager.GetString("ArpeggioOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace sillouette ähnelt.
+        /// </summary>
+        internal static string ArpeggioOption4 {
+            get {
+                return ResourceManager.GetString("ArpeggioOption4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship preview ähnelt.
+        /// </summary>
+        internal static string ArpeggioOption5 {
+            get {
+                return ResourceManager.GetString("ArpeggioOption5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace custom flag ähnelt.
+        /// </summary>
+        internal static string ArpeggioOption6 {
+            get {
+                return ResourceManager.GetString("ArpeggioOption6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Arpeggio Ships ähnelt.
+        /// </summary>
+        internal static string ArpeggioPrompt {
+            get {
+                return ResourceManager.GetString("ArpeggioPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        internal static string AzurLaneOption1 {
+            get {
+                return ResourceManager.GetString("AzurLaneOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        internal static string AzurLaneOption2 {
+            get {
+                return ResourceManager.GetString("AzurLaneOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        internal static string AzurLaneOption3 {
+            get {
+                return ResourceManager.GetString("AzurLaneOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        internal static string AzurLaneOption4 {
+            get {
+                return ResourceManager.GetString("AzurLaneOption4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Azur Lane Ships ähnelt.
+        /// </summary>
+        internal static string AzurLanePrompt {
+            get {
+                return ResourceManager.GetString("AzurLanePrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        internal static string AzurLaneWarning {
+            get {
+                return ResourceManager.GetString("AzurLaneWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Input the path to the desired World of Warships installation ähnelt.
         /// </summary>
         internal static string ClientSelection {
             get {
                 return ResourceManager.GetString("ClientSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Continue ähnelt.
+        /// </summary>
+        internal static string Continue {
+            get {
+                return ResourceManager.GetString("Continue", resourceCulture);
             }
         }
         
@@ -124,7 +250,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Key right to change an option ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Key right to continue to the next page ähnelt.
         /// </summary>
         internal static string NavigationHelp2 {
             get {
@@ -133,11 +259,20 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die ENTER to select/continue ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ENTER to change an option ähnelt.
         /// </summary>
         internal static string NavigationHelp3 {
             get {
                 return ResourceManager.GetString("NavigationHelp3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No ähnelt.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         
@@ -174,6 +309,15 @@ namespace PureHistory {
         internal static string WOWSNotFound {
             get {
                 return ResourceManager.GetString("WOWSNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Yes ähnelt.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

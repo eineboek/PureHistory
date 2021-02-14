@@ -120,8 +120,50 @@
   <data name="About" xml:space="preserve">
     <value>created by eineboek</value>
   </data>
+  <data name="ArpeggioOption1" xml:space="preserve">
+    <value>Remove 'ARP' prefix</value>
+  </data>
+  <data name="ArpeggioOption2" xml:space="preserve">
+    <value>Replace ship name with respective class name</value>
+  </data>
+  <data name="ArpeggioOption3" xml:space="preserve">
+    <value> - Update ship description for distinguishment in port</value>
+  </data>
+  <data name="ArpeggioOption4" xml:space="preserve">
+    <value>Replace sillouette</value>
+  </data>
+  <data name="ArpeggioOption5" xml:space="preserve">
+    <value>Replace ship preview</value>
+  </data>
+  <data name="ArpeggioOption6" xml:space="preserve">
+    <value>Replace custom flag</value>
+  </data>
+  <data name="ArpeggioPrompt" xml:space="preserve">
+    <value>Settings for Arpeggio Ships</value>
+  </data>
+  <data name="AzurLaneOption1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AzurLaneOption2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AzurLaneOption3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AzurLaneOption4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AzurLanePrompt" xml:space="preserve">
+    <value>Settings for Azur Lane Ships</value>
+  </data>
+  <data name="AzurLaneWarning" xml:space="preserve">
+    <value />
+  </data>
   <data name="ClientSelection" xml:space="preserve">
     <value>Input the path to the desired World of Warships installation</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continue</value>
   </data>
   <data name="Examples" xml:space="preserve">
     <value>Examples :</value>
@@ -139,10 +181,13 @@
     <value>Arrow Keys up/down for movement</value>
   </data>
   <data name="NavigationHelp2" xml:space="preserve">
-    <value>Arrow Key right to change an option</value>
+    <value>Arrow Key right to continue to the next page</value>
   </data>
   <data name="NavigationHelp3" xml:space="preserve">
-    <value>ENTER to select/continue</value>
+    <value>ENTER to change an option</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
   </data>
   <data name="PathCorrection" xml:space="preserve">
     <value>Is this path correct?</value>
@@ -155,5 +200,8 @@
   </data>
   <data name="WOWSNotFound" xml:space="preserve">
     <value>World of Warships does not seem to be installed at the specified path. Continue installation regardless?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>
