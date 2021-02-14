@@ -120,8 +120,17 @@
   <data name="About" xml:space="preserve">
     <value>erstellt von eineboek</value>
   </data>
+  <data name="ClientSelection" xml:space="preserve">
+    <value>Geben sie den Pfad der gewünschten World of Warships-Installation an</value>
+  </data>
+  <data name="Examples" xml:space="preserve">
+    <value>Beispiele :</value>
+  </data>
   <data name="ExitProgram" xml:space="preserve">
     <value>Zum Beenden des Programms beliebige Taste drücken ...</value>
+  </data>
+  <data name="InvalidResponse" xml:space="preserve">
+    <value>Ungültige Eingabe.</value>
   </data>
   <data name="ModVersion" xml:space="preserve">
     <value>PureHistory Version 1.0 Release 1</value>
@@ -135,10 +144,16 @@
   <data name="NavigationHelp3" xml:space="preserve">
     <value>ENTER zum bestätigen</value>
   </data>
+  <data name="PathCorrection" xml:space="preserve">
+    <value>Ist dieser Pfad korrekt?</value>
+  </data>
   <data name="PressAnyKey" xml:space="preserve">
     <value>Zum Fortfahren beliebige Taste drücken ...</value>
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Sprache auswählen :</value>
+  </data>
+  <data name="WOWSNotFound" xml:space="preserve">
+    <value>World of Warships scheint nicht unter diesem Pfad installiert zu sein. Installation trotzdem fortsetzen?</value>
   </data>
 </root>

@@ -120,8 +120,17 @@
   <data name="About" xml:space="preserve">
     <value>created by eineboek</value>
   </data>
+  <data name="ClientSelection" xml:space="preserve">
+    <value>Input the path to the desired World of Warships installation</value>
+  </data>
+  <data name="Examples" xml:space="preserve">
+    <value>Examples :</value>
+  </data>
   <data name="ExitProgram" xml:space="preserve">
     <value>Press any key to exit the program ...</value>
+  </data>
+  <data name="InvalidResponse" xml:space="preserve">
+    <value>Invalid Response.</value>
   </data>
   <data name="ModVersion" xml:space="preserve">
     <value>PureHistory Version 1.0 Release 1</value>
@@ -135,10 +144,16 @@
   <data name="NavigationHelp3" xml:space="preserve">
     <value>ENTER to select/continue</value>
   </data>
+  <data name="PathCorrection" xml:space="preserve">
+    <value>Is this path correct?</value>
+  </data>
   <data name="PressAnyKey" xml:space="preserve">
     <value>Press any key to continue ...</value>
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Select Language :</value>
+  </data>
+  <data name="WOWSNotFound" xml:space="preserve">
+    <value>World of Warships does not seem to be installed at the specified path. Continue installation regardless?</value>
   </data>
 </root>

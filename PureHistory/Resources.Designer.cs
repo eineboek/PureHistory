@@ -70,11 +70,38 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Input the path to the desired World of Warships installation ähnelt.
+        /// </summary>
+        internal static string ClientSelection {
+            get {
+                return ResourceManager.GetString("ClientSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Examples : ähnelt.
+        /// </summary>
+        internal static string Examples {
+            get {
+                return ResourceManager.GetString("Examples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Press any key to exit the program ... ähnelt.
         /// </summary>
         internal static string ExitProgram {
             get {
                 return ResourceManager.GetString("ExitProgram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Invalid Response. ähnelt.
+        /// </summary>
+        internal static string InvalidResponse {
+            get {
+                return ResourceManager.GetString("InvalidResponse", resourceCulture);
             }
         }
         
@@ -115,6 +142,15 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Is this path correct? ähnelt.
+        /// </summary>
+        internal static string PathCorrection {
+            get {
+                return ResourceManager.GetString("PathCorrection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Press any key to continue ... ähnelt.
         /// </summary>
         internal static string PressAnyKey {
@@ -129,6 +165,15 @@ namespace PureHistory {
         internal static string SelectLanguage {
             get {
                 return ResourceManager.GetString("SelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die World of Warships does not seem to be installed at the specified path. Continue installation regardless? ähnelt.
+        /// </summary>
+        internal static string WOWSNotFound {
+            get {
+                return ResourceManager.GetString("WOWSNotFound", resourceCulture);
             }
         }
     }
