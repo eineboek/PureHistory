@@ -115,6 +115,24 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Black Friday Ships ähnelt.
+        /// </summary>
+        internal static string BlackShipPrompt {
+            get {
+                return ResourceManager.GetString("BlackShipPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;B&apos; suffix ähnelt.
+        /// </summary>
+        internal static string BlackShipsSuffix {
+            get {
+                return ResourceManager.GetString("BlackShipsSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Enter the path to the desired World of Warships installation ähnelt.
         /// </summary>
         internal static string ClientSelection {
@@ -205,6 +223,24 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Lima (ASUS Collaboration) ships ähnelt.
+        /// </summary>
+        internal static string LimaShipPrompt {
+            get {
+                return ResourceManager.GetString("LimaShipPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;Lima&apos; suffix ähnelt.
+        /// </summary>
+        internal static string LimaShipsSuffix {
+            get {
+                return ResourceManager.GetString("LimaShipsSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Replace custom flag with pan-asian flag ähnelt.
         /// </summary>
         internal static string LunarNewYearFlagOption1 {
@@ -228,6 +264,96 @@ namespace PureHistory {
         internal static string LunarNewYearPrompt {
             get {
                 return ResourceManager.GetString("LunarNewYearPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;ST&apos; suffix of Alabama ST ähnelt.
+        /// </summary>
+        internal static string MiscAlabamaOption1 {
+            get {
+                return ResourceManager.GetString("MiscAlabamaOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  - Update description for distinguishment ähnelt.
+        /// </summary>
+        internal static string MiscAlabamaOption2 {
+            get {
+                return ResourceManager.GetString("MiscAlabamaOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  - Replace Ship preview ähnelt.
+        /// </summary>
+        internal static string MiscAlabamaOption3 {
+            get {
+                return ResourceManager.GetString("MiscAlabamaOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;B&apos; suffix of Arkansas Beta ähnelt.
+        /// </summary>
+        internal static string MiscArkansasSuffix {
+            get {
+                return ResourceManager.GetString("MiscArkansasSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Miscellaneous settings ähnelt.
+        /// </summary>
+        internal static string MiscellaneousPrompt {
+            get {
+                return ResourceManager.GetString("MiscellaneousPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;A&apos; suffix of Iwaki Alpha ähnelt.
+        /// </summary>
+        internal static string MiscIwakiSuffix {
+            get {
+                return ResourceManager.GetString("MiscIwakiSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;R&apos; suffix of Kamikaze R ähnelt.
+        /// </summary>
+        internal static string MiscKamikazeOption1 {
+            get {
+                return ResourceManager.GetString("MiscKamikazeOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  - Update description for distinguishment ähnelt.
+        /// </summary>
+        internal static string MiscKamikazeOption2 {
+            get {
+                return ResourceManager.GetString("MiscKamikazeOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  - Replace Ship preview ähnelt.
+        /// </summary>
+        internal static string MiscKamikazeOption3 {
+            get {
+                return ResourceManager.GetString("MiscKamikazeOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove the &apos;1941&apos; from West Virginia 1941 ähnelt.
+        /// </summary>
+        internal static string MiscWestVirginiaName {
+            get {
+                return ResourceManager.GetString("MiscWestVirginiaName", resourceCulture);
             }
         }
         

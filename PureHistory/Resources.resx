@@ -135,6 +135,12 @@
   <data name="AzurLaneWarning" xml:space="preserve">
     <value>Caution : Azur Lane ships have similar, but not identical performance to their regular counterparts. Replacing the ship name with the regular counterpart name could lead to a misjudgement of the battle situation.</value>
   </data>
+  <data name="BlackShipPrompt" xml:space="preserve">
+    <value>Settings for Black Friday Ships</value>
+  </data>
+  <data name="BlackShipsSuffix" xml:space="preserve">
+    <value>Remove 'B' suffix</value>
+  </data>
   <data name="ClientSelection" xml:space="preserve">
     <value>Enter the path to the desired World of Warships installation</value>
   </data>
@@ -165,6 +171,12 @@
   <data name="InvalidResponse" xml:space="preserve">
     <value>Invalid Response.</value>
   </data>
+  <data name="LimaShipPrompt" xml:space="preserve">
+    <value>Settings for Lima (ASUS Collaboration) ships</value>
+  </data>
+  <data name="LimaShipsSuffix" xml:space="preserve">
+    <value>Remove 'Lima' suffix</value>
+  </data>
   <data name="LunarNewYearFlagOption1" xml:space="preserve">
     <value>Replace custom flag with pan-asian flag</value>
   </data>
@@ -173,6 +185,36 @@
   </data>
   <data name="LunarNewYearPrompt" xml:space="preserve">
     <value>Settings for Lunar New Year Ships</value>
+  </data>
+  <data name="MiscAlabamaOption1" xml:space="preserve">
+    <value>Remove 'ST' suffix of Alabama ST</value>
+  </data>
+  <data name="MiscAlabamaOption2" xml:space="preserve">
+    <value> - Update description for distinguishment</value>
+  </data>
+  <data name="MiscAlabamaOption3" xml:space="preserve">
+    <value> - Replace Ship preview</value>
+  </data>
+  <data name="MiscArkansasSuffix" xml:space="preserve">
+    <value>Remove 'B' suffix of Arkansas Beta</value>
+  </data>
+  <data name="MiscellaneousPrompt" xml:space="preserve">
+    <value>Miscellaneous settings</value>
+  </data>
+  <data name="MiscIwakiSuffix" xml:space="preserve">
+    <value>Remove 'A' suffix of Iwaki Alpha</value>
+  </data>
+  <data name="MiscKamikazeOption1" xml:space="preserve">
+    <value>Remove 'R' suffix of Kamikaze R</value>
+  </data>
+  <data name="MiscKamikazeOption2" xml:space="preserve">
+    <value> - Update description for distinguishment</value>
+  </data>
+  <data name="MiscKamikazeOption3" xml:space="preserve">
+    <value> - Replace Ship preview</value>
+  </data>
+  <data name="MiscWestVirginiaName" xml:space="preserve">
+    <value>Remove the '1941' from West Virginia 1941</value>
   </data>
   <data name="ModVersion" xml:space="preserve">
     <value>PureHistory Version 1.0.0</value>

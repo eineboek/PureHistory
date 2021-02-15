@@ -469,6 +469,38 @@ namespace PureHistory
             BlackShipOptions blackShipOptions = new BlackShipOptions();
             Clear();
 
+            string prompt = Resources.BlackShipPrompt;
+            string[] options = { Resources.BlackShipsSuffix, Resources.UpdateDescription, Resources.ReplacePreview };
+            bool[] optionSelection = { false, false, false};
+            Option _blackShipOptions = new Option(prompt, options, optionSelection);
+            int selectedIndex = 0;
+            while (true)
+            {
+                selectedIndex = _blackShipOptions.Init();
+                if (selectedIndex == -1)
+                {
+                    break;
+                }
+                if (optionSelection[selectedIndex] == true)
+                {
+                    optionSelection[selectedIndex] = false;
+                }
+                else if (optionSelection[selectedIndex] == false)
+                {
+                    optionSelection[selectedIndex] = true;
+                }
+
+                if (optionSelection[1] == true && optionSelection[0] == false)
+                {
+                    optionSelection[1] = false;
+                }
+
+                _blackShipOptions.UpdateOptionSelection(optionSelection);
+            }
+            blackShipOptions.removeSuffixes = optionSelection[0];
+            blackShipOptions.updateDescription = optionSelection[1];
+            blackShipOptions.replacePreviews = optionSelection[2];
+
             modInstallation.blackShips = blackShipOptions;
             LimaSelection();
         }
@@ -477,6 +509,38 @@ namespace PureHistory
         {
             LimaShipOptions limaShipOptions = new LimaShipOptions();
             Clear();
+
+            string prompt = Resources.LimaShipPrompt;
+            string[] options = { Resources.LimaShipsSuffix, Resources.UpdateDescription, Resources.ReplacePreview };
+            bool[] optionSelection = { false, false, false };
+            Option _limaShipOptions = new Option(prompt, options, optionSelection);
+            int selectedIndex = 0;
+            while (true)
+            {
+                selectedIndex = _limaShipOptions.Init();
+                if (selectedIndex == -1)
+                {
+                    break;
+                }
+                if (optionSelection[selectedIndex] == true)
+                {
+                    optionSelection[selectedIndex] = false;
+                }
+                else if (optionSelection[selectedIndex] == false)
+                {
+                    optionSelection[selectedIndex] = true;
+                }
+
+                if (optionSelection[1] == true && optionSelection[0] == false)
+                {
+                    optionSelection[1] = false;
+                }
+
+                _limaShipOptions.UpdateOptionSelection(optionSelection);
+            }
+            limaShipOptions.removeSuffixes = optionSelection[0];
+            limaShipOptions.updateDescription = optionSelection[1];
+            limaShipOptions.replacePreviews = optionSelection[2];
 
             modInstallation.limaShips = limaShipOptions;
             MiscellaneousSelection();
