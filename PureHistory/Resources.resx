@@ -168,6 +168,9 @@
   <data name="HSFSpeePrompt" xml:space="preserve">
     <value>Settings for HSF Graf Spee</value>
   </data>
+  <data name="InstallationComplete" xml:space="preserve">
+    <value>Installation is completed.</value>
+  </data>
   <data name="InvalidResponse" xml:space="preserve">
     <value>Invalid Response.</value>
   </data>
@@ -216,6 +219,9 @@
   <data name="MiscWestVirginiaName" xml:space="preserve">
     <value>Remove the '1941' from West Virginia 1941</value>
   </data>
+  <data name="ModStationWarning" xml:space="preserve">
+    <value>World of Warships Mod Station was found. Please install this mod after using the ModStation, as the ModStation will override all other mod files.</value>
+  </data>
   <data name="ModVersion" xml:space="preserve">
     <value>PureHistory Version 1.0.0</value>
   </data>
@@ -255,6 +261,9 @@
   <data name="SelectLanguage" xml:space="preserve">
     <value>Select Language :</value>
   </data>
+  <data name="StartInstallation" xml:space="preserve">
+    <value>Press any key to start the mod installation ...</value>
+  </data>
   <data name="UpdateDescription" xml:space="preserve">
     <value>- Update ship description for distinguishment in port</value>
   </data>
@@ -263,6 +272,9 @@
   </data>
   <data name="WOWSNotFound" xml:space="preserve">
     <value>World of Warships does not seem to be installed at the specified path. Continue installation regardless?</value>
+  </data>
+  <data name="WOWSVersion" xml:space="preserve">
+    <value>World of Warships Version 0.10.1</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>

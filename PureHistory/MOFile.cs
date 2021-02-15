@@ -7,7 +7,9 @@ using System.Text;
 namespace PureHistory
 {
     /*
-	 * 
+	 * This program uses code from the GNU MO File Editor by OrletSoir under the GNU General Public License v3.0
+	 * https://github.com/OrletSoir/GNU-MO-File-Editor
+	 * https://www.gnu.org/licenses/gpl-3.0.de.html
 	 */
 
     /*
@@ -26,7 +28,7 @@ namespace PureHistory
 	 * https://www.gnu.org/software/gettext/manual/html_node/MO-Files.html#MO-Files
 	 * 
 	 */
-    class MOReader : IEnumerable<MOLine>
+    class MOReader : IEnumerable<MOLine>, IDisposable
     {
         #region privates
         private uint _r; // revision
@@ -53,6 +55,7 @@ namespace PureHistory
         protected readonly BinaryReader Reader;
 
         protected List<MOLine> Lines;
+        private bool disposedValue;
         #endregion
 
         // public fields
@@ -219,7 +222,7 @@ T + ((N-1)*8)| length & offset (N-1)th translation      |  | | | |
         #region data writer methods
         public void SaveMOFile(string fileName)
         {
-            FileStream outFile = File.Open(fileName, FileMode.Create, FileAccess.Write, FileShare.Read);
+            FileStream outFile = File.Open(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
             BinaryWriter writer = new BinaryWriter(outFile);
 
             // magic
@@ -309,6 +312,7 @@ T + ((N-1)*8)| length & offset (N-1)th translation      |  | | | |
             writer.Close();
             outFile.Close();
             outFile.Dispose();
+
         }
         #endregion
 
@@ -334,6 +338,33 @@ T + ((N-1)*8)| length & offset (N-1)th translation      |  | | | |
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+        #endregion
+
+        #region IDisposable interface
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    if (Reader != null)
+                        Reader.Close();
+
+                    if (MOFile != null)
+                    {
+                        MOFile.Close();
+                        MOFile.Dispose();
+                    }
+                }
+                disposedValue = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
         #endregion
     }

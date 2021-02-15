@@ -42,7 +42,6 @@ namespace PureHistory
         public bool harekaze_ReplacePreview { get; set; }
 
         public bool spee_RemovePrefix { get; set; }
-        public bool spee_ReplaceName { get; set; }
         public bool spee_UpdateDescription { get; set; }
         public bool spee_ReplacePreview { get; set; }
     }

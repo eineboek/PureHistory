@@ -214,6 +214,15 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Installation is completed. ähnelt.
+        /// </summary>
+        internal static string InstallationComplete {
+            get {
+                return ResourceManager.GetString("InstallationComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Invalid Response. ähnelt.
         /// </summary>
         internal static string InvalidResponse {
@@ -358,6 +367,15 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die World of Warships Mod Station was found. Please install this mod after using the ModStation, as the ModStation will override all other mod files. ähnelt.
+        /// </summary>
+        internal static string ModStationWarning {
+            get {
+                return ResourceManager.GetString("ModStationWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die PureHistory Version 1.0.0 ähnelt.
         /// </summary>
         internal static string ModVersion {
@@ -475,6 +493,15 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Press any key to start the mod installation ... ähnelt.
+        /// </summary>
+        internal static string StartInstallation {
+            get {
+                return ResourceManager.GetString("StartInstallation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die - Update ship description for distinguishment in port ähnelt.
         /// </summary>
         internal static string UpdateDescription {
@@ -498,6 +525,15 @@ namespace PureHistory {
         internal static string WOWSNotFound {
             get {
                 return ResourceManager.GetString("WOWSNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die World of Warships Version 0.10.1 ähnelt.
+        /// </summary>
+        internal static string WOWSVersion {
+            get {
+                return ResourceManager.GetString("WOWSVersion", resourceCulture);
             }
         }
         
