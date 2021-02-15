@@ -165,6 +165,15 @@
   <data name="InvalidResponse" xml:space="preserve">
     <value>Invalid Response.</value>
   </data>
+  <data name="LunarNewYearFlagOption1" xml:space="preserve">
+    <value>Replace custom flag with pan-asian flag</value>
+  </data>
+  <data name="LunarNewYearFlagOption2" xml:space="preserve">
+    <value>Replace custom flag with flag of respective country</value>
+  </data>
+  <data name="LunarNewYearPrompt" xml:space="preserve">
+    <value>Settings for Lunar New Year Ships</value>
+  </data>
   <data name="ModVersion" xml:space="preserve">
     <value>PureHistory Version 1.0.0</value>
   </data>

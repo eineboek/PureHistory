@@ -165,6 +165,15 @@
   <data name="InvalidResponse" xml:space="preserve">
     <value>Ungültige Eingabe.</value>
   </data>
+  <data name="LunarNewYearFlagOption1" xml:space="preserve">
+    <value>Flagge mit Pan-Asiatischer Flagge ersetzen</value>
+  </data>
+  <data name="LunarNewYearFlagOption2" xml:space="preserve">
+    <value>Flagge mit der des jeweiligen Originals ersetzen</value>
+  </data>
+  <data name="LunarNewYearPrompt" xml:space="preserve">
+    <value>Einstellungen für Mondneujahr-Schiffe</value>
+  </data>
   <data name="ModVersion" xml:space="preserve">
     <value>PureHistory Version 1.0.0</value>
   </data>

@@ -205,6 +205,33 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace custom flag with pan-asian flag ähnelt.
+        /// </summary>
+        internal static string LunarNewYearFlagOption1 {
+            get {
+                return ResourceManager.GetString("LunarNewYearFlagOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace custom flag with flag of respective country ähnelt.
+        /// </summary>
+        internal static string LunarNewYearFlagOption2 {
+            get {
+                return ResourceManager.GetString("LunarNewYearFlagOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Lunar New Year Ships ähnelt.
+        /// </summary>
+        internal static string LunarNewYearPrompt {
+            get {
+                return ResourceManager.GetString("LunarNewYearPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die PureHistory Version 1.0.0 ähnelt.
         /// </summary>
         internal static string ModVersion {

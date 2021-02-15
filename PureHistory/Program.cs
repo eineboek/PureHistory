@@ -417,6 +417,49 @@ namespace PureHistory
             LunarNewYearShipOptions lunarOptions = new LunarNewYearShipOptions();
             Clear();
 
+            string prompt = Resources.LunarNewYearPrompt;
+            string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.LunarNewYearFlagOption1, Resources.LunarNewYearFlagOption2 };
+            bool[] optionSelection = { false, false, false, false, false };
+            Option _lunarOptions = new Option(prompt, options, optionSelection);
+            int selectedIndex = 0;
+            while (true)
+            {
+                selectedIndex = _lunarOptions.Init();
+                if (selectedIndex == -1)
+                {
+                    break;
+                }
+                if (optionSelection[selectedIndex] == true)
+                {
+                    optionSelection[selectedIndex] = false;
+                }
+                else if (optionSelection[selectedIndex] == false)
+                {
+                    optionSelection[selectedIndex] = true;
+                }
+
+                if (optionSelection[1] == true && optionSelection[0] == false)
+                {
+                    optionSelection[1] = false;
+                }
+
+                if (optionSelection[3] == true)
+                {
+                    optionSelection[4] = false;
+                }
+                if (optionSelection[4] == true)
+                {
+                    optionSelection[3] = false;
+                }
+
+                _lunarOptions.UpdateOptionSelection(optionSelection);
+            }
+            lunarOptions.replaceNames = optionSelection[0];
+            lunarOptions.updateDescription = optionSelection[1];
+            lunarOptions.replacePreviews = optionSelection[2];
+            lunarOptions.replaceFlags_Panasia = optionSelection[3];
+            lunarOptions.replaceFlags_RespectiveCountry = optionSelection[4];
+
             modInstallation.lunarNewYearShips = lunarOptions;
             BlackSelection();
         }
