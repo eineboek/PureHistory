@@ -1,12 +1,13 @@
 ﻿using System;
 using static System.Console;
+
 namespace PureHistory
 {
-    class Option
+    internal class Option
     {
         private int selectedIndex;
         private string[] options;
-        bool[] optionSelection;
+        private bool[] optionSelection;
         private string prompt;
 
         public Option(string _prompt, string[] _options, bool[] _optionSelection)
@@ -21,9 +22,10 @@ namespace PureHistory
         {
             optionSelection = _optionSelection;
         }
+
         private void Draw()
         {
-            WriteLine(prompt+"\n");
+            WriteLine(prompt + "\n");
             for (int i = 0; i < options.Length; i++)
             {
                 string currentOption = options[i];
@@ -41,15 +43,14 @@ namespace PureHistory
                     ForegroundColor = ConsoleColor.White;
                     BackgroundColor = ConsoleColor.Black;
                 }
-                    if (optionSelection[i] == true)
-                    {
-                        WriteLine($"{prefix} {currentOption} >>" + " - " + Resources.Yes);
-                    }
-                    else if (optionSelection[i] == false)
-                    {
-                        WriteLine($"{prefix} {currentOption} >>" + " - " + Resources.No);
-                    }
-                
+                if (optionSelection[i] == true)
+                {
+                    WriteLine($"{prefix} {currentOption} >>" + " - " + Resources.Yes);
+                }
+                else if (optionSelection[i] == false)
+                {
+                    WriteLine($"{prefix} {currentOption} >>" + " - " + Resources.No);
+                }
             }
             ResetColor();
         }
@@ -91,5 +92,4 @@ namespace PureHistory
             return selectedIndex;
         }
     }
-
 }

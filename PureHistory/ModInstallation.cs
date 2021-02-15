@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PureHistory
+﻿namespace PureHistory
 {
-    class ModInstallation
+    internal class ModInstallation
     {
         public ArpeggioOptions arpeggio { get; set; }
         public AzurLaneOptions azurLane { get; set; }
@@ -16,7 +12,8 @@ namespace PureHistory
         public LimaShipOptions limaShips { get; set; }
         public MiscellaneousOptions miscellaneous { get; set; }
     }
-    class ArpeggioOptions
+
+    internal class ArpeggioOptions
     {
         public bool removePrefixes { get; set; }
         public bool replaceNames { get; set; }
@@ -26,7 +23,7 @@ namespace PureHistory
         public bool replaceFlags { get; set; }
     }
 
-    class AzurLaneOptions
+    internal class AzurLaneOptions
     {
         public bool removePrefixes { get; set; }
         public bool replaceNames { get; set; }
@@ -34,7 +31,7 @@ namespace PureHistory
         public bool replacePreviews { get; set; }
     }
 
-    class HighSchoolFleetOptions
+    internal class HighSchoolFleetOptions
     {
         public bool harekaze_RemovePrefix { get; set; }
         public bool harekaze_ReplaceName { get; set; }
@@ -46,7 +43,7 @@ namespace PureHistory
         public bool spee_ReplacePreview { get; set; }
     }
 
-    class Warhammer40KOptions
+    internal class Warhammer40KOptions
     {
         public bool replaceNames { get; set; }
         public bool updateDescription { get; set; }
@@ -54,7 +51,7 @@ namespace PureHistory
         public bool replaceFlags { get; set; }
     }
 
-    class DragonShipOptions
+    internal class DragonShipOptions
     {
         public bool replaceNames { get; set; }
         public bool updateDescription { get; set; }
@@ -63,7 +60,7 @@ namespace PureHistory
         public bool replaceFlags { get; set; }
     }
 
-    class LunarNewYearShipOptions
+    internal class LunarNewYearShipOptions
     {
         public bool replaceNames { get; set; }
         public bool updateDescription { get; set; }
@@ -72,21 +69,21 @@ namespace PureHistory
         public bool replaceFlags_RespectiveCountry { get; set; }
     }
 
-    class BlackShipOptions
+    internal class BlackShipOptions
     {
         public bool removeSuffixes { get; set; }
         public bool updateDescription { get; set; }
         public bool replacePreviews { get; set; }
     }
 
-    class LimaShipOptions
+    internal class LimaShipOptions
     {
         public bool removeSuffixes { get; set; }
         public bool updateDescription { get; set; }
         public bool replacePreviews { get; set; }
     }
 
-    class MiscellaneousOptions
+    internal class MiscellaneousOptions
     {
         public bool kamikaze_removeSuffix { get; set; }
         public bool kamikaze_updateDescription { get; set; }

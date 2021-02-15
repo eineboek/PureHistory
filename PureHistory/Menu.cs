@@ -3,7 +3,7 @@ using static System.Console;
 
 namespace PureHistory
 {
-    class Menu
+    internal class Menu
     {
         private int selectedIndex;
         private string[] options;

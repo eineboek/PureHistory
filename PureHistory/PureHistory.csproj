@@ -9,11 +9,21 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageIcon>logo.png</PackageIcon>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <NoWin32Manifest>true</NoWin32Manifest>
+    <Authors>eineboek</Authors>
+    <Company>eineboek</Company>
+    <Description>Customisation mod for World of Warships</Description>
+    <Copyright>GNU General Public License v3.0</Copyright>
+    <PackageLicenseExpression>GNU General Public License v3.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/eineboek/PureHistory</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/eineboek/PureHistory</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,6 +44,10 @@
   <ItemGroup>
     <None Update="data.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\Ressourcen\logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 

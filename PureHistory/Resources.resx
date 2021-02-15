@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>created by eineboek</value>
+    <value>Created by eineboek</value>
   </data>
   <data name="ArpeggioPrefix" xml:space="preserve">
     <value>Remove 'ARP' prefix</value>
@@ -141,6 +141,9 @@
   <data name="BlackShipsSuffix" xml:space="preserve">
     <value>Remove 'B' suffix</value>
   </data>
+  <data name="CannotFindStructure" xml:space="preserve">
+    <value>PureHistory cannot be installed to the specified path.</value>
+  </data>
   <data name="ClientSelection" xml:space="preserve">
     <value>Enter the path to the desired World of Warships installation</value>
   </data>
@@ -149,6 +152,12 @@
   </data>
   <data name="DragonShipPrompt" xml:space="preserve">
     <value>Settings for Dragon Ships</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>An error has occured :</value>
+  </data>
+  <data name="ErrorDuringInstallation" xml:space="preserve">
+    <value>Error during installation. Please try again or contact the author.</value>
   </data>
   <data name="Examples" xml:space="preserve">
     <value>Examples :</value>
@@ -220,7 +229,7 @@
     <value>Remove the '1941' from West Virginia 1941</value>
   </data>
   <data name="ModStationWarning" xml:space="preserve">
-    <value>World of Warships Mod Station was found. Please install this mod after using the ModStation, as the ModStation will override all other mod files.</value>
+    <value>World of Warships ModStation was found. Please install this mod after using the ModStation, as the ModStation will override all other mod files.</value>
   </data>
   <data name="ModVersion" xml:space="preserve">
     <value>PureHistory Version 1.0.0</value>

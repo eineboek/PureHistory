@@ -15,7 +15,8 @@ namespace PureHistory
     /*
 	 * Data structures
 	 */
-    struct MOLine
+
+    internal struct MOLine
     {
         public int Index;
         public string Original;
@@ -24,13 +25,15 @@ namespace PureHistory
 
     /*
 	 * Reader class for the GNU .mo text format
-	 * 
+	 *
 	 * https://www.gnu.org/software/gettext/manual/html_node/MO-Files.html#MO-Files
-	 * 
+	 *
 	 */
-    class MOReader : IEnumerable<MOLine>, IDisposable
+
+    internal class MOReader : IEnumerable<MOLine>, IDisposable
     {
         #region privates
+
         private uint _r; // revision
         private uint _n; // number of strings
         private uint _o; // offset of table with original strings
@@ -56,7 +59,8 @@ namespace PureHistory
 
         protected List<MOLine> Lines;
         private bool disposedValue;
-        #endregion
+
+        #endregion privates
 
         // public fields
         public uint Count
@@ -89,6 +93,7 @@ namespace PureHistory
         }
 
         #region Format Table
+
         /*
 	   byte
              +------------------------------------------+
@@ -138,9 +143,11 @@ T + ((N-1)*8)| length & offset (N-1)th translation      |  | | | |
              |                                          |
              +------------------------------------------+
 		 */
-        #endregion
+
+        #endregion Format Table
 
         #region private methods
+
         private void PopulateDataStructures()
         {
             // start at the beginnings
@@ -217,9 +224,11 @@ T + ((N-1)*8)| length & offset (N-1)th translation      |  | | | |
             for (int i = 0; i < _n; i++)
                 Lines.Add(ReadLineAt(i));
         }
-        #endregion
+
+        #endregion private methods
 
         #region data writer methods
+
         public void SaveMOFile(string fileName)
         {
             FileStream outFile = File.Open(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
@@ -312,11 +321,12 @@ T + ((N-1)*8)| length & offset (N-1)th translation      |  | | | |
             writer.Close();
             outFile.Close();
             outFile.Dispose();
-
         }
-        #endregion
+
+        #endregion data writer methods
 
         #region Enumerator and Indexer shenanigans
+
         public MOLine this[int key]
         {
             get
@@ -339,9 +349,15 @@ T + ((N-1)*8)| length & offset (N-1)th translation      |  | | | |
         {
             return GetEnumerator();
         }
-        #endregion
+
+        #endregion Enumerator and Indexer shenanigans
 
         #region IDisposable interface
+
+        /*
+         * Code added by eineboek
+         */
+
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
@@ -366,6 +382,7 @@ T + ((N-1)*8)| length & offset (N-1)th translation      |  | | | |
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
-        #endregion
+
+        #endregion IDisposable interface
     }
 }

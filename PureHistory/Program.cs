@@ -1,41 +1,48 @@
 ﻿using System;
-using System.Globalization;
-using System.Threading;
-using System.IO;
-using static System.Console;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Xml;
+using static System.Console;
 
 namespace PureHistory
 {
-    class Program
+    internal class Program
     {
-        static CultureInfo selectedCulture;
-        static string wowsPath;
-        static string binPath;
-        static string modsPath;
-        static string clientLang;
+        #region Private fields
+        private static CultureInfo selectedCulture;
+        private static string wowsPath;
+        private static string binPath;
+        private static string modsPath;
+        private static string clientLang;
 
-        static ModInstallation modInstallation = new ModInstallation();
-        static void Main(string[] args)
+        private static ModInstallation modInstallation = new ModInstallation();
+        #endregion
+        private static void Main(string[] args)
         {
             Title = "PureHistory Installer";
+
             WriteLine(Resources.ModVersion + " - " + Resources.About + "\n");
             WriteLine(Resources.WOWSVersion + "\n");
+
             WriteLine("Navigation :");
             WriteLine(Resources.NavigationHelp1);
             WriteLine(Resources.NavigationHelp2);
             WriteLine(Resources.NavigationHelp3 + "\n");
+
             WriteLine(Resources.PressAnyKey);
             ReadKey();
+
             LanguageSelection();
+
             WriteLine(Resources.ExitProgram);
             ReadKey();
         }
 
-        static private void LanguageSelection()
+        private static void LanguageSelection()
         {
             string prompt = Resources.SelectLanguage;
             string[] options = { "English", "Deutsch" };
@@ -47,6 +54,7 @@ namespace PureHistory
                 case 0:
                     selectedCulture = CultureInfo.CreateSpecificCulture("en-US");
                     break;
+
                 case 1:
                     selectedCulture = CultureInfo.CreateSpecificCulture("de-DE");
                     break;
@@ -57,9 +65,11 @@ namespace PureHistory
 
             ClientSelection();
         }
-        static private void ClientSelection()
+
+        private static void ClientSelection()
         {
             Clear();
+
             WriteLine(Resources.ClientSelection + "\n");
             WriteLine(Resources.Examples);
             WriteLine(@"C:\Games\World_of_Warships");
@@ -77,16 +87,26 @@ namespace PureHistory
             {
                 if (File.Exists(Path.Combine(wowsPath, "WorldOfWarships.exe")))
                 {
-                    string buildPath = Path.Combine(wowsPath, "bin");
-                    List<int> buildList = new List<int>();
-                    foreach (string build in Directory.GetDirectories(buildPath).Select(d => Path.GetRelativePath(buildPath, d)))
+                    try
                     {
-                        buildList.Add(Convert.ToInt32(build));
+                        string buildPath = Path.Combine(wowsPath, "bin");
+                        List<int> buildList = new List<int>();
+                        foreach (string build in Directory.GetDirectories(buildPath).Select(d => Path.GetRelativePath(buildPath, d)))
+                        {
+                            buildList.Add(Convert.ToInt32(build));
+                        }
+                        buildList = buildList.OrderByDescending(p => p).ToList();
+                        int[] buildListArray = buildList.ToArray();
+                        binPath = Path.Combine(buildPath, buildListArray[0].ToString());
+                        modsPath = Path.Combine(binPath, "res_mods");
                     }
-                    buildList = buildList.OrderByDescending(p => p).ToList();
-                    int[] buildListArray = buildList.ToArray();
-                    binPath = Path.Combine(buildPath, buildListArray[0].ToString());
-                    modsPath = Path.Combine(binPath, "res_mods");
+                    catch
+                    {
+                        WriteLine(Resources.Error);
+                        WriteLine(Resources.CannotFindStructure);
+                        ReadKey();
+                        ClientSelection();
+                    }
                 }
                 else
                 {
@@ -112,15 +132,17 @@ namespace PureHistory
                         }
                         catch
                         {
-                            //TODO
-                            //Advise user that the installation cannot be done
+                            WriteLine(Resources.Error);
+                            WriteLine(Resources.CannotFindStructure);
+                            ReadKey();
+                            ClientSelection();
                         }
                     }
                     else
                     {
                         WriteLine(Resources.InvalidResponse);
                         ReadKey();
-                        Environment.Exit(0);
+                        ClientSelection();
                     }
                 }
             }
@@ -128,17 +150,18 @@ namespace PureHistory
             {
                 WriteLine(Resources.InvalidResponse);
                 ReadKey();
-                Environment.Exit(0);
+                ClientSelection();
             }
             ArpeggioSelection();
         }
-        static private void ArpeggioSelection()
+
+        private static void ArpeggioSelection()
         {
             ArpeggioOptions arpeggioOptions = new ArpeggioOptions();
             Clear();
 
             string prompt = Resources.ArpeggioPrompt;
-            string[] options = { Resources.ArpeggioPrefix, Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag};
+            string[] options = { Resources.ArpeggioPrefix, Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag };
             bool[] optionSelection = { false, false, false, false, false, false };
             Option _arpeggioOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
@@ -158,11 +181,11 @@ namespace PureHistory
                     optionSelection[selectedIndex] = true;
                 }
 
-                if(optionSelection[0] == true)
+                if (optionSelection[0] == true)
                 {
                     optionSelection[1] = false;
                 }
-                if(optionSelection[1] == true)
+                if (optionSelection[1] == true)
                 {
                     optionSelection[0] = false;
                 }
@@ -185,14 +208,14 @@ namespace PureHistory
             AzurLaneSelection();
         }
 
-        static private void AzurLaneSelection()
+        private static void AzurLaneSelection()
         {
             AzurLaneOptions azurLaneOptions = new AzurLaneOptions();
             Clear();
 
             string prompt = Resources.AzurLanePrompt + "\n" + Resources.AzurLaneWarning;
-            string[] options = { Resources.AzurLanePrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview};
-            bool[] optionSelection = { false, false, false, false, false};
+            string[] options = { Resources.AzurLanePrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
+            bool[] optionSelection = { false, false, false, false, false };
             Option _azurLaneOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
             while (true)
@@ -236,10 +259,12 @@ namespace PureHistory
             HSFHarekazeSelection();
         }
 
-        static private void HSFHarekazeSelection()
+        private static void HSFHarekazeSelection()
         {
             HighSchoolFleetOptions hsfOptions = new HighSchoolFleetOptions();
-            string prompt = Resources.HSFHarekazePrompt+ "\n" + Resources.HSFHarekazeWarning;
+            Clear();
+            
+            string prompt = Resources.HSFHarekazePrompt + "\n" + Resources.HSFHarekazeWarning;
             string[] options = { Resources.HSFPrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
             bool[] optionSelection = { false, false, false, false };
             Option _hsfHarekazeOptions = new Option(prompt, options, optionSelection);
@@ -284,9 +309,10 @@ namespace PureHistory
             HSFSpeeSelection(hsfOptions);
         }
 
-        static private void HSFSpeeSelection(HighSchoolFleetOptions hsfOptions)
+        private static void HSFSpeeSelection(HighSchoolFleetOptions hsfOptions)
         {
             Clear();
+
             string prompt = Resources.HSFSpeePrompt;
             string[] options = { Resources.HSFPrefix, Resources.UpdateDescription, Resources.ReplacePreview };
             bool[] optionSelection = { false, false, false };
@@ -322,7 +348,8 @@ namespace PureHistory
             modInstallation.highSchoolFleet = hsfOptions;
             Warhammer40KSelection();
         }
-        static private void Warhammer40KSelection()
+
+        private static void Warhammer40KSelection()
         {
             Warhammer40KOptions warhammerOptions = new Warhammer40KOptions();
             Clear();
@@ -364,7 +391,7 @@ namespace PureHistory
             DragonSelection();
         }
 
-        static private void DragonSelection()
+        private static void DragonSelection()
         {
             DragonShipOptions dragonShipOptions = new DragonShipOptions();
             Clear();
@@ -407,7 +434,7 @@ namespace PureHistory
             LunarNewYearSelection();
         }
 
-        static private void LunarNewYearSelection()
+        private static void LunarNewYearSelection()
         {
             LunarNewYearShipOptions lunarOptions = new LunarNewYearShipOptions();
             Clear();
@@ -459,14 +486,14 @@ namespace PureHistory
             BlackSelection();
         }
 
-        static private void BlackSelection()
+        private static void BlackSelection()
         {
             BlackShipOptions blackShipOptions = new BlackShipOptions();
             Clear();
 
             string prompt = Resources.BlackShipPrompt;
             string[] options = { Resources.BlackShipsSuffix, Resources.UpdateDescription, Resources.ReplacePreview };
-            bool[] optionSelection = { false, false, false};
+            bool[] optionSelection = { false, false, false };
             Option _blackShipOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
             while (true)
@@ -500,7 +527,7 @@ namespace PureHistory
             LimaSelection();
         }
 
-        static private void LimaSelection()
+        private static void LimaSelection()
         {
             LimaShipOptions limaShipOptions = new LimaShipOptions();
             Clear();
@@ -541,13 +568,13 @@ namespace PureHistory
             MiscellaneousSelection();
         }
 
-        static private void MiscellaneousSelection()
+        private static void MiscellaneousSelection()
         {
             MiscellaneousOptions miscellaneousOptions = new MiscellaneousOptions();
             Clear();
 
             string prompt = Resources.MiscellaneousPrompt;
-            string[] options = { Resources.MiscKamikazeOption1, Resources.MiscKamikazeOption2, Resources.MiscKamikazeOption3, Resources.MiscAlabamaOption1, Resources.MiscAlabamaOption2, Resources.MiscAlabamaOption3, Resources.MiscIwakiSuffix, Resources.MiscArkansasSuffix, Resources.MiscWestVirginiaName};
+            string[] options = { Resources.MiscKamikazeOption1, Resources.MiscKamikazeOption2, Resources.MiscKamikazeOption3, Resources.MiscAlabamaOption1, Resources.MiscAlabamaOption2, Resources.MiscAlabamaOption3, Resources.MiscIwakiSuffix, Resources.MiscArkansasSuffix, Resources.MiscWestVirginiaName };
             bool[] optionSelection = { false, false, false, false, false, false, false, false, false };
             Option _miscellaneousOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
@@ -593,27 +620,53 @@ namespace PureHistory
             PerformInstallation();
         }
 
-        static private void PerformInstallation()
+        private static void PerformInstallation()
         {
             Clear();
+
             WriteLine(Resources.StartInstallation);
             ReadKey();
 
+            #region Extract files from the data archive
             string executingPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string dataPath = Path.Combine(executingPath, "data.zip");
+
+            if(!Directory.Exists(Path.Combine(executingPath, "gui")))
+            {
+                try
+                {
+                    System.IO.Compression.ZipFile.ExtractToDirectory(dataPath, executingPath);
+                }
+                catch(Exception ex)
+                {
+                    WriteLine(Resources.Error);
+                    WriteLine(Resources.ErrorDuringInstallation);
+                    WriteLine(ex.Message);
+                    ReadKey();
+                    Environment.Exit(0);
+                }
+            }
+            #endregion
+
+            #region Determine the Client language from the game_info.xml
             try
             {
-                System.IO.Compression.ZipFile.ExtractToDirectory(dataPath, executingPath);
+                XmlDocument doc = new XmlDocument();
+                doc.Load(Path.Combine(wowsPath, "game_info.xml"));
+                XmlNode node = doc.DocumentElement.SelectSingleNode("/protocol/game/content_localizations/content_localization");
+                clientLang = node.InnerText.ToLower();
             }
-            catch
+            catch (Exception ex)
             {
-
+                WriteLine(Resources.Error);
+                WriteLine(Resources.ErrorDuringInstallation);
+                WriteLine(ex.Message);
+                ReadKey();
+                Environment.Exit(0);
             }
+            #endregion
 
-            XmlDocument doc = new XmlDocument();
-            doc.Load(Path.Combine(wowsPath, "game_info.xml"));
-            XmlNode node = doc.DocumentElement.SelectSingleNode("/protocol/game/content_localizations/content_localization");
-            clientLang = node.InnerText.ToLower();
+            #region Path setup and Folder generation
 
             string modsGuiPath = Path.Combine(modsPath, "gui");
             if (!Directory.Exists(modsGuiPath))
@@ -652,7 +705,7 @@ namespace PureHistory
             {
                 Directory.CreateDirectory(shipPreviewsDsDestPath);
             }
-            
+
             string bigNationFlagsDestPath = Path.Combine(nationFlagsDestPath, "big");
             string smallNationFlagsDestPath = Path.Combine(nationFlagsDestPath, "small");
             string tinyNationFlagsDestPath = Path.Combine(nationFlagsDestPath, "tiny");
@@ -691,7 +744,7 @@ namespace PureHistory
             string moFilePath = Path.Combine(lcMessagePath, "global.mo");
             if (!File.Exists(moFilePath))
             {
-                string sourceMO = Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(binPath, "res"), "texts"), clientLang), "LC_MESSAGES"),"global.mo");
+                string sourceMO = Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(binPath, "res"), "texts"), clientLang), "LC_MESSAGES"), "global.mo");
                 File.Copy(sourceMO, moFilePath);
             }
 
@@ -709,8 +762,12 @@ namespace PureHistory
             string smallNationFlagsAltPath = Path.Combine(smallNationFlagsSrcPath, "alternative_flags");
             string tinyNationFlagsAltPath = Path.Combine(tinyNationFlagsSrcPath, "alternative_flags");
 
+            #endregion
+
+            #region Copy files to mod folder
+
             //Flags
-            if(modInstallation.arpeggio.replaceFlags == true)
+            if (modInstallation.arpeggio.replaceFlags == true)
             {
                 File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_Ashigara.png"), Path.Combine(bigNationFlagsDestPath, "flag_Ashigara.png"), true);
                 File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_Ashigara.png"), Path.Combine(smallNationFlagsDestPath, "flag_Ashigara.png"), true);
@@ -1051,6 +1108,10 @@ namespace PureHistory
                 File.Copy(Path.Combine(shipPreviewsSrcPath, "PASB708.png"), Path.Combine(shipPreviewsDestPath, "PASB708.png"), true);
                 File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASB708.png"), Path.Combine(shipPreviewsDsDestPath, "PASB708.png"), true);
             }
+
+            #endregion
+
+            #region Edit the Translation file
 
             MOReader moReader = new MOReader(moFilePath);
             for (int i = 0; i < moReader.Count; i++)
@@ -1812,7 +1873,7 @@ namespace PureHistory
                             break;
                         }
                     case "IDS_PGSC706_FULL":
-                        if (modInstallation.highSchoolFleet.spee_RemovePrefix == true )
+                        if (modInstallation.highSchoolFleet.spee_RemovePrefix == true)
                         {
                             line.Translated = "Admiral Graf Spee";
                             break;
@@ -1822,11 +1883,10 @@ namespace PureHistory
                             break;
                         }
 
-
                     //Dragon Ships
 
                     case "IDS_PJSC717":
-                         if (modInstallation.dragonShips.replaceNames == true)
+                        if (modInstallation.dragonShips.replaceNames == true)
                         {
                             line.Translated = "Myōkō";
                             break;
@@ -1920,7 +1980,6 @@ namespace PureHistory
                             break;
                         }
 
-
                     case "IDS_PJSB888":
                         if (modInstallation.warhammer40K.replaceNames == true)
                         {
@@ -1951,7 +2010,6 @@ namespace PureHistory
                         {
                             break;
                         }
-
 
                     //Black Friday ships
 
@@ -1986,7 +2044,6 @@ namespace PureHistory
                             break;
                         }
 
-
                     case "IDS_PGSB597":
                         if (modInstallation.blackShips.removeSuffixes == true)
                         {
@@ -2018,7 +2075,6 @@ namespace PureHistory
                             break;
                         }
 
-
                     case "IDS_PGSA598":
                         if (modInstallation.blackShips.removeSuffixes == true)
                         {
@@ -2049,7 +2105,6 @@ namespace PureHistory
                         {
                             break;
                         }
-
 
                     case "IDS_PGSB598":
                         if (modInstallation.blackShips.removeSuffixes == true)
@@ -2113,7 +2168,6 @@ namespace PureHistory
                             break;
                         }
 
-
                     case "IDS_PJSC598":
                         if (modInstallation.blackShips.removeSuffixes == true)
                         {
@@ -2145,7 +2199,6 @@ namespace PureHistory
                             break;
                         }
 
-
                     case "IDS_PJSD598":
                         if (modInstallation.blackShips.removeSuffixes == true)
                         {
@@ -2176,7 +2229,6 @@ namespace PureHistory
                         {
                             break;
                         }
-
 
                     case "IDS_PBSD598":
                         if (modInstallation.blackShips.removeSuffixes == true)
@@ -2240,7 +2292,6 @@ namespace PureHistory
                             break;
                         }
 
-
                     case "IDS_PASC599":
                         if (modInstallation.blackShips.removeSuffixes == true)
                         {
@@ -2272,7 +2323,6 @@ namespace PureHistory
                             break;
                         }
 
-
                     case "IDS_PASD597":
                         if (modInstallation.blackShips.removeSuffixes == true)
                         {
@@ -2303,7 +2353,6 @@ namespace PureHistory
                         {
                             break;
                         }
-
 
                     case "IDS_PASB598":
                         if (modInstallation.blackShips.removeSuffixes == true)
@@ -2368,7 +2417,6 @@ namespace PureHistory
                         {
                             break;
                         }
-
 
                     case "IDS_PRSC010":
                         if (modInstallation.limaShips.removeSuffixes == true)
@@ -2465,7 +2513,6 @@ namespace PureHistory
                             break;
                         }
 
-
                     case "IDS_PZSB509":
                         if (modInstallation.lunarNewYearShips.replaceNames == true)
                         {
@@ -2497,7 +2544,6 @@ namespace PureHistory
                             break;
                         }
 
-
                     case "IDS_PZSB519":
                         if (modInstallation.lunarNewYearShips.replaceNames == true)
                         {
@@ -2528,7 +2574,6 @@ namespace PureHistory
                         {
                             break;
                         }
-
 
                     case "IDS_PZSC518":
                         if (modInstallation.lunarNewYearShips.replaceNames == true)
@@ -2594,7 +2639,6 @@ namespace PureHistory
                             break;
                         }
 
-
                     case "IDS_PASB708":
                         if (modInstallation.miscellaneous.alabama_removeSuffix == true)
                         {
@@ -2626,7 +2670,6 @@ namespace PureHistory
                             break;
                         }
 
-
                     case "IDS_PJSC026":
                         if (modInstallation.miscellaneous.iwaki_removeSuffix == true)
                         {
@@ -2647,7 +2690,6 @@ namespace PureHistory
                         {
                             break;
                         }
-
 
                     case "IDS_PASB013":
                         if (modInstallation.miscellaneous.arkansas_removeSuffix == true)
@@ -2693,16 +2735,23 @@ namespace PureHistory
                 }
                 moReader[i] = line;
             }
-            moReader.SaveMOFile(moFilePath+ ".edit.mo");
+
+            moReader.SaveMOFile(moFilePath + ".edit.mo");
             moReader.Dispose();
+
             File.Delete(moFilePath);
             File.Move(moFilePath + ".edit.mo", moFilePath);
             File.Delete(moFilePath + ".edit");
             Directory.Delete(modsGuiSrcPath, true);
-            if(File.Exists(Path.Combine(modsPath, "ModStation.txt")))
+
+            #endregion
+
+
+            if (File.Exists(Path.Combine(modsPath, "ModStation.txt")))
             {
-                WriteLine("\n"+ Resources.ModStationWarning + "\n");
+                WriteLine("\n" + Resources.ModStationWarning + "\n");
             }
+
             WriteLine(Resources.InstallationComplete);
         }
     }

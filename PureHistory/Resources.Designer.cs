@@ -61,7 +61,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die created by eineboek ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Created by eineboek ähnelt.
         /// </summary>
         internal static string About {
             get {
@@ -133,6 +133,15 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die PureHistory cannot be installed to the specified path. ähnelt.
+        /// </summary>
+        internal static string CannotFindStructure {
+            get {
+                return ResourceManager.GetString("CannotFindStructure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Enter the path to the desired World of Warships installation ähnelt.
         /// </summary>
         internal static string ClientSelection {
@@ -156,6 +165,24 @@ namespace PureHistory {
         internal static string DragonShipPrompt {
             get {
                 return ResourceManager.GetString("DragonShipPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die An error has occured : ähnelt.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Error during installation. Please try again or contact the author. ähnelt.
+        /// </summary>
+        internal static string ErrorDuringInstallation {
+            get {
+                return ResourceManager.GetString("ErrorDuringInstallation", resourceCulture);
             }
         }
         
@@ -367,7 +394,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die World of Warships Mod Station was found. Please install this mod after using the ModStation, as the ModStation will override all other mod files. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die World of Warships ModStation was found. Please install this mod after using the ModStation, as the ModStation will override all other mod files. ähnelt.
         /// </summary>
         internal static string ModStationWarning {
             get {

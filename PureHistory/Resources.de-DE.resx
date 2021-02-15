@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>erstellt von eineboek</value>
+    <value>Erstellt von eineboek</value>
   </data>
   <data name="ArpeggioPrefix" xml:space="preserve">
     <value>'ARP'-Prefix entfernen</value>
@@ -141,6 +141,9 @@
   <data name="BlackShipsSuffix" xml:space="preserve">
     <value> 'B'-Suffix entfernen</value>
   </data>
+  <data name="CannotFindStructure" xml:space="preserve">
+    <value>PureHistory kann in der angegebenen Ordnerstruktur nicht installiert werden.</value>
+  </data>
   <data name="ClientSelection" xml:space="preserve">
     <value>Geben sie den Pfad der gewünschten World of Warships-Installation ein</value>
   </data>
@@ -149,6 +152,12 @@
   </data>
   <data name="DragonShipPrompt" xml:space="preserve">
     <value>Einstellungen für Drachen-Schiffe</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Es ist ein Fehler aufgetreten :</value>
+  </data>
+  <data name="ErrorDuringInstallation" xml:space="preserve">
+    <value>Fehler während der Installation. Bitte versuchen sie es erneut oder kontaktieren sie den Autor.</value>
   </data>
   <data name="Examples" xml:space="preserve">
     <value>Beispiele :</value>
