@@ -551,6 +551,49 @@ namespace PureHistory
             MiscellaneousOptions miscellaneousOptions = new MiscellaneousOptions();
             Clear();
 
+            string prompt = Resources.MiscellaneousPrompt;
+            string[] options = { Resources.MiscKamikazeOption1, Resources.MiscKamikazeOption2, Resources.MiscKamikazeOption3, Resources.MiscAlabamaOption1, Resources.MiscAlabamaOption2, Resources.MiscAlabamaOption3, Resources.MiscIwakiSuffix, Resources.MiscArkansasSuffix, Resources.MiscWestVirginiaName};
+            bool[] optionSelection = { false, false, false, false, false, false, false, false, false };
+            Option _miscellaneousOptions = new Option(prompt, options, optionSelection);
+            int selectedIndex = 0;
+            while (true)
+            {
+                selectedIndex = _miscellaneousOptions.Init();
+                if (selectedIndex == -1)
+                {
+                    break;
+                }
+                if (optionSelection[selectedIndex] == true)
+                {
+                    optionSelection[selectedIndex] = false;
+                }
+                else if (optionSelection[selectedIndex] == false)
+                {
+                    optionSelection[selectedIndex] = true;
+                }
+
+                if (optionSelection[1] == true && optionSelection[0] == false)
+                {
+                    optionSelection[1] = false;
+                }
+
+                if (optionSelection[4] == true && optionSelection[3] == false)
+                {
+                    optionSelection[4] = false;
+                }
+
+                _miscellaneousOptions.UpdateOptionSelection(optionSelection);
+            }
+            miscellaneousOptions.kamikaze_removeSuffix = optionSelection[0];
+            miscellaneousOptions.kamikaze_updateDescription = optionSelection[1];
+            miscellaneousOptions.kamikaze_replacePreview = optionSelection[2];
+            miscellaneousOptions.alabama_removeSuffix = optionSelection[3];
+            miscellaneousOptions.alabama_updateDescription = optionSelection[4];
+            miscellaneousOptions.alabama_replacePreview = optionSelection[5];
+            miscellaneousOptions.iwaki_removeSuffix = optionSelection[6];
+            miscellaneousOptions.arkansas_removeSuffix = optionSelection[7];
+            miscellaneousOptions.westVirginia_correctName = optionSelection[8];
+
             modInstallation.miscellaneous = miscellaneousOptions;
             PerformInstallation();
         }
