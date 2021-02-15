@@ -120,44 +120,20 @@
   <data name="About" xml:space="preserve">
     <value>erstellt von eineboek</value>
   </data>
-  <data name="ArpeggioOption1" xml:space="preserve">
+  <data name="ArpeggioPrefix" xml:space="preserve">
     <value>'ARP'-Prefix entfernen</value>
-  </data>
-  <data name="ArpeggioOption2" xml:space="preserve">
-    <value>Schiffsnamen mit respektivem Klassennamen ersetzen</value>
-  </data>
-  <data name="ArpeggioOption3" xml:space="preserve">
-    <value> - Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>
-  </data>
-  <data name="ArpeggioOption4" xml:space="preserve">
-    <value>Sillhouette ersetzen</value>
-  </data>
-  <data name="ArpeggioOption5" xml:space="preserve">
-    <value>Schiffsvorschau ersetzen</value>
-  </data>
-  <data name="ArpeggioOption6" xml:space="preserve">
-    <value>Arpeggio-Flagge ersetzen</value>
   </data>
   <data name="ArpeggioPrompt" xml:space="preserve">
     <value>Einstellungen für Arpeggio-Schiffe</value>
   </data>
-  <data name="AzurLaneOption1" xml:space="preserve">
+  <data name="AzurLanePrefix" xml:space="preserve">
     <value>'AL'-Prefix entfernen</value>
-  </data>
-  <data name="AzurLaneOption2" xml:space="preserve">
-    <value>Schiffsnamen mit regulärem Gegenstück ersetzen</value>
-  </data>
-  <data name="AzurLaneOption3" xml:space="preserve">
-    <value>- Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>
-  </data>
-  <data name="AzurLaneOption4" xml:space="preserve">
-    <value>Schiffsvorschau ersetzen</value>
   </data>
   <data name="AzurLanePrompt" xml:space="preserve">
     <value>Einstellungen für Azur Lane-Schiffe</value>
   </data>
   <data name="AzurLaneWarning" xml:space="preserve">
-    <value>Achtung : Azur Lane-Schiffe haben ähnliche, aber nicht identische Eigenschaften zu ihren regulären Gegenstücken. Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann es zu einer Fehleinschätzung der Gefechtssituation führen.</value>
+    <value>Achtung : Azur Lane-Schiffe haben ähnliche, aber nicht identische Eigenschaften zu ihren regulären Gegenstücken. Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
   </data>
   <data name="ClientSelection" xml:space="preserve">
     <value>Geben sie den Pfad der gewünschten World of Warships-Installation ein</value>
@@ -165,11 +141,26 @@
   <data name="Continue" xml:space="preserve">
     <value>Weiter</value>
   </data>
+  <data name="DragonShipPrompt" xml:space="preserve">
+    <value>Einstellungen für Drachen-Schiffe</value>
+  </data>
   <data name="Examples" xml:space="preserve">
     <value>Beispiele :</value>
   </data>
   <data name="ExitProgram" xml:space="preserve">
     <value>Zum Beenden des Programms beliebige Taste drücken ...</value>
+  </data>
+  <data name="HSFHarekazePrompt" xml:space="preserve">
+    <value>Einstellungen für HSF Harekaze</value>
+  </data>
+  <data name="HSFHarekazeWarning" xml:space="preserve">
+    <value>Achtung : HSF Harekaze hat mehrere Rumpfmöglichkeiten mit unterschiedlichen Eigenschaften.  Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks (Kagero) kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
+  </data>
+  <data name="HSFPrefix" xml:space="preserve">
+    <value>'HSF'-Prefix entfernen</value>
+  </data>
+  <data name="HSFSpeePrompt" xml:space="preserve">
+    <value>Einstellungen für HSF Graf Spee</value>
   </data>
   <data name="InvalidResponse" xml:space="preserve">
     <value>Ungültige Eingabe.</value>
@@ -195,8 +186,29 @@
   <data name="PressAnyKey" xml:space="preserve">
     <value>Zum Fortfahren beliebige Taste drücken ...</value>
   </data>
+  <data name="ReplaceFlag" xml:space="preserve">
+    <value>Flagge ersetzen</value>
+  </data>
+  <data name="ReplacePreview" xml:space="preserve">
+    <value>Schiffsvorschau ersetzen</value>
+  </data>
+  <data name="ReplaceShipNameClassName" xml:space="preserve">
+    <value>Schiffsnamen mit respektivem Klassennamen ersetzen</value>
+  </data>
+  <data name="ReplaceShipNameCounterpart" xml:space="preserve">
+    <value>Schiffsnamen mit regulärem Gegenstück ersetzen</value>
+  </data>
+  <data name="ReplaceSillouette" xml:space="preserve">
+    <value>Sillhouette ersetzen</value>
+  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Sprache auswählen :</value>
+  </data>
+  <data name="UpdateDescription" xml:space="preserve">
+    <value>- Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>
+  </data>
+  <data name="WarhammerPrompt" xml:space="preserve">
+    <value>Einstellungen für Warhammer 40.000-Schiffe</value>
   </data>
   <data name="WOWSNotFound" xml:space="preserve">
     <value>World of Warships scheint nicht unter diesem Pfad installiert zu sein. Installation trotzdem fortsetzen?</value>

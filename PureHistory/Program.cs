@@ -133,7 +133,7 @@ namespace PureHistory
             Clear();
 
             string prompt = Resources.ArpeggioPrompt;
-            string[] options = { Resources.ArpeggioOption1, Resources.ArpeggioOption2, Resources.ArpeggioOption3, Resources.ArpeggioOption4, Resources.ArpeggioOption5, Resources.ArpeggioOption6};
+            string[] options = { Resources.ArpeggioPrefix, Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag};
             bool[] optionSelection = { false, false, false, false, false, false };
             Option _arpeggioOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
@@ -162,7 +162,7 @@ namespace PureHistory
                     optionSelection[0] = false;
                 }
 
-                if (optionSelection[2] == true || optionSelection[1] == false)
+                if (optionSelection[2] == true && optionSelection[1] == false)
                 {
                     optionSelection[2] = false;
                 }
@@ -186,8 +186,8 @@ namespace PureHistory
             Clear();
 
             string prompt = Resources.AzurLanePrompt + "\n" + Resources.AzurLaneWarning;
-            string[] options = { Resources.AzurLaneOption1, Resources.AzurLaneOption2, Resources.AzurLaneOption3, Resources.AzurLaneOption4};
-            bool[] optionSelection = { false, false, false, false};
+            string[] options = { Resources.AzurLanePrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview};
+            bool[] optionSelection = { false, false, false, false, false};
             Option _azurLaneOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
             while (true)
@@ -215,7 +215,7 @@ namespace PureHistory
                     optionSelection[0] = false;
                 }
 
-                if (optionSelection[2] == true || optionSelection[1] == false)
+                if (optionSelection[2] == true && optionSelection[1] == false)
                 {
                     optionSelection[2] = false;
                 }
@@ -228,22 +228,142 @@ namespace PureHistory
             azurLaneOptions.replacePreviews = optionSelection[3];
 
             modInstallation.azurLane = azurLaneOptions;
-            HighSchoolFleetSelection();
+            HSFHarekazeSelection();
         }
 
-        static private void HighSchoolFleetSelection()
+        static private void HSFHarekazeSelection()
         {
             HighSchoolFleetOptions hsfOptions = new HighSchoolFleetOptions();
+            string prompt = Resources.HSFHarekazePrompt+ "\n" + Resources.HSFHarekazeWarning;
+            string[] options = { Resources.HSFPrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
+            bool[] optionSelection = { false, false, false, false };
+            Option _hsfHarekazeOptions = new Option(prompt, options, optionSelection);
+            int selectedIndex = 0;
+            while (true)
+            {
+                selectedIndex = _hsfHarekazeOptions.Init();
+                if (selectedIndex == -1)
+                {
+                    break;
+                }
+                if (optionSelection[selectedIndex] == true)
+                {
+                    optionSelection[selectedIndex] = false;
+                }
+                else if (optionSelection[selectedIndex] == false)
+                {
+                    optionSelection[selectedIndex] = true;
+                }
+
+                if (optionSelection[0] == true)
+                {
+                    optionSelection[1] = false;
+                }
+                if (optionSelection[1] == true)
+                {
+                    optionSelection[0] = false;
+                }
+
+                if (optionSelection[2] == true && optionSelection[1] == false)
+                {
+                    optionSelection[2] = false;
+                }
+
+                _hsfHarekazeOptions.UpdateOptionSelection(optionSelection);
+            }
+            hsfOptions.harekaze_RemovePrefix = optionSelection[0];
+            hsfOptions.harekaze_ReplaceName = optionSelection[1];
+            hsfOptions.harekaze_UpdateDescription = optionSelection[2];
+            hsfOptions.harekaze_ReplacePreview = optionSelection[3];
+
+            HSFSpeeSelection(hsfOptions);
+        }
+
+        static private void HSFSpeeSelection(HighSchoolFleetOptions hsfOptions)
+        {
             Clear();
+            string prompt = Resources.HSFSpeePrompt;
+            string[] options = { Resources.HSFPrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
+            bool[] optionSelection = { false, false, false, false };
+            Option _hsfSpeeOptions = new Option(prompt, options, optionSelection);
+            int selectedIndex = 0;
+            while (true)
+            {
+                selectedIndex = _hsfSpeeOptions.Init();
+                if (selectedIndex == -1)
+                {
+                    break;
+                }
+                if (optionSelection[selectedIndex] == true)
+                {
+                    optionSelection[selectedIndex] = false;
+                }
+                else if (optionSelection[selectedIndex] == false)
+                {
+                    optionSelection[selectedIndex] = true;
+                }
+
+                if (optionSelection[0] == true)
+                {
+                    optionSelection[1] = false;
+                }
+                if (optionSelection[1] == true)
+                {
+                    optionSelection[0] = false;
+                }
+
+                if (optionSelection[2] == true && optionSelection[1] == false)
+                {
+                    optionSelection[2] = false;
+                }
+
+                _hsfSpeeOptions.UpdateOptionSelection(optionSelection);
+            }
+            hsfOptions.spee_RemovePrefix = optionSelection[0];
+            hsfOptions.spee_ReplaceName = optionSelection[1];
+            hsfOptions.spee_UpdateDescription = optionSelection[2];
+            hsfOptions.spee_ReplacePreview = optionSelection[3];
 
             modInstallation.highSchoolFleet = hsfOptions;
             Warhammer40KSelection();
         }
-
         static private void Warhammer40KSelection()
         {
             Warhammer40KOptions warhammerOptions = new Warhammer40KOptions();
             Clear();
+
+            string prompt = Resources.WarhammerPrompt;
+            string[] options = { Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplacePreview, Resources.ReplaceFlag };
+            bool[] optionSelection = { false, false, false, false };
+            Option _warhammerOptions = new Option(prompt, options, optionSelection);
+            int selectedIndex = 0;
+            while (true)
+            {
+                selectedIndex = _warhammerOptions.Init();
+                if (selectedIndex == -1)
+                {
+                    break;
+                }
+                if (optionSelection[selectedIndex] == true)
+                {
+                    optionSelection[selectedIndex] = false;
+                }
+                else if (optionSelection[selectedIndex] == false)
+                {
+                    optionSelection[selectedIndex] = true;
+                }
+
+                if (optionSelection[1] == true && optionSelection[0] == false)
+                {
+                    optionSelection[1] = false;
+                }
+
+                _warhammerOptions.UpdateOptionSelection(optionSelection);
+            }
+            warhammerOptions.replaceNames = optionSelection[0];
+            warhammerOptions.updateDescription = optionSelection[1];
+            warhammerOptions.replacePreviews = optionSelection[2];
+            warhammerOptions.replaceFlags = optionSelection[3];
 
             modInstallation.warhammer40K = warhammerOptions;
             DragonSelection();
@@ -253,6 +373,40 @@ namespace PureHistory
         {
             DragonShipOptions dragonShipOptions = new DragonShipOptions();
             Clear();
+
+            string prompt = Resources.DragonShipPrompt;
+            string[] options = { Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag };
+            bool[] optionSelection = { false, false, false, false, false };
+            Option _dragonOptions = new Option(prompt, options, optionSelection);
+            int selectedIndex = 0;
+            while (true)
+            {
+                selectedIndex = _dragonOptions.Init();
+                if (selectedIndex == -1)
+                {
+                    break;
+                }
+                if (optionSelection[selectedIndex] == true)
+                {
+                    optionSelection[selectedIndex] = false;
+                }
+                else if (optionSelection[selectedIndex] == false)
+                {
+                    optionSelection[selectedIndex] = true;
+                }
+
+                if (optionSelection[1] == true && optionSelection[0] == false)
+                {
+                    optionSelection[1] = false;
+                }
+
+                _dragonOptions.UpdateOptionSelection(optionSelection);
+            }
+            dragonShipOptions.replaceNames = optionSelection[0];
+            dragonShipOptions.updateDescription = optionSelection[1];
+            dragonShipOptions.replaceSilhouettes = optionSelection[2];
+            dragonShipOptions.replacePreviews = optionSelection[3];
+            dragonShipOptions.replaceFlags = optionSelection[4];
 
             modInstallation.dragonShips = dragonShipOptions;
             LunarNewYearSelection();

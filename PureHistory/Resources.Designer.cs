@@ -72,54 +72,9 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;ARP&apos; prefix ähnelt.
         /// </summary>
-        internal static string ArpeggioOption1 {
+        internal static string ArpeggioPrefix {
             get {
-                return ResourceManager.GetString("ArpeggioOption1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship name with respective class name ähnelt.
-        /// </summary>
-        internal static string ArpeggioOption2 {
-            get {
-                return ResourceManager.GetString("ArpeggioOption2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  - Update ship description for distinguishment in port ähnelt.
-        /// </summary>
-        internal static string ArpeggioOption3 {
-            get {
-                return ResourceManager.GetString("ArpeggioOption3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Replace sillouette ähnelt.
-        /// </summary>
-        internal static string ArpeggioOption4 {
-            get {
-                return ResourceManager.GetString("ArpeggioOption4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship preview ähnelt.
-        /// </summary>
-        internal static string ArpeggioOption5 {
-            get {
-                return ResourceManager.GetString("ArpeggioOption5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Replace custom flag ähnelt.
-        /// </summary>
-        internal static string ArpeggioOption6 {
-            get {
-                return ResourceManager.GetString("ArpeggioOption6", resourceCulture);
+                return ResourceManager.GetString("ArpeggioPrefix", resourceCulture);
             }
         }
         
@@ -135,36 +90,9 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;AL&apos; prefix ähnelt.
         /// </summary>
-        internal static string AzurLaneOption1 {
+        internal static string AzurLanePrefix {
             get {
-                return ResourceManager.GetString("AzurLaneOption1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship name with regular counterpart ähnelt.
-        /// </summary>
-        internal static string AzurLaneOption2 {
-            get {
-                return ResourceManager.GetString("AzurLaneOption2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die - Update ship description for distinguishment in port ähnelt.
-        /// </summary>
-        internal static string AzurLaneOption3 {
-            get {
-                return ResourceManager.GetString("AzurLaneOption3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship preview ähnelt.
-        /// </summary>
-        internal static string AzurLaneOption4 {
-            get {
-                return ResourceManager.GetString("AzurLaneOption4", resourceCulture);
+                return ResourceManager.GetString("AzurLanePrefix", resourceCulture);
             }
         }
         
@@ -205,6 +133,15 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Dragon Ships ähnelt.
+        /// </summary>
+        internal static string DragonShipPrompt {
+            get {
+                return ResourceManager.GetString("DragonShipPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Examples : ähnelt.
         /// </summary>
         internal static string Examples {
@@ -219,6 +156,42 @@ namespace PureHistory {
         internal static string ExitProgram {
             get {
                 return ResourceManager.GetString("ExitProgram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for HSF Harekaze ähnelt.
+        /// </summary>
+        internal static string HSFHarekazePrompt {
+            get {
+                return ResourceManager.GetString("HSFHarekazePrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Caution : HSF Harekaze is a unique ship capable of fitting multiple hulls with differing performance. Replacing the ship name with the regular counterpart name could lead to a misjudgement of the battle situation. ähnelt.
+        /// </summary>
+        internal static string HSFHarekazeWarning {
+            get {
+                return ResourceManager.GetString("HSFHarekazeWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;HSF&apos; prefix ähnelt.
+        /// </summary>
+        internal static string HSFPrefix {
+            get {
+                return ResourceManager.GetString("HSFPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for HSF Graf Spee ähnelt.
+        /// </summary>
+        internal static string HSFSpeePrompt {
+            get {
+                return ResourceManager.GetString("HSFSpeePrompt", resourceCulture);
             }
         }
         
@@ -295,11 +268,74 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace custom flag ähnelt.
+        /// </summary>
+        internal static string ReplaceFlag {
+            get {
+                return ResourceManager.GetString("ReplaceFlag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship preview ähnelt.
+        /// </summary>
+        internal static string ReplacePreview {
+            get {
+                return ResourceManager.GetString("ReplacePreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship name with respective class name ähnelt.
+        /// </summary>
+        internal static string ReplaceShipNameClassName {
+            get {
+                return ResourceManager.GetString("ReplaceShipNameClassName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship name with regular counterpart ähnelt.
+        /// </summary>
+        internal static string ReplaceShipNameCounterpart {
+            get {
+                return ResourceManager.GetString("ReplaceShipNameCounterpart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace sillouette ähnelt.
+        /// </summary>
+        internal static string ReplaceSillouette {
+            get {
+                return ResourceManager.GetString("ReplaceSillouette", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Select Language : ähnelt.
         /// </summary>
         internal static string SelectLanguage {
             get {
                 return ResourceManager.GetString("SelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die - Update ship description for distinguishment in port ähnelt.
+        /// </summary>
+        internal static string UpdateDescription {
+            get {
+                return ResourceManager.GetString("UpdateDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Warhammer 40.000 ships ähnelt.
+        /// </summary>
+        internal static string WarhammerPrompt {
+            get {
+                return ResourceManager.GetString("WarhammerPrompt", resourceCulture);
             }
         }
         

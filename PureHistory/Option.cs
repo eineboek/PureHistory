@@ -24,13 +24,9 @@ namespace PureHistory
         private void Draw()
         {
             WriteLine(prompt+"\n");
-            for (int i = 0; i < options.Length - 1; i++)
+            for (int i = 0; i < options.Length; i++)
             {
                 string currentOption = options[i];
-                if (currentOption == null)
-                {
-                    currentOption = string.Empty;
-                }
                 string prefix;
 
                 if (i == selectedIndex)
