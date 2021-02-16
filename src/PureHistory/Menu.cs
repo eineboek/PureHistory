@@ -3,12 +3,20 @@ using static System.Console;
 
 namespace PureHistory
 {
+    /// <summary>
+    /// Used to display a meu to the console with multiple selection choices
+    /// </summary>
     internal class Menu
     {
         private int selectedIndex;
         private string[] options;
         private string prompt;
 
+        /// <summary>
+        /// Creates a new instance of the Menu class
+        /// </summary>
+        /// <param name="_prompt">The line of text to be displayed at the top of the menu</param>
+        /// <param name="_options">The available options</param>
         public Menu(string _prompt, string[] _options)
         {
             prompt = _prompt;
@@ -16,6 +24,9 @@ namespace PureHistory
             selectedIndex = 0;
         }
 
+        /// <summary>
+        /// Draws the menu to the console with color accentuation for what item is selected
+        /// </summary>
         private void Draw()
         {
             WriteLine(prompt);
@@ -41,6 +52,10 @@ namespace PureHistory
             ResetColor();
         }
 
+        /// <summary>
+        /// Initializes the options screen
+        /// </summary>
+        /// <returns>The index of the item that the user has clicked enter at</returns>
         public int Init()
         {
             ConsoleKey keyPressed;

@@ -3,6 +3,9 @@ using static System.Console;
 
 namespace PureHistory
 {
+    /// <summary>
+    /// Slightly changed copy of the Menu class with selection for Yes/No
+    /// </summary>
     internal class Option
     {
         private int selectedIndex;
@@ -10,6 +13,12 @@ namespace PureHistory
         private bool[] optionSelection;
         private string prompt;
 
+        /// <summary>
+        /// Creates a new Option class instance
+        /// </summary>
+        /// <param name="_prompt">The line of text to be displayed at the top of the options</param>
+        /// <param name="_options">The available options</param>
+        /// <param name="_optionSelection">Which of the options is selected. Standard should be all false</param>
         public Option(string _prompt, string[] _options, bool[] _optionSelection)
         {
             prompt = _prompt;
@@ -18,11 +27,18 @@ namespace PureHistory
             selectedIndex = 0;
         }
 
+        /// <summary>
+        /// Updates the option selection array after the user has toggled an option
+        /// </summary>
+        /// <param name="_optionSelection">The updated array</param>
         public void UpdateOptionSelection(bool[] _optionSelection)
         {
             optionSelection = _optionSelection;
         }
 
+        /// <summary>
+        /// Draws the options to the console with color accentuation
+        /// </summary>
         private void Draw()
         {
             WriteLine(prompt + "\n");
@@ -55,6 +71,10 @@ namespace PureHistory
             ResetColor();
         }
 
+        /// <summary>
+        /// Initializes the options screen
+        /// </summary>
+        /// <returns>The index of the option that the user has clicked enter at / -1 when the right arrow key has been pressed</returns>
         public int Init()
         {
             ConsoleKey keyPressed;
