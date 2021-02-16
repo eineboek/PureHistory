@@ -172,25 +172,25 @@ namespace PureHistory
                 {
                     break;
                 }
-                if (optionSelection[selectedIndex] == true)
+                if (optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = false;
                 }
-                else if (optionSelection[selectedIndex] == false)
+                else if (!optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = true;
                 }
 
-                if (optionSelection[0] == true)
+                if (optionSelection[0])
                 {
                     optionSelection[1] = false;
                 }
-                if (optionSelection[1] == true)
+                if (optionSelection[1])
                 {
                     optionSelection[0] = false;
                 }
 
-                if (optionSelection[2] == true && optionSelection[1] == false)
+                if (optionSelection[2] && !optionSelection[1])
                 {
                     optionSelection[2] = false;
                 }
@@ -229,21 +229,21 @@ namespace PureHistory
                 {
                     optionSelection[selectedIndex] = false;
                 }
-                else if (optionSelection[selectedIndex] == false)
+                else if (!optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = true;
                 }
 
-                if (optionSelection[0] == true)
+                if (optionSelection[0])
                 {
                     optionSelection[1] = false;
                 }
-                if (optionSelection[1] == true)
+                if (optionSelection[1])
                 {
                     optionSelection[0] = false;
                 }
 
-                if (optionSelection[2] == true && optionSelection[1] == false)
+                if (optionSelection[2] && !optionSelection[1])
                 {
                     optionSelection[2] = false;
                 }
@@ -276,25 +276,25 @@ namespace PureHistory
                 {
                     break;
                 }
-                if (optionSelection[selectedIndex] == true)
+                if (optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = false;
                 }
-                else if (optionSelection[selectedIndex] == false)
+                else if (!optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = true;
                 }
 
-                if (optionSelection[0] == true)
+                if (optionSelection[0])
                 {
                     optionSelection[1] = false;
                 }
-                if (optionSelection[1] == true)
+                if (optionSelection[1])
                 {
                     optionSelection[0] = false;
                 }
 
-                if (optionSelection[2] == true && optionSelection[1] == false)
+                if (optionSelection[2] && !optionSelection[1])
                 {
                     optionSelection[2] = false;
                 }
@@ -325,16 +325,16 @@ namespace PureHistory
                 {
                     break;
                 }
-                if (optionSelection[selectedIndex] == true)
+                if (optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = false;
                 }
-                else if (optionSelection[selectedIndex] == false)
+                else if (!optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = true;
                 }
 
-                if (optionSelection[1] == true && optionSelection[0] == false)
+                if (optionSelection[1] && !optionSelection[0])
                 {
                     optionSelection[1] = false;
                 }
@@ -366,16 +366,16 @@ namespace PureHistory
                 {
                     break;
                 }
-                if (optionSelection[selectedIndex] == true)
+                if (optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = false;
                 }
-                else if (optionSelection[selectedIndex] == false)
+                else if (!optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = true;
                 }
 
-                if (optionSelection[1] == true && optionSelection[0] == false)
+                if (optionSelection[1] && !optionSelection[0])
                 {
                     optionSelection[1] = false;
                 }
@@ -408,16 +408,16 @@ namespace PureHistory
                 {
                     break;
                 }
-                if (optionSelection[selectedIndex] == true)
+                if (optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = false;
                 }
-                else if (optionSelection[selectedIndex] == false)
+                else if (!optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = true;
                 }
 
-                if (optionSelection[1] == true && optionSelection[0] == false)
+                if (optionSelection[1] && !optionSelection[0])
                 {
                     optionSelection[1] = false;
                 }
@@ -455,21 +455,21 @@ namespace PureHistory
                 {
                     optionSelection[selectedIndex] = false;
                 }
-                else if (optionSelection[selectedIndex] == false)
+                else if (!optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = true;
                 }
 
-                if (optionSelection[1] == true && optionSelection[0] == false)
+                if (optionSelection[1] && !optionSelection[0])
                 {
                     optionSelection[1] = false;
                 }
 
-                if (optionSelection[3] == true)
+                if (optionSelection[3])
                 {
                     optionSelection[4] = false;
                 }
-                if (optionSelection[4] == true)
+                if (optionSelection[4])
                 {
                     optionSelection[3] = false;
                 }
@@ -503,16 +503,16 @@ namespace PureHistory
                 {
                     break;
                 }
-                if (optionSelection[selectedIndex] == true)
+                if (optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = false;
                 }
-                else if (optionSelection[selectedIndex] == false)
+                else if (!optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = true;
                 }
 
-                if (optionSelection[1] == true && optionSelection[0] == false)
+                if (optionSelection[1] && !optionSelection[0])
                 {
                     optionSelection[1] = false;
                 }
@@ -544,16 +544,16 @@ namespace PureHistory
                 {
                     break;
                 }
-                if (optionSelection[selectedIndex] == true)
+                if (optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = false;
                 }
-                else if (optionSelection[selectedIndex] == false)
+                else if (!optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = true;
                 }
 
-                if (optionSelection[1] == true && optionSelection[0] == false)
+                if (optionSelection[1] && !optionSelection[0])
                 {
                     optionSelection[1] = false;
                 }
@@ -585,21 +585,21 @@ namespace PureHistory
                 {
                     break;
                 }
-                if (optionSelection[selectedIndex] == true)
+                if (optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = false;
                 }
-                else if (optionSelection[selectedIndex] == false)
+                else if (!optionSelection[selectedIndex])
                 {
                     optionSelection[selectedIndex] = true;
                 }
 
-                if (optionSelection[1] == true && optionSelection[0] == false)
+                if (optionSelection[1] && !optionSelection[0])
                 {
                     optionSelection[1] = false;
                 }
 
-                if (optionSelection[4] == true && optionSelection[3] == false)
+                if (optionSelection[4] && !optionSelection[3])
                 {
                     optionSelection[4] = false;
                 }
@@ -769,7 +769,7 @@ namespace PureHistory
             //Flags
             try
             {
-                if (modInstallation.arpeggio.replaceFlags == true)
+                if (modInstallation.arpeggio.replaceFlags)
                 {
                     File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_Ashigara.png"), Path.Combine(bigNationFlagsDestPath, "flag_Ashigara.png"), true);
                     File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_Ashigara.png"), Path.Combine(smallNationFlagsDestPath, "flag_Ashigara.png"), true);
@@ -831,7 +831,7 @@ namespace PureHistory
                     File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSX702.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSX702.png"), true);
                     File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSX702.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSX702.png"), true);
                 }
-                if (modInstallation.warhammer40K.replaceFlags == true)
+                if (modInstallation.warhammer40K.replaceFlags)
                 {
                     File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSB878.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSB878.png"), true);
                     File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSB878.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSB878.png"), true);
@@ -841,7 +841,7 @@ namespace PureHistory
                     File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSB888.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSB888.png"), true);
                     File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSB888.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSB888.png"), true);
                 }
-                if (modInstallation.dragonShips.replaceFlags == true)
+                if (modInstallation.dragonShips.replaceFlags)
                 {
                     File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSC717.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSC717.png"), true);
                     File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSC717.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSC717.png"), true);
@@ -851,7 +851,7 @@ namespace PureHistory
                     File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSC727.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSC727.png"), true);
                     File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSC727.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSC727.png"), true);
                 }
-                if (modInstallation.lunarNewYearShips.replaceFlags_RespectiveCountry == true)
+                if (modInstallation.lunarNewYearShips.replaceFlags_RespectiveCountry)
                 {
                     File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PZSA508.png"), Path.Combine(bigNationFlagsDestPath, "flag_PZSA508.png"), true);
                     File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PZSA508.png"), Path.Combine(smallNationFlagsDestPath, "flag_PZSA508.png"), true);
@@ -873,7 +873,7 @@ namespace PureHistory
                     File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PZSC518.png"), Path.Combine(smallNationFlagsDestPath, "flag_PZSC518.png"), true);
                     File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PZSC518.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PZSC518.png"), true);
                 }
-                else if (modInstallation.lunarNewYearShips.replaceFlags_Panasia == true)
+                else if (modInstallation.lunarNewYearShips.replaceFlags_Panasia)
                 {
                     File.Copy(Path.Combine(bigNationFlagsAltPath, "flag_PZSA508.png"), Path.Combine(bigNationFlagsDestPath, "flag_PZSA508.png"), true);
                     File.Copy(Path.Combine(smallNationFlagsAltPath, "flag_PZSA508.png"), Path.Combine(smallNationFlagsDestPath, "flag_PZSA508.png"), true);
@@ -893,7 +893,7 @@ namespace PureHistory
                 }
 
                 //Sillhouettes
-                if (modInstallation.arpeggio.replaceSilhouettes == true)
+                if (modInstallation.arpeggio.replaceSilhouettes)
                 {
                     File.Copy(Path.Combine(shipIconsSrcPath, "PJSB700.png"), Path.Combine(shipIconsDestPath, "PJSB700.png"), true);
                     File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSB700.png"), Path.Combine(shipDeadIconsDestPath, "PJSB700.png"), true);
@@ -947,7 +947,7 @@ namespace PureHistory
                     File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSC737.png"), Path.Combine(shipDeadIconsDestPath, "PJSC737.png"), true);
                     File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC737.png"), Path.Combine(shipOwnIconsDestPath, "PJSC737.png"), true);
                 }
-                if (modInstallation.dragonShips.replaceSilhouettes == true)
+                if (modInstallation.dragonShips.replaceSilhouettes)
                 {
                     File.Copy(Path.Combine(shipIconsSrcPath, "PJSC717.png"), Path.Combine(shipIconsDestPath, "PJSC717.png"), true);
                     File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSC717.png"), Path.Combine(shipDeadIconsDestPath, "PJSC717.png"), true);
@@ -959,7 +959,7 @@ namespace PureHistory
                 }
 
                 //Ship previews
-                if (modInstallation.arpeggio.replacePreviews == true)
+                if (modInstallation.arpeggio.replacePreviews)
                 {
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB700.png"), Path.Combine(shipPreviewsDestPath, "PJSB700.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB700.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB700.png"), true);
@@ -1000,7 +1000,7 @@ namespace PureHistory
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC737.png"), Path.Combine(shipPreviewsDestPath, "PJSC737.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC737.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC737.png"), true);
                 }
-                if (modInstallation.azurLane.replacePreviews == true)
+                if (modInstallation.azurLane.replacePreviews)
                 {
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSD718.png"), Path.Combine(shipPreviewsDestPath, "PJSD718.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSD718.png"), Path.Combine(shipPreviewsDsDestPath, "PJSD718.png"), true);
@@ -1011,17 +1011,17 @@ namespace PureHistory
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PASC718.png"), Path.Combine(shipPreviewsDestPath, "PASC718.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASC718.png"), Path.Combine(shipPreviewsDsDestPath, "PASC718.png"), true);
                 }
-                if (modInstallation.highSchoolFleet.harekaze_ReplacePreview == true)
+                if (modInstallation.highSchoolFleet.harekaze_ReplacePreview)
                 {
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSD708.png"), Path.Combine(shipPreviewsDestPath, "PJSD708.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSD708.png"), Path.Combine(shipPreviewsDsDestPath, "PJSD708.png"), true);
                 }
-                if (modInstallation.highSchoolFleet.spee_ReplacePreview == true)
+                if (modInstallation.highSchoolFleet.spee_ReplacePreview)
                 {
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PGSC706.png"), Path.Combine(shipPreviewsDestPath, "PGSC706.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PGSC706.png"), Path.Combine(shipPreviewsDsDestPath, "PGSC706.png"), true);
                 }
-                if (modInstallation.warhammer40K.replacePreviews == true)
+                if (modInstallation.warhammer40K.replacePreviews)
                 {
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB878.png"), Path.Combine(shipPreviewsDestPath, "PJSB878.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB878.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB878.png"), true);
@@ -1029,7 +1029,7 @@ namespace PureHistory
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB888.png"), Path.Combine(shipPreviewsDestPath, "PJSB888.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB888.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB888.png"), true);
                 }
-                if (modInstallation.dragonShips.replacePreviews == true)
+                if (modInstallation.dragonShips.replacePreviews)
                 {
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC717.png"), Path.Combine(shipPreviewsDestPath, "PJSC717.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC717.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC717.png"), true);
@@ -1037,7 +1037,7 @@ namespace PureHistory
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC727.png"), Path.Combine(shipPreviewsDestPath, "PJSC727.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC727.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC727.png"), true);
                 }
-                if (modInstallation.lunarNewYearShips.replacePreviews == true)
+                if (modInstallation.lunarNewYearShips.replacePreviews)
                 {
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PZSA508.png"), Path.Combine(shipPreviewsDestPath, "PZSA508.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PZSA508.png"), Path.Combine(shipPreviewsDsDestPath, "PZSA508.png"), true);
@@ -1051,7 +1051,7 @@ namespace PureHistory
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PZSC518.png"), Path.Combine(shipPreviewsDestPath, "PZSC518.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PZSC518.png"), Path.Combine(shipPreviewsDsDestPath, "PZSC518.png"), true);
                 }
-                if (modInstallation.blackShips.replacePreviews == true)
+                if (modInstallation.blackShips.replacePreviews)
                 {
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PFSB599.png"), Path.Combine(shipPreviewsDestPath, "PFSB599.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PFSB599.png"), Path.Combine(shipPreviewsDsDestPath, "PFSB599.png"), true);
@@ -1089,7 +1089,7 @@ namespace PureHistory
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PASB598.png"), Path.Combine(shipPreviewsDestPath, "PASB598.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASB598.png"), Path.Combine(shipPreviewsDsDestPath, "PASB598.png"), true);
                 }
-                if (modInstallation.limaShips.replacePreviews == true)
+                if (modInstallation.limaShips.replacePreviews)
                 {
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSD014.png"), Path.Combine(shipPreviewsDestPath, "PJSD014.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSD014.png"), Path.Combine(shipPreviewsDsDestPath, "PJSD014.png"), true);
@@ -1100,12 +1100,12 @@ namespace PureHistory
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PASC045.png"), Path.Combine(shipPreviewsDestPath, "PASC045.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASC045.png"), Path.Combine(shipPreviewsDsDestPath, "PASC045.png"), true);
                 }
-                if (modInstallation.miscellaneous.kamikaze_replacePreview == true)
+                if (modInstallation.miscellaneous.kamikaze_replacePreview)
                 {
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSD026.png"), Path.Combine(shipPreviewsDestPath, "PJSD026.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSD026.png"), Path.Combine(shipPreviewsDsDestPath, "PJSD026.png"), true);
                 }
-                if (modInstallation.miscellaneous.alabama_replacePreview == true)
+                if (modInstallation.miscellaneous.alabama_replacePreview)
                 {
                     File.Copy(Path.Combine(shipPreviewsSrcPath, "PASB708.png"), Path.Combine(shipPreviewsDestPath, "PASB708.png"), true);
                     File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASB708.png"), Path.Combine(shipPreviewsDsDestPath, "PASB708.png"), true);
@@ -1133,7 +1133,7 @@ namespace PureHistory
                     switch (line.Original)
                     {
                         case "IDS_PJSB700":
-                            if (modInstallation.arpeggio.replaceNames == true || modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Yamato";
                                 break;
@@ -1143,7 +1143,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB700_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP Yamato)\n" + line.Translated;
                                 break;
@@ -1153,7 +1153,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB700_FULL":
-                            if (modInstallation.arpeggio.replaceNames == true || modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Yamato";
                                 break;
@@ -1164,7 +1164,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSB705":
-                            if (modInstallation.arpeggio.replaceNames == true || modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Kongō";
                                 break;
@@ -1174,7 +1174,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB705_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP Kongō)\n" + line.Translated;
                                 break;
@@ -1184,7 +1184,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB705_FULL":
-                            if (modInstallation.arpeggio.replaceNames == true || modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Kongō";
                                 break;
@@ -1195,12 +1195,12 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSB706":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Kirishima";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Kongō";
                                 break;
@@ -1210,7 +1210,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB706_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP Kongō)\n" + line.Translated;
                                 break;
@@ -1220,12 +1220,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB706_FULL":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Kirishima";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Kongō";
                                 break;
@@ -1236,12 +1236,12 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSB707":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Haruna";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Kongō";
                                 break;
@@ -1251,7 +1251,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB707_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP Haruna)\n" + line.Translated;
                                 break;
@@ -1261,12 +1261,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB707_FULL":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Haruna";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Kongō";
                                 break;
@@ -1277,12 +1277,12 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSB708":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Hiei";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Kongō";
                                 break;
@@ -1292,7 +1292,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB708_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP Hiei)\n" + line.Translated;
                                 break;
@@ -1302,12 +1302,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB708_FULL":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Hiei";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Kongō";
                                 break;
@@ -1318,12 +1318,12 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSB799":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Kirishima";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Kongō";
                                 break;
@@ -1333,7 +1333,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB799_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP Kirishima)\n" + line.Translated;
                                 break;
@@ -1343,12 +1343,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB799_FULL":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Kirishima";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Kongō";
                                 break;
@@ -1359,7 +1359,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSC705":
-                            if (modInstallation.arpeggio.replaceNames == true || modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Myōkō";
                                 break;
@@ -1369,7 +1369,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC705_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP Myōkō)\n" + line.Translated;
                                 break;
@@ -1379,7 +1379,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC705_FULL":
-                            if (modInstallation.arpeggio.replaceNames == true || modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Myōkō";
                                 break;
@@ -1390,12 +1390,12 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSC707":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Ashigara";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Myōkō";
                                 break;
@@ -1405,7 +1405,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC707_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP Ashigara)\n" + line.Translated;
                                 break;
@@ -1415,12 +1415,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC707_FULL":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Ashigara";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Myōkō";
                                 break;
@@ -1431,12 +1431,12 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSC708":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Takao";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Atago";
                                 break;
@@ -1446,7 +1446,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC708_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP Takao)\n" + line.Translated;
                                 break;
@@ -1456,12 +1456,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC708_FULL":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Takao";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Atago";
                                 break;
@@ -1472,12 +1472,12 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSC709":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Haguro";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Myōkō";
                                 break;
@@ -1487,7 +1487,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC709_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP Haguro)\n" + line.Translated;
                                 break;
@@ -1497,12 +1497,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC709_FULL":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Haguro";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Myōkō";
                                 break;
@@ -1513,12 +1513,12 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSC718":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Maya";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Atago";
                                 break;
@@ -1528,7 +1528,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC718_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP Maya)\n" + line.Translated;
                                 break;
@@ -1538,12 +1538,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC718_FULL":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Maya";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Atago";
                                 break;
@@ -1554,12 +1554,12 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSC737":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Nachi";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Myōkō";
                                 break;
@@ -1569,7 +1569,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC737_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP Nachi)\n" + line.Translated;
                                 break;
@@ -1579,12 +1579,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC737_FULL":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Nachi";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Myōkō";
                                 break;
@@ -1595,12 +1595,12 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSC799":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Takao";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Atago";
                                 break;
@@ -1611,7 +1611,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSC799_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP Takao)\n" + line.Translated;
                                 break;
@@ -1621,12 +1621,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC799_FULL":
-                            if (modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "Takao";
                                 break;
                             }
-                            else if (modInstallation.arpeggio.replaceNames == true)
+                            else if (modInstallation.arpeggio.replaceNames)
                             {
                                 line.Translated = "Atago";
                                 break;
@@ -1637,7 +1637,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSX701":
-                            if (modInstallation.arpeggio.replaceNames == true || modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "I-401";
                                 break;
@@ -1647,7 +1647,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSX701_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP I-401)\n" + line.Translated;
                                 break;
@@ -1657,7 +1657,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSX701_FULL":
-                            if (modInstallation.arpeggio.replaceNames == true || modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "I-401";
                                 break;
@@ -1668,7 +1668,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSX702":
-                            if (modInstallation.arpeggio.replaceNames == true || modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "I-401";
                                 break;
@@ -1678,7 +1678,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSX702_DESCR":
-                            if (modInstallation.arpeggio.updateDescription == true)
+                            if (modInstallation.arpeggio.updateDescription)
                             {
                                 line.Translated = "(ARP I-401)\n" + line.Translated;
                                 break;
@@ -1688,7 +1688,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSX702_FULL":
-                            if (modInstallation.arpeggio.replaceNames == true || modInstallation.arpeggio.removePrefixes == true)
+                            if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
                             {
                                 line.Translated = "I-401";
                                 break;
@@ -1700,12 +1700,12 @@ namespace PureHistory
 
                         //Azur Lane
                         case "IDS_PJSD718":
-                            if (modInstallation.azurLane.removePrefixes == true)
+                            if (modInstallation.azurLane.removePrefixes)
                             {
                                 line.Translated = "Yukikaze";
                                 break;
                             }
-                            else if (modInstallation.azurLane.replaceNames == true)
+                            else if (modInstallation.azurLane.replaceNames)
                             {
                                 line.Translated = "Kagerō";
                                 break;
@@ -1715,7 +1715,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSD718_DESCR":
-                            if (modInstallation.azurLane.updateDescription == true)
+                            if (modInstallation.azurLane.updateDescription)
                             {
                                 line.Translated = "(AL Yukikaze)\n" + line.Translated;
                                 break;
@@ -1725,12 +1725,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSD718_FULL":
-                            if (modInstallation.azurLane.removePrefixes == true)
+                            if (modInstallation.azurLane.removePrefixes)
                             {
                                 line.Translated = "Yukikaze";
                                 break;
                             }
-                            else if (modInstallation.azurLane.replaceNames == true)
+                            else if (modInstallation.azurLane.replaceNames)
                             {
                                 line.Translated = "Kagerō";
                                 break;
@@ -1741,12 +1741,12 @@ namespace PureHistory
                             }
 
                         case "IDS_PISB708":
-                            if (modInstallation.azurLane.removePrefixes == true)
+                            if (modInstallation.azurLane.removePrefixes)
                             {
                                 line.Translated = "Littorio";
                                 break;
                             }
-                            else if (modInstallation.azurLane.replaceNames == true)
+                            else if (modInstallation.azurLane.replaceNames)
                             {
                                 line.Translated = "Roma";
                                 break;
@@ -1756,7 +1756,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PISB708_DESCR":
-                            if (modInstallation.azurLane.updateDescription == true)
+                            if (modInstallation.azurLane.updateDescription)
                             {
                                 line.Translated = "(AL Littorio)\n" + line.Translated;
                                 break;
@@ -1766,12 +1766,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PISB708_FULL":
-                            if (modInstallation.azurLane.removePrefixes == true)
+                            if (modInstallation.azurLane.removePrefixes)
                             {
                                 line.Translated = "Littorio";
                                 break;
                             }
-                            else if (modInstallation.azurLane.replaceNames == true)
+                            else if (modInstallation.azurLane.replaceNames)
                             {
                                 line.Translated = "Roma";
                                 break;
@@ -1782,12 +1782,12 @@ namespace PureHistory
                             }
 
                         case "IDS_PASC718":
-                            if (modInstallation.azurLane.removePrefixes == true)
+                            if (modInstallation.azurLane.removePrefixes)
                             {
                                 line.Translated = "Montpelier";
                                 break;
                             }
-                            else if (modInstallation.azurLane.replaceNames == true)
+                            else if (modInstallation.azurLane.replaceNames)
                             {
                                 line.Translated = "Cleveland";
                                 break;
@@ -1797,7 +1797,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASC718_DESCR":
-                            if (modInstallation.azurLane.updateDescription == true)
+                            if (modInstallation.azurLane.updateDescription)
                             {
                                 line.Translated = "(AL Montpelier)\n" + line.Translated;
                                 break;
@@ -1807,12 +1807,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASC718_FULL":
-                            if (modInstallation.azurLane.removePrefixes == true)
+                            if (modInstallation.azurLane.removePrefixes)
                             {
                                 line.Translated = "Montpelier";
                                 break;
                             }
-                            else if (modInstallation.azurLane.replaceNames == true)
+                            else if (modInstallation.azurLane.replaceNames)
                             {
                                 line.Translated = "Cleveland";
                                 break;
@@ -1825,12 +1825,12 @@ namespace PureHistory
                         //High School Fleet
 
                         case "IDS_PJSD708":
-                            if (modInstallation.highSchoolFleet.harekaze_RemovePrefix == true)
+                            if (modInstallation.highSchoolFleet.harekaze_RemovePrefix)
                             {
                                 line.Translated = "Harekaze";
                                 break;
                             }
-                            else if (modInstallation.azurLane.replaceNames == true)
+                            else if (modInstallation.azurLane.replaceNames)
                             {
                                 line.Translated = "Kagerō";
                                 break;
@@ -1840,7 +1840,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSD708_DESCR":
-                            if (modInstallation.highSchoolFleet.harekaze_UpdateDescription == true)
+                            if (modInstallation.highSchoolFleet.harekaze_UpdateDescription)
                             {
                                 line.Translated = "(HSF Harekaze)\n" + line.Translated;
                                 break;
@@ -1850,12 +1850,12 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSD708_FULL":
-                            if (modInstallation.highSchoolFleet.harekaze_RemovePrefix == true)
+                            if (modInstallation.highSchoolFleet.harekaze_RemovePrefix)
                             {
                                 line.Translated = "Harekaze";
                                 break;
                             }
-                            else if (modInstallation.highSchoolFleet.harekaze_ReplaceName == true)
+                            else if (modInstallation.highSchoolFleet.harekaze_ReplaceName)
                             {
                                 line.Translated = "Kagerō";
                                 break;
@@ -1866,7 +1866,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PGSC706":
-                            if (modInstallation.highSchoolFleet.spee_RemovePrefix == true)
+                            if (modInstallation.highSchoolFleet.spee_RemovePrefix)
                             {
                                 line.Translated = "Graf Spee";
                                 break;
@@ -1876,7 +1876,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PGSC706_DESCR":
-                            if (modInstallation.highSchoolFleet.harekaze_UpdateDescription == true)
+                            if (modInstallation.highSchoolFleet.harekaze_UpdateDescription)
                             {
                                 line.Translated = "(HSF Graf Spee)\n" + line.Translated;
                                 break;
@@ -1886,7 +1886,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PGSC706_FULL":
-                            if (modInstallation.highSchoolFleet.spee_RemovePrefix == true)
+                            if (modInstallation.highSchoolFleet.spee_RemovePrefix)
                             {
                                 line.Translated = "Admiral Graf Spee";
                                 break;
@@ -1899,7 +1899,7 @@ namespace PureHistory
                         //Dragon Ships
 
                         case "IDS_PJSC717":
-                            if (modInstallation.dragonShips.replaceNames == true)
+                            if (modInstallation.dragonShips.replaceNames)
                             {
                                 line.Translated = "Myōkō";
                                 break;
@@ -1909,7 +1909,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC717_DESCR":
-                            if (modInstallation.dragonShips.updateDescription == true)
+                            if (modInstallation.dragonShips.updateDescription)
                             {
                                 line.Translated = "(Southern Dragon)\n" + line.Translated;
                                 break;
@@ -1919,7 +1919,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC717_FULL":
-                            if (modInstallation.dragonShips.replaceNames == true)
+                            if (modInstallation.dragonShips.replaceNames)
                             {
                                 line.Translated = "Myōkō";
                                 break;
@@ -1930,7 +1930,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSC727":
-                            if (modInstallation.dragonShips.replaceNames == true)
+                            if (modInstallation.dragonShips.replaceNames)
                             {
                                 line.Translated = "Myōkō";
                                 break;
@@ -1940,7 +1940,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC727_DESCR":
-                            if (modInstallation.dragonShips.updateDescription == true)
+                            if (modInstallation.dragonShips.updateDescription)
                             {
                                 line.Translated = "(Eastern Dragon)\n" + line.Translated;
                                 break;
@@ -1950,7 +1950,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC727_FULL":
-                            if (modInstallation.dragonShips.replaceNames == true)
+                            if (modInstallation.dragonShips.replaceNames)
                             {
                                 line.Translated = "Myōkō";
                                 break;
@@ -1963,7 +1963,7 @@ namespace PureHistory
                         //Warhammer 40K
 
                         case "IDS_PJSB878":
-                            if (modInstallation.warhammer40K.replaceNames == true)
+                            if (modInstallation.warhammer40K.replaceNames)
                             {
                                 line.Translated = "Amagi";
                                 break;
@@ -1973,7 +1973,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB878_DESCR":
-                            if (modInstallation.warhammer40K.updateDescription == true)
+                            if (modInstallation.warhammer40K.updateDescription)
                             {
                                 line.Translated = "(Ignis Purgatio)\n" + line.Translated;
                                 break;
@@ -1983,7 +1983,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB878_FULL":
-                            if (modInstallation.warhammer40K.replaceNames == true)
+                            if (modInstallation.warhammer40K.replaceNames)
                             {
                                 line.Translated = "Amagi";
                                 break;
@@ -1994,7 +1994,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSB888":
-                            if (modInstallation.warhammer40K.replaceNames == true)
+                            if (modInstallation.warhammer40K.replaceNames)
                             {
                                 line.Translated = "Amagi";
                                 break;
@@ -2004,7 +2004,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB888_DESCR":
-                            if (modInstallation.warhammer40K.updateDescription == true)
+                            if (modInstallation.warhammer40K.updateDescription)
                             {
                                 line.Translated = "(Ragnarok)\n" + line.Translated;
                                 break;
@@ -2014,7 +2014,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSB888_FULL":
-                            if (modInstallation.warhammer40K.replaceNames == true)
+                            if (modInstallation.warhammer40K.replaceNames)
                             {
                                 line.Translated = "Amagi";
                                 break;
@@ -2027,7 +2027,7 @@ namespace PureHistory
                         //Black Friday ships
 
                         case "IDS_PFSB599":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Jean Bart";
                                 break;
@@ -2037,7 +2037,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PFSB599_DESCR":
-                            if (modInstallation.blackShips.updateDescription == true)
+                            if (modInstallation.blackShips.updateDescription)
                             {
                                 line.Translated = "(Jean Bart B)\n" + line.Translated;
                                 break;
@@ -2047,7 +2047,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PFSB599_FULL":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Jean Bart";
                                 break;
@@ -2058,7 +2058,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PGSB597":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Scharnhorst";
                                 break;
@@ -2068,7 +2068,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PGSB597_DESCR":
-                            if (modInstallation.blackShips.updateDescription == true)
+                            if (modInstallation.blackShips.updateDescription)
                             {
                                 line.Translated = "(Scharnhorst B)\n" + line.Translated;
                                 break;
@@ -2078,7 +2078,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PGSB597_FULL":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Scharnhorst";
                                 break;
@@ -2089,7 +2089,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PGSA598":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Graf Zeppelin";
                                 break;
@@ -2099,7 +2099,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PGSA598_DESCR":
-                            if (modInstallation.blackShips.updateDescription == true)
+                            if (modInstallation.blackShips.updateDescription)
                             {
                                 line.Translated = "(Graf Zeppelin B)\n" + line.Translated;
                                 break;
@@ -2109,7 +2109,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PGSA598_FULL":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Graf Zeppelin";
                                 break;
@@ -2120,7 +2120,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PGSB598":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Tirpitz";
                                 break;
@@ -2130,7 +2130,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PGSB598_DESCR":
-                            if (modInstallation.blackShips.updateDescription == true)
+                            if (modInstallation.blackShips.updateDescription)
                             {
                                 line.Translated = "(Tirpitz B)\n" + line.Translated;
                                 break;
@@ -2140,7 +2140,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PGSB598_FULL":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Tirpitz";
                                 break;
@@ -2151,7 +2151,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSA598":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Kaga";
                                 break;
@@ -2161,7 +2161,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSA598_DESCR":
-                            if (modInstallation.blackShips.updateDescription == true)
+                            if (modInstallation.blackShips.updateDescription)
                             {
                                 line.Translated = "(Kaga B)\n" + line.Translated;
                                 break;
@@ -2171,7 +2171,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSA598_FULL":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Kaga";
                                 break;
@@ -2182,7 +2182,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSC598":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Atago";
                                 break;
@@ -2192,7 +2192,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC598_DESCR":
-                            if (modInstallation.blackShips.updateDescription == true)
+                            if (modInstallation.blackShips.updateDescription)
                             {
                                 line.Translated = "(Atago B)\n" + line.Translated;
                                 break;
@@ -2202,7 +2202,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC598_FULL":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Atago";
                                 break;
@@ -2213,7 +2213,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSD598":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Asashio";
                                 break;
@@ -2223,7 +2223,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSD598_DESCR":
-                            if (modInstallation.blackShips.updateDescription == true)
+                            if (modInstallation.blackShips.updateDescription)
                             {
                                 line.Translated = "(Asashio B)\n" + line.Translated;
                                 break;
@@ -2233,7 +2233,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSD598_FULL":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Asashio";
                                 break;
@@ -2244,7 +2244,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PBSD598":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Cossack";
                                 break;
@@ -2254,7 +2254,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PBSD598_DESCR":
-                            if (modInstallation.blackShips.updateDescription == true)
+                            if (modInstallation.blackShips.updateDescription)
                             {
                                 line.Translated = "(Cossack B)\n" + line.Translated;
                                 break;
@@ -2264,7 +2264,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PBSD598_FULL":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Cossack";
                                 break;
@@ -2275,7 +2275,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PASC587":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Atlanta";
                                 break;
@@ -2285,7 +2285,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASC587_DESCR":
-                            if (modInstallation.blackShips.updateDescription == true)
+                            if (modInstallation.blackShips.updateDescription)
                             {
                                 line.Translated = "(Atlanta B)\n" + line.Translated;
                                 break;
@@ -2295,7 +2295,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASC587_FULL":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Atlanta";
                                 break;
@@ -2306,7 +2306,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PASC599":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Alaska";
                                 break;
@@ -2316,7 +2316,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASC599_DESCR":
-                            if (modInstallation.blackShips.updateDescription == true)
+                            if (modInstallation.blackShips.updateDescription)
                             {
                                 line.Translated = "(Alaska B)\n" + line.Translated;
                                 break;
@@ -2326,7 +2326,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASC599_FULL":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Alaska";
                                 break;
@@ -2337,7 +2337,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PASD597":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Sims";
                                 break;
@@ -2347,7 +2347,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASD597_DESCR":
-                            if (modInstallation.blackShips.updateDescription == true)
+                            if (modInstallation.blackShips.updateDescription)
                             {
                                 line.Translated = "(Sims B)\n" + line.Translated;
                                 break;
@@ -2357,7 +2357,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASD597_FULL":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Sims";
                                 break;
@@ -2368,7 +2368,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PASB598":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Massachusetts";
                                 break;
@@ -2378,7 +2378,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASB598_DESCR":
-                            if (modInstallation.blackShips.updateDescription == true)
+                            if (modInstallation.blackShips.updateDescription)
                             {
                                 line.Translated = "(Massachusetts B)\n" + line.Translated;
                                 break;
@@ -2388,7 +2388,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASB598_FULL":
-                            if (modInstallation.blackShips.removeSuffixes == true)
+                            if (modInstallation.blackShips.removeSuffixes)
                             {
                                 line.Translated = "Massachusetts";
                                 break;
@@ -2401,7 +2401,7 @@ namespace PureHistory
                         //Lima Ships
 
                         case "IDS_PJSD014":
-                            if (modInstallation.limaShips.removeSuffixes == true)
+                            if (modInstallation.limaShips.removeSuffixes)
                             {
                                 line.Translated = "Tachibana";
                                 break;
@@ -2411,7 +2411,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSD014_DESCR":
-                            if (modInstallation.limaShips.updateDescription == true)
+                            if (modInstallation.limaShips.updateDescription)
                             {
                                 line.Translated = "(Tachibana Lima)\n" + line.Translated;
                                 break;
@@ -2421,7 +2421,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSD014_FULL":
-                            if (modInstallation.limaShips.removeSuffixes == true)
+                            if (modInstallation.limaShips.removeSuffixes)
                             {
                                 line.Translated = "Tachibana";
                                 break;
@@ -2432,7 +2432,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PRSC010":
-                            if (modInstallation.limaShips.removeSuffixes == true)
+                            if (modInstallation.limaShips.removeSuffixes)
                             {
                                 line.Translated = "Diana";
                                 break;
@@ -2442,7 +2442,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PRSC010_DESCR":
-                            if (modInstallation.limaShips.updateDescription == true)
+                            if (modInstallation.limaShips.updateDescription)
                             {
                                 line.Translated = "(Diana Lima)\n" + line.Translated;
                                 break;
@@ -2452,7 +2452,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PRSC010_FULL":
-                            if (modInstallation.limaShips.removeSuffixes == true)
+                            if (modInstallation.limaShips.removeSuffixes)
                             {
                                 line.Translated = "Diana";
                                 break;
@@ -2463,7 +2463,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PASC045":
-                            if (modInstallation.limaShips.removeSuffixes == true)
+                            if (modInstallation.limaShips.removeSuffixes)
                             {
                                 line.Translated = "Marblehead";
                                 break;
@@ -2473,7 +2473,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASC045_DESCR":
-                            if (modInstallation.limaShips.updateDescription == true)
+                            if (modInstallation.limaShips.updateDescription)
                             {
                                 line.Translated = "(Marblehead Lima)\n" + line.Translated;
                                 break;
@@ -2483,7 +2483,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASC045_FULL":
-                            if (modInstallation.limaShips.removeSuffixes == true)
+                            if (modInstallation.limaShips.removeSuffixes)
                             {
                                 line.Translated = "Marblehead";
                                 break;
@@ -2496,7 +2496,7 @@ namespace PureHistory
                         //Lunar New Year Ships
 
                         case "IDS_PZSA508":
-                            if (modInstallation.lunarNewYearShips.replaceNames == true)
+                            if (modInstallation.lunarNewYearShips.replaceNames)
                             {
                                 line.Translated = "Saipan";
                                 break;
@@ -2506,7 +2506,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PZSA508_DESCR":
-                            if (modInstallation.lunarNewYearShips.updateDescription == true)
+                            if (modInstallation.lunarNewYearShips.updateDescription)
                             {
                                 line.Translated = "(Sanzang)\n" + line.Translated;
                                 break;
@@ -2516,7 +2516,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PZSA508_FULL":
-                            if (modInstallation.lunarNewYearShips.replaceNames == true)
+                            if (modInstallation.lunarNewYearShips.replaceNames)
                             {
                                 line.Translated = "Saipan";
                                 break;
@@ -2527,7 +2527,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PZSB509":
-                            if (modInstallation.lunarNewYearShips.replaceNames == true)
+                            if (modInstallation.lunarNewYearShips.replaceNames)
                             {
                                 line.Translated = "Izumo";
                                 break;
@@ -2537,7 +2537,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PZSB509_DESCR":
-                            if (modInstallation.lunarNewYearShips.updateDescription == true)
+                            if (modInstallation.lunarNewYearShips.updateDescription)
                             {
                                 line.Translated = "(Bajie)\n" + line.Translated;
                                 break;
@@ -2547,7 +2547,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PZSB509_FULL":
-                            if (modInstallation.lunarNewYearShips.replaceNames == true)
+                            if (modInstallation.lunarNewYearShips.replaceNames)
                             {
                                 line.Translated = "Izumo";
                                 break;
@@ -2558,7 +2558,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PZSB519":
-                            if (modInstallation.lunarNewYearShips.replaceNames == true)
+                            if (modInstallation.lunarNewYearShips.replaceNames)
                             {
                                 line.Translated = "Alsace";
                                 break;
@@ -2568,7 +2568,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PZSB519_DESCR":
-                            if (modInstallation.lunarNewYearShips.updateDescription == true)
+                            if (modInstallation.lunarNewYearShips.updateDescription)
                             {
                                 line.Translated = "(Wujing)\n" + line.Translated;
                                 break;
@@ -2578,7 +2578,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PZSB519_FULL":
-                            if (modInstallation.lunarNewYearShips.replaceNames == true)
+                            if (modInstallation.lunarNewYearShips.replaceNames)
                             {
                                 line.Translated = "Alsace";
                                 break;
@@ -2589,7 +2589,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PZSC518":
-                            if (modInstallation.lunarNewYearShips.replaceNames == true)
+                            if (modInstallation.lunarNewYearShips.replaceNames)
                             {
                                 line.Translated = "Charles Martel";
                                 break;
@@ -2599,7 +2599,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PZSC518_DESCR":
-                            if (modInstallation.lunarNewYearShips.updateDescription == true)
+                            if (modInstallation.lunarNewYearShips.updateDescription)
                             {
                                 line.Translated = "(Wukong)\n" + line.Translated;
                                 break;
@@ -2609,7 +2609,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PZSC518_FULL":
-                            if (modInstallation.lunarNewYearShips.replaceNames == true)
+                            if (modInstallation.lunarNewYearShips.replaceNames)
                             {
                                 line.Translated = "Charles Martel";
                                 break;
@@ -2622,7 +2622,7 @@ namespace PureHistory
                         //Miscellaneous
 
                         case "IDS_PJSD026":
-                            if (modInstallation.miscellaneous.kamikaze_removeSuffix == true)
+                            if (modInstallation.miscellaneous.kamikaze_removeSuffix)
                             {
                                 line.Translated = "Kamikaze";
                                 break;
@@ -2632,7 +2632,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSD026_DESCR":
-                            if (modInstallation.miscellaneous.kamikaze_updateDescription == true)
+                            if (modInstallation.miscellaneous.kamikaze_updateDescription)
                             {
                                 line.Translated = "(Kamikaze R)\n" + line.Translated;
                                 break;
@@ -2642,7 +2642,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSD026_FULL":
-                            if (modInstallation.miscellaneous.kamikaze_removeSuffix == true)
+                            if (modInstallation.miscellaneous.kamikaze_removeSuffix)
                             {
                                 line.Translated = "Kamikaze";
                                 break;
@@ -2653,7 +2653,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PASB708":
-                            if (modInstallation.miscellaneous.alabama_removeSuffix == true)
+                            if (modInstallation.miscellaneous.alabama_removeSuffix)
                             {
                                 line.Translated = "Alabama";
                                 break;
@@ -2663,7 +2663,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASB708_DESCR":
-                            if (modInstallation.miscellaneous.alabama_updateDescription == true)
+                            if (modInstallation.miscellaneous.alabama_updateDescription)
                             {
                                 line.Translated = "(Alabama ST)\n" + line.Translated;
                                 break;
@@ -2673,7 +2673,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASB708_FULL":
-                            if (modInstallation.miscellaneous.alabama_removeSuffix == true)
+                            if (modInstallation.miscellaneous.alabama_removeSuffix)
                             {
                                 line.Translated = "Alabama";
                                 break;
@@ -2684,7 +2684,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PJSC026":
-                            if (modInstallation.miscellaneous.iwaki_removeSuffix == true)
+                            if (modInstallation.miscellaneous.iwaki_removeSuffix)
                             {
                                 line.Translated = "Iwaki";
                                 break;
@@ -2694,7 +2694,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PJSC026_FULL":
-                            if (modInstallation.miscellaneous.iwaki_removeSuffix == true)
+                            if (modInstallation.miscellaneous.iwaki_removeSuffix)
                             {
                                 line.Translated = "Iwaki";
                                 break;
@@ -2705,7 +2705,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PASB013":
-                            if (modInstallation.miscellaneous.arkansas_removeSuffix == true)
+                            if (modInstallation.miscellaneous.arkansas_removeSuffix)
                             {
                                 line.Translated = "Arkansas";
                                 break;
@@ -2715,7 +2715,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASB013_FULL":
-                            if (modInstallation.miscellaneous.arkansas_removeSuffix == true)
+                            if (modInstallation.miscellaneous.arkansas_removeSuffix)
                             {
                                 line.Translated = "Arkansas";
                                 break;
@@ -2726,7 +2726,7 @@ namespace PureHistory
                             }
 
                         case "IDS_PASB507":
-                            if (modInstallation.miscellaneous.westVirginia_correctName == true)
+                            if (modInstallation.miscellaneous.westVirginia_correctName)
                             {
                                 line.Translated = "West Virginia";
                                 break;
@@ -2736,7 +2736,7 @@ namespace PureHistory
                                 break;
                             }
                         case "IDS_PASB507_FULL":
-                            if (modInstallation.miscellaneous.westVirginia_correctName == true)
+                            if (modInstallation.miscellaneous.westVirginia_correctName)
                             {
                                 line.Translated = "West Virginia";
                                 break;
