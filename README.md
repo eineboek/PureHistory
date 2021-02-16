@@ -1,12 +1,16 @@
 # PureHistory
-Customisation Mod for World of Warships
+## Customisation Mod for World of Warships
 
 [Link to forum post will go here as soon as it is published]
 
+This mod uses a simple command line installer that is available in English and German language, but the mod itself can be installed for any language in the WoWs Client
+
 ## Navigation
 Arrow keys up/down for cursor movement between options
-ENTER to continue or toggle option
-Arrow key right to continue to the newxt option page
+
+Arrow key right to toggle an option
+
+ENTER to continue to the next page
 
 ## Usage
 1.	Download the latest release
