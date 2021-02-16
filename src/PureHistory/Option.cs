@@ -43,11 +43,11 @@ namespace PureHistory
                     ForegroundColor = ConsoleColor.White;
                     BackgroundColor = ConsoleColor.Black;
                 }
-                if (optionSelection[i] == true)
+                if (optionSelection[i])
                 {
                     WriteLine($"{prefix} {currentOption} >>" + " - " + Resources.Yes);
                 }
-                else if (optionSelection[i] == false)
+                else if (!optionSelection[i])
                 {
                     WriteLine($"{prefix} {currentOption} >>" + " - " + Resources.No);
                 }

@@ -13,11 +13,10 @@ namespace PureHistory
     internal class Program
     {
         #region Private fields
-        private static CultureInfo selectedCulture;
+        
         private static string wowsPath;
         private static string binPath;
         private static string modsPath;
-        private static string clientLang;
 
         private static ModInstallation modInstallation = new ModInstallation();
         #endregion
@@ -49,6 +48,7 @@ namespace PureHistory
             Menu selectLanguageMenu = new Menu(prompt, options);
             int selectedIndex = selectLanguageMenu.Init();
 
+            CultureInfo selectedCulture = CultureInfo.CurrentCulture;
             switch (selectedIndex)
             {
                 case 0:
@@ -649,6 +649,7 @@ namespace PureHistory
             #endregion
 
             #region Determine the Client language from the game_info.xml
+            string clientLang;
             try
             {
                 XmlDocument doc = new XmlDocument();
@@ -658,6 +659,7 @@ namespace PureHistory
             }
             catch (Exception ex)
             {
+                clientLang = null;
                 WriteLine(Resources.Error);
                 WriteLine(Resources.ErrorDuringInstallation);
                 WriteLine(ex.Message);
