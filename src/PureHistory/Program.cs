@@ -210,7 +210,7 @@ namespace PureHistory
             {
                 selectedIndex = _arpeggioOptions.Init();
 
-                //If right arrow key was pressed, break the loop
+                //If ENTER key was pressed, break the loop
                 if (selectedIndex == -1)
                 {
                     break;
@@ -853,7 +853,7 @@ namespace PureHistory
 
             if (!Directory.Exists(bigNationFlagsDestPath))
             {
-                Directory.CreateDirectory(smallNationFlagsDestPath);
+                Directory.CreateDirectory(bigNationFlagsDestPath);
             }
             if (!Directory.Exists(smallNationFlagsDestPath))
             {

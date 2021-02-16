@@ -421,7 +421,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Key right to continue to the next page ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Key right to toggle an option ähnelt.
         /// </summary>
         internal static string NavigationHelp2 {
             get {
@@ -430,7 +430,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die ENTER to change an option ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ENTER to continue to the next page ähnelt.
         /// </summary>
         internal static string NavigationHelp3 {
             get {

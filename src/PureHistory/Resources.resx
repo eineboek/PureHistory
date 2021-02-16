@@ -238,10 +238,10 @@
     <value>Arrow Keys up/down for movement</value>
   </data>
   <data name="NavigationHelp2" xml:space="preserve">
-    <value>Arrow Key right to continue to the next page</value>
+    <value>Arrow Key right to toggle an option</value>
   </data>
   <data name="NavigationHelp3" xml:space="preserve">
-    <value>ENTER to change an option</value>
+    <value>ENTER to continue to the next page</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>

@@ -238,10 +238,10 @@
     <value>Pfeiltaste oben/unten zum Bewegen</value>
   </data>
   <data name="NavigationHelp2" xml:space="preserve">
-    <value>Pfeiltaste rechts zum Fortfahren zur nächsten Seite</value>
+    <value>Pfeiltaste rechts um eine Option zu ändern</value>
   </data>
   <data name="NavigationHelp3" xml:space="preserve">
-    <value>ENTER um eine Option zu ändern</value>
+    <value>ENTER zum Bestätigen/Fortfahren zur nächsten Seite</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>Nein</value>

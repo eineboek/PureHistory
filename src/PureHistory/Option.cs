@@ -74,7 +74,7 @@ namespace PureHistory
         /// <summary>
         /// Initializes the options screen
         /// </summary>
-        /// <returns>The index of the option that the user has clicked enter at / -1 when the right arrow key has been pressed</returns>
+        /// <returns>The index of the option that the user has toggled / return -1 when the ENTER key has been pressed</returns>
         public int Init()
         {
             ConsoleKey keyPressed;
@@ -102,7 +102,7 @@ namespace PureHistory
                         selectedIndex = 0;
                     }
                 }
-                else if (keyPressed == ConsoleKey.RightArrow)
+                else if (keyPressed == ConsoleKey.Enter)
                 {
                     selectedIndex = -1;
                 }
