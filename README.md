@@ -8,10 +8,9 @@ This mod uses a simple command line installer that is available in English and G
 ## Navigation
 Arrow keys up/down for cursor movement between options
 
-ENTER to continue (language selection) or toggle option
+Arrow key right to toggle an option
 
-Arrow key right to continue to the newxt option page
-
+ENTER to continue to the next page
 
 ## Usage
 1.	Download the latest release
