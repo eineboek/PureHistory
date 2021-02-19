@@ -13,13 +13,14 @@ namespace PureHistory
     internal class Program
     {
         #region Private fields
-        
+
         private static string wowsPath; //Holds the Path for the selected World of Warships installation
         private static string binPath; //Holds the Path for the latest build in the WoWs "bin" folder
         private static string modsPath; //Holds the Path for the res_mods folder that the mod will be installed in
 
         private static ModInstallation modInstallation = new ModInstallation(); //Create a new ModInstallation class instance to save the user's choices in
-        #endregion
+
+        #endregion Private fields
 
         /// <summary>
         /// The main entry point for the application.
@@ -187,7 +188,7 @@ namespace PureHistory
             //Start the first option screen
             ArpeggioSelection();
         }
-        
+
         /// <summary>
         /// User settings for content of Arpeggio of Blue Steel.
         /// </summary>
@@ -205,43 +206,41 @@ namespace PureHistory
             Option _arpeggioOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
 
-            //Continuous loop
-            while (true)
+            //Continuous loop until ENTER key is pressed
+            while (selectedIndex != -1)
             {
                 selectedIndex = _arpeggioOptions.Init();
 
                 //If ENTER key was pressed, break the loop
-                if (selectedIndex == -1)
+                if (selectedIndex != -1)
                 {
-                    break;
-                }
+                    //Toggle settings
+                    if (optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = false;
+                    }
+                    else if (!optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = true;
+                    }
 
-                //Toggle settings
-                if (optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = false;
-                }
-                else if (!optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = true;
-                }
+                    //Dependencies of the options
+                    if (optionSelection[0])
+                    {
+                        optionSelection[1] = false;
+                    }
+                    if (optionSelection[1])
+                    {
+                        optionSelection[0] = false;
+                    }
 
-                //Dependencies of the options
-                if (optionSelection[0])
-                {
-                    optionSelection[1] = false;
-                }
-                if (optionSelection[1])
-                {
-                    optionSelection[0] = false;
-                }
+                    if (optionSelection[2] && !optionSelection[1])
+                    {
+                        optionSelection[2] = false;
+                    }
 
-                if (optionSelection[2] && !optionSelection[1])
-                {
-                    optionSelection[2] = false;
+                    _arpeggioOptions.UpdateOptionSelection(optionSelection);
                 }
-
-                _arpeggioOptions.UpdateOptionSelection(optionSelection);
             }
 
             //Set the values of the selection to the options instance
@@ -276,39 +275,37 @@ namespace PureHistory
             Option _azurLaneOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
 
-            while (true)
+            while (selectedIndex != -1)
             {
                 selectedIndex = _azurLaneOptions.Init();
 
-                if (selectedIndex == -1)
+                if (selectedIndex != -1)
                 {
-                    break;
-                }
+                    if (optionSelection[selectedIndex] == true)
+                    {
+                        optionSelection[selectedIndex] = false;
+                    }
+                    else if (!optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = true;
+                    }
 
-                if (optionSelection[selectedIndex] == true)
-                {
-                    optionSelection[selectedIndex] = false;
-                }
-                else if (!optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = true;
-                }
+                    if (optionSelection[0])
+                    {
+                        optionSelection[1] = false;
+                    }
+                    if (optionSelection[1])
+                    {
+                        optionSelection[0] = false;
+                    }
 
-                if (optionSelection[0])
-                {
-                    optionSelection[1] = false;
-                }
-                if (optionSelection[1])
-                {
-                    optionSelection[0] = false;
-                }
+                    if (optionSelection[2] && !optionSelection[1])
+                    {
+                        optionSelection[2] = false;
+                    }
 
-                if (optionSelection[2] && !optionSelection[1])
-                {
-                    optionSelection[2] = false;
+                    _azurLaneOptions.UpdateOptionSelection(optionSelection);
                 }
-
-                _azurLaneOptions.UpdateOptionSelection(optionSelection);
             }
 
             azurLaneOptions.removePrefixes = optionSelection[0];
@@ -336,39 +333,37 @@ namespace PureHistory
             Option _hsfHarekazeOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
 
-            while (true)
+            while (selectedIndex != -1)
             {
                 selectedIndex = _hsfHarekazeOptions.Init();
 
-                if (selectedIndex == -1)
+                if (selectedIndex != -1)
                 {
-                    break;
-                }
+                    if (optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = false;
+                    }
+                    else if (!optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = true;
+                    }
 
-                if (optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = false;
-                }
-                else if (!optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = true;
-                }
+                    if (optionSelection[0])
+                    {
+                        optionSelection[1] = false;
+                    }
+                    if (optionSelection[1])
+                    {
+                        optionSelection[0] = false;
+                    }
 
-                if (optionSelection[0])
-                {
-                    optionSelection[1] = false;
-                }
-                if (optionSelection[1])
-                {
-                    optionSelection[0] = false;
-                }
+                    if (optionSelection[2] && !optionSelection[1])
+                    {
+                        optionSelection[2] = false;
+                    }
 
-                if (optionSelection[2] && !optionSelection[1])
-                {
-                    optionSelection[2] = false;
+                    _hsfHarekazeOptions.UpdateOptionSelection(optionSelection);
                 }
-
-                _hsfHarekazeOptions.UpdateOptionSelection(optionSelection);
             }
 
             hsfOptions.harekaze_RemovePrefix = optionSelection[0];
@@ -394,30 +389,28 @@ namespace PureHistory
             Option _hsfSpeeOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
 
-            while (true)
+            while (selectedIndex != -1)
             {
                 selectedIndex = _hsfSpeeOptions.Init();
 
-                if (selectedIndex == -1)
+                if (selectedIndex != -1)
                 {
-                    break;
-                }
+                    if (optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = false;
+                    }
+                    else if (!optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = true;
+                    }
 
-                if (optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = false;
-                }
-                else if (!optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = true;
-                }
+                    if (optionSelection[1] && !optionSelection[0])
+                    {
+                        optionSelection[1] = false;
+                    }
 
-                if (optionSelection[1] && !optionSelection[0])
-                {
-                    optionSelection[1] = false;
+                    _hsfSpeeOptions.UpdateOptionSelection(optionSelection);
                 }
-
-                _hsfSpeeOptions.UpdateOptionSelection(optionSelection);
             }
 
             hsfOptions.spee_RemovePrefix = optionSelection[0];
@@ -444,29 +437,28 @@ namespace PureHistory
             Option _warhammerOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
 
-            while (true)
+            while (selectedIndex != -1)
             {
                 selectedIndex = _warhammerOptions.Init();
-                if (selectedIndex == -1)
-                {
-                    break;
-                }
 
-                if (optionSelection[selectedIndex])
+                if (selectedIndex != -1)
                 {
-                    optionSelection[selectedIndex] = false;
-                }
-                else if (!optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = true;
-                }
+                    if (optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = false;
+                    }
+                    else if (!optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = true;
+                    }
 
-                if (optionSelection[1] && !optionSelection[0])
-                {
-                    optionSelection[1] = false;
-                }
+                    if (optionSelection[1] && !optionSelection[0])
+                    {
+                        optionSelection[1] = false;
+                    }
 
-                _warhammerOptions.UpdateOptionSelection(optionSelection);
+                    _warhammerOptions.UpdateOptionSelection(optionSelection);
+                }
             }
 
             warhammerOptions.replaceNames = optionSelection[0];
@@ -494,30 +486,28 @@ namespace PureHistory
             Option _dragonOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
 
-            while (true)
+            while (selectedIndex != -1)
             {
                 selectedIndex = _dragonOptions.Init();
 
-                if (selectedIndex == -1)
+                if (selectedIndex != -1)
                 {
-                    break;
-                }
+                    if (optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = false;
+                    }
+                    else if (!optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = true;
+                    }
 
-                if (optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = false;
-                }
-                else if (!optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = true;
-                }
+                    if (optionSelection[1] && !optionSelection[0])
+                    {
+                        optionSelection[1] = false;
+                    }
 
-                if (optionSelection[1] && !optionSelection[0])
-                {
-                    optionSelection[1] = false;
+                    _dragonOptions.UpdateOptionSelection(optionSelection);
                 }
-
-                _dragonOptions.UpdateOptionSelection(optionSelection);
             }
 
             dragonShipOptions.replaceNames = optionSelection[0];
@@ -546,39 +536,37 @@ namespace PureHistory
             Option _lunarOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
 
-            while (true)
+            while (selectedIndex != -1)
             {
                 selectedIndex = _lunarOptions.Init();
 
-                if (selectedIndex == -1)
+                if (selectedIndex != -1)
                 {
-                    break;
-                }
+                    if (optionSelection[selectedIndex] == true)
+                    {
+                        optionSelection[selectedIndex] = false;
+                    }
+                    else if (!optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = true;
+                    }
 
-                if (optionSelection[selectedIndex] == true)
-                {
-                    optionSelection[selectedIndex] = false;
-                }
-                else if (!optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = true;
-                }
+                    if (optionSelection[1] && !optionSelection[0])
+                    {
+                        optionSelection[1] = false;
+                    }
 
-                if (optionSelection[1] && !optionSelection[0])
-                {
-                    optionSelection[1] = false;
-                }
+                    if (optionSelection[3])
+                    {
+                        optionSelection[4] = false;
+                    }
+                    if (optionSelection[4])
+                    {
+                        optionSelection[3] = false;
+                    }
 
-                if (optionSelection[3])
-                {
-                    optionSelection[4] = false;
+                    _lunarOptions.UpdateOptionSelection(optionSelection);
                 }
-                if (optionSelection[4])
-                {
-                    optionSelection[3] = false;
-                }
-
-                _lunarOptions.UpdateOptionSelection(optionSelection);
             }
 
             lunarOptions.replaceNames = optionSelection[0];
@@ -607,30 +595,28 @@ namespace PureHistory
             Option _blackShipOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
 
-            while (true)
+            while (selectedIndex != -1)
             {
                 selectedIndex = _blackShipOptions.Init();
 
-                if (selectedIndex == -1)
+                if (selectedIndex != -1)
                 {
-                    break;
-                }
+                    if (optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = false;
+                    }
+                    else if (!optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = true;
+                    }
 
-                if (optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = false;
-                }
-                else if (!optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = true;
-                }
+                    if (optionSelection[1] && !optionSelection[0])
+                    {
+                        optionSelection[1] = false;
+                    }
 
-                if (optionSelection[1] && !optionSelection[0])
-                {
-                    optionSelection[1] = false;
+                    _blackShipOptions.UpdateOptionSelection(optionSelection);
                 }
-
-                _blackShipOptions.UpdateOptionSelection(optionSelection);
             }
 
             blackShipOptions.removeSuffixes = optionSelection[0];
@@ -657,30 +643,28 @@ namespace PureHistory
             Option _limaShipOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
 
-            while (true)
+            while (selectedIndex != -1)
             {
                 selectedIndex = _limaShipOptions.Init();
 
-                if (selectedIndex == -1)
+                if (selectedIndex != -1)
                 {
-                    break;
-                }
+                    if (optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = false;
+                    }
+                    else if (!optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = true;
+                    }
 
-                if (optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = false;
-                }
-                else if (!optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = true;
-                }
+                    if (optionSelection[1] && !optionSelection[0])
+                    {
+                        optionSelection[1] = false;
+                    }
 
-                if (optionSelection[1] && !optionSelection[0])
-                {
-                    optionSelection[1] = false;
+                    _limaShipOptions.UpdateOptionSelection(optionSelection);
                 }
-
-                _limaShipOptions.UpdateOptionSelection(optionSelection);
             }
 
             limaShipOptions.removeSuffixes = optionSelection[0];
@@ -707,34 +691,33 @@ namespace PureHistory
             Option _miscellaneousOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;
 
-            while (true)
+            while (selectedIndex != -1)
             {
                 selectedIndex = _miscellaneousOptions.Init();
 
-                if (selectedIndex == -1)
+                if (selectedIndex != -1)
                 {
-                    break;
-                }
-                if (optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = false;
-                }
-                else if (!optionSelection[selectedIndex])
-                {
-                    optionSelection[selectedIndex] = true;
-                }
+                    if (optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = false;
+                    }
+                    else if (!optionSelection[selectedIndex])
+                    {
+                        optionSelection[selectedIndex] = true;
+                    }
 
-                if (optionSelection[1] && !optionSelection[0])
-                {
-                    optionSelection[1] = false;
-                }
+                    if (optionSelection[1] && !optionSelection[0])
+                    {
+                        optionSelection[1] = false;
+                    }
 
-                if (optionSelection[4] && !optionSelection[3])
-                {
-                    optionSelection[4] = false;
-                }
+                    if (optionSelection[4] && !optionSelection[3])
+                    {
+                        optionSelection[4] = false;
+                    }
 
-                _miscellaneousOptions.UpdateOptionSelection(optionSelection);
+                    _miscellaneousOptions.UpdateOptionSelection(optionSelection);
+                }
             }
 
             miscellaneousOptions.kamikaze_removeSuffix = optionSelection[0];
@@ -767,13 +750,13 @@ namespace PureHistory
             string executingPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string dataPath = Path.Combine(executingPath, "data.zip");
 
-            if(!Directory.Exists(Path.Combine(executingPath, "gui")))
+            if (!Directory.Exists(Path.Combine(executingPath, "gui")))
             {
                 try
                 {
                     System.IO.Compression.ZipFile.ExtractToDirectory(dataPath, executingPath);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     WriteLine(Resources.Error);
                     WriteLine(Resources.ErrorDuringInstallation);
@@ -783,7 +766,7 @@ namespace PureHistory
                 }
             }
 
-            #endregion
+            #endregion Extract files from the data archive
 
             #region Determine the Client language from game_info.xml
 
@@ -805,7 +788,7 @@ namespace PureHistory
                 Environment.Exit(0);
             }
 
-            #endregion
+            #endregion Determine the Client language from game_info.xml
 
             #region Path setup and Folder generation
 
@@ -904,7 +887,7 @@ namespace PureHistory
             string smallNationFlagsAltPath = Path.Combine(smallNationFlagsSrcPath, "alternative_flags");
             string tinyNationFlagsAltPath = Path.Combine(tinyNationFlagsSrcPath, "alternative_flags");
 
-            #endregion
+            #endregion Path setup and Folder generation
 
             #region Copy files to mod folder
 
@@ -1337,7 +1320,7 @@ namespace PureHistory
                 Environment.Exit(0);
             }
 
-            #endregion
+            #endregion Copy files to mod folder
 
             #region Edit the Translation file
 
@@ -3036,7 +3019,7 @@ namespace PureHistory
                 Environment.Exit(0);
             }
 
-            #endregion
+            #endregion Edit the Translation file
 
             //Detect ModStation
             if (File.Exists(Path.Combine(modsPath, "ModStation.txt")))
