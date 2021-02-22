@@ -18,7 +18,7 @@ namespace PureHistory
         private static string binPath; //Holds the Path for the latest build in the WoWs "bin" folder
         private static string modsPath; //Holds the Path for the res_mods folder that the mod will be installed in
 
-        private static ModInstallation modInstallation = new ModInstallation(); //Create a new ModInstallation class instance to save the user's choices in
+        private static ModInstallation modInstallation;
 
         #endregion Private fields
 
@@ -28,6 +28,9 @@ namespace PureHistory
         /// <param name="args">Standard arguments for execution via command line. Not used in this program</param>
         private static void Main(string[] args)
         {
+            //Create a new ModInstallation class instance to save the user's choices in
+            modInstallation = new ModInstallation();
+
             //Set the windows title
             Title = "PureHistory Installer";
 
@@ -431,8 +434,8 @@ namespace PureHistory
 
             Clear();
 
-            string prompt = Resources.WarhammerPrompt;
-            string[] options = { Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplacePreview, Resources.ReplaceFlag };
+            string prompt = Resources.WarhammerPrompt + "\n" + Resources.WarhammerWarning;
+            string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.ReplaceFlag };
             bool[] optionSelection = { false, false, false, false };
             Option _warhammerOptions = new Option(prompt, options, optionSelection);
             int selectedIndex = 0;

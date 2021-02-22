@@ -169,7 +169,7 @@
     <value>Einstellungen für HSF Harekaze</value>
   </data>
   <data name="HSFHarekazeWarning" xml:space="preserve">
-    <value>Achtung : HSF Harekaze hat mehrere Rumpfmöglichkeiten mit unterschiedlichen Eigenschaften.  Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks (Kagero) kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
+    <value>Achtung : HSF Harekaze hat mehrere Rumpfmöglichkeiten mit unterschiedlichen Eigenschaften.  Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks (Kagerō) kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
   </data>
   <data name="HSFPrefix" xml:space="preserve">
     <value>'HSF'-Prefix entfernen</value>
@@ -278,6 +278,9 @@
   </data>
   <data name="WarhammerPrompt" xml:space="preserve">
     <value>Einstellungen für Warhammer 40.000-Schiffe</value>
+  </data>
+  <data name="WarhammerWarning" xml:space="preserve">
+    <value>Achtung : Warhammer 40.000-Schiffe haben ähnliche, aber nicht identische Eigenschaften zu ihren regulären Gegenstücken (Amagi). Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
   </data>
   <data name="WOWSNotFound" xml:space="preserve">
     <value>World of Warships scheint nicht unter diesem Pfad installiert zu sein. Installation trotzdem fortsetzen?</value>

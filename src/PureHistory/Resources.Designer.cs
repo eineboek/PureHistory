@@ -214,7 +214,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Caution : HSF Harekaze is a unique ship capable of fitting multiple hulls with differing performance. Replacing the ship name with the regular counterpart name could lead to a misjudgement of the battle situation. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Caution : HSF Harekaze is a unique ship capable of fitting multiple hulls with differing performance. Replacing the ship name with the regular counterpart name (Kagerō) could lead to a misjudgement of the battle situation. ähnelt.
         /// </summary>
         internal static string HSFHarekazeWarning {
             get {
@@ -543,6 +543,15 @@ namespace PureHistory {
         internal static string WarhammerPrompt {
             get {
                 return ResourceManager.GetString("WarhammerPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Caution : Warhammer 40.000 ships have similar, but not identical performance to their regular counterparts (Amagi). Replacing the ship name with the regular counterpart could lead to a misjudgement of the battle situation. ähnelt.
+        /// </summary>
+        internal static string WarhammerWarning {
+            get {
+                return ResourceManager.GetString("WarhammerWarning", resourceCulture);
             }
         }
         
