@@ -28,6 +28,11 @@ namespace PureHistory
         /// <param name="args">Standard arguments for execution via command line. Not used in this program</param>
         private static void Main(string[] args)
         {
+            //Start the language selection
+            LanguageSelection();
+
+            Clear();
+
             //Create a new ModInstallation class instance to save the user's choices in
             modInstallation = new ModInstallation();
 
@@ -48,8 +53,8 @@ namespace PureHistory
             WriteLine(Resources.PressAnyKey);
             ReadKey();
 
-            //Start the language selection
-            LanguageSelection();
+            //Continue with Client Selection
+            ClientSelection();
 
             //After the installation : User presses any key to exit the program
             WriteLine(Resources.ExitProgram);
@@ -61,8 +66,6 @@ namespace PureHistory
         /// </summary>
         private static void LanguageSelection()
         {
-            Clear();
-
             //Show the language selection prompt using the Menu class
             string prompt = Resources.SelectLanguage;
             string[] options = { "English", "Deutsch" };
@@ -85,9 +88,6 @@ namespace PureHistory
             //Apply the selected language to the program
             Thread.CurrentThread.CurrentCulture = selectedCulture;
             Thread.CurrentThread.CurrentUICulture = selectedCulture;
-
-            //Continue with Client Selection
-            ClientSelection();
         }
 
         /// <summary>

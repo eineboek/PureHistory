@@ -511,7 +511,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Select Language : ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select Language / Sprache auswählen : ähnelt.
         /// </summary>
         internal static string SelectLanguage {
             get {

@@ -268,7 +268,7 @@
     <value>Replace sillouette</value>
   </data>
   <data name="SelectLanguage" xml:space="preserve">
-    <value>Select Language :</value>
+    <value>Select Language / Sprache auswählen :</value>
   </data>
   <data name="StartInstallation" xml:space="preserve">
     <value>Press any key to start the mod installation ...</value>
