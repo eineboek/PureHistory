@@ -207,24 +207,24 @@ namespace PureHistory
             string[] options = { Resources.ArpeggioPrefix, Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag };
             bool[] optionSelection = { false, false, false, false, false, false };
             Option _arpeggioOptions = new Option(prompt, options, optionSelection);
-            int selectedIndex = 0;
+            int? selectedIndex = 0;
 
             //Continuous loop until ENTER key is pressed
-            while (selectedIndex != -1)
+            while (selectedIndex != null)
             {
                 selectedIndex = _arpeggioOptions.Init();
 
                 //If ENTER key was pressed, break the loop
-                if (selectedIndex != -1)
+                if (selectedIndex != null)
                 {
                     //Toggle settings
-                    if (optionSelection[selectedIndex])
+                    if (optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = false;
+                        optionSelection[(int)selectedIndex] = false;
                     }
-                    else if (!optionSelection[selectedIndex])
+                    else if (!optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = true;
+                        optionSelection[(int)selectedIndex] = true;
                     }
 
                     //Dependencies of the options
@@ -276,21 +276,21 @@ namespace PureHistory
             string[] options = { Resources.AzurLanePrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
             bool[] optionSelection = { false, false, false, false, false };
             Option _azurLaneOptions = new Option(prompt, options, optionSelection);
-            int selectedIndex = 0;
+            int? selectedIndex = 0;
 
-            while (selectedIndex != -1)
+            while (selectedIndex != null)
             {
                 selectedIndex = _azurLaneOptions.Init();
 
-                if (selectedIndex != -1)
+                if (selectedIndex != null)
                 {
-                    if (optionSelection[selectedIndex] == true)
+                    if (optionSelection[(int)selectedIndex] == true)
                     {
-                        optionSelection[selectedIndex] = false;
+                        optionSelection[(int)selectedIndex] = false;
                     }
-                    else if (!optionSelection[selectedIndex])
+                    else if (!optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = true;
+                        optionSelection[(int)selectedIndex] = true;
                     }
 
                     if (optionSelection[0])
@@ -334,21 +334,21 @@ namespace PureHistory
             string[] options = { Resources.HSFPrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
             bool[] optionSelection = { false, false, false, false };
             Option _hsfHarekazeOptions = new Option(prompt, options, optionSelection);
-            int selectedIndex = 0;
+            int? selectedIndex = 0;
 
-            while (selectedIndex != -1)
+            while (selectedIndex != null)
             {
                 selectedIndex = _hsfHarekazeOptions.Init();
 
-                if (selectedIndex != -1)
+                if (selectedIndex != null)
                 {
-                    if (optionSelection[selectedIndex])
+                    if (optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = false;
+                        optionSelection[(int)selectedIndex] = false;
                     }
-                    else if (!optionSelection[selectedIndex])
+                    else if (!optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = true;
+                        optionSelection[(int)selectedIndex] = true;
                     }
 
                     if (optionSelection[0])
@@ -390,21 +390,21 @@ namespace PureHistory
             string[] options = { Resources.HSFPrefix, Resources.UpdateDescription, Resources.ReplacePreview };
             bool[] optionSelection = { false, false, false };
             Option _hsfSpeeOptions = new Option(prompt, options, optionSelection);
-            int selectedIndex = 0;
+            int? selectedIndex = 0;
 
-            while (selectedIndex != -1)
+            while (selectedIndex != null)
             {
                 selectedIndex = _hsfSpeeOptions.Init();
 
-                if (selectedIndex != -1)
+                if (selectedIndex != null)
                 {
-                    if (optionSelection[selectedIndex])
+                    if (optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = false;
+                        optionSelection[(int)selectedIndex] = false;
                     }
-                    else if (!optionSelection[selectedIndex])
+                    else if (!optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = true;
+                        optionSelection[(int)selectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])
@@ -438,21 +438,21 @@ namespace PureHistory
             string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.ReplaceFlag };
             bool[] optionSelection = { false, false, false, false };
             Option _warhammerOptions = new Option(prompt, options, optionSelection);
-            int selectedIndex = 0;
+            int? selectedIndex = 0;
 
-            while (selectedIndex != -1)
+            while (selectedIndex != null)
             {
                 selectedIndex = _warhammerOptions.Init();
 
-                if (selectedIndex != -1)
+                if (selectedIndex != null)
                 {
-                    if (optionSelection[selectedIndex])
+                    if (optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = false;
+                        optionSelection[(int)selectedIndex] = false;
                     }
-                    else if (!optionSelection[selectedIndex])
+                    else if (!optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = true;
+                        optionSelection[(int)selectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])
@@ -487,21 +487,21 @@ namespace PureHistory
             string[] options = { Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag };
             bool[] optionSelection = { false, false, false, false, false };
             Option _dragonOptions = new Option(prompt, options, optionSelection);
-            int selectedIndex = 0;
+            int? selectedIndex = 0;
 
-            while (selectedIndex != -1)
+            while (selectedIndex != null)
             {
                 selectedIndex = _dragonOptions.Init();
 
-                if (selectedIndex != -1)
+                if (selectedIndex != null)
                 {
-                    if (optionSelection[selectedIndex])
+                    if (optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = false;
+                        optionSelection[(int)selectedIndex] = false;
                     }
-                    else if (!optionSelection[selectedIndex])
+                    else if (!optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = true;
+                        optionSelection[(int)selectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])
@@ -537,21 +537,21 @@ namespace PureHistory
             string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.LunarNewYearFlagOption1, Resources.LunarNewYearFlagOption2 };
             bool[] optionSelection = { false, false, false, false, false };
             Option _lunarOptions = new Option(prompt, options, optionSelection);
-            int selectedIndex = 0;
+            int? selectedIndex = 0;
 
-            while (selectedIndex != -1)
+            while (selectedIndex != null)
             {
                 selectedIndex = _lunarOptions.Init();
 
-                if (selectedIndex != -1)
+                if (selectedIndex != null)
                 {
-                    if (optionSelection[selectedIndex] == true)
+                    if (optionSelection[(int)selectedIndex] == true)
                     {
-                        optionSelection[selectedIndex] = false;
+                        optionSelection[(int)selectedIndex] = false;
                     }
-                    else if (!optionSelection[selectedIndex])
+                    else if (!optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = true;
+                        optionSelection[(int)selectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])
@@ -596,21 +596,21 @@ namespace PureHistory
             string[] options = { Resources.BlackShipsSuffix, Resources.UpdateDescription, Resources.ReplacePreview };
             bool[] optionSelection = { false, false, false };
             Option _blackShipOptions = new Option(prompt, options, optionSelection);
-            int selectedIndex = 0;
+            int? selectedIndex = 0;
 
-            while (selectedIndex != -1)
+            while (selectedIndex != null)
             {
                 selectedIndex = _blackShipOptions.Init();
 
-                if (selectedIndex != -1)
+                if (selectedIndex != null)
                 {
-                    if (optionSelection[selectedIndex])
+                    if (optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = false;
+                        optionSelection[(int)selectedIndex] = false;
                     }
-                    else if (!optionSelection[selectedIndex])
+                    else if (!optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = true;
+                        optionSelection[(int)selectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])
@@ -644,21 +644,21 @@ namespace PureHistory
             string[] options = { Resources.LimaShipsSuffix, Resources.UpdateDescription, Resources.ReplacePreview };
             bool[] optionSelection = { false, false, false };
             Option _limaShipOptions = new Option(prompt, options, optionSelection);
-            int selectedIndex = 0;
+            int? selectedIndex = 0;
 
-            while (selectedIndex != -1)
+            while (selectedIndex != null)
             {
                 selectedIndex = _limaShipOptions.Init();
 
-                if (selectedIndex != -1)
+                if (selectedIndex != null)
                 {
-                    if (optionSelection[selectedIndex])
+                    if (optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = false;
+                        optionSelection[(int)selectedIndex] = false;
                     }
-                    else if (!optionSelection[selectedIndex])
+                    else if (!optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = true;
+                        optionSelection[(int)selectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])
@@ -692,21 +692,21 @@ namespace PureHistory
             string[] options = { Resources.MiscKamikazeOption1, Resources.MiscKamikazeOption2, Resources.MiscKamikazeOption3, Resources.MiscAlabamaOption1, Resources.MiscAlabamaOption2, Resources.MiscAlabamaOption3, Resources.MiscIwakiSuffix, Resources.MiscArkansasSuffix, Resources.MiscWestVirginiaName };
             bool[] optionSelection = { false, false, false, false, false, false, false, false, false };
             Option _miscellaneousOptions = new Option(prompt, options, optionSelection);
-            int selectedIndex = 0;
+            int? selectedIndex = 0;
 
-            while (selectedIndex != -1)
+            while (selectedIndex != null)
             {
                 selectedIndex = _miscellaneousOptions.Init();
 
-                if (selectedIndex != -1)
+                if (selectedIndex != null)
                 {
-                    if (optionSelection[selectedIndex])
+                    if (optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = false;
+                        optionSelection[(int)selectedIndex] = false;
                     }
-                    else if (!optionSelection[selectedIndex])
+                    else if (!optionSelection[(int)selectedIndex])
                     {
-                        optionSelection[selectedIndex] = true;
+                        optionSelection[(int)selectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])

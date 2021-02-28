@@ -75,7 +75,7 @@ namespace PureHistory
         /// Initializes the options screen
         /// </summary>
         /// <returns>The index of the option that the user has toggled / return -1 when the ENTER key has been pressed</returns>
-        public int Init()
+        public int? Init()
         {
             ConsoleKey keyPressed;
             do
@@ -104,7 +104,7 @@ namespace PureHistory
                 }
                 else if (keyPressed == ConsoleKey.Enter)
                 {
-                    selectedIndex = -1;
+                    return null;
                 }
             }
             while (keyPressed != ConsoleKey.Enter && keyPressed != ConsoleKey.RightArrow);
