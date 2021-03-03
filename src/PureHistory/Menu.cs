@@ -9,18 +9,18 @@ namespace PureHistory
     internal class Menu
     {
         private int selectedIndex;
-        private string[] options;
-        private string prompt;
+        private string[] _options;
+        private string _prompt;
 
         /// <summary>
         /// Creates a new instance of the Menu class
         /// </summary>
         /// <param name="_prompt">The line of text to be displayed at the top of the menu</param>
         /// <param name="_options">The available options</param>
-        public Menu(string _prompt, string[] _options)
+        public Menu(string prompt, string[] options)
         {
-            prompt = _prompt;
-            options = _options;
+            _prompt = prompt;
+            _options = options;
             selectedIndex = 0;
         }
 
@@ -29,10 +29,10 @@ namespace PureHistory
         /// </summary>
         private void Draw()
         {
-            WriteLine(prompt);
-            for (int i = 0; i < options.Length; i++)
+            WriteLine(_prompt);
+            for (int i = 0; i < _options.Length; i++)
             {
-                string currentOption = options[i];
+                string currentOption = _options[i];
                 string prefix;
 
                 if (i == selectedIndex)
@@ -72,13 +72,13 @@ namespace PureHistory
                     selectedIndex--;
                     if (selectedIndex == -1)
                     {
-                        selectedIndex = options.Length - 1;
+                        selectedIndex = _options.Length - 1;
                     }
                 }
                 else if (keyPressed == ConsoleKey.DownArrow)
                 {
                     selectedIndex++;
-                    if (selectedIndex == options.Length)
+                    if (selectedIndex == _options.Length)
                     {
                         selectedIndex = 0;
                     }

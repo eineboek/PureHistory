@@ -197,8 +197,18 @@ namespace PureHistory
         /// </summary>
         private static void ArpeggioSelection()
         {
-            //Create options instance to store the choices in
-            ArpeggioOptions arpeggioOptions = new ArpeggioOptions();
+            //Options instance to store the choices in
+            ArpeggioOptions arpeggioOptions;
+
+            //Initialization based on whether the User has visited this page before
+            if (modInstallation.arpeggio != null)
+            {
+                arpeggioOptions = modInstallation.arpeggio;
+            }
+            else
+            {
+                arpeggioOptions = new ArpeggioOptions();
+            }
 
             Clear();
 
@@ -206,25 +216,29 @@ namespace PureHistory
             string prompt = Resources.ArpeggioPrompt;
             string[] options = { Resources.ArpeggioPrefix, Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag };
             bool[] optionSelection = { false, false, false, false, false, false };
-            Option _arpeggioOptions = new Option(prompt, options, optionSelection);
-            int? selectedIndex = 0;
+            MultipleChoiceOption _arpeggioOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceResponse response;
 
-            //Continuous loop until ENTER key is pressed
-            while (selectedIndex != null)
+            //Continuous loop until either right/left arrow key is pressed
+            while (true)
             {
-                selectedIndex = _arpeggioOptions.Init();
+                response = _arpeggioOptions.Init();
 
-                //If ENTER key was pressed, break the loop
-                if (selectedIndex != null)
+                //If right or left arrow key was pressed, break the loop
+                if (response.ReturnToPrevious || response.ContinueToNext)
+                {
+                    break;
+                }
+                else if (response.ToggleSelectedIndex != null) //The User pressed ENTER to toggle an option
                 {
                     //Toggle settings
-                    if (optionSelection[(int)selectedIndex])
+                    if (optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = false;
+                        optionSelection[(int)response.ToggleSelectedIndex] = false;
                     }
-                    else if (!optionSelection[(int)selectedIndex])
+                    else if (!optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = true;
+                        optionSelection[(int)response.ToggleSelectedIndex] = true;
                     }
 
                     //Dependencies of the options
@@ -242,23 +256,31 @@ namespace PureHistory
                         optionSelection[2] = false;
                     }
 
+                    //Update the option selection
                     _arpeggioOptions.UpdateOptionSelection(optionSelection);
                 }
             }
 
-            //Set the values of the selection to the options instance
-            arpeggioOptions.removePrefixes = optionSelection[0];
-            arpeggioOptions.replaceNames = optionSelection[1];
-            arpeggioOptions.updateDescription = optionSelection[2];
-            arpeggioOptions.replaceSilhouettes = optionSelection[3];
-            arpeggioOptions.replacePreviews = optionSelection[4];
-            arpeggioOptions.replaceFlags = optionSelection[5];
+            if (response.ReturnToPrevious) //Pressing the left arrow key leads back to the Client Selection screen
+            {
+                ClientSelection();
+            }
+            else if (response.ContinueToNext) //Pressing the right arrow key leads to the next selection
+            {
+                //Set the values of the selection to the options instance
+                arpeggioOptions.removePrefixes = optionSelection[0];
+                arpeggioOptions.replaceNames = optionSelection[1];
+                arpeggioOptions.updateDescription = optionSelection[2];
+                arpeggioOptions.replaceSilhouettes = optionSelection[3];
+                arpeggioOptions.replacePreviews = optionSelection[4];
+                arpeggioOptions.replaceFlags = optionSelection[5];
 
-            //Pass the options to the modInstallation instance
-            modInstallation.arpeggio = arpeggioOptions;
+                //Pass the options to the modInstallation instance
+                modInstallation.arpeggio = arpeggioOptions;
 
-            //Continue with the next option screen
-            AzurLaneSelection();
+                //Continue with the next option screen
+                AzurLaneSelection();
+            }
 
             //This procedure applies to all other selection screens, so I will not comment all of them
         }
@@ -268,29 +290,41 @@ namespace PureHistory
         /// </summary>
         private static void AzurLaneSelection()
         {
-            AzurLaneOptions azurLaneOptions = new AzurLaneOptions();
+            AzurLaneOptions azurLaneOptions;
+            if (modInstallation.azurLane != null)
+            {
+                azurLaneOptions = modInstallation.azurLane;
+            }
+            else
+            {
+                azurLaneOptions = new AzurLaneOptions();
+            }
 
             Clear();
 
             string prompt = Resources.AzurLanePrompt + "\n" + Resources.AzurLaneWarning;
             string[] options = { Resources.AzurLanePrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
             bool[] optionSelection = { false, false, false, false, false };
-            Option _azurLaneOptions = new Option(prompt, options, optionSelection);
-            int? selectedIndex = 0;
+            MultipleChoiceOption _azurLaneOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceResponse response;
 
-            while (selectedIndex != null)
+            while (true)
             {
-                selectedIndex = _azurLaneOptions.Init();
+                response = _azurLaneOptions.Init();
 
-                if (selectedIndex != null)
+                if (response.ReturnToPrevious || response.ContinueToNext)
                 {
-                    if (optionSelection[(int)selectedIndex] == true)
+                    break;
+                }
+                else if (response.ToggleSelectedIndex != null)
+                {
+                    if (optionSelection[(int)response.ToggleSelectedIndex] == true)
                     {
-                        optionSelection[(int)selectedIndex] = false;
+                        optionSelection[(int)response.ToggleSelectedIndex] = false;
                     }
-                    else if (!optionSelection[(int)selectedIndex])
+                    else if (!optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = true;
+                        optionSelection[(int)response.ToggleSelectedIndex] = true;
                     }
 
                     if (optionSelection[0])
@@ -311,44 +345,65 @@ namespace PureHistory
                 }
             }
 
-            azurLaneOptions.removePrefixes = optionSelection[0];
-            azurLaneOptions.replaceNames = optionSelection[1];
-            azurLaneOptions.updateDescription = optionSelection[2];
-            azurLaneOptions.replacePreviews = optionSelection[3];
+            if (response.ReturnToPrevious)
+            {
+                //Go back to the previous selection
+                ArpeggioSelection();
+            }
+            else if (response.ContinueToNext)
+            {
+                azurLaneOptions.removePrefixes = optionSelection[0];
+                azurLaneOptions.replaceNames = optionSelection[1];
+                azurLaneOptions.updateDescription = optionSelection[2];
+                azurLaneOptions.replacePreviews = optionSelection[3];
 
-            modInstallation.azurLane = azurLaneOptions;
+                modInstallation.azurLane = azurLaneOptions;
 
-            HSFHarekazeSelection();
+                HSFHarekazeSelection();
+            }
         }
+
 
         /// <summary>
         /// User settings for content of High School Fleet - HSF Harekaze
         /// </summary>
         private static void HSFHarekazeSelection()
         {
-            HighSchoolFleetOptions hsfOptions = new HighSchoolFleetOptions();
+            HighSchoolFleetOptions hsfOptions;
+            if (modInstallation.highSchoolFleet != null)
+            {
+                hsfOptions = modInstallation.highSchoolFleet;
+            }
+            else
+            {
+                hsfOptions = new HighSchoolFleetOptions();
+            }
 
             Clear();
 
             string prompt = Resources.HSFHarekazePrompt + "\n" + Resources.HSFHarekazeWarning;
             string[] options = { Resources.HSFPrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
             bool[] optionSelection = { false, false, false, false };
-            Option _hsfHarekazeOptions = new Option(prompt, options, optionSelection);
-            int? selectedIndex = 0;
+            MultipleChoiceOption _hsfHarekazeOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceResponse response;
 
-            while (selectedIndex != null)
+            while (true)
             {
-                selectedIndex = _hsfHarekazeOptions.Init();
+                response = _hsfHarekazeOptions.Init();
 
-                if (selectedIndex != null)
+                if (response.ReturnToPrevious || response.ContinueToNext)
                 {
-                    if (optionSelection[(int)selectedIndex])
+                    break;
+                }
+                else if (response.ToggleSelectedIndex != null)
+                {
+                    if (optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = false;
+                        optionSelection[(int)response.ToggleSelectedIndex] = false;
                     }
-                    else if (!optionSelection[(int)selectedIndex])
+                    else if (!optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = true;
+                        optionSelection[(int)response.ToggleSelectedIndex] = true;
                     }
 
                     if (optionSelection[0])
@@ -369,42 +424,64 @@ namespace PureHistory
                 }
             }
 
-            hsfOptions.harekaze_RemovePrefix = optionSelection[0];
-            hsfOptions.harekaze_ReplaceName = optionSelection[1];
-            hsfOptions.harekaze_UpdateDescription = optionSelection[2];
-            hsfOptions.harekaze_ReplacePreview = optionSelection[3];
+            if (response.ReturnToPrevious)
+            {
+                //Go back to the previous selection
+                AzurLaneSelection();
+            }
+            else if (response.ContinueToNext)
+            {
+                hsfOptions.harekaze_RemovePrefix = optionSelection[0];
+                hsfOptions.harekaze_ReplaceName = optionSelection[1];
+                hsfOptions.harekaze_UpdateDescription = optionSelection[2];
+                hsfOptions.harekaze_ReplacePreview = optionSelection[3];
 
-            //Pass the options as a parameter to the next method which continues to use them
-            HSFSpeeSelection(hsfOptions);
+                //Pass the options as a parameter to the next method which continues to use them
+                HSFSpeeSelection();
+            }
         }
 
         /// <summary>
         /// User settings for content of High School Fleet - HSF Graf Spee
         /// </summary>
         /// <param name="hsfOptions">Passed from the previous method. Contains the options from the Harekaze selection screen.</param>
-        private static void HSFSpeeSelection(HighSchoolFleetOptions hsfOptions)
+        private static void HSFSpeeSelection()
         {
+            HighSchoolFleetOptions hsfOptions;
+            if (modInstallation.highSchoolFleet != null)
+            {
+                hsfOptions = modInstallation.highSchoolFleet;
+            }
+            else
+            {
+                hsfOptions = new HighSchoolFleetOptions();
+            }
+
             Clear();
 
             string prompt = Resources.HSFSpeePrompt;
             string[] options = { Resources.HSFPrefix, Resources.UpdateDescription, Resources.ReplacePreview };
             bool[] optionSelection = { false, false, false };
-            Option _hsfSpeeOptions = new Option(prompt, options, optionSelection);
-            int? selectedIndex = 0;
+            MultipleChoiceOption _hsfSpeeOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceResponse response;
 
-            while (selectedIndex != null)
+            while (true)
             {
-                selectedIndex = _hsfSpeeOptions.Init();
+                response = _hsfSpeeOptions.Init();
 
-                if (selectedIndex != null)
+                if (response.ReturnToPrevious || response.ContinueToNext)
                 {
-                    if (optionSelection[(int)selectedIndex])
+                    break;
+                }
+                else if (response.ToggleSelectedIndex != null)
+                {
+                    if (optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = false;
+                        optionSelection[(int)response.ToggleSelectedIndex] = false;
                     }
-                    else if (!optionSelection[(int)selectedIndex])
+                    else if (!optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = true;
+                        optionSelection[(int)response.ToggleSelectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])
@@ -416,13 +493,20 @@ namespace PureHistory
                 }
             }
 
-            hsfOptions.spee_RemovePrefix = optionSelection[0];
-            hsfOptions.spee_UpdateDescription = optionSelection[1];
-            hsfOptions.spee_ReplacePreview = optionSelection[2];
+            if (response.ReturnToPrevious)
+            {
+                HSFHarekazeSelection();
+            }
+            else if (response.ContinueToNext)
+            {
+                hsfOptions.spee_RemovePrefix = optionSelection[0];
+                hsfOptions.spee_UpdateDescription = optionSelection[1];
+                hsfOptions.spee_ReplacePreview = optionSelection[2];
 
-            modInstallation.highSchoolFleet = hsfOptions;
+                modInstallation.highSchoolFleet = hsfOptions;
 
-            Warhammer40KSelection();
+                Warhammer40KSelection();
+            }
         }
 
         /// <summary>
@@ -430,29 +514,41 @@ namespace PureHistory
         /// </summary>
         private static void Warhammer40KSelection()
         {
-            Warhammer40KOptions warhammerOptions = new Warhammer40KOptions();
+            Warhammer40KOptions warhammerOptions;
+            if (modInstallation.warhammer40K != null)
+            {
+                warhammerOptions = modInstallation.warhammer40K;
+            }
+            else
+            {
+                warhammerOptions = new Warhammer40KOptions();
+            }
 
             Clear();
 
             string prompt = Resources.WarhammerPrompt + "\n" + Resources.WarhammerWarning;
             string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.ReplaceFlag };
             bool[] optionSelection = { false, false, false, false };
-            Option _warhammerOptions = new Option(prompt, options, optionSelection);
-            int? selectedIndex = 0;
+            MultipleChoiceOption _warhammerOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceResponse response;
 
-            while (selectedIndex != null)
+            while (true)
             {
-                selectedIndex = _warhammerOptions.Init();
+                response = _warhammerOptions.Init();
 
-                if (selectedIndex != null)
+                if (response.ReturnToPrevious || response.ContinueToNext)
                 {
-                    if (optionSelection[(int)selectedIndex])
+                    break;
+                }
+                else if (response.ToggleSelectedIndex != null)
+                {
+                    if (optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = false;
+                        optionSelection[(int)response.ToggleSelectedIndex] = false;
                     }
-                    else if (!optionSelection[(int)selectedIndex])
+                    else if (!optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = true;
+                        optionSelection[(int)response.ToggleSelectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])
@@ -464,14 +560,21 @@ namespace PureHistory
                 }
             }
 
-            warhammerOptions.replaceNames = optionSelection[0];
-            warhammerOptions.updateDescription = optionSelection[1];
-            warhammerOptions.replacePreviews = optionSelection[2];
-            warhammerOptions.replaceFlags = optionSelection[3];
+            if (response.ReturnToPrevious)
+            {
+                HSFSpeeSelection();
+            }
+            else if (response.ContinueToNext)
+            {
+                warhammerOptions.replaceNames = optionSelection[0];
+                warhammerOptions.updateDescription = optionSelection[1];
+                warhammerOptions.replacePreviews = optionSelection[2];
+                warhammerOptions.replaceFlags = optionSelection[3];
 
-            modInstallation.warhammer40K = warhammerOptions;
+                modInstallation.warhammer40K = warhammerOptions;
 
-            DragonSelection();
+                DragonSelection();
+            }
         }
 
         /// <summary>
@@ -479,29 +582,41 @@ namespace PureHistory
         /// </summary>
         private static void DragonSelection()
         {
-            DragonShipOptions dragonShipOptions = new DragonShipOptions();
+            DragonShipOptions dragonShipOptions;
+            if (modInstallation.warhammer40K != null)
+            {
+                dragonShipOptions = modInstallation.dragonShips;
+            }
+            else
+            {
+                dragonShipOptions = new DragonShipOptions();
+            }
 
             Clear();
 
             string prompt = Resources.DragonShipPrompt;
             string[] options = { Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag };
             bool[] optionSelection = { false, false, false, false, false };
-            Option _dragonOptions = new Option(prompt, options, optionSelection);
-            int? selectedIndex = 0;
+            MultipleChoiceOption _dragonOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceResponse response;
 
-            while (selectedIndex != null)
+            while (true)
             {
-                selectedIndex = _dragonOptions.Init();
+                response = _dragonOptions.Init();
 
-                if (selectedIndex != null)
+                if (response.ReturnToPrevious || response.ContinueToNext)
                 {
-                    if (optionSelection[(int)selectedIndex])
+                    break;
+                }
+                else if (response.ToggleSelectedIndex != null)
+                {
+                    if (optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = false;
+                        optionSelection[(int)response.ToggleSelectedIndex] = false;
                     }
-                    else if (!optionSelection[(int)selectedIndex])
+                    else if (!optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = true;
+                        optionSelection[(int)response.ToggleSelectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])
@@ -513,15 +628,22 @@ namespace PureHistory
                 }
             }
 
-            dragonShipOptions.replaceNames = optionSelection[0];
-            dragonShipOptions.updateDescription = optionSelection[1];
-            dragonShipOptions.replaceSilhouettes = optionSelection[2];
-            dragonShipOptions.replacePreviews = optionSelection[3];
-            dragonShipOptions.replaceFlags = optionSelection[4];
+            if (response.ReturnToPrevious)
+            {
+                Warhammer40KSelection();
+            }
+            else if (response.ContinueToNext)
+            {
+                dragonShipOptions.replaceNames = optionSelection[0];
+                dragonShipOptions.updateDescription = optionSelection[1];
+                dragonShipOptions.replaceSilhouettes = optionSelection[2];
+                dragonShipOptions.replacePreviews = optionSelection[3];
+                dragonShipOptions.replaceFlags = optionSelection[4];
 
-            modInstallation.dragonShips = dragonShipOptions;
+                modInstallation.dragonShips = dragonShipOptions;
 
-            LunarNewYearSelection();
+                LunarNewYearSelection();
+            }
         }
 
         /// <summary>
@@ -529,29 +651,41 @@ namespace PureHistory
         /// </summary>
         private static void LunarNewYearSelection()
         {
-            LunarNewYearShipOptions lunarOptions = new LunarNewYearShipOptions();
+            LunarNewYearShipOptions lunarOptions;
+            if (modInstallation.lunarNewYearShips != null)
+            {
+                lunarOptions = modInstallation.lunarNewYearShips;
+            }
+            else
+            {
+                lunarOptions = new LunarNewYearShipOptions();
+            }
 
             Clear();
 
             string prompt = Resources.LunarNewYearPrompt;
             string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.LunarNewYearFlagOption1, Resources.LunarNewYearFlagOption2 };
             bool[] optionSelection = { false, false, false, false, false };
-            Option _lunarOptions = new Option(prompt, options, optionSelection);
-            int? selectedIndex = 0;
+            MultipleChoiceOption _lunarOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceResponse response;
 
-            while (selectedIndex != null)
+            while (true)
             {
-                selectedIndex = _lunarOptions.Init();
+                response = _lunarOptions.Init();
 
-                if (selectedIndex != null)
+                if (response.ReturnToPrevious || response.ContinueToNext)
                 {
-                    if (optionSelection[(int)selectedIndex] == true)
+                    break;
+                }
+                else if (response.ToggleSelectedIndex != null)
+                {
+                    if (optionSelection[(int)response.ToggleSelectedIndex] == true)
                     {
-                        optionSelection[(int)selectedIndex] = false;
+                        optionSelection[(int)response.ToggleSelectedIndex] = false;
                     }
-                    else if (!optionSelection[(int)selectedIndex])
+                    else if (!optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = true;
+                        optionSelection[(int)response.ToggleSelectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])
@@ -572,15 +706,22 @@ namespace PureHistory
                 }
             }
 
-            lunarOptions.replaceNames = optionSelection[0];
-            lunarOptions.updateDescription = optionSelection[1];
-            lunarOptions.replacePreviews = optionSelection[2];
-            lunarOptions.replaceFlags_Panasia = optionSelection[3];
-            lunarOptions.replaceFlags_RespectiveCountry = optionSelection[4];
+            if (response.ReturnToPrevious)
+            {
+                DragonSelection();
+            }
+            else if (response.ContinueToNext)
+            {
+                lunarOptions.replaceNames = optionSelection[0];
+                lunarOptions.updateDescription = optionSelection[1];
+                lunarOptions.replacePreviews = optionSelection[2];
+                lunarOptions.replaceFlags_Panasia = optionSelection[3];
+                lunarOptions.replaceFlags_RespectiveCountry = optionSelection[4];
 
-            modInstallation.lunarNewYearShips = lunarOptions;
+                modInstallation.lunarNewYearShips = lunarOptions;
 
-            BlackSelection();
+                BlackSelection();
+            }
         }
 
         /// <summary>
@@ -588,29 +729,41 @@ namespace PureHistory
         /// </summary>
         private static void BlackSelection()
         {
-            BlackShipOptions blackShipOptions = new BlackShipOptions();
+            BlackShipOptions blackShipOptions;
+            if (modInstallation.blackShips != null)
+            {
+                blackShipOptions = modInstallation.blackShips;
+            }
+            else
+            {
+                blackShipOptions = new BlackShipOptions();
+            }
 
             Clear();
 
             string prompt = Resources.BlackShipPrompt;
             string[] options = { Resources.BlackShipsSuffix, Resources.UpdateDescription, Resources.ReplacePreview };
             bool[] optionSelection = { false, false, false };
-            Option _blackShipOptions = new Option(prompt, options, optionSelection);
-            int? selectedIndex = 0;
+            MultipleChoiceOption _blackShipOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceResponse response;
 
-            while (selectedIndex != null)
+            while (true)
             {
-                selectedIndex = _blackShipOptions.Init();
+                response = _blackShipOptions.Init();
 
-                if (selectedIndex != null)
+                if (response.ReturnToPrevious || response.ContinueToNext)
                 {
-                    if (optionSelection[(int)selectedIndex])
+                    break;
+                }
+                else if (response.ToggleSelectedIndex != null)
+                {
+                    if (optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = false;
+                        optionSelection[(int)response.ToggleSelectedIndex] = false;
                     }
-                    else if (!optionSelection[(int)selectedIndex])
+                    else if (!optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = true;
+                        optionSelection[(int)response.ToggleSelectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])
@@ -622,13 +775,20 @@ namespace PureHistory
                 }
             }
 
-            blackShipOptions.removeSuffixes = optionSelection[0];
-            blackShipOptions.updateDescription = optionSelection[1];
-            blackShipOptions.replacePreviews = optionSelection[2];
+            if (response.ReturnToPrevious)
+            {
+                LunarNewYearSelection();
+            }
+            else if (response.ContinueToNext)
+            {
+                blackShipOptions.removeSuffixes = optionSelection[0];
+                blackShipOptions.updateDescription = optionSelection[1];
+                blackShipOptions.replacePreviews = optionSelection[2];
 
-            modInstallation.blackShips = blackShipOptions;
+                modInstallation.blackShips = blackShipOptions;
 
-            LimaSelection();
+                LimaSelection();
+            }
         }
 
         /// <summary>
@@ -636,29 +796,41 @@ namespace PureHistory
         /// </summary>
         private static void LimaSelection()
         {
-            LimaShipOptions limaShipOptions = new LimaShipOptions();
+            LimaShipOptions limaShipOptions;
+            if (modInstallation.limaShips != null)
+            {
+                limaShipOptions = modInstallation.limaShips;
+            }
+            else
+            {
+                limaShipOptions = new LimaShipOptions();
+            }
 
             Clear();
 
             string prompt = Resources.LimaShipPrompt;
             string[] options = { Resources.LimaShipsSuffix, Resources.UpdateDescription, Resources.ReplacePreview };
             bool[] optionSelection = { false, false, false };
-            Option _limaShipOptions = new Option(prompt, options, optionSelection);
-            int? selectedIndex = 0;
+            MultipleChoiceOption _limaShipOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceResponse response;
 
-            while (selectedIndex != null)
+            while (true)
             {
-                selectedIndex = _limaShipOptions.Init();
+                response = _limaShipOptions.Init();
 
-                if (selectedIndex != null)
+                if (response.ReturnToPrevious || response.ContinueToNext)
                 {
-                    if (optionSelection[(int)selectedIndex])
+                    break;
+                }
+                else if (response.ToggleSelectedIndex != null)
+                {
+                    if (optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = false;
+                        optionSelection[(int)response.ToggleSelectedIndex] = false;
                     }
-                    else if (!optionSelection[(int)selectedIndex])
+                    else if (!optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = true;
+                        optionSelection[(int)response.ToggleSelectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])
@@ -670,13 +842,20 @@ namespace PureHistory
                 }
             }
 
-            limaShipOptions.removeSuffixes = optionSelection[0];
-            limaShipOptions.updateDescription = optionSelection[1];
-            limaShipOptions.replacePreviews = optionSelection[2];
+            if (response.ReturnToPrevious)
+            {
+                BlackSelection();
+            }
+            else if (response.ContinueToNext)
+            {
+                limaShipOptions.removeSuffixes = optionSelection[0];
+                limaShipOptions.updateDescription = optionSelection[1];
+                limaShipOptions.replacePreviews = optionSelection[2];
 
-            modInstallation.limaShips = limaShipOptions;
+                modInstallation.limaShips = limaShipOptions;
 
-            MiscellaneousSelection();
+                MiscellaneousSelection();
+            }
         }
 
         /// <summary>
@@ -684,29 +863,41 @@ namespace PureHistory
         /// </summary>
         private static void MiscellaneousSelection()
         {
-            MiscellaneousOptions miscellaneousOptions = new MiscellaneousOptions();
+            MiscellaneousOptions miscellaneousOptions;
+            if (modInstallation.limaShips != null)
+            {
+                miscellaneousOptions = modInstallation.miscellaneous;
+            }
+            else
+            {
+                miscellaneousOptions = new MiscellaneousOptions();
+            }
 
             Clear();
 
             string prompt = Resources.MiscellaneousPrompt;
             string[] options = { Resources.MiscKamikazeOption1, Resources.MiscKamikazeOption2, Resources.MiscKamikazeOption3, Resources.MiscAlabamaOption1, Resources.MiscAlabamaOption2, Resources.MiscAlabamaOption3, Resources.MiscIwakiSuffix, Resources.MiscArkansasSuffix, Resources.MiscWestVirginiaName };
             bool[] optionSelection = { false, false, false, false, false, false, false, false, false };
-            Option _miscellaneousOptions = new Option(prompt, options, optionSelection);
-            int? selectedIndex = 0;
+            MultipleChoiceOption _miscellaneousOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceResponse response;
 
-            while (selectedIndex != null)
+            while (true)
             {
-                selectedIndex = _miscellaneousOptions.Init();
+                response = _miscellaneousOptions.Init();
 
-                if (selectedIndex != null)
+                if (response.ReturnToPrevious || response.ContinueToNext)
                 {
-                    if (optionSelection[(int)selectedIndex])
+                    break;
+                }
+                else if (response.ToggleSelectedIndex != null)
+                {
+                    if (optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = false;
+                        optionSelection[(int)response.ToggleSelectedIndex] = false;
                     }
-                    else if (!optionSelection[(int)selectedIndex])
+                    else if (!optionSelection[(int)response.ToggleSelectedIndex])
                     {
-                        optionSelection[(int)selectedIndex] = true;
+                        optionSelection[(int)response.ToggleSelectedIndex] = true;
                     }
 
                     if (optionSelection[1] && !optionSelection[0])
@@ -723,19 +914,26 @@ namespace PureHistory
                 }
             }
 
-            miscellaneousOptions.kamikaze_removeSuffix = optionSelection[0];
-            miscellaneousOptions.kamikaze_updateDescription = optionSelection[1];
-            miscellaneousOptions.kamikaze_replacePreview = optionSelection[2];
-            miscellaneousOptions.alabama_removeSuffix = optionSelection[3];
-            miscellaneousOptions.alabama_updateDescription = optionSelection[4];
-            miscellaneousOptions.alabama_replacePreview = optionSelection[5];
-            miscellaneousOptions.iwaki_removeSuffix = optionSelection[6];
-            miscellaneousOptions.arkansas_removeSuffix = optionSelection[7];
-            miscellaneousOptions.westVirginia_correctName = optionSelection[8];
+            if (response.ReturnToPrevious)
+            {
+                LimaSelection();
+            }
+            else if (response.ContinueToNext)
+            {
+                miscellaneousOptions.kamikaze_removeSuffix = optionSelection[0];
+                miscellaneousOptions.kamikaze_updateDescription = optionSelection[1];
+                miscellaneousOptions.kamikaze_replacePreview = optionSelection[2];
+                miscellaneousOptions.alabama_removeSuffix = optionSelection[3];
+                miscellaneousOptions.alabama_updateDescription = optionSelection[4];
+                miscellaneousOptions.alabama_replacePreview = optionSelection[5];
+                miscellaneousOptions.iwaki_removeSuffix = optionSelection[6];
+                miscellaneousOptions.arkansas_removeSuffix = optionSelection[7];
+                miscellaneousOptions.westVirginia_correctName = optionSelection[8];
 
-            modInstallation.miscellaneous = miscellaneousOptions;
+                modInstallation.miscellaneous = miscellaneousOptions;
 
-            PerformInstallation();
+                PerformInstallation();
+            }
         }
 
         /// <summary>
@@ -743,6 +941,8 @@ namespace PureHistory
         /// </summary>
         private static void PerformInstallation()
         {
+            //TODO: Give user the ability to go back
+
             Clear();
 
             WriteLine(Resources.StartInstallation);
