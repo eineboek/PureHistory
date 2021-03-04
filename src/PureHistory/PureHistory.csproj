@@ -5,26 +5,32 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Platforms>x64</Platforms>
     <StartupObject>PureHistory.Program</StartupObject>
-    <ApplicationIcon>logo.ico</ApplicationIcon>
+    <ApplicationIcon></ApplicationIcon>
     <NeutralLanguage>en</NeutralLanguage>
-    <PackageIcon>logo.png</PackageIcon>
+    <PackageIcon></PackageIcon>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <NoWin32Manifest>true</NoWin32Manifest>
     <Authors>eineboek</Authors>
     <Company>eineboek</Company>
-    <Description>Customisation mod for World of Warships</Description>
+    <Description>This mod replaces collaboration content in the Wargaming.net game World of Warships</Description>
     <Copyright>GNU General Public License v3.0</Copyright>
     <PackageLicenseExpression>GNU General Public License v3.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/eineboek/PureHistory</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryUrl>https://github.com/eineboek/PureHistory</RepositoryUrl>
     <Version>1.0.1</Version>
+    <RepositoryType>GitHub</RepositoryType>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
@@ -45,10 +51,6 @@
   <ItemGroup>
     <None Update="data.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\..\Ressourcen\logo.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 
