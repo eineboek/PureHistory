@@ -1,5 +1,5 @@
 # PureHistory
-## Content Customisation Tool for World of Warships
+## Content Customization Tool for World of Warships
 
 Information about the mod can be found here:
 [Link to forum post will go here as soon as it is published]
