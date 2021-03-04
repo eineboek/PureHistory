@@ -235,13 +235,13 @@
     <value>PureHistory Version 1.0.1</value>
   </data>
   <data name="NavigationHelp1" xml:space="preserve">
-    <value>Pfeiltaste oben/unten zum Bewegen</value>
+    <value>Pfeiltaste oben/unten zum Bewegen zwischen Optionen</value>
   </data>
   <data name="NavigationHelp2" xml:space="preserve">
-    <value>Pfeiltaste rechts um eine Option zu ändern</value>
+    <value>ENTER um eine Option zu ändern/auszuwählen</value>
   </data>
   <data name="NavigationHelp3" xml:space="preserve">
-    <value>ENTER zum Bestätigen/Fortfahren zur nächsten Seite</value>
+    <value>Pfeiltaste links/rechts um zur vorherigen/nächsten Seite zu springen</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>Nein</value>
@@ -271,7 +271,7 @@
     <value>Select Language / Sprache auswählen :</value>
   </data>
   <data name="StartInstallation" xml:space="preserve">
-    <value>Zum Beginnen der Installation beliebige Taste drücken ...</value>
+    <value>Zurück: linke Pfeiltaste drücken - Zum Beginnen der Installation ENTER drücken ...</value>
   </data>
   <data name="UpdateDescription" xml:space="preserve">
     <value>- Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>

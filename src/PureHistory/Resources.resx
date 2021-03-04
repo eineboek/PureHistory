@@ -235,13 +235,13 @@
     <value>PureHistory Version 1.0.1</value>
   </data>
   <data name="NavigationHelp1" xml:space="preserve">
-    <value>Arrow Keys up/down for movement</value>
+    <value>Arrow Keys up/down for movement between options</value>
   </data>
   <data name="NavigationHelp2" xml:space="preserve">
-    <value>Arrow Key right to toggle an option</value>
+    <value>ENTER to toggle/select an option</value>
   </data>
   <data name="NavigationHelp3" xml:space="preserve">
-    <value>ENTER to continue to the next page</value>
+    <value>Arrow Keys left/right to move to the previous/next page</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
@@ -271,7 +271,7 @@
     <value>Select Language / Sprache auswählen :</value>
   </data>
   <data name="StartInstallation" xml:space="preserve">
-    <value>Press any key to start the mod installation ...</value>
+    <value>Press left arrow key to go back - Press ENTER to start the mod installation ...</value>
   </data>
   <data name="UpdateDescription" xml:space="preserve">
     <value>- Update ship description for distinguishment in port</value>

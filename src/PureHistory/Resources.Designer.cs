@@ -412,7 +412,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Keys up/down for movement ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Keys up/down for movement between options ähnelt.
         /// </summary>
         internal static string NavigationHelp1 {
             get {
@@ -421,7 +421,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Key right to toggle an option ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ENTER to toggle/select an option ähnelt.
         /// </summary>
         internal static string NavigationHelp2 {
             get {
@@ -430,7 +430,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die ENTER to continue to the next page ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Keys left/right to move to the previous/next page ähnelt.
         /// </summary>
         internal static string NavigationHelp3 {
             get {
@@ -520,7 +520,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Press any key to start the mod installation ... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Press left arrow key to go back - Press ENTER to start the mod installation ... ähnelt.
         /// </summary>
         internal static string StartInstallation {
             get {
