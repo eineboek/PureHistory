@@ -11,15 +11,16 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Authors>eineboek</Authors>
     <Company>eineboek</Company>
-    <Description>This mod replaces collaboration content in the Wargaming.net game World of Warships</Description>
+    <Description>This mod customizes collaboration content in the Wargaming.net game World of Warships.</Description>
     <Copyright>GNU General Public License v3.0</Copyright>
     <PackageLicenseExpression>GNU General Public License v3.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/eineboek/PureHistory</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryUrl>https://github.com/eineboek/PureHistory</RepositoryUrl>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <RepositoryType>GitHub</RepositoryType>
     <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <PackageLicenseFile></PackageLicenseFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

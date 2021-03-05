@@ -232,7 +232,7 @@
     <value>World of Warships ModStation wurde erkannt. Bitte installieren sie diesen Mod nach der Ausführung der ModStation, da die ModStation alle anderen Mods im Ordner überschreibt.</value>
   </data>
   <data name="ModVersion" xml:space="preserve">
-    <value>PureHistory Version 1.0.1</value>
+    <value>PureHistory Version 1.1.0</value>
   </data>
   <data name="NavigationHelp1" xml:space="preserve">
     <value>Pfeiltaste oben/unten zum Bewegen zwischen Optionen</value>

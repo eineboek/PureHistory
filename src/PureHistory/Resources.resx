@@ -232,7 +232,7 @@
     <value>World of Warships ModStation was found. Please install this mod after using the ModStation, as the ModStation will override all other mod files.</value>
   </data>
   <data name="ModVersion" xml:space="preserve">
-    <value>PureHistory Version 1.0.1</value>
+    <value>PureHistory Version 1.1.0</value>
   </data>
   <data name="NavigationHelp1" xml:space="preserve">
     <value>Arrow Keys up/down for movement between options</value>
