@@ -202,10 +202,10 @@
     <value>Remove 'ST' suffix of Alabama ST</value>
   </data>
   <data name="MiscAlabamaOption2" xml:space="preserve">
-    <value> - Update description for distinguishment</value>
+    <value>• Update description for distinguishment</value>
   </data>
   <data name="MiscAlabamaOption3" xml:space="preserve">
-    <value> - Replace Ship preview</value>
+    <value>• Replace Ship preview</value>
   </data>
   <data name="MiscArkansasSuffix" xml:space="preserve">
     <value>Remove 'B' suffix of Arkansas Beta</value>
@@ -220,10 +220,10 @@
     <value>Remove 'R' suffix of Kamikaze R</value>
   </data>
   <data name="MiscKamikazeOption2" xml:space="preserve">
-    <value> - Update description for distinguishment</value>
+    <value>• Update description for distinguishment</value>
   </data>
   <data name="MiscKamikazeOption3" xml:space="preserve">
-    <value> - Replace Ship preview</value>
+    <value>• Replace Ship preview</value>
   </data>
   <data name="MiscWestVirginiaName" xml:space="preserve">
     <value>Remove the '1941' from West Virginia 1941</value>
@@ -274,7 +274,7 @@
     <value>Press left arrow key to go back - Press ENTER to start the mod installation ...</value>
   </data>
   <data name="UpdateDescription" xml:space="preserve">
-    <value>- Update ship description for distinguishment in port</value>
+    <value>• Update ship description for distinguishment in port</value>
   </data>
   <data name="WarhammerPrompt" xml:space="preserve">
     <value>Settings for Warhammer 40.000 ships</value>

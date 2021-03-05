@@ -202,10 +202,10 @@
     <value>'ST'-Suffix von Alabama ST entfernen</value>
   </data>
   <data name="MiscAlabamaOption2" xml:space="preserve">
-    <value>- Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>
+    <value>• Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>
   </data>
   <data name="MiscAlabamaOption3" xml:space="preserve">
-    <value>- Schiffsvorschau ersetzen</value>
+    <value>• Schiffsvorschau ersetzen</value>
   </data>
   <data name="MiscArkansasSuffix" xml:space="preserve">
     <value>'B'-Suffix von Arkansas Beta entfernen</value>
@@ -220,10 +220,10 @@
     <value>'R' -Suffix von Kamikaze R entfernen</value>
   </data>
   <data name="MiscKamikazeOption2" xml:space="preserve">
-    <value>- Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>
+    <value>• Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>
   </data>
   <data name="MiscKamikazeOption3" xml:space="preserve">
-    <value> - Schiffsvorschau ersetzen</value>
+    <value> • Schiffsvorschau ersetzen</value>
   </data>
   <data name="MiscWestVirginiaName" xml:space="preserve">
     <value>Entfernen der '1941' bei der West Virginia 1941</value>
@@ -274,7 +274,7 @@
     <value>Zurück: linke Pfeiltaste drücken - Zum Beginnen der Installation ENTER drücken ...</value>
   </data>
   <data name="UpdateDescription" xml:space="preserve">
-    <value>- Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>
+    <value>• Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>
   </data>
   <data name="WarhammerPrompt" xml:space="preserve">
     <value>Einstellungen für Warhammer 40.000-Schiffe</value>

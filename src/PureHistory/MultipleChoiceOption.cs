@@ -41,7 +41,17 @@ namespace PureHistory
         /// </summary>
         private void Draw()
         {
-            WriteLine(_prompt + "\n");
+            WriteLine(_prompt + "\r\n");
+
+            int highestStringLength = 0;
+            foreach(string choice in _choices)
+            {
+                if (choice.Length > highestStringLength) 
+                {
+                    highestStringLength = choice.Length;
+                }
+            }
+
             for (int i = 0; i < _choices.Length; i++)
             {
                 string currentChoice = _choices[i];
@@ -61,11 +71,11 @@ namespace PureHistory
                 }
                 if (_choiceSelection[i])
                 {
-                    WriteLine($"{prefix} {currentChoice} >>" + " - " + Resources.Yes);
+                    WriteLine($"{prefix} {currentChoice} " + WhiteSpace(highestStringLength - currentChoice.Length) + ">> " + Resources.Yes);
                 }
                 else if (!_choiceSelection[i])
                 {
-                    WriteLine($"{prefix} {currentChoice} >>" + " - " + Resources.No);
+                    WriteLine($"{prefix} {currentChoice} " + WhiteSpace(highestStringLength - currentChoice.Length) + ">> " + Resources.No);
                 }
             }
             ResetColor();
@@ -115,6 +125,18 @@ namespace PureHistory
                     return new MultipleChoiceResponse(false, true, null);
                 }
             }
+        }
+
+        private string WhiteSpace(int amount)
+        {
+            string whiteSpace = string.Empty;
+
+            while (whiteSpace.Length < amount)
+            {
+                whiteSpace += " ";
+            }
+
+            return whiteSpace;
         }
     }
 

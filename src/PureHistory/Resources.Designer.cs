@@ -313,7 +313,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  - Update description for distinguishment ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die • Update description for distinguishment ähnelt.
         /// </summary>
         internal static string MiscAlabamaOption2 {
             get {
@@ -322,7 +322,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  - Replace Ship preview ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die • Replace Ship preview ähnelt.
         /// </summary>
         internal static string MiscAlabamaOption3 {
             get {
@@ -367,7 +367,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  - Update description for distinguishment ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die • Update description for distinguishment ähnelt.
         /// </summary>
         internal static string MiscKamikazeOption2 {
             get {
@@ -376,7 +376,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  - Replace Ship preview ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die • Replace Ship preview ähnelt.
         /// </summary>
         internal static string MiscKamikazeOption3 {
             get {
@@ -529,7 +529,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die - Update ship description for distinguishment in port ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die • Update ship description for distinguishment in port ähnelt.
         /// </summary>
         internal static string UpdateDescription {
             get {
