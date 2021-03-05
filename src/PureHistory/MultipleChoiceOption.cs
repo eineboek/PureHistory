@@ -44,9 +44,9 @@ namespace PureHistory
             WriteLine(_prompt + "\r\n");
 
             int highestStringLength = 0;
-            foreach(string choice in _choices)
+            foreach (string choice in _choices)
             {
-                if (choice.Length > highestStringLength) 
+                if (choice.Length > highestStringLength)
                 {
                     highestStringLength = choice.Length;
                 }
@@ -88,7 +88,7 @@ namespace PureHistory
         public MultipleChoiceResponse Init()
         {
             ConsoleKey keyPressed;
-            while(true)
+            while (true)
             {
                 Clear();
                 Draw();
@@ -154,6 +154,5 @@ namespace PureHistory
             ContinueToNext = continueToNext;
             ToggleSelectedIndex = toggleSelectedIndex;
         }
-
     }
 }

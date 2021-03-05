@@ -4,9 +4,9 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading;
 using System.Xml;
-using System.Text;
 using static System.Console;
 
 namespace PureHistory
@@ -390,7 +390,6 @@ namespace PureHistory
                 HSFHarekazeSelection();
             }
         }
-
 
         /// <summary>
         /// User settings for content of High School Fleet - HSF Harekaze
@@ -1087,9 +1086,6 @@ namespace PureHistory
             }
             else if (response == ConsoleKey.Enter)
             {
-
-
-
                 #region Extract files from the data archive
 
                 string executingPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
