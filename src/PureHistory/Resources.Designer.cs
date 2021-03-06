@@ -169,6 +169,15 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The installation path can&apos;t be empty. Please try again. ähnelt.
+        /// </summary>
+        internal static string EmptyPath {
+            get {
+                return ResourceManager.GetString("EmptyPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Press any key to exit the program ... ähnelt.
         /// </summary>
         internal static string ExitProgramAnyKey {
@@ -408,6 +417,15 @@ namespace PureHistory {
         internal static string PathCorrection {
             get {
                 return ResourceManager.GetString("PathCorrection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The specified path can&apos;t be found. Please try again. ähnelt.
+        /// </summary>
+        internal static string PathDoesntExist {
+            get {
+                return ResourceManager.GetString("PathDoesntExist", resourceCulture);
             }
         }
         

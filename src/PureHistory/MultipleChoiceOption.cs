@@ -9,9 +9,11 @@ namespace PureHistory
     internal class MultipleChoiceOption
     {
         private int selectedIndex;
+        private string _title;
+        private string _warning;
         private string[] _choices;
         private bool[] _choiceSelection;
-        private string _title;
+        
 
         /// <summary>
         /// Creates a new Option class instance
@@ -19,9 +21,19 @@ namespace PureHistory
         /// <param name="title">The line of text to be displayed at the top of the options</param>
         /// <param name="choices">The available choices</param>
         /// <param name="choiceSelection">Which of the options is selected. Standard should be : all false</param>
+        public MultipleChoiceOption(string title, string warning, string[] choices, bool[] choiceSelection)
+        {
+            _title = title;
+            _warning = warning;
+            _choices = choices;
+            _choiceSelection = choiceSelection;
+            selectedIndex = 0;
+        }
+
         public MultipleChoiceOption(string title, string[] choices, bool[] choiceSelection)
         {
             _title = title;
+            _warning = null;
             _choices = choices;
             _choiceSelection = choiceSelection;
             selectedIndex = 0;
@@ -41,7 +53,15 @@ namespace PureHistory
         /// </summary>
         private void Draw()
         {
-            WriteLine(_title + "\r\n");
+            WriteLine(_title);
+
+            //If there is a warning to be displayed, it is drawn in red.
+            if (_warning != null)
+            {
+                ForegroundColor = ConsoleColor.DarkRed;
+                WriteLine(_warning);
+                ResetColor();
+            }
 
             //Determine the White Space required to align the options
             int highestStringLength = 0;
@@ -74,11 +94,11 @@ namespace PureHistory
                 }
                 if (_choiceSelection[i])
                 {
-                    WriteLine($"{prefix} {currentChoice} " + WhiteSpace(highestStringLength - currentChoice.Length) + ">> " + Resources.Yes);
+                    WriteLine($"{prefix} {currentChoice} " + WhiteSpace(highestStringLength - currentChoice.Length) + ">> " + "[X]");
                 }
                 else if (!_choiceSelection[i])
                 {
-                    WriteLine($"{prefix} {currentChoice} " + WhiteSpace(highestStringLength - currentChoice.Length) + ">> " + Resources.No);
+                    WriteLine($"{prefix} {currentChoice} " + WhiteSpace(highestStringLength - currentChoice.Length) + ">> " + "[ ]");
                 }
             }
             ResetColor();

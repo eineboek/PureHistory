@@ -110,61 +110,42 @@ namespace PureHistory
             //Read user input to wowsPath
             wowsPath = ReadLine();
 
-            //Give the user the ability to check his input with a Yes/No prompt
-            WriteLine(Resources.PathCorrection + " (Y/N) : " + wowsPath);
-            ConsoleKey response = ReadKey(true).Key;
-
-            //If response is no, restart the selection
-            if (response == ConsoleKey.N)
+            if (string.IsNullOrWhiteSpace(wowsPath))
             {
+                WriteLine(Resources.EmptyPath);
+                WriteLine(Resources.PressAnyKey);
+                ReadKey();
                 ClientSelection();
             }
-            else if (response == ConsoleKey.Y) //If response is yes, check the specified path for the WoWs client
+            else if (!Directory.Exists(wowsPath))
             {
-                if (File.Exists(Path.Combine(wowsPath, "WorldOfWarships.exe")))
-                {
-                    try
-                    {
-                        //Get formatted string with extension method
-                        wowsPath = wowsPath.ParsePath();
+                WriteLine(Resources.PathDoesntExist);
+                WriteLine(Resources.PressAnyKey);
+                ReadKey();
+                ClientSelection();
+            }
+            else
+            {
 
-                        //Get the Path of the latest build and res_mods folder by listing all available builds
-                        string buildPath = Path.Combine(wowsPath, "bin");
-                        List<int> buildList = new List<int>();
-                        foreach (string build in Directory.GetDirectories(buildPath).Select(d => Path.GetRelativePath(buildPath, d)))
-                        {
-                            buildList.Add(Convert.ToInt32(build));
-                        }
-                        buildList = buildList.OrderByDescending(p => p).ToList();
-                        int[] buildListArray = buildList.ToArray();
-                        binPath = Path.Combine(buildPath, buildListArray[0].ToString());
-                        modsPath = Path.Combine(binPath, "res_mods");
-                    }
-                    catch //In case of an error, the selection will be restarted
-                    {
-                        WriteLine(Resources.GenericError);
-                        WriteLine(Resources.CannotFindStructure);
-                        ReadKey();
-                        ClientSelection();
-                    }
+                //Give the user the ability to check his input with a Yes/No prompt
+                WriteLine(Resources.PathCorrection + " (Y/N) : " + wowsPath);
+                ConsoleKey response = ReadKey(true).Key;
+
+                //If response is no, restart the selection
+                if (response == ConsoleKey.N)
+                {
+                    ClientSelection();
                 }
-                else //If the client wasnt found in the specified path, display information to the user wether he would like to continue regardless
+                else if (response == ConsoleKey.Y) //If response is yes, check the specified path for the WoWs client
                 {
-                    WriteLine(Resources.WoWsNotFound + " (Y/N) : ");
-                    response = ReadKey(true).Key;
-
-                    //The user can restart the selection once again
-                    if (response == ConsoleKey.N)
-                    {
-                        ClientSelection();
-                    }
-                    else if (response == ConsoleKey.Y) //Continue regardless
+                    if (File.Exists(Path.Combine(wowsPath, "WorldOfWarships.exe")))
                     {
                         try
                         {
                             //Get formatted string with extension method
                             wowsPath = wowsPath.ParsePath();
 
+                            //Get the Path of the latest build and res_mods folder by listing all available builds
                             string buildPath = Path.Combine(wowsPath, "bin");
                             List<int> buildList = new List<int>();
                             foreach (string build in Directory.GetDirectories(buildPath).Select(d => Path.GetRelativePath(buildPath, d)))
@@ -173,33 +154,74 @@ namespace PureHistory
                             }
                             buildList = buildList.OrderByDescending(p => p).ToList();
                             int[] buildListArray = buildList.ToArray();
-                            modsPath = Path.Combine(buildPath, buildListArray[0].ToString(), "res_mods");
+                            binPath = Path.Combine(buildPath, buildListArray[0].ToString());
+                            modsPath = Path.Combine(binPath, "res_mods");
                         }
-                        catch
+                        catch //In case of an error, the selection will be restarted
                         {
                             WriteLine(Resources.GenericError);
                             WriteLine(Resources.CannotFindStructure);
+                            WriteLine(Resources.PressAnyKey);
                             ReadKey();
                             ClientSelection();
                         }
                     }
-                    else //If the user press any other key than Y/N, restart the selection
+                    else //If the client wasnt found in the specified path, display information to the user wether he would like to continue regardless
                     {
-                        WriteLine(Resources.InvalidResponse);
-                        ReadKey();
-                        ClientSelection();
+                        WriteLine(Resources.WoWsNotFound + " (Y/N) : ");
+                        response = ReadKey(true).Key;
+
+                        //The user can restart the selection once again
+                        if (response == ConsoleKey.N)
+                        {
+                            ClientSelection();
+                        }
+                        else if (response == ConsoleKey.Y) //Continue regardless
+                        {
+                            try
+                            {
+                                //Get formatted string with extension method
+                                wowsPath = wowsPath.ParsePath();
+
+                                string buildPath = Path.Combine(wowsPath, "bin");
+                                List<int> buildList = new List<int>();
+                                foreach (string build in Directory.GetDirectories(buildPath).Select(d => Path.GetRelativePath(buildPath, d)))
+                                {
+                                    buildList.Add(Convert.ToInt32(build));
+                                }
+                                buildList = buildList.OrderByDescending(p => p).ToList();
+                                int[] buildListArray = buildList.ToArray();
+                                modsPath = Path.Combine(buildPath, buildListArray[0].ToString(), "res_mods");
+                            }
+                            catch
+                            {
+                                WriteLine(Resources.GenericError);
+                                WriteLine(Resources.CannotFindStructure);
+                                WriteLine(Resources.PressAnyKey);
+                                ReadKey();
+                                ClientSelection();
+                            }
+                        }
+                        else //If the user press any other key than Y/N, restart the selection
+                        {
+                            WriteLine(Resources.InvalidResponse);
+                            WriteLine(Resources.PressAnyKey);
+                            ReadKey();
+                            ClientSelection();
+                        }
                     }
                 }
-            }
-            else //If the user press any other key than Y/N, restart the selection
-            {
-                WriteLine(Resources.InvalidResponse);
-                ReadKey();
-                ClientSelection();
-            }
+                else //If the user press any other key than Y/N, restart the selection
+                {
+                    WriteLine(Resources.InvalidResponse);
+                    WriteLine(Resources.PressAnyKey);
+                    ReadKey();
+                    ClientSelection();
+                }
 
-            //Start the first option screen
-            ArpeggioSelection();
+                //Start the first option screen
+                ArpeggioSelection();
+            }
         }
 
         /// <summary>
@@ -340,9 +362,10 @@ namespace PureHistory
                 optionSelection[3] = false;
             }
 
-            string title = Resources.AzurLaneTitle + "\r\n" + Resources.AzurLaneWarning;
+            string title = Resources.AzurLaneTitle;
+            string warning = Resources.AzurLaneWarning;
             string[] options = { Resources.AzurLanePrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, warning, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -434,7 +457,8 @@ namespace PureHistory
                 optionSelection[3] = false;
             }
 
-            string title = Resources.HSFHarekazeTitle + "\r\n" + Resources.HSFHarekazeWarning;
+            string title = Resources.HSFHarekazeTitle;
+            string warning = Resources.HSFHarekazeWarning; ;
             string[] options = { Resources.HSFPrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
             MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
@@ -606,9 +630,10 @@ namespace PureHistory
                 optionSelection[3] = false;
             }
 
-            string title = Resources.WarhammerTitle + "\r\n" + Resources.WarhammerWarning;
+            string title = Resources.WarhammerTitle;
+            string warning = Resources.WarhammerWarning;
             string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.ReplaceFlag };
-            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, warning, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -3390,6 +3415,7 @@ namespace PureHistory
             else
             {
                 WriteLine(Resources.InvalidResponse);
+                WriteLine(Resources.PressAnyKey);
                 ReadKey();
                 PerformInstallation();
             }

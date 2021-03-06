@@ -276,4 +276,10 @@
   <data name="ReplacePreviewMisc" xml:space="preserve">
     <value>• Schiffsvorschau ersetzen</value>
   </data>
+  <data name="EmptyPath" xml:space="preserve">
+    <value>Der Installationspfad darf nicht leer sein. Bitte versuchen sie es erneut.</value>
+  </data>
+  <data name="PathDoesntExist" xml:space="preserve">
+    <value>Der angegebene Pfad konnte nicht gefunden werden. Bitte versuchen sie es erneut.</value>
+  </data>
 </root>
