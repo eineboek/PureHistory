@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PureHistory
+﻿namespace PureHistory
 {
-    static class ExtensionMethods
+    internal static class ExtensionMethods
     {
         public static string ParsePath(this string path)
         {

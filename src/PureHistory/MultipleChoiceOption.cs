@@ -13,7 +13,6 @@ namespace PureHistory
         private string _warning;
         private string[] _choices;
         private bool[] _choiceSelection;
-        
 
         /// <summary>
         /// Creates a new Option class instance

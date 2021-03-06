@@ -126,7 +126,6 @@ namespace PureHistory
             }
             else
             {
-
                 //Give the user the ability to check his input with a Yes/No prompt
                 WriteLine(Resources.PathCorrection + " (Y/N) : " + wowsPath);
                 ConsoleKey response = ReadKey(true).Key;
