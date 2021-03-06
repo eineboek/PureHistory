@@ -71,9 +71,9 @@ namespace PureHistory
         private static void LanguageSelection()
         {
             //Show the language selection prompt using the Menu class
-            string prompt = Resources.SelectLanguage;
+            string title = Resources.SelectLanguage;
             string[] options = { "English", "Deutsch" };
-            Menu selectLanguageMenu = new Menu(prompt, options);
+            Menu selectLanguageMenu = new Menu(title, options);
             int selectedIndex = selectLanguageMenu.Init();
 
             //Depending on the selected index of the Menu, the language will be set
@@ -110,7 +110,7 @@ namespace PureHistory
             //Read user input to wowsPath
             wowsPath = ReadLine();
 
-            //Give the user the ability to check his input with a Yes/No prompt
+            //Give the user the ability to check his input with a Yes/No title
             WriteLine(Resources.PathCorrection + " (Y/N) : " + wowsPath);
             ConsoleKey response = ReadKey(true).Key;
 
@@ -232,9 +232,9 @@ namespace PureHistory
             Clear();
 
             //Display the options to the user
-            string prompt = Resources.ArpeggioPrompt;
+            string title = Resources.ArpeggioTitle;
             string[] options = { Resources.ArpeggioPrefix, Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag };
-            MultipleChoiceOption _arpeggioOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceOption _arpeggioOptions = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             //Continuous loop until either right/left arrow key is pressed
@@ -332,9 +332,9 @@ namespace PureHistory
 
             Clear();
 
-            string prompt = Resources.AzurLanePrompt + "\r\n" + Resources.AzurLaneWarning;
+            string title = Resources.AzurLaneTitle + "\r\n" + Resources.AzurLaneWarning;
             string[] options = { Resources.AzurLanePrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption _azurLaneOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceOption _azurLaneOptions = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -425,9 +425,9 @@ namespace PureHistory
 
             Clear();
 
-            string prompt = Resources.HSFHarekazePrompt + "\r\n" + Resources.HSFHarekazeWarning;
+            string title = Resources.HSFHarekazeTitle + "\r\n" + Resources.HSFHarekazeWarning;
             string[] options = { Resources.HSFPrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption _hsfHarekazeOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceOption _hsfHarekazeOptions = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -517,9 +517,9 @@ namespace PureHistory
 
             Clear();
 
-            string prompt = Resources.HSFSpeePrompt;
+            string title = Resources.HSFSpeeTitle;
             string[] options = { Resources.HSFPrefix, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption _hsfSpeeOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceOption _hsfSpeeOptions = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -595,9 +595,9 @@ namespace PureHistory
 
             Clear();
 
-            string prompt = Resources.WarhammerPrompt + "\r\n" + Resources.WarhammerWarning;
+            string title = Resources.WarhammerTitle + "\r\n" + Resources.WarhammerWarning;
             string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.ReplaceFlag };
-            MultipleChoiceOption _warhammerOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceOption _warhammerOptions = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -676,9 +676,9 @@ namespace PureHistory
 
             Clear();
 
-            string prompt = Resources.DragonShipPrompt;
+            string title = Resources.DragonShipTitle;
             string[] options = { Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag };
-            MultipleChoiceOption _dragonOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceOption _dragonOptions = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -758,9 +758,9 @@ namespace PureHistory
 
             Clear();
 
-            string prompt = Resources.LunarNewYearPrompt;
+            string title = Resources.LunarNewYearTitle;
             string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.LunarNewYearFlagOption1, Resources.LunarNewYearFlagOption2 };
-            MultipleChoiceOption _lunarOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceOption _lunarOptions = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -845,9 +845,9 @@ namespace PureHistory
 
             Clear();
 
-            string prompt = Resources.BlackShipPrompt;
+            string title = Resources.BlackShipTitle;
             string[] options = { Resources.BlackShipsSuffix, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption _blackShipOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceOption _blackShipOptions = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -921,9 +921,9 @@ namespace PureHistory
 
             Clear();
 
-            string prompt = Resources.LimaShipPrompt;
+            string title = Resources.LimaShipTitle;
             string[] options = { Resources.LimaShipsSuffix, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption _limaShipOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceOption _limaShipOptions = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -1009,9 +1009,9 @@ namespace PureHistory
 
             Clear();
 
-            string prompt = Resources.MiscellaneousPrompt;
+            string title = Resources.MiscellaneousTitle;
             string[] options = { Resources.MiscKamikazeOption1, Resources.MiscKamikazeOption2, Resources.MiscKamikazeOption3, Resources.MiscAlabamaOption1, Resources.MiscAlabamaOption2, Resources.MiscAlabamaOption3, Resources.MiscIwakiSuffix, Resources.MiscArkansasSuffix, Resources.MiscWestVirginiaName };
-            MultipleChoiceOption _miscellaneousOptions = new MultipleChoiceOption(prompt, options, optionSelection);
+            MultipleChoiceOption _miscellaneousOptions = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)

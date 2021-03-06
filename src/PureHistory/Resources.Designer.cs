@@ -81,9 +81,9 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Arpeggio Ships ähnelt.
         /// </summary>
-        internal static string ArpeggioPrompt {
+        internal static string ArpeggioTitle {
             get {
-                return ResourceManager.GetString("ArpeggioPrompt", resourceCulture);
+                return ResourceManager.GetString("ArpeggioTitle", resourceCulture);
             }
         }
         
@@ -99,9 +99,9 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Azur Lane Ships ähnelt.
         /// </summary>
-        internal static string AzurLanePrompt {
+        internal static string AzurLaneTitle {
             get {
-                return ResourceManager.GetString("AzurLanePrompt", resourceCulture);
+                return ResourceManager.GetString("AzurLaneTitle", resourceCulture);
             }
         }
         
@@ -115,20 +115,20 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Black Friday Ships ähnelt.
-        /// </summary>
-        internal static string BlackShipPrompt {
-            get {
-                return ResourceManager.GetString("BlackShipPrompt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;B&apos; suffix ähnelt.
         /// </summary>
         internal static string BlackShipsSuffix {
             get {
                 return ResourceManager.GetString("BlackShipsSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Black Friday Ships ähnelt.
+        /// </summary>
+        internal static string BlackShipTitle {
+            get {
+                return ResourceManager.GetString("BlackShipTitle", resourceCulture);
             }
         }
         
@@ -162,9 +162,9 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Dragon Ships ähnelt.
         /// </summary>
-        internal static string DragonShipPrompt {
+        internal static string DragonShipTitle {
             get {
-                return ResourceManager.GetString("DragonShipPrompt", resourceCulture);
+                return ResourceManager.GetString("DragonShipTitle", resourceCulture);
             }
         }
         
@@ -207,9 +207,9 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Settings for HSF Harekaze ähnelt.
         /// </summary>
-        internal static string HSFHarekazePrompt {
+        internal static string HSFHarekazeTitle {
             get {
-                return ResourceManager.GetString("HSFHarekazePrompt", resourceCulture);
+                return ResourceManager.GetString("HSFHarekazeTitle", resourceCulture);
             }
         }
         
@@ -234,9 +234,9 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Settings for HSF Graf Spee ähnelt.
         /// </summary>
-        internal static string HSFSpeePrompt {
+        internal static string HSFSpeeTitle {
             get {
-                return ResourceManager.GetString("HSFSpeePrompt", resourceCulture);
+                return ResourceManager.GetString("HSFSpeeTitle", resourceCulture);
             }
         }
         
@@ -259,20 +259,20 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Lima (ASUS Collaboration) ships ähnelt.
-        /// </summary>
-        internal static string LimaShipPrompt {
-            get {
-                return ResourceManager.GetString("LimaShipPrompt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;Lima&apos; suffix ähnelt.
         /// </summary>
         internal static string LimaShipsSuffix {
             get {
                 return ResourceManager.GetString("LimaShipsSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Lima (ASUS Collaboration) ships ähnelt.
+        /// </summary>
+        internal static string LimaShipTitle {
+            get {
+                return ResourceManager.GetString("LimaShipTitle", resourceCulture);
             }
         }
         
@@ -297,9 +297,9 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Lunar New Year Ships ähnelt.
         /// </summary>
-        internal static string LunarNewYearPrompt {
+        internal static string LunarNewYearTitle {
             get {
-                return ResourceManager.GetString("LunarNewYearPrompt", resourceCulture);
+                return ResourceManager.GetString("LunarNewYearTitle", resourceCulture);
             }
         }
         
@@ -342,9 +342,9 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Miscellaneous settings ähnelt.
         /// </summary>
-        internal static string MiscellaneousPrompt {
+        internal static string MiscellaneousTitle {
             get {
-                return ResourceManager.GetString("MiscellaneousPrompt", resourceCulture);
+                return ResourceManager.GetString("MiscellaneousTitle", resourceCulture);
             }
         }
         
@@ -540,9 +540,9 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Warhammer 40.000 ships ähnelt.
         /// </summary>
-        internal static string WarhammerPrompt {
+        internal static string WarhammerTitle {
             get {
-                return ResourceManager.GetString("WarhammerPrompt", resourceCulture);
+                return ResourceManager.GetString("WarhammerTitle", resourceCulture);
             }
         }
         

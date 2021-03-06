@@ -11,17 +11,17 @@ namespace PureHistory
         private int selectedIndex;
         private string[] _choices;
         private bool[] _choiceSelection;
-        private string _prompt;
+        private string _title;
 
         /// <summary>
         /// Creates a new Option class instance
         /// </summary>
-        /// <param name="prompt">The line of text to be displayed at the top of the options</param>
+        /// <param name="title">The line of text to be displayed at the top of the options</param>
         /// <param name="choices">The available choices</param>
         /// <param name="choiceSelection">Which of the options is selected. Standard should be : all false</param>
-        public MultipleChoiceOption(string prompt, string[] choices, bool[] choiceSelection)
+        public MultipleChoiceOption(string title, string[] choices, bool[] choiceSelection)
         {
-            _prompt = prompt;
+            _title = title;
             _choices = choices;
             _choiceSelection = choiceSelection;
             selectedIndex = 0;
@@ -41,7 +41,7 @@ namespace PureHistory
         /// </summary>
         private void Draw()
         {
-            WriteLine(_prompt + "\r\n");
+            WriteLine(_title + "\r\n");
 
             int highestStringLength = 0;
             foreach (string choice in _choices)

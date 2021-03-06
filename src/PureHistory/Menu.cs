@@ -10,16 +10,16 @@ namespace PureHistory
     {
         private int selectedIndex;
         private string[] _options;
-        private string _prompt;
+        private string _title;
 
         /// <summary>
         /// Creates a new instance of the Menu class
         /// </summary>
-        /// <param name="_prompt">The line of text to be displayed at the top of the menu</param>
+        /// <param name="_title">The line of text to be displayed at the top of the menu</param>
         /// <param name="_options">The available options</param>
-        public Menu(string prompt, string[] options)
+        public Menu(string title, string[] options)
         {
-            _prompt = prompt;
+            _title = title;
             _options = options;
             selectedIndex = 0;
         }
@@ -29,7 +29,7 @@ namespace PureHistory
         /// </summary>
         private void Draw()
         {
-            WriteLine(_prompt);
+            WriteLine(_title);
             for (int i = 0; i < _options.Length; i++)
             {
                 string currentOption = _options[i];

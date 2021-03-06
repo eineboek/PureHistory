@@ -123,19 +123,19 @@
   <data name="ArpeggioPrefix" xml:space="preserve">
     <value>'ARP'-Prefix entfernen</value>
   </data>
-  <data name="ArpeggioPrompt" xml:space="preserve">
+  <data name="ArpeggioTitle" xml:space="preserve">
     <value>Einstellungen für Arpeggio-Schiffe</value>
   </data>
   <data name="AzurLanePrefix" xml:space="preserve">
     <value>'AL'-Prefix entfernen</value>
   </data>
-  <data name="AzurLanePrompt" xml:space="preserve">
+  <data name="AzurLaneTitle" xml:space="preserve">
     <value>Einstellungen für Azur Lane-Schiffe</value>
   </data>
   <data name="AzurLaneWarning" xml:space="preserve">
     <value>Achtung : Azur Lane-Schiffe haben ähnliche, aber nicht identische Eigenschaften zu ihren regulären Gegenstücken. Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
   </data>
-  <data name="BlackShipPrompt" xml:space="preserve">
+  <data name="BlackShipTitle" xml:space="preserve">
     <value>Einstellungen für Black-Friday-Schiffe</value>
   </data>
   <data name="BlackShipsSuffix" xml:space="preserve">
@@ -150,7 +150,7 @@
   <data name="Continue" xml:space="preserve">
     <value>Weiter</value>
   </data>
-  <data name="DragonShipPrompt" xml:space="preserve">
+  <data name="DragonShipTitle" xml:space="preserve">
     <value>Einstellungen für Drachen-Schiffe</value>
   </data>
   <data name="Error" xml:space="preserve">
@@ -165,7 +165,7 @@
   <data name="ExitProgram" xml:space="preserve">
     <value>Zum Beenden des Programms beliebige Taste drücken ...</value>
   </data>
-  <data name="HSFHarekazePrompt" xml:space="preserve">
+  <data name="HSFHarekazeTitle" xml:space="preserve">
     <value>Einstellungen für HSF Harekaze</value>
   </data>
   <data name="HSFHarekazeWarning" xml:space="preserve">
@@ -174,7 +174,7 @@
   <data name="HSFPrefix" xml:space="preserve">
     <value>'HSF'-Prefix entfernen</value>
   </data>
-  <data name="HSFSpeePrompt" xml:space="preserve">
+  <data name="HSFSpeeTitle" xml:space="preserve">
     <value>Einstellungen für HSF Graf Spee</value>
   </data>
   <data name="InstallationComplete" xml:space="preserve">
@@ -183,7 +183,7 @@
   <data name="InvalidResponse" xml:space="preserve">
     <value>Ungültige Eingabe.</value>
   </data>
-  <data name="LimaShipPrompt" xml:space="preserve">
+  <data name="LimaShipTitle" xml:space="preserve">
     <value>Einstellungen für Lima (ASUS Kollaboration)-Schiffe</value>
   </data>
   <data name="LimaShipsSuffix" xml:space="preserve">
@@ -195,7 +195,7 @@
   <data name="LunarNewYearFlagOption2" xml:space="preserve">
     <value>Flagge mit der des jeweiligen Originals ersetzen</value>
   </data>
-  <data name="LunarNewYearPrompt" xml:space="preserve">
+  <data name="LunarNewYearTitle" xml:space="preserve">
     <value>Einstellungen für Mondneujahr-Schiffe</value>
   </data>
   <data name="MiscAlabamaOption1" xml:space="preserve">
@@ -210,7 +210,7 @@
   <data name="MiscArkansasSuffix" xml:space="preserve">
     <value>'B'-Suffix von Arkansas Beta entfernen</value>
   </data>
-  <data name="MiscellaneousPrompt" xml:space="preserve">
+  <data name="MiscellaneousTitle" xml:space="preserve">
     <value>Sonstige Einstellungen</value>
   </data>
   <data name="MiscIwakiSuffix" xml:space="preserve">
@@ -276,7 +276,7 @@
   <data name="UpdateDescription" xml:space="preserve">
     <value>• Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>
   </data>
-  <data name="WarhammerPrompt" xml:space="preserve">
+  <data name="WarhammerTitle" xml:space="preserve">
     <value>Einstellungen für Warhammer 40.000-Schiffe</value>
   </data>
   <data name="WarhammerWarning" xml:space="preserve">
