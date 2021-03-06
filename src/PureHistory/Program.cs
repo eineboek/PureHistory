@@ -125,6 +125,9 @@ namespace PureHistory
                 {
                     try
                     {
+                        //Get formatted string with extension method
+                        wowsPath = wowsPath.ParsePath();
+
                         //Get the Path of the latest build and res_mods folder by listing all available builds
                         string buildPath = Path.Combine(wowsPath, "bin");
                         List<int> buildList = new List<int>();
@@ -159,6 +162,9 @@ namespace PureHistory
                     {
                         try
                         {
+                            //Get formatted string with extension method
+                            wowsPath = wowsPath.ParsePath();
+
                             string buildPath = Path.Combine(wowsPath, "bin");
                             List<int> buildList = new List<int>();
                             foreach (string build in Directory.GetDirectories(buildPath).Select(d => Path.GetRelativePath(buildPath, d)))
