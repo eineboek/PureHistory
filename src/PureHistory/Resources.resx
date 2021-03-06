@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
+  <data name="Creator" xml:space="preserve">
     <value>Created by eineboek</value>
   </data>
   <data name="ArpeggioPrefix" xml:space="preserve">
@@ -144,7 +144,7 @@
   <data name="CannotFindStructure" xml:space="preserve">
     <value>PureHistory cannot be installed to the specified path.</value>
   </data>
-  <data name="ClientSelection" xml:space="preserve">
+  <data name="ClientSelectionTitle" xml:space="preserve">
     <value>Enter the path to the desired World of Warships installation</value>
   </data>
   <data name="Continue" xml:space="preserve">
@@ -153,16 +153,16 @@
   <data name="DragonShipTitle" xml:space="preserve">
     <value>Settings for Dragon Ships</value>
   </data>
-  <data name="Error" xml:space="preserve">
+  <data name="GenericError" xml:space="preserve">
     <value>An error has occured :</value>
   </data>
-  <data name="ErrorDuringInstallation" xml:space="preserve">
+  <data name="InstallationError" xml:space="preserve">
     <value>Error during installation. Please try again or contact the author.</value>
   </data>
-  <data name="Examples" xml:space="preserve">
+  <data name="PathFormatExamples" xml:space="preserve">
     <value>Examples :</value>
   </data>
-  <data name="ExitProgram" xml:space="preserve">
+  <data name="ExitProgramAnyKey" xml:space="preserve">
     <value>Press any key to exit the program ...</value>
   </data>
   <data name="HSFHarekazeTitle" xml:space="preserve">
@@ -177,8 +177,8 @@
   <data name="HSFSpeeTitle" xml:space="preserve">
     <value>Settings for HSF Graf Spee</value>
   </data>
-  <data name="InstallationComplete" xml:space="preserve">
-    <value>Installation is completed.</value>
+  <data name="InstallationFinished" xml:space="preserve">
+    <value>Installation is finished</value>
   </data>
   <data name="InvalidResponse" xml:space="preserve">
     <value>Invalid Response.</value>
@@ -189,23 +189,17 @@
   <data name="LimaShipsSuffix" xml:space="preserve">
     <value>Remove 'Lima' suffix</value>
   </data>
-  <data name="LunarNewYearFlagOption1" xml:space="preserve">
+  <data name="LunarNewYearFlagOptionPanasia" xml:space="preserve">
     <value>Replace custom flag with pan-asian flag</value>
   </data>
-  <data name="LunarNewYearFlagOption2" xml:space="preserve">
+  <data name="LunarNewYearFlagOptionOriginal" xml:space="preserve">
     <value>Replace custom flag with flag of respective country</value>
   </data>
   <data name="LunarNewYearTitle" xml:space="preserve">
     <value>Settings for Lunar New Year Ships</value>
   </data>
-  <data name="MiscAlabamaOption1" xml:space="preserve">
+  <data name="MiscAlabamaSuffix" xml:space="preserve">
     <value>Remove 'ST' suffix of Alabama ST</value>
-  </data>
-  <data name="MiscAlabamaOption2" xml:space="preserve">
-    <value>• Update description for distinction in port</value>
-  </data>
-  <data name="MiscAlabamaOption3" xml:space="preserve">
-    <value>• Replace Ship preview</value>
   </data>
   <data name="MiscArkansasSuffix" xml:space="preserve">
     <value>Remove 'B' suffix of Arkansas Beta</value>
@@ -216,14 +210,8 @@
   <data name="MiscIwakiSuffix" xml:space="preserve">
     <value>Remove 'A' suffix of Iwaki Alpha</value>
   </data>
-  <data name="MiscKamikazeOption1" xml:space="preserve">
+  <data name="MiscKamikazeSuffix" xml:space="preserve">
     <value>Remove 'R' suffix of Kamikaze R</value>
-  </data>
-  <data name="MiscKamikazeOption2" xml:space="preserve">
-    <value>• Update description for distinction in port</value>
-  </data>
-  <data name="MiscKamikazeOption3" xml:space="preserve">
-    <value>• Replace Ship preview</value>
   </data>
   <data name="MiscWestVirginiaName" xml:space="preserve">
     <value>Remove the '1941' from West Virginia 1941</value>
@@ -233,14 +221,15 @@
   </data>
   <data name="ModVersion" xml:space="preserve">
     <value>PureHistory Version 1.1.0</value>
+    <comment>This string is not translated to other languages.</comment>
   </data>
-  <data name="NavigationHelp1" xml:space="preserve">
+  <data name="NavigationHelpArrowVertical" xml:space="preserve">
     <value>Arrow Keys up/down for movement between options</value>
   </data>
-  <data name="NavigationHelp2" xml:space="preserve">
+  <data name="NavigationHelpEnter" xml:space="preserve">
     <value>ENTER to toggle/select an option</value>
   </data>
-  <data name="NavigationHelp3" xml:space="preserve">
+  <data name="NavigationHelpArrowHorizontal" xml:space="preserve">
     <value>Arrow Keys left/right to move to the previous/next page</value>
   </data>
   <data name="No" xml:space="preserve">
@@ -265,13 +254,14 @@
     <value>Replace ship name with regular counterpart</value>
   </data>
   <data name="ReplaceSillouette" xml:space="preserve">
-    <value>Replace sillouette</value>
+    <value>Replace sillhouette</value>
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Select Language / Sprache auswählen :</value>
+    <comment>This string is not translated to other languages.</comment>
   </data>
-  <data name="StartInstallation" xml:space="preserve">
-    <value>Press left arrow key to go back - Press ENTER to start the mod installation ...</value>
+  <data name="StartInstallationNoticeGoBack" xml:space="preserve">
+    <value>Press left arrow key to go back</value>
   </data>
   <data name="UpdateDescription" xml:space="preserve">
     <value>• Update ship description for distinction in port</value>
@@ -282,13 +272,20 @@
   <data name="WarhammerWarning" xml:space="preserve">
     <value>Caution : Warhammer 40.000 ships have similar, but not identical performance to their regular counterparts (Amagi). Replacing the ship name with the regular counterpart could lead to a misjudgement of the battle situation.</value>
   </data>
-  <data name="WOWSNotFound" xml:space="preserve">
+  <data name="WoWsNotFound" xml:space="preserve">
     <value>World of Warships does not seem to be installed at the specified path. Continue installation regardless?</value>
   </data>
-  <data name="WOWSVersion" xml:space="preserve">
+  <data name="WoWsVersion" xml:space="preserve">
     <value>World of Warships Version 0.10.1</value>
+    <comment>This string is not translated to other languages.</comment>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
+  </data>
+  <data name="StartInstallationNoticeStart" xml:space="preserve">
+    <value>Press ENTER to start the mod installation ...</value>
+  </data>
+  <data name="ReplacePreviewMisc" xml:space="preserve">
+    <value>• Replace ship preview</value>
   </data>
 </root>

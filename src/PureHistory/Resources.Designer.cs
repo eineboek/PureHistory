@@ -61,15 +61,6 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Created by eineboek ähnelt.
-        /// </summary>
-        internal static string About {
-            get {
-                return ResourceManager.GetString("About", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;ARP&apos; prefix ähnelt.
         /// </summary>
         internal static string ArpeggioPrefix {
@@ -144,9 +135,9 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Enter the path to the desired World of Warships installation ähnelt.
         /// </summary>
-        internal static string ClientSelection {
+        internal static string ClientSelectionTitle {
             get {
-                return ResourceManager.GetString("ClientSelection", resourceCulture);
+                return ResourceManager.GetString("ClientSelectionTitle", resourceCulture);
             }
         }
         
@@ -160,6 +151,15 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Created by eineboek ähnelt.
+        /// </summary>
+        internal static string Creator {
+            get {
+                return ResourceManager.GetString("Creator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Dragon Ships ähnelt.
         /// </summary>
         internal static string DragonShipTitle {
@@ -169,38 +169,20 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die An error has occured : ähnelt.
-        /// </summary>
-        internal static string Error {
-            get {
-                return ResourceManager.GetString("Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Error during installation. Please try again or contact the author. ähnelt.
-        /// </summary>
-        internal static string ErrorDuringInstallation {
-            get {
-                return ResourceManager.GetString("ErrorDuringInstallation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Examples : ähnelt.
-        /// </summary>
-        internal static string Examples {
-            get {
-                return ResourceManager.GetString("Examples", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Press any key to exit the program ... ähnelt.
         /// </summary>
-        internal static string ExitProgram {
+        internal static string ExitProgramAnyKey {
             get {
-                return ResourceManager.GetString("ExitProgram", resourceCulture);
+                return ResourceManager.GetString("ExitProgramAnyKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die An error has occured : ähnelt.
+        /// </summary>
+        internal static string GenericError {
+            get {
+                return ResourceManager.GetString("GenericError", resourceCulture);
             }
         }
         
@@ -241,11 +223,20 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Installation is completed. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Error during installation. Please try again or contact the author. ähnelt.
         /// </summary>
-        internal static string InstallationComplete {
+        internal static string InstallationError {
             get {
-                return ResourceManager.GetString("InstallationComplete", resourceCulture);
+                return ResourceManager.GetString("InstallationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Installation is finished ähnelt.
+        /// </summary>
+        internal static string InstallationFinished {
+            get {
+                return ResourceManager.GetString("InstallationFinished", resourceCulture);
             }
         }
         
@@ -277,20 +268,20 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Replace custom flag with pan-asian flag ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace custom flag with flag of respective country ähnelt.
         /// </summary>
-        internal static string LunarNewYearFlagOption1 {
+        internal static string LunarNewYearFlagOptionOriginal {
             get {
-                return ResourceManager.GetString("LunarNewYearFlagOption1", resourceCulture);
+                return ResourceManager.GetString("LunarNewYearFlagOptionOriginal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Replace custom flag with flag of respective country ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace custom flag with pan-asian flag ähnelt.
         /// </summary>
-        internal static string LunarNewYearFlagOption2 {
+        internal static string LunarNewYearFlagOptionPanasia {
             get {
-                return ResourceManager.GetString("LunarNewYearFlagOption2", resourceCulture);
+                return ResourceManager.GetString("LunarNewYearFlagOptionPanasia", resourceCulture);
             }
         }
         
@@ -306,27 +297,9 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;ST&apos; suffix of Alabama ST ähnelt.
         /// </summary>
-        internal static string MiscAlabamaOption1 {
+        internal static string MiscAlabamaSuffix {
             get {
-                return ResourceManager.GetString("MiscAlabamaOption1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die • Update description for distinction in port ähnelt.
-        /// </summary>
-        internal static string MiscAlabamaOption2 {
-            get {
-                return ResourceManager.GetString("MiscAlabamaOption2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die • Replace Ship preview ähnelt.
-        /// </summary>
-        internal static string MiscAlabamaOption3 {
-            get {
-                return ResourceManager.GetString("MiscAlabamaOption3", resourceCulture);
+                return ResourceManager.GetString("MiscAlabamaSuffix", resourceCulture);
             }
         }
         
@@ -360,27 +333,9 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;R&apos; suffix of Kamikaze R ähnelt.
         /// </summary>
-        internal static string MiscKamikazeOption1 {
+        internal static string MiscKamikazeSuffix {
             get {
-                return ResourceManager.GetString("MiscKamikazeOption1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die • Update description for distinction in port ähnelt.
-        /// </summary>
-        internal static string MiscKamikazeOption2 {
-            get {
-                return ResourceManager.GetString("MiscKamikazeOption2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die • Replace Ship preview ähnelt.
-        /// </summary>
-        internal static string MiscKamikazeOption3 {
-            get {
-                return ResourceManager.GetString("MiscKamikazeOption3", resourceCulture);
+                return ResourceManager.GetString("MiscKamikazeSuffix", resourceCulture);
             }
         }
         
@@ -412,29 +367,29 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Keys left/right to move to the previous/next page ähnelt.
+        /// </summary>
+        internal static string NavigationHelpArrowHorizontal {
+            get {
+                return ResourceManager.GetString("NavigationHelpArrowHorizontal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Keys up/down for movement between options ähnelt.
         /// </summary>
-        internal static string NavigationHelp1 {
+        internal static string NavigationHelpArrowVertical {
             get {
-                return ResourceManager.GetString("NavigationHelp1", resourceCulture);
+                return ResourceManager.GetString("NavigationHelpArrowVertical", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ENTER to toggle/select an option ähnelt.
         /// </summary>
-        internal static string NavigationHelp2 {
+        internal static string NavigationHelpEnter {
             get {
-                return ResourceManager.GetString("NavigationHelp2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Keys left/right to move to the previous/next page ähnelt.
-        /// </summary>
-        internal static string NavigationHelp3 {
-            get {
-                return ResourceManager.GetString("NavigationHelp3", resourceCulture);
+                return ResourceManager.GetString("NavigationHelpEnter", resourceCulture);
             }
         }
         
@@ -453,6 +408,15 @@ namespace PureHistory {
         internal static string PathCorrection {
             get {
                 return ResourceManager.GetString("PathCorrection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Examples : ähnelt.
+        /// </summary>
+        internal static string PathFormatExamples {
+            get {
+                return ResourceManager.GetString("PathFormatExamples", resourceCulture);
             }
         }
         
@@ -484,6 +448,15 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die • Replace ship preview ähnelt.
+        /// </summary>
+        internal static string ReplacePreviewMisc {
+            get {
+                return ResourceManager.GetString("ReplacePreviewMisc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship name with respective class name ähnelt.
         /// </summary>
         internal static string ReplaceShipNameClassName {
@@ -502,7 +475,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Replace sillouette ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace sillhouette ähnelt.
         /// </summary>
         internal static string ReplaceSillouette {
             get {
@@ -520,11 +493,20 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Press left arrow key to go back - Press ENTER to start the mod installation ... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Press left arrow key to go back ähnelt.
         /// </summary>
-        internal static string StartInstallation {
+        internal static string StartInstallationNoticeGoBack {
             get {
-                return ResourceManager.GetString("StartInstallation", resourceCulture);
+                return ResourceManager.GetString("StartInstallationNoticeGoBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Press ENTER to start the mod installation ... ähnelt.
+        /// </summary>
+        internal static string StartInstallationNoticeStart {
+            get {
+                return ResourceManager.GetString("StartInstallationNoticeStart", resourceCulture);
             }
         }
         
@@ -558,18 +540,18 @@ namespace PureHistory {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die World of Warships does not seem to be installed at the specified path. Continue installation regardless? ähnelt.
         /// </summary>
-        internal static string WOWSNotFound {
+        internal static string WoWsNotFound {
             get {
-                return ResourceManager.GetString("WOWSNotFound", resourceCulture);
+                return ResourceManager.GetString("WoWsNotFound", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die World of Warships Version 0.10.1 ähnelt.
         /// </summary>
-        internal static string WOWSVersion {
+        internal static string WoWsVersion {
             get {
-                return ResourceManager.GetString("WOWSVersion", resourceCulture);
+                return ResourceManager.GetString("WoWsVersion", resourceCulture);
             }
         }
         

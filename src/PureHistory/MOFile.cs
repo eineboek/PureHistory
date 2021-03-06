@@ -10,6 +10,10 @@ namespace PureHistory
 	 * This program uses code from the GNU MO File Editor by OrletSoir under the GNU General Public License v3.0
 	 * https://github.com/OrletSoir/GNU-MO-File-Editor
 	 * https://www.gnu.org/licenses/gpl-3.0.de.html
+	 *
+	 * Changes in the code :
+	 * - Generic refactorings
+	 * - Added the IDisposable Interface
 	 */
 
     /*
@@ -63,10 +67,7 @@ namespace PureHistory
         #endregion privates
 
         // public fields
-        public uint Count
-        {
-            get { return _n; }
-        }
+        public uint Count => _n;
 
         // constructor
         public MOReader(string fileName)
@@ -329,10 +330,7 @@ T + ((N-1)*8)| length & offset (N-1)th translation      |  | | | |
 
         public MOLine this[int key]
         {
-            get
-            {
-                return Lines[key];
-            }
+            get => Lines[key];
             set
             {
                 value.Index = key;

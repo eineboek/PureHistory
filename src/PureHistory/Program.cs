@@ -16,7 +16,7 @@ namespace PureHistory
         #region Private fields
 
         private static string wowsPath; //Holds the Path for the selected World of Warships installation
-        private static string binPath; //Holds the Path for the latest build in the WoWs "bin" folder
+        private static string binPath; //Holds the Path for the latest build (highest number) in the WoWs "bin" folder
         private static string modsPath; //Holds the Path for the res_mods folder that the mod will be installed in
 
         private static ModInstallation modInstallation;
@@ -26,7 +26,7 @@ namespace PureHistory
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        /// <param name="args">Standard arguments for execution via command line. Not used in this program</param>
+        /// <param name="args">Standard arguments for execution via command line. Not used yet in this program</param>
         private static void Main(string[] args)
         {
             //Set the Encoding to support Unicode characters such as this funky dot -> •
@@ -40,18 +40,18 @@ namespace PureHistory
             //Create a new ModInstallation class instance to save the user's choices in
             modInstallation = new ModInstallation();
 
-            //Set the windows title
-            Title = "PureHistory Installer";
+            //Set the console window title
+            Title = "PureHistory Mod Installer";
 
             //Display information about the mod and the compatible WoWs version
-            WriteLine(Resources.ModVersion + " - " + Resources.About + "\r\n");
-            WriteLine(Resources.WOWSVersion + "\r\n");
+            WriteLine(Resources.ModVersion + " - " + Resources.Creator + "\r\n");
+            WriteLine(Resources.WoWsVersion + "\r\n");
 
             //Display information about how to navigate the program
-            WriteLine("Navigation :");
-            WriteLine(Resources.NavigationHelp1);
-            WriteLine(Resources.NavigationHelp2);
-            WriteLine(Resources.NavigationHelp3 + "\r\n");
+            WriteLine("Navigation");
+            WriteLine(Resources.NavigationHelpArrowVertical);
+            WriteLine(Resources.NavigationHelpEnter);
+            WriteLine(Resources.NavigationHelpArrowHorizontal + "\r\n");
 
             //User presses any key to continue
             WriteLine(Resources.PressAnyKey);
@@ -61,7 +61,7 @@ namespace PureHistory
             ClientSelection();
 
             //After the installation : User presses any key to exit the program
-            WriteLine(Resources.ExitProgram);
+            WriteLine(Resources.ExitProgramAnyKey);
             ReadKey();
         }
 
@@ -102,15 +102,15 @@ namespace PureHistory
             Clear();
 
             //Display info about the Path format and examples
-            WriteLine(Resources.ClientSelection + "\r\n");
-            WriteLine(Resources.Examples);
+            WriteLine(Resources.ClientSelectionTitle + "\r\n");
+            WriteLine(Resources.PathFormatExamples);
             WriteLine(@"C:\Games\World_of_Warships");
             WriteLine(@"C:\Program Files (x86)\Steam\steamapps\common\World of Warships" + "\r\n");
 
             //Read user input to wowsPath
             wowsPath = ReadLine();
 
-            //Give the user the ability to check his input with a Yes/No title
+            //Give the user the ability to check his input with a Yes/No prompt
             WriteLine(Resources.PathCorrection + " (Y/N) : " + wowsPath);
             ConsoleKey response = ReadKey(true).Key;
 
@@ -139,7 +139,7 @@ namespace PureHistory
                     }
                     catch //In case of an error, the selection will be restarted
                     {
-                        WriteLine(Resources.Error);
+                        WriteLine(Resources.GenericError);
                         WriteLine(Resources.CannotFindStructure);
                         ReadKey();
                         ClientSelection();
@@ -147,7 +147,7 @@ namespace PureHistory
                 }
                 else //If the client wasnt found in the specified path, display information to the user wether he would like to continue regardless
                 {
-                    WriteLine(Resources.WOWSNotFound + " (Y/N) : ");
+                    WriteLine(Resources.WoWsNotFound + " (Y/N) : ");
                     response = ReadKey(true).Key;
 
                     //The user can restart the selection once again
@@ -167,11 +167,11 @@ namespace PureHistory
                             }
                             buildList = buildList.OrderByDescending(p => p).ToList();
                             int[] buildListArray = buildList.ToArray();
-                            modsPath = Path.Combine(Path.Combine(buildPath, buildListArray[0].ToString()), "res_mods");
+                            modsPath = Path.Combine(buildPath, buildListArray[0].ToString(), "res_mods");
                         }
                         catch
                         {
-                            WriteLine(Resources.Error);
+                            WriteLine(Resources.GenericError);
                             WriteLine(Resources.CannotFindStructure);
                             ReadKey();
                             ClientSelection();
@@ -201,21 +201,24 @@ namespace PureHistory
         /// </summary>
         private static void ArpeggioSelection()
         {
+            Clear();
+
             //Options instance to store the choices in
             ArpeggioOptions arpeggioOptions;
+
             bool[] optionSelection = new bool[6];
 
             //Initialization based on whether the User has visited this page before
-            if (modInstallation.arpeggio != null)
+            if (modInstallation.ArpeggioOptions != null)
             {
-                arpeggioOptions = modInstallation.arpeggio;
+                arpeggioOptions = modInstallation.ArpeggioOptions;
 
-                optionSelection[0] = arpeggioOptions.removePrefixes;
-                optionSelection[1] = arpeggioOptions.replaceNames;
-                optionSelection[2] = arpeggioOptions.updateDescription;
-                optionSelection[3] = arpeggioOptions.replaceSilhouettes;
-                optionSelection[4] = arpeggioOptions.replacePreviews;
-                optionSelection[5] = arpeggioOptions.replaceFlags;
+                optionSelection[0] = arpeggioOptions.RemovePrefixes;
+                optionSelection[1] = arpeggioOptions.ReplaceNames;
+                optionSelection[2] = arpeggioOptions.UpdateDescription;
+                optionSelection[3] = arpeggioOptions.ReplaceSilhouettes;
+                optionSelection[4] = arpeggioOptions.ReplacePreviews;
+                optionSelection[5] = arpeggioOptions.ReplaceFlags;
             }
             else
             {
@@ -229,18 +232,16 @@ namespace PureHistory
                 optionSelection[5] = false;
             }
 
-            Clear();
-
             //Display the options to the user
             string title = Resources.ArpeggioTitle;
             string[] options = { Resources.ArpeggioPrefix, Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag };
-            MultipleChoiceOption _arpeggioOptions = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             //Continuous loop until either right/left arrow key is pressed
             while (true)
             {
-                response = _arpeggioOptions.Init();
+                response = multipleChoice.Init();
 
                 //If right or left arrow key was pressed, break the loop
                 if (response.ReturnToPrevious || response.ContinueToNext)
@@ -275,7 +276,7 @@ namespace PureHistory
                     }
 
                     //Update the option selection
-                    _arpeggioOptions.UpdateOptionSelection(optionSelection);
+                    multipleChoice.UpdateOptionSelection(optionSelection);
                 }
             }
 
@@ -286,15 +287,15 @@ namespace PureHistory
             else if (response.ContinueToNext) //Pressing the right arrow key leads to the next selection
             {
                 //Set the values of the selection to the options instance
-                arpeggioOptions.removePrefixes = optionSelection[0];
-                arpeggioOptions.replaceNames = optionSelection[1];
-                arpeggioOptions.updateDescription = optionSelection[2];
-                arpeggioOptions.replaceSilhouettes = optionSelection[3];
-                arpeggioOptions.replacePreviews = optionSelection[4];
-                arpeggioOptions.replaceFlags = optionSelection[5];
+                arpeggioOptions.RemovePrefixes = optionSelection[0];
+                arpeggioOptions.ReplaceNames = optionSelection[1];
+                arpeggioOptions.UpdateDescription = optionSelection[2];
+                arpeggioOptions.ReplaceSilhouettes = optionSelection[3];
+                arpeggioOptions.ReplacePreviews = optionSelection[4];
+                arpeggioOptions.ReplaceFlags = optionSelection[5];
 
                 //Pass the options to the modInstallation instance
-                modInstallation.arpeggio = arpeggioOptions;
+                modInstallation.ArpeggioOptions = arpeggioOptions;
 
                 //Continue with the next option screen
                 AzurLaneSelection();
@@ -308,17 +309,20 @@ namespace PureHistory
         /// </summary>
         private static void AzurLaneSelection()
         {
+            Clear();
+
             AzurLaneOptions azurLaneOptions;
+
             bool[] optionSelection = new bool[4];
 
-            if (modInstallation.azurLane != null)
+            if (modInstallation.AzurLaneOptions != null)
             {
-                azurLaneOptions = modInstallation.azurLane;
+                azurLaneOptions = modInstallation.AzurLaneOptions;
 
-                optionSelection[0] = azurLaneOptions.removePrefixes;
-                optionSelection[1] = azurLaneOptions.replaceNames;
-                optionSelection[2] = azurLaneOptions.updateDescription;
-                optionSelection[3] = azurLaneOptions.replacePreviews;
+                optionSelection[0] = azurLaneOptions.RemovePrefixes;
+                optionSelection[1] = azurLaneOptions.ReplaceNames;
+                optionSelection[2] = azurLaneOptions.UpdateDescription;
+                optionSelection[3] = azurLaneOptions.ReplacePreviews;
             }
             else
             {
@@ -330,16 +334,14 @@ namespace PureHistory
                 optionSelection[3] = false;
             }
 
-            Clear();
-
             string title = Resources.AzurLaneTitle + "\r\n" + Resources.AzurLaneWarning;
             string[] options = { Resources.AzurLanePrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption _azurLaneOptions = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
             {
-                response = _azurLaneOptions.Init();
+                response = multipleChoice.Init();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -370,7 +372,7 @@ namespace PureHistory
                         optionSelection[2] = false;
                     }
 
-                    _azurLaneOptions.UpdateOptionSelection(optionSelection);
+                    multipleChoice.UpdateOptionSelection(optionSelection);
                 }
             }
 
@@ -380,12 +382,12 @@ namespace PureHistory
             }
             else if (response.ContinueToNext)
             {
-                azurLaneOptions.removePrefixes = optionSelection[0];
-                azurLaneOptions.replaceNames = optionSelection[1];
-                azurLaneOptions.updateDescription = optionSelection[2];
-                azurLaneOptions.replacePreviews = optionSelection[3];
+                azurLaneOptions.RemovePrefixes = optionSelection[0];
+                azurLaneOptions.ReplaceNames = optionSelection[1];
+                azurLaneOptions.UpdateDescription = optionSelection[2];
+                azurLaneOptions.ReplacePreviews = optionSelection[3];
 
-                modInstallation.azurLane = azurLaneOptions;
+                modInstallation.AzurLaneOptions = azurLaneOptions;
 
                 HSFHarekazeSelection();
             }
@@ -396,25 +398,28 @@ namespace PureHistory
         /// </summary>
         private static void HSFHarekazeSelection()
         {
+            Clear();
+
             HighSchoolFleetOptions hsfOptions;
+
             bool[] optionSelection = new bool[4];
 
-            if (modInstallation.highSchoolFleet != null)
+            if (modInstallation.HighSchoolFleetOptions != null)
             {
-                hsfOptions = modInstallation.highSchoolFleet;
+                hsfOptions = modInstallation.HighSchoolFleetOptions;
 
-                optionSelection[0] = hsfOptions.harekaze_RemovePrefix;
-                optionSelection[1] = hsfOptions.harekaze_ReplaceName;
-                optionSelection[2] = hsfOptions.harekaze_UpdateDescription;
-                optionSelection[3] = hsfOptions.harekaze_ReplacePreview;
+                optionSelection[0] = hsfOptions.Harekaze_RemovePrefix;
+                optionSelection[1] = hsfOptions.Harekaze_ReplaceName;
+                optionSelection[2] = hsfOptions.Harekaze_UpdateDescription;
+                optionSelection[3] = hsfOptions.Harekaze_ReplacePreview;
             }
             else
             {
                 hsfOptions = new HighSchoolFleetOptions
                 {
-                    spee_RemovePrefix = false,
-                    spee_UpdateDescription = false,
-                    spee_ReplacePreview = false
+                    Spee_RemovePrefix = false,
+                    Spee_UpdateDescription = false,
+                    Spee_ReplacePreview = false
                 };
 
                 optionSelection[0] = false;
@@ -423,16 +428,14 @@ namespace PureHistory
                 optionSelection[3] = false;
             }
 
-            Clear();
-
             string title = Resources.HSFHarekazeTitle + "\r\n" + Resources.HSFHarekazeWarning;
             string[] options = { Resources.HSFPrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption _hsfHarekazeOptions = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
             {
-                response = _hsfHarekazeOptions.Init();
+                response = multipleChoice.Init();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -463,7 +466,7 @@ namespace PureHistory
                         optionSelection[2] = false;
                     }
 
-                    _hsfHarekazeOptions.UpdateOptionSelection(optionSelection);
+                    multipleChoice.UpdateOptionSelection(optionSelection);
                 }
             }
 
@@ -473,12 +476,12 @@ namespace PureHistory
             }
             else if (response.ContinueToNext)
             {
-                hsfOptions.harekaze_RemovePrefix = optionSelection[0];
-                hsfOptions.harekaze_ReplaceName = optionSelection[1];
-                hsfOptions.harekaze_UpdateDescription = optionSelection[2];
-                hsfOptions.harekaze_ReplacePreview = optionSelection[3];
+                hsfOptions.Harekaze_RemovePrefix = optionSelection[0];
+                hsfOptions.Harekaze_ReplaceName = optionSelection[1];
+                hsfOptions.Harekaze_UpdateDescription = optionSelection[2];
+                hsfOptions.Harekaze_ReplacePreview = optionSelection[3];
 
-                modInstallation.highSchoolFleet = hsfOptions;
+                modInstallation.HighSchoolFleetOptions = hsfOptions;
 
                 HSFSpeeSelection();
             }
@@ -489,25 +492,28 @@ namespace PureHistory
         /// </summary>
         private static void HSFSpeeSelection()
         {
+            Clear();
+
             HighSchoolFleetOptions hsfOptions;
+
             bool[] optionSelection = new bool[3];
 
-            if (modInstallation.highSchoolFleet != null)
+            if (modInstallation.HighSchoolFleetOptions != null)
             {
-                hsfOptions = modInstallation.highSchoolFleet;
+                hsfOptions = modInstallation.HighSchoolFleetOptions;
 
-                optionSelection[0] = hsfOptions.spee_RemovePrefix;
-                optionSelection[1] = hsfOptions.spee_UpdateDescription;
-                optionSelection[2] = hsfOptions.spee_ReplacePreview;
+                optionSelection[0] = hsfOptions.Spee_RemovePrefix;
+                optionSelection[1] = hsfOptions.Spee_UpdateDescription;
+                optionSelection[2] = hsfOptions.Spee_ReplacePreview;
             }
             else
             {
                 hsfOptions = new HighSchoolFleetOptions
                 {
-                    harekaze_RemovePrefix = false,
-                    harekaze_ReplaceName = false,
-                    harekaze_UpdateDescription = false,
-                    harekaze_ReplacePreview = false
+                    Harekaze_RemovePrefix = false,
+                    Harekaze_ReplaceName = false,
+                    Harekaze_UpdateDescription = false,
+                    Harekaze_ReplacePreview = false
                 };
 
                 optionSelection[0] = false;
@@ -515,16 +521,14 @@ namespace PureHistory
                 optionSelection[2] = false;
             }
 
-            Clear();
-
             string title = Resources.HSFSpeeTitle;
             string[] options = { Resources.HSFPrefix, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption _hsfSpeeOptions = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
             {
-                response = _hsfSpeeOptions.Init();
+                response = multipleChoice.Init();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -546,7 +550,7 @@ namespace PureHistory
                         optionSelection[1] = false;
                     }
 
-                    _hsfSpeeOptions.UpdateOptionSelection(optionSelection);
+                    multipleChoice.UpdateOptionSelection(optionSelection);
                 }
             }
 
@@ -556,11 +560,11 @@ namespace PureHistory
             }
             else if (response.ContinueToNext)
             {
-                hsfOptions.spee_RemovePrefix = optionSelection[0];
-                hsfOptions.spee_UpdateDescription = optionSelection[1];
-                hsfOptions.spee_ReplacePreview = optionSelection[2];
+                hsfOptions.Spee_RemovePrefix = optionSelection[0];
+                hsfOptions.Spee_UpdateDescription = optionSelection[1];
+                hsfOptions.Spee_ReplacePreview = optionSelection[2];
 
-                modInstallation.highSchoolFleet = hsfOptions;
+                modInstallation.HighSchoolFleetOptions = hsfOptions;
 
                 Warhammer40KSelection();
             }
@@ -571,17 +575,20 @@ namespace PureHistory
         /// </summary>
         private static void Warhammer40KSelection()
         {
+            Clear();
+
             Warhammer40KOptions warhammerOptions;
+
             bool[] optionSelection = new bool[4];
 
-            if (modInstallation.warhammer40K != null)
+            if (modInstallation.Warhammer40KOptions != null)
             {
-                warhammerOptions = modInstallation.warhammer40K;
+                warhammerOptions = modInstallation.Warhammer40KOptions;
 
-                optionSelection[0] = warhammerOptions.replaceNames;
-                optionSelection[1] = warhammerOptions.updateDescription;
-                optionSelection[2] = warhammerOptions.replacePreviews;
-                optionSelection[3] = warhammerOptions.replaceFlags;
+                optionSelection[0] = warhammerOptions.ReplaceNames;
+                optionSelection[1] = warhammerOptions.UpdateDescription;
+                optionSelection[2] = warhammerOptions.ReplacePreviews;
+                optionSelection[3] = warhammerOptions.ReplaceFlags;
             }
             else
             {
@@ -593,16 +600,14 @@ namespace PureHistory
                 optionSelection[3] = false;
             }
 
-            Clear();
-
             string title = Resources.WarhammerTitle + "\r\n" + Resources.WarhammerWarning;
             string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.ReplaceFlag };
-            MultipleChoiceOption _warhammerOptions = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
             {
-                response = _warhammerOptions.Init();
+                response = multipleChoice.Init();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -624,7 +629,7 @@ namespace PureHistory
                         optionSelection[1] = false;
                     }
 
-                    _warhammerOptions.UpdateOptionSelection(optionSelection);
+                    multipleChoice.UpdateOptionSelection(optionSelection);
                 }
             }
 
@@ -634,12 +639,12 @@ namespace PureHistory
             }
             else if (response.ContinueToNext)
             {
-                warhammerOptions.replaceNames = optionSelection[0];
-                warhammerOptions.updateDescription = optionSelection[1];
-                warhammerOptions.replacePreviews = optionSelection[2];
-                warhammerOptions.replaceFlags = optionSelection[3];
+                warhammerOptions.ReplaceNames = optionSelection[0];
+                warhammerOptions.UpdateDescription = optionSelection[1];
+                warhammerOptions.ReplacePreviews = optionSelection[2];
+                warhammerOptions.ReplaceFlags = optionSelection[3];
 
-                modInstallation.warhammer40K = warhammerOptions;
+                modInstallation.Warhammer40KOptions = warhammerOptions;
 
                 DragonSelection();
             }
@@ -650,18 +655,21 @@ namespace PureHistory
         /// </summary>
         private static void DragonSelection()
         {
+            Clear();
+
             DragonShipOptions dragonShipOptions;
+
             bool[] optionSelection = new bool[5];
 
-            if (modInstallation.dragonShips != null)
+            if (modInstallation.DragonShipOptions != null)
             {
-                dragonShipOptions = modInstallation.dragonShips;
+                dragonShipOptions = modInstallation.DragonShipOptions;
 
-                optionSelection[0] = dragonShipOptions.replaceNames;
-                optionSelection[1] = dragonShipOptions.updateDescription;
-                optionSelection[2] = dragonShipOptions.replaceSilhouettes;
-                optionSelection[3] = dragonShipOptions.replacePreviews;
-                optionSelection[4] = dragonShipOptions.replaceFlags;
+                optionSelection[0] = dragonShipOptions.ReplaceNames;
+                optionSelection[1] = dragonShipOptions.UpdateDescription;
+                optionSelection[2] = dragonShipOptions.ReplaceSilhouettes;
+                optionSelection[3] = dragonShipOptions.ReplacePreviews;
+                optionSelection[4] = dragonShipOptions.ReplaceFlags;
             }
             else
             {
@@ -674,16 +682,14 @@ namespace PureHistory
                 optionSelection[4] = false;
             }
 
-            Clear();
-
             string title = Resources.DragonShipTitle;
             string[] options = { Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag };
-            MultipleChoiceOption _dragonOptions = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
             {
-                response = _dragonOptions.Init();
+                response = multipleChoice.Init();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -705,7 +711,7 @@ namespace PureHistory
                         optionSelection[1] = false;
                     }
 
-                    _dragonOptions.UpdateOptionSelection(optionSelection);
+                    multipleChoice.UpdateOptionSelection(optionSelection);
                 }
             }
 
@@ -715,13 +721,13 @@ namespace PureHistory
             }
             else if (response.ContinueToNext)
             {
-                dragonShipOptions.replaceNames = optionSelection[0];
-                dragonShipOptions.updateDescription = optionSelection[1];
-                dragonShipOptions.replaceSilhouettes = optionSelection[2];
-                dragonShipOptions.replacePreviews = optionSelection[3];
-                dragonShipOptions.replaceFlags = optionSelection[4];
+                dragonShipOptions.ReplaceNames = optionSelection[0];
+                dragonShipOptions.UpdateDescription = optionSelection[1];
+                dragonShipOptions.ReplaceSilhouettes = optionSelection[2];
+                dragonShipOptions.ReplacePreviews = optionSelection[3];
+                dragonShipOptions.ReplaceFlags = optionSelection[4];
 
-                modInstallation.dragonShips = dragonShipOptions;
+                modInstallation.DragonShipOptions = dragonShipOptions;
 
                 LunarNewYearSelection();
             }
@@ -732,18 +738,21 @@ namespace PureHistory
         /// </summary>
         private static void LunarNewYearSelection()
         {
+            Clear();
+
             LunarNewYearShipOptions lunarOptions;
+
             bool[] optionSelection = new bool[5];
 
-            if (modInstallation.lunarNewYearShips != null)
+            if (modInstallation.LunarNewYearShipOptions != null)
             {
-                lunarOptions = modInstallation.lunarNewYearShips;
+                lunarOptions = modInstallation.LunarNewYearShipOptions;
 
-                optionSelection[0] = lunarOptions.replaceNames;
-                optionSelection[1] = lunarOptions.updateDescription;
-                optionSelection[2] = lunarOptions.replacePreviews;
-                optionSelection[3] = lunarOptions.replaceFlags_Panasia;
-                optionSelection[4] = lunarOptions.replaceFlags_RespectiveCountry;
+                optionSelection[0] = lunarOptions.ReplaceNames;
+                optionSelection[1] = lunarOptions.UpdateDescription;
+                optionSelection[2] = lunarOptions.ReplacePreviews;
+                optionSelection[3] = lunarOptions.ReplaceFlagsPanasia;
+                optionSelection[4] = lunarOptions.ReplaceFlagsRespectiveCountry;
             }
             else
             {
@@ -756,16 +765,14 @@ namespace PureHistory
                 optionSelection[4] = false;
             }
 
-            Clear();
-
             string title = Resources.LunarNewYearTitle;
-            string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.LunarNewYearFlagOption1, Resources.LunarNewYearFlagOption2 };
-            MultipleChoiceOption _lunarOptions = new MultipleChoiceOption(title, options, optionSelection);
+            string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.LunarNewYearFlagOptionPanasia, Resources.LunarNewYearFlagOptionOriginal };
+            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
             {
-                response = _lunarOptions.Init();
+                response = multipleChoice.Init();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -796,7 +803,7 @@ namespace PureHistory
                         optionSelection[3] = false;
                     }
 
-                    _lunarOptions.UpdateOptionSelection(optionSelection);
+                    multipleChoice.UpdateOptionSelection(optionSelection);
                 }
             }
 
@@ -806,13 +813,13 @@ namespace PureHistory
             }
             else if (response.ContinueToNext)
             {
-                lunarOptions.replaceNames = optionSelection[0];
-                lunarOptions.updateDescription = optionSelection[1];
-                lunarOptions.replacePreviews = optionSelection[2];
-                lunarOptions.replaceFlags_Panasia = optionSelection[3];
-                lunarOptions.replaceFlags_RespectiveCountry = optionSelection[4];
+                lunarOptions.ReplaceNames = optionSelection[0];
+                lunarOptions.UpdateDescription = optionSelection[1];
+                lunarOptions.ReplacePreviews = optionSelection[2];
+                lunarOptions.ReplaceFlagsPanasia = optionSelection[3];
+                lunarOptions.ReplaceFlagsRespectiveCountry = optionSelection[4];
 
-                modInstallation.lunarNewYearShips = lunarOptions;
+                modInstallation.LunarNewYearShipOptions = lunarOptions;
 
                 BlackSelection();
             }
@@ -823,16 +830,19 @@ namespace PureHistory
         /// </summary>
         private static void BlackSelection()
         {
+            Clear();
+
             BlackShipOptions blackShipOptions;
+
             bool[] optionSelection = new bool[3];
 
-            if (modInstallation.blackShips != null)
+            if (modInstallation.BlackShipOptions != null)
             {
-                blackShipOptions = modInstallation.blackShips;
+                blackShipOptions = modInstallation.BlackShipOptions;
 
-                optionSelection[0] = blackShipOptions.removeSuffixes;
-                optionSelection[1] = blackShipOptions.updateDescription;
-                optionSelection[2] = blackShipOptions.replacePreviews;
+                optionSelection[0] = blackShipOptions.RemoveSuffixes;
+                optionSelection[1] = blackShipOptions.UpdateDescription;
+                optionSelection[2] = blackShipOptions.ReplacePreviews;
             }
             else
             {
@@ -843,16 +853,14 @@ namespace PureHistory
                 optionSelection[2] = false;
             }
 
-            Clear();
-
             string title = Resources.BlackShipTitle;
             string[] options = { Resources.BlackShipsSuffix, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption _blackShipOptions = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
             {
-                response = _blackShipOptions.Init();
+                response = multipleChoice.Init();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -874,7 +882,7 @@ namespace PureHistory
                         optionSelection[1] = false;
                     }
 
-                    _blackShipOptions.UpdateOptionSelection(optionSelection);
+                    multipleChoice.UpdateOptionSelection(optionSelection);
                 }
             }
 
@@ -884,11 +892,11 @@ namespace PureHistory
             }
             else if (response.ContinueToNext)
             {
-                blackShipOptions.removeSuffixes = optionSelection[0];
-                blackShipOptions.updateDescription = optionSelection[1];
-                blackShipOptions.replacePreviews = optionSelection[2];
+                blackShipOptions.RemoveSuffixes = optionSelection[0];
+                blackShipOptions.UpdateDescription = optionSelection[1];
+                blackShipOptions.ReplacePreviews = optionSelection[2];
 
-                modInstallation.blackShips = blackShipOptions;
+                modInstallation.BlackShipOptions = blackShipOptions;
 
                 LimaSelection();
             }
@@ -899,16 +907,19 @@ namespace PureHistory
         /// </summary>
         private static void LimaSelection()
         {
+            Clear();
+
             LimaShipOptions limaShipOptions;
+
             bool[] optionSelection = new bool[3];
 
-            if (modInstallation.limaShips != null)
+            if (modInstallation.LimaShipOptions != null)
             {
-                limaShipOptions = modInstallation.limaShips;
+                limaShipOptions = modInstallation.LimaShipOptions;
 
-                optionSelection[0] = limaShipOptions.removeSuffixes;
-                optionSelection[1] = limaShipOptions.updateDescription;
-                optionSelection[2] = limaShipOptions.replacePreviews;
+                optionSelection[0] = limaShipOptions.RemoveSuffixes;
+                optionSelection[1] = limaShipOptions.UpdateDescription;
+                optionSelection[2] = limaShipOptions.ReplacePreviews;
             }
             else
             {
@@ -919,16 +930,14 @@ namespace PureHistory
                 optionSelection[2] = false;
             }
 
-            Clear();
-
             string title = Resources.LimaShipTitle;
             string[] options = { Resources.LimaShipsSuffix, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption _limaShipOptions = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
             {
-                response = _limaShipOptions.Init();
+                response = multipleChoice.Init();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -950,7 +959,7 @@ namespace PureHistory
                         optionSelection[1] = false;
                     }
 
-                    _limaShipOptions.UpdateOptionSelection(optionSelection);
+                    multipleChoice.UpdateOptionSelection(optionSelection);
                 }
             }
 
@@ -960,11 +969,11 @@ namespace PureHistory
             }
             else if (response.ContinueToNext)
             {
-                limaShipOptions.removeSuffixes = optionSelection[0];
-                limaShipOptions.updateDescription = optionSelection[1];
-                limaShipOptions.replacePreviews = optionSelection[2];
+                limaShipOptions.RemoveSuffixes = optionSelection[0];
+                limaShipOptions.UpdateDescription = optionSelection[1];
+                limaShipOptions.ReplacePreviews = optionSelection[2];
 
-                modInstallation.limaShips = limaShipOptions;
+                modInstallation.LimaShipOptions = limaShipOptions;
 
                 MiscellaneousSelection();
             }
@@ -975,22 +984,25 @@ namespace PureHistory
         /// </summary>
         private static void MiscellaneousSelection()
         {
+            Clear();
+
             MiscellaneousOptions miscellaneousOptions;
+
             bool[] optionSelection = new bool[9];
 
-            if (modInstallation.miscellaneous != null)
+            if (modInstallation.MiscellaneousOptions != null)
             {
-                miscellaneousOptions = modInstallation.miscellaneous;
+                miscellaneousOptions = modInstallation.MiscellaneousOptions;
 
-                optionSelection[0] = miscellaneousOptions.kamikaze_removeSuffix;
-                optionSelection[1] = miscellaneousOptions.kamikaze_updateDescription;
-                optionSelection[2] = miscellaneousOptions.kamikaze_replacePreview;
-                optionSelection[3] = miscellaneousOptions.alabama_removeSuffix;
-                optionSelection[4] = miscellaneousOptions.alabama_updateDescription;
-                optionSelection[5] = miscellaneousOptions.alabama_replacePreview;
-                optionSelection[6] = miscellaneousOptions.iwaki_removeSuffix;
-                optionSelection[7] = miscellaneousOptions.arkansas_removeSuffix;
-                optionSelection[8] = miscellaneousOptions.westVirginia_correctName;
+                optionSelection[0] = miscellaneousOptions.KamikazeR_RemoveSuffix;
+                optionSelection[1] = miscellaneousOptions.KamikazeR_UpdateDescription;
+                optionSelection[2] = miscellaneousOptions.KamikazeR_ReplacePreview;
+                optionSelection[3] = miscellaneousOptions.AlabamaST_RemoveSuffix;
+                optionSelection[4] = miscellaneousOptions.AlabamaST_UpdateDescription;
+                optionSelection[5] = miscellaneousOptions.AlabamaST_ReplacePreview;
+                optionSelection[6] = miscellaneousOptions.IwakiA_RemoveSuffix;
+                optionSelection[7] = miscellaneousOptions.ArkansasB_RemoveSuffix;
+                optionSelection[8] = miscellaneousOptions.WestVirginia41_CorrectName;
             }
             else
             {
@@ -1007,16 +1019,14 @@ namespace PureHistory
                 optionSelection[8] = false;
             }
 
-            Clear();
-
             string title = Resources.MiscellaneousTitle;
-            string[] options = { Resources.MiscKamikazeOption1, Resources.MiscKamikazeOption2, Resources.MiscKamikazeOption3, Resources.MiscAlabamaOption1, Resources.MiscAlabamaOption2, Resources.MiscAlabamaOption3, Resources.MiscIwakiSuffix, Resources.MiscArkansasSuffix, Resources.MiscWestVirginiaName };
-            MultipleChoiceOption _miscellaneousOptions = new MultipleChoiceOption(title, options, optionSelection);
+            string[] options = { Resources.MiscKamikazeSuffix, Resources.UpdateDescription, Resources.ReplacePreviewMisc, Resources.MiscAlabamaSuffix, Resources.UpdateDescription, Resources.ReplacePreviewMisc, Resources.MiscIwakiSuffix, Resources.MiscArkansasSuffix, Resources.MiscWestVirginiaName };
+            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
             {
-                response = _miscellaneousOptions.Init();
+                response = multipleChoice.Init();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -1043,7 +1053,7 @@ namespace PureHistory
                         optionSelection[4] = false;
                     }
 
-                    _miscellaneousOptions.UpdateOptionSelection(optionSelection);
+                    multipleChoice.UpdateOptionSelection(optionSelection);
                 }
             }
 
@@ -1053,17 +1063,17 @@ namespace PureHistory
             }
             else if (response.ContinueToNext)
             {
-                miscellaneousOptions.kamikaze_removeSuffix = optionSelection[0];
-                miscellaneousOptions.kamikaze_updateDescription = optionSelection[1];
-                miscellaneousOptions.kamikaze_replacePreview = optionSelection[2];
-                miscellaneousOptions.alabama_removeSuffix = optionSelection[3];
-                miscellaneousOptions.alabama_updateDescription = optionSelection[4];
-                miscellaneousOptions.alabama_replacePreview = optionSelection[5];
-                miscellaneousOptions.iwaki_removeSuffix = optionSelection[6];
-                miscellaneousOptions.arkansas_removeSuffix = optionSelection[7];
-                miscellaneousOptions.westVirginia_correctName = optionSelection[8];
+                miscellaneousOptions.KamikazeR_RemoveSuffix = optionSelection[0];
+                miscellaneousOptions.KamikazeR_UpdateDescription = optionSelection[1];
+                miscellaneousOptions.KamikazeR_ReplacePreview = optionSelection[2];
+                miscellaneousOptions.AlabamaST_RemoveSuffix = optionSelection[3];
+                miscellaneousOptions.AlabamaST_UpdateDescription = optionSelection[4];
+                miscellaneousOptions.AlabamaST_ReplacePreview = optionSelection[5];
+                miscellaneousOptions.IwakiA_RemoveSuffix = optionSelection[6];
+                miscellaneousOptions.ArkansasB_RemoveSuffix = optionSelection[7];
+                miscellaneousOptions.WestVirginia41_CorrectName = optionSelection[8];
 
-                modInstallation.miscellaneous = miscellaneousOptions;
+                modInstallation.MiscellaneousOptions = miscellaneousOptions;
 
                 PerformInstallation();
             }
@@ -1076,7 +1086,7 @@ namespace PureHistory
         {
             Clear();
 
-            WriteLine(Resources.StartInstallation);
+            WriteLine(Resources.StartInstallationNoticeGoBack + "\r\n" + Resources.StartInstallationNoticeStart);
             ConsoleKey response = ReadKey(true).Key;
 
             //The user can abort the installation by pressing left arrow key, any other key starts the installation
@@ -1099,8 +1109,8 @@ namespace PureHistory
                     }
                     catch (Exception ex)
                     {
-                        WriteLine(Resources.Error);
-                        WriteLine(Resources.ErrorDuringInstallation);
+                        WriteLine(Resources.GenericError);
+                        WriteLine(Resources.InstallationError);
                         WriteLine(ex.Message);
                         ReadKey();
                         Environment.Exit(0);
@@ -1122,8 +1132,8 @@ namespace PureHistory
                 catch (Exception ex)
                 {
                     clientLang = null;
-                    WriteLine(Resources.Error);
-                    WriteLine(Resources.ErrorDuringInstallation);
+                    WriteLine(Resources.GenericError);
+                    WriteLine(Resources.InstallationError);
                     WriteLine(ex.Message);
                     ReadKey();
                     Environment.Exit(0);
@@ -1210,7 +1220,7 @@ namespace PureHistory
                 string moFilePath = Path.Combine(lcMessagePath, "global.mo");
                 if (!File.Exists(moFilePath))
                 {
-                    string sourceMO = Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(binPath, "res"), "texts"), clientLang), "LC_MESSAGES"), "global.mo");
+                    string sourceMO = Path.Combine(binPath, "res", "texts", clientLang, "LC_MESSAGES", "global.mo");
                     File.Copy(sourceMO, moFilePath);
                 }
 
@@ -1236,7 +1246,7 @@ namespace PureHistory
 
                 try
                 {
-                    if (modInstallation.arpeggio.replaceFlags)
+                    if (modInstallation.ArpeggioOptions.ReplaceFlags)
                     {
                         //Idk what flag this is, seems Arpeggio to me ¯\_(ツ)_/¯
                         File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_Ashigara.png"), Path.Combine(bigNationFlagsDestPath, "flag_Ashigara.png"), true);
@@ -1313,7 +1323,7 @@ namespace PureHistory
                         File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSX702.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSX702.png"), true);
                         File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSX702.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSX702.png"), true);
                     }
-                    if (modInstallation.warhammer40K.replaceFlags)
+                    if (modInstallation.Warhammer40KOptions.ReplaceFlags)
                     {
                         //PJSB878	Ignis Purgatio
                         File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSB878.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSB878.png"), true);
@@ -1325,7 +1335,7 @@ namespace PureHistory
                         File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSB888.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSB888.png"), true);
                         File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSB888.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSB888.png"), true);
                     }
-                    if (modInstallation.dragonShips.replaceFlags)
+                    if (modInstallation.DragonShipOptions.ReplaceFlags)
                     {
                         //PJSC717	S. Dragon
                         File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSC717.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSC717.png"), true);
@@ -1337,7 +1347,7 @@ namespace PureHistory
                         File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSC727.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSC727.png"), true);
                         File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSC727.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSC727.png"), true);
                     }
-                    if (modInstallation.lunarNewYearShips.replaceFlags_RespectiveCountry)
+                    if (modInstallation.LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry)
                     {
                         //PZSA508	Sanzang
                         File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PZSA508.png"), Path.Combine(bigNationFlagsDestPath, "flag_PZSA508.png"), true);
@@ -1359,7 +1369,7 @@ namespace PureHistory
                         File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PZSC518.png"), Path.Combine(smallNationFlagsDestPath, "flag_PZSC518.png"), true);
                         File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PZSC518.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PZSC518.png"), true);
                     }
-                    else if (modInstallation.lunarNewYearShips.replaceFlags_Panasia)
+                    else if (modInstallation.LunarNewYearShipOptions.ReplaceFlagsPanasia)
                     {
                         //PZSA508	Sanzang
                         File.Copy(Path.Combine(bigNationFlagsAltPath, "flag_PZSA508.png"), Path.Combine(bigNationFlagsDestPath, "flag_PZSA508.png"), true);
@@ -1384,7 +1394,7 @@ namespace PureHistory
 
                     //Sillhouettes (ship_icons / ship_dead_icons / ship_own_icons)
 
-                    if (modInstallation.arpeggio.replaceSilhouettes)
+                    if (modInstallation.ArpeggioOptions.ReplaceSilhouettes)
                     {
                         //PJSB700	ARP Yamato
                         File.Copy(Path.Combine(shipIconsSrcPath, "PJSB700.png"), Path.Combine(shipIconsDestPath, "PJSB700.png"), true);
@@ -1446,7 +1456,7 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSC737.png"), Path.Combine(shipDeadIconsDestPath, "PJSC737.png"), true);
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC737.png"), Path.Combine(shipOwnIconsDestPath, "PJSC737.png"), true);
                     }
-                    if (modInstallation.dragonShips.replaceSilhouettes)
+                    if (modInstallation.DragonShipOptions.ReplaceSilhouettes)
                     {
                         //PJSC717	S. Dragon
                         File.Copy(Path.Combine(shipIconsSrcPath, "PJSC717.png"), Path.Combine(shipIconsDestPath, "PJSC717.png"), true);
@@ -1461,7 +1471,7 @@ namespace PureHistory
 
                     //Ship previews (ship_previews / ship_previews_ds)
 
-                    if (modInstallation.arpeggio.replacePreviews)
+                    if (modInstallation.ArpeggioOptions.ReplacePreviews)
                     {
                         //PJSB700	ARP Yamato
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB700.png"), Path.Combine(shipPreviewsDestPath, "PJSB700.png"), true);
@@ -1511,7 +1521,7 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC737.png"), Path.Combine(shipPreviewsDestPath, "PJSC737.png"), true);
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC737.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC737.png"), true);
                     }
-                    if (modInstallation.azurLane.replacePreviews)
+                    if (modInstallation.AzurLaneOptions.ReplacePreviews)
                     {
                         //PJSD718	AL Yukikaze
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSD718.png"), Path.Combine(shipPreviewsDestPath, "PJSD718.png"), true);
@@ -1525,19 +1535,19 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PASC718.png"), Path.Combine(shipPreviewsDestPath, "PASC718.png"), true);
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASC718.png"), Path.Combine(shipPreviewsDsDestPath, "PASC718.png"), true);
                     }
-                    if (modInstallation.highSchoolFleet.harekaze_ReplacePreview)
+                    if (modInstallation.HighSchoolFleetOptions.Harekaze_ReplacePreview)
                     {
                         //PJSD708	HSF Harekaze
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSD708.png"), Path.Combine(shipPreviewsDestPath, "PJSD708.png"), true);
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSD708.png"), Path.Combine(shipPreviewsDsDestPath, "PJSD708.png"), true);
                     }
-                    if (modInstallation.highSchoolFleet.spee_ReplacePreview)
+                    if (modInstallation.HighSchoolFleetOptions.Spee_ReplacePreview)
                     {
                         //PGSC706	HSF Graf Spee
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PGSC706.png"), Path.Combine(shipPreviewsDestPath, "PGSC706.png"), true);
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PGSC706.png"), Path.Combine(shipPreviewsDsDestPath, "PGSC706.png"), true);
                     }
-                    if (modInstallation.warhammer40K.replacePreviews)
+                    if (modInstallation.Warhammer40KOptions.ReplacePreviews)
                     {
                         //PJSB878	Ignis Purgatio
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB878.png"), Path.Combine(shipPreviewsDestPath, "PJSB878.png"), true);
@@ -1547,7 +1557,7 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB888.png"), Path.Combine(shipPreviewsDestPath, "PJSB888.png"), true);
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB888.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB888.png"), true);
                     }
-                    if (modInstallation.dragonShips.replacePreviews)
+                    if (modInstallation.DragonShipOptions.ReplacePreviews)
                     {
                         //PJSC717	S. Dragon
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC717.png"), Path.Combine(shipPreviewsDestPath, "PJSC717.png"), true);
@@ -1557,7 +1567,7 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC727.png"), Path.Combine(shipPreviewsDestPath, "PJSC727.png"), true);
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC727.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC727.png"), true);
                     }
-                    if (modInstallation.lunarNewYearShips.replacePreviews)
+                    if (modInstallation.LunarNewYearShipOptions.ReplacePreviews)
                     {
                         //PZSA508	Sanzang
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PZSA508.png"), Path.Combine(shipPreviewsDestPath, "PZSA508.png"), true);
@@ -1575,7 +1585,7 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PZSC518.png"), Path.Combine(shipPreviewsDestPath, "PZSC518.png"), true);
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PZSC518.png"), Path.Combine(shipPreviewsDsDestPath, "PZSC518.png"), true);
                     }
-                    if (modInstallation.blackShips.replacePreviews)
+                    if (modInstallation.BlackShipOptions.ReplacePreviews)
                     {
                         //PFSB599	Jean Bart B
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PFSB599.png"), Path.Combine(shipPreviewsDestPath, "PFSB599.png"), true);
@@ -1625,7 +1635,7 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PASB598.png"), Path.Combine(shipPreviewsDestPath, "PASB598.png"), true);
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASB598.png"), Path.Combine(shipPreviewsDsDestPath, "PASB598.png"), true);
                     }
-                    if (modInstallation.limaShips.replacePreviews)
+                    if (modInstallation.LimaShipOptions.ReplacePreviews)
                     {
                         //PJSD014	Tachibana L
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSD014.png"), Path.Combine(shipPreviewsDestPath, "PJSD014.png"), true);
@@ -1639,13 +1649,13 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PASC045.png"), Path.Combine(shipPreviewsDestPath, "PASC045.png"), true);
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASC045.png"), Path.Combine(shipPreviewsDsDestPath, "PASC045.png"), true);
                     }
-                    if (modInstallation.miscellaneous.kamikaze_replacePreview)
+                    if (modInstallation.MiscellaneousOptions.KamikazeR_ReplacePreview)
                     {
                         //PJSD026	Kamikaze R
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSD026.png"), Path.Combine(shipPreviewsDestPath, "PJSD026.png"), true);
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSD026.png"), Path.Combine(shipPreviewsDsDestPath, "PJSD026.png"), true);
                     }
-                    if (modInstallation.miscellaneous.alabama_replacePreview)
+                    if (modInstallation.MiscellaneousOptions.AlabamaST_ReplacePreview)
                     {
                         //PASB708	Alabama ST
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PASB708.png"), Path.Combine(shipPreviewsDestPath, "PASB708.png"), true);
@@ -1654,8 +1664,8 @@ namespace PureHistory
                 }
                 catch (Exception ex)
                 {
-                    WriteLine(Resources.Error);
-                    WriteLine(Resources.ErrorDuringInstallation);
+                    WriteLine(Resources.GenericError);
+                    WriteLine(Resources.InstallationError);
                     WriteLine(ex.Message);
                     ReadKey();
                     Environment.Exit(0);
@@ -1675,7 +1685,7 @@ namespace PureHistory
                         {
                             //PJSB700	ARP Yamato
                             case "IDS_PJSB700":
-                                if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.ReplaceNames || modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Yamato";
                                     break;
@@ -1685,7 +1695,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB700_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP Yamato)\r\n" + line.Translated;
                                     break;
@@ -1695,7 +1705,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB700_FULL":
-                                if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.ReplaceNames || modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Yamato";
                                     break;
@@ -1707,7 +1717,7 @@ namespace PureHistory
 
                             //PJSB705	ARP Kongō
                             case "IDS_PJSB705":
-                                if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.ReplaceNames || modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Kongō";
                                     break;
@@ -1717,7 +1727,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB705_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP Kongō)\r\n" + line.Translated;
                                     break;
@@ -1727,7 +1737,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB705_FULL":
-                                if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.ReplaceNames || modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Kongō";
                                     break;
@@ -1739,12 +1749,12 @@ namespace PureHistory
 
                             //PJSB706	ARP Kirishima
                             case "IDS_PJSB706":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Kirishima";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Kongō";
                                     break;
@@ -1754,7 +1764,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB706_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP Kongō)\r\n" + line.Translated;
                                     break;
@@ -1764,12 +1774,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB706_FULL":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Kirishima";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Kongō";
                                     break;
@@ -1781,12 +1791,12 @@ namespace PureHistory
 
                             //PJSB707	ARP Haruna
                             case "IDS_PJSB707":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Haruna";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Kongō";
                                     break;
@@ -1796,7 +1806,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB707_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP Haruna)\r\n" + line.Translated;
                                     break;
@@ -1806,12 +1816,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB707_FULL":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Haruna";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Kongō";
                                     break;
@@ -1823,12 +1833,12 @@ namespace PureHistory
 
                             //PJSB708	ARP Hiei
                             case "IDS_PJSB708":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Hiei";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Kongō";
                                     break;
@@ -1838,7 +1848,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB708_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP Hiei)\r\n" + line.Translated;
                                     break;
@@ -1848,12 +1858,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB708_FULL":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Hiei";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Kongō";
                                     break;
@@ -1865,12 +1875,12 @@ namespace PureHistory
 
                             //PJSB799	ARP Kirishima
                             case "IDS_PJSB799":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Kirishima";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Kongō";
                                     break;
@@ -1880,7 +1890,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB799_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP Kirishima)\r\n" + line.Translated;
                                     break;
@@ -1890,12 +1900,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB799_FULL":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Kirishima";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Kongō";
                                     break;
@@ -1907,7 +1917,7 @@ namespace PureHistory
 
                             //PJSC705	ARP Myōkō
                             case "IDS_PJSC705":
-                                if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.ReplaceNames || modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Myōkō";
                                     break;
@@ -1917,7 +1927,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC705_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP Myōkō)\r\n" + line.Translated;
                                     break;
@@ -1927,7 +1937,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC705_FULL":
-                                if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.ReplaceNames || modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Myōkō";
                                     break;
@@ -1939,12 +1949,12 @@ namespace PureHistory
 
                             //PJSC707	ARP Ashigara
                             case "IDS_PJSC707":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Ashigara";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Myōkō";
                                     break;
@@ -1954,7 +1964,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC707_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP Ashigara)\r\n" + line.Translated;
                                     break;
@@ -1964,12 +1974,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC707_FULL":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Ashigara";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Myōkō";
                                     break;
@@ -1981,12 +1991,12 @@ namespace PureHistory
 
                             //PJSC708	ARP Takao
                             case "IDS_PJSC708":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Takao";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Atago";
                                     break;
@@ -1996,7 +2006,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC708_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP Takao)\r\n" + line.Translated;
                                     break;
@@ -2006,12 +2016,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC708_FULL":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Takao";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Atago";
                                     break;
@@ -2023,12 +2033,12 @@ namespace PureHistory
 
                             //PJSC709	ARP Haguro
                             case "IDS_PJSC709":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Haguro";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Myōkō";
                                     break;
@@ -2038,7 +2048,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC709_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP Haguro)\r\n" + line.Translated;
                                     break;
@@ -2048,12 +2058,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC709_FULL":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Haguro";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Myōkō";
                                     break;
@@ -2065,12 +2075,12 @@ namespace PureHistory
 
                             //PJSC718	ARP Maya
                             case "IDS_PJSC718":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Maya";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Atago";
                                     break;
@@ -2080,7 +2090,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC718_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP Maya)\r\n" + line.Translated;
                                     break;
@@ -2090,12 +2100,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC718_FULL":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Maya";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Atago";
                                     break;
@@ -2107,12 +2117,12 @@ namespace PureHistory
 
                             //PJSC737	ARP Nachi
                             case "IDS_PJSC737":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Nachi";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Myōkō";
                                     break;
@@ -2122,7 +2132,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC737_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP Nachi)\r\n" + line.Translated;
                                     break;
@@ -2132,12 +2142,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC737_FULL":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Nachi";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Myōkō";
                                     break;
@@ -2149,12 +2159,12 @@ namespace PureHistory
 
                             //PJSC799	ARP Takao
                             case "IDS_PJSC799":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Takao";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Atago";
                                     break;
@@ -2165,7 +2175,7 @@ namespace PureHistory
                                 }
 
                             case "IDS_PJSC799_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP Takao)\r\n" + line.Translated;
                                     break;
@@ -2175,12 +2185,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC799_FULL":
-                                if (modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Takao";
                                     break;
                                 }
-                                else if (modInstallation.arpeggio.replaceNames)
+                                else if (modInstallation.ArpeggioOptions.ReplaceNames)
                                 {
                                     line.Translated = "Atago";
                                     break;
@@ -2192,7 +2202,7 @@ namespace PureHistory
 
                             //PJSX701	ARP I-401
                             case "IDS_PJSX701":
-                                if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.ReplaceNames || modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "I-401";
                                     break;
@@ -2202,7 +2212,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSX701_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP I-401)\r\n" + line.Translated;
                                     break;
@@ -2212,7 +2222,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSX701_FULL":
-                                if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.ReplaceNames || modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "I-401";
                                     break;
@@ -2224,7 +2234,7 @@ namespace PureHistory
 
                             //PJSX702   ARP I-401
                             case "IDS_PJSX702":
-                                if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.ReplaceNames || modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "I-401";
                                     break;
@@ -2234,7 +2244,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSX702_DESCR":
-                                if (modInstallation.arpeggio.updateDescription)
+                                if (modInstallation.ArpeggioOptions.UpdateDescription)
                                 {
                                     line.Translated = "(ARP I-401)\r\n" + line.Translated;
                                     break;
@@ -2244,7 +2254,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSX702_FULL":
-                                if (modInstallation.arpeggio.replaceNames || modInstallation.arpeggio.removePrefixes)
+                                if (modInstallation.ArpeggioOptions.ReplaceNames || modInstallation.ArpeggioOptions.RemovePrefixes)
                                 {
                                     line.Translated = "I-401";
                                     break;
@@ -2258,12 +2268,12 @@ namespace PureHistory
 
                             //PJSD718	AL Yukikaze
                             case "IDS_PJSD718":
-                                if (modInstallation.azurLane.removePrefixes)
+                                if (modInstallation.AzurLaneOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Yukikaze";
                                     break;
                                 }
-                                else if (modInstallation.azurLane.replaceNames)
+                                else if (modInstallation.AzurLaneOptions.ReplaceNames)
                                 {
                                     line.Translated = "Kagerō";
                                     break;
@@ -2273,7 +2283,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSD718_DESCR":
-                                if (modInstallation.azurLane.updateDescription)
+                                if (modInstallation.AzurLaneOptions.UpdateDescription)
                                 {
                                     line.Translated = "(AL Yukikaze)\r\n" + line.Translated;
                                     break;
@@ -2283,12 +2293,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSD718_FULL":
-                                if (modInstallation.azurLane.removePrefixes)
+                                if (modInstallation.AzurLaneOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Yukikaze";
                                     break;
                                 }
-                                else if (modInstallation.azurLane.replaceNames)
+                                else if (modInstallation.AzurLaneOptions.ReplaceNames)
                                 {
                                     line.Translated = "Kagerō";
                                     break;
@@ -2300,12 +2310,12 @@ namespace PureHistory
 
                             //PISB708	AL Littorio
                             case "IDS_PISB708":
-                                if (modInstallation.azurLane.removePrefixes)
+                                if (modInstallation.AzurLaneOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Littorio";
                                     break;
                                 }
-                                else if (modInstallation.azurLane.replaceNames)
+                                else if (modInstallation.AzurLaneOptions.ReplaceNames)
                                 {
                                     line.Translated = "Roma";
                                     break;
@@ -2315,7 +2325,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PISB708_DESCR":
-                                if (modInstallation.azurLane.updateDescription)
+                                if (modInstallation.AzurLaneOptions.UpdateDescription)
                                 {
                                     line.Translated = "(AL Littorio)\r\n" + line.Translated;
                                     break;
@@ -2325,12 +2335,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PISB708_FULL":
-                                if (modInstallation.azurLane.removePrefixes)
+                                if (modInstallation.AzurLaneOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Littorio";
                                     break;
                                 }
-                                else if (modInstallation.azurLane.replaceNames)
+                                else if (modInstallation.AzurLaneOptions.ReplaceNames)
                                 {
                                     line.Translated = "Roma";
                                     break;
@@ -2342,12 +2352,12 @@ namespace PureHistory
 
                             //PASC718	AL Montpelier
                             case "IDS_PASC718":
-                                if (modInstallation.azurLane.removePrefixes)
+                                if (modInstallation.AzurLaneOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Montpelier";
                                     break;
                                 }
-                                else if (modInstallation.azurLane.replaceNames)
+                                else if (modInstallation.AzurLaneOptions.ReplaceNames)
                                 {
                                     line.Translated = "Cleveland";
                                     break;
@@ -2357,7 +2367,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASC718_DESCR":
-                                if (modInstallation.azurLane.updateDescription)
+                                if (modInstallation.AzurLaneOptions.UpdateDescription)
                                 {
                                     line.Translated = "(AL Montpelier)\r\n" + line.Translated;
                                     break;
@@ -2367,12 +2377,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASC718_FULL":
-                                if (modInstallation.azurLane.removePrefixes)
+                                if (modInstallation.AzurLaneOptions.RemovePrefixes)
                                 {
                                     line.Translated = "Montpelier";
                                     break;
                                 }
-                                else if (modInstallation.azurLane.replaceNames)
+                                else if (modInstallation.AzurLaneOptions.ReplaceNames)
                                 {
                                     line.Translated = "Cleveland";
                                     break;
@@ -2386,12 +2396,12 @@ namespace PureHistory
 
                             //PJSD708	HSF Harekaze
                             case "IDS_PJSD708":
-                                if (modInstallation.highSchoolFleet.harekaze_RemovePrefix)
+                                if (modInstallation.HighSchoolFleetOptions.Harekaze_RemovePrefix)
                                 {
                                     line.Translated = "Harekaze";
                                     break;
                                 }
-                                else if (modInstallation.azurLane.replaceNames)
+                                else if (modInstallation.AzurLaneOptions.ReplaceNames)
                                 {
                                     line.Translated = "Kagerō";
                                     break;
@@ -2401,7 +2411,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSD708_DESCR":
-                                if (modInstallation.highSchoolFleet.harekaze_UpdateDescription)
+                                if (modInstallation.HighSchoolFleetOptions.Harekaze_UpdateDescription)
                                 {
                                     line.Translated = "(HSF Harekaze)\r\n" + line.Translated;
                                     break;
@@ -2411,12 +2421,12 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSD708_FULL":
-                                if (modInstallation.highSchoolFleet.harekaze_RemovePrefix)
+                                if (modInstallation.HighSchoolFleetOptions.Harekaze_RemovePrefix)
                                 {
                                     line.Translated = "Harekaze";
                                     break;
                                 }
-                                else if (modInstallation.highSchoolFleet.harekaze_ReplaceName)
+                                else if (modInstallation.HighSchoolFleetOptions.Harekaze_ReplaceName)
                                 {
                                     line.Translated = "Kagerō";
                                     break;
@@ -2428,7 +2438,7 @@ namespace PureHistory
 
                             //PGSC706	HSF Graf Spee
                             case "IDS_PGSC706":
-                                if (modInstallation.highSchoolFleet.spee_RemovePrefix)
+                                if (modInstallation.HighSchoolFleetOptions.Spee_RemovePrefix)
                                 {
                                     line.Translated = "Graf Spee";
                                     break;
@@ -2438,7 +2448,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PGSC706_DESCR":
-                                if (modInstallation.highSchoolFleet.harekaze_UpdateDescription)
+                                if (modInstallation.HighSchoolFleetOptions.Harekaze_UpdateDescription)
                                 {
                                     line.Translated = "(HSF Graf Spee)\r\n" + line.Translated;
                                     break;
@@ -2448,7 +2458,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PGSC706_FULL":
-                                if (modInstallation.highSchoolFleet.spee_RemovePrefix)
+                                if (modInstallation.HighSchoolFleetOptions.Spee_RemovePrefix)
                                 {
                                     line.Translated = "Admiral Graf Spee";
                                     break;
@@ -2462,7 +2472,7 @@ namespace PureHistory
 
                             //PJSC717	S. Dragon
                             case "IDS_PJSC717":
-                                if (modInstallation.dragonShips.replaceNames)
+                                if (modInstallation.DragonShipOptions.ReplaceNames)
                                 {
                                     line.Translated = "Myōkō";
                                     break;
@@ -2472,7 +2482,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC717_DESCR":
-                                if (modInstallation.dragonShips.updateDescription)
+                                if (modInstallation.DragonShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Southern Dragon)\r\n" + line.Translated;
                                     break;
@@ -2482,7 +2492,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC717_FULL":
-                                if (modInstallation.dragonShips.replaceNames)
+                                if (modInstallation.DragonShipOptions.ReplaceNames)
                                 {
                                     line.Translated = "Myōkō";
                                     break;
@@ -2494,7 +2504,7 @@ namespace PureHistory
 
                             //PJSC727	E. Dragon
                             case "IDS_PJSC727":
-                                if (modInstallation.dragonShips.replaceNames)
+                                if (modInstallation.DragonShipOptions.ReplaceNames)
                                 {
                                     line.Translated = "Myōkō";
                                     break;
@@ -2504,7 +2514,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC727_DESCR":
-                                if (modInstallation.dragonShips.updateDescription)
+                                if (modInstallation.DragonShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Eastern Dragon)\r\n" + line.Translated;
                                     break;
@@ -2514,7 +2524,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC727_FULL":
-                                if (modInstallation.dragonShips.replaceNames)
+                                if (modInstallation.DragonShipOptions.ReplaceNames)
                                 {
                                     line.Translated = "Myōkō";
                                     break;
@@ -2528,7 +2538,7 @@ namespace PureHistory
 
                             //PJSB878	Ignis Purgatio
                             case "IDS_PJSB878":
-                                if (modInstallation.warhammer40K.replaceNames)
+                                if (modInstallation.Warhammer40KOptions.ReplaceNames)
                                 {
                                     line.Translated = "Amagi";
                                     break;
@@ -2538,7 +2548,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB878_DESCR":
-                                if (modInstallation.warhammer40K.updateDescription)
+                                if (modInstallation.Warhammer40KOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Ignis Purgatio)\r\n" + line.Translated;
                                     break;
@@ -2548,7 +2558,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB878_FULL":
-                                if (modInstallation.warhammer40K.replaceNames)
+                                if (modInstallation.Warhammer40KOptions.ReplaceNames)
                                 {
                                     line.Translated = "Amagi";
                                     break;
@@ -2560,7 +2570,7 @@ namespace PureHistory
 
                             //PJSB888	Ragnarok
                             case "IDS_PJSB888":
-                                if (modInstallation.warhammer40K.replaceNames)
+                                if (modInstallation.Warhammer40KOptions.ReplaceNames)
                                 {
                                     line.Translated = "Amagi";
                                     break;
@@ -2570,7 +2580,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB888_DESCR":
-                                if (modInstallation.warhammer40K.updateDescription)
+                                if (modInstallation.Warhammer40KOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Ragnarok)\r\n" + line.Translated;
                                     break;
@@ -2580,7 +2590,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSB888_FULL":
-                                if (modInstallation.warhammer40K.replaceNames)
+                                if (modInstallation.Warhammer40KOptions.ReplaceNames)
                                 {
                                     line.Translated = "Amagi";
                                     break;
@@ -2594,7 +2604,7 @@ namespace PureHistory
 
                             //PFSB599	Jean Bart B
                             case "IDS_PFSB599":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Jean Bart";
                                     break;
@@ -2604,7 +2614,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PFSB599_DESCR":
-                                if (modInstallation.blackShips.updateDescription)
+                                if (modInstallation.BlackShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Jean Bart B)\r\n" + line.Translated;
                                     break;
@@ -2614,7 +2624,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PFSB599_FULL":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Jean Bart";
                                     break;
@@ -2626,7 +2636,7 @@ namespace PureHistory
 
                             //PGSB597	Scharnhorst B
                             case "IDS_PGSB597":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Scharnhorst";
                                     break;
@@ -2636,7 +2646,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PGSB597_DESCR":
-                                if (modInstallation.blackShips.updateDescription)
+                                if (modInstallation.BlackShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Scharnhorst B)\r\n" + line.Translated;
                                     break;
@@ -2646,7 +2656,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PGSB597_FULL":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Scharnhorst";
                                     break;
@@ -2658,7 +2668,7 @@ namespace PureHistory
 
                             //PGSA598	Graf Zeppelin B
                             case "IDS_PGSA598":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Graf Zeppelin";
                                     break;
@@ -2668,7 +2678,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PGSA598_DESCR":
-                                if (modInstallation.blackShips.updateDescription)
+                                if (modInstallation.BlackShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Graf Zeppelin B)\r\n" + line.Translated;
                                     break;
@@ -2678,7 +2688,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PGSA598_FULL":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Graf Zeppelin";
                                     break;
@@ -2690,7 +2700,7 @@ namespace PureHistory
 
                             //PGSB598	Tirpitz B
                             case "IDS_PGSB598":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Tirpitz";
                                     break;
@@ -2700,7 +2710,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PGSB598_DESCR":
-                                if (modInstallation.blackShips.updateDescription)
+                                if (modInstallation.BlackShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Tirpitz B)\r\n" + line.Translated;
                                     break;
@@ -2710,7 +2720,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PGSB598_FULL":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Tirpitz";
                                     break;
@@ -2722,7 +2732,7 @@ namespace PureHistory
 
                             //PJSA598	Kaga B
                             case "IDS_PJSA598":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Kaga";
                                     break;
@@ -2732,7 +2742,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSA598_DESCR":
-                                if (modInstallation.blackShips.updateDescription)
+                                if (modInstallation.BlackShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Kaga B)\r\n" + line.Translated;
                                     break;
@@ -2742,7 +2752,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSA598_FULL":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Kaga";
                                     break;
@@ -2754,7 +2764,7 @@ namespace PureHistory
 
                             //PJSC598	Atago B
                             case "IDS_PJSC598":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Atago";
                                     break;
@@ -2764,7 +2774,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC598_DESCR":
-                                if (modInstallation.blackShips.updateDescription)
+                                if (modInstallation.BlackShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Atago B)\r\n" + line.Translated;
                                     break;
@@ -2774,7 +2784,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC598_FULL":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Atago";
                                     break;
@@ -2786,7 +2796,7 @@ namespace PureHistory
 
                             //PJSD598	Asashio B
                             case "IDS_PJSD598":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Asashio";
                                     break;
@@ -2796,7 +2806,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSD598_DESCR":
-                                if (modInstallation.blackShips.updateDescription)
+                                if (modInstallation.BlackShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Asashio B)\r\n" + line.Translated;
                                     break;
@@ -2806,7 +2816,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSD598_FULL":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Asashio";
                                     break;
@@ -2818,7 +2828,7 @@ namespace PureHistory
 
                             //PBSD598	Cossack B
                             case "IDS_PBSD598":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Cossack";
                                     break;
@@ -2828,7 +2838,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PBSD598_DESCR":
-                                if (modInstallation.blackShips.updateDescription)
+                                if (modInstallation.BlackShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Cossack B)\r\n" + line.Translated;
                                     break;
@@ -2838,7 +2848,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PBSD598_FULL":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Cossack";
                                     break;
@@ -2850,7 +2860,7 @@ namespace PureHistory
 
                             //PASC587	Atlanta B
                             case "IDS_PASC587":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Atlanta";
                                     break;
@@ -2860,7 +2870,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASC587_DESCR":
-                                if (modInstallation.blackShips.updateDescription)
+                                if (modInstallation.BlackShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Atlanta B)\r\n" + line.Translated;
                                     break;
@@ -2870,7 +2880,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASC587_FULL":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Atlanta";
                                     break;
@@ -2882,7 +2892,7 @@ namespace PureHistory
 
                             //PASC599	Alaska B
                             case "IDS_PASC599":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Alaska";
                                     break;
@@ -2892,7 +2902,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASC599_DESCR":
-                                if (modInstallation.blackShips.updateDescription)
+                                if (modInstallation.BlackShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Alaska B)\r\n" + line.Translated;
                                     break;
@@ -2902,7 +2912,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASC599_FULL":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Alaska";
                                     break;
@@ -2914,7 +2924,7 @@ namespace PureHistory
 
                             //PASD597	Sims B
                             case "IDS_PASD597":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Sims";
                                     break;
@@ -2924,7 +2934,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASD597_DESCR":
-                                if (modInstallation.blackShips.updateDescription)
+                                if (modInstallation.BlackShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Sims B)\r\n" + line.Translated;
                                     break;
@@ -2934,7 +2944,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASD597_FULL":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Sims";
                                     break;
@@ -2946,7 +2956,7 @@ namespace PureHistory
 
                             //PASB598	Massachusetts B
                             case "IDS_PASB598":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Massachusetts";
                                     break;
@@ -2956,7 +2966,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASB598_DESCR":
-                                if (modInstallation.blackShips.updateDescription)
+                                if (modInstallation.BlackShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Massachusetts B)\r\n" + line.Translated;
                                     break;
@@ -2966,7 +2976,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASB598_FULL":
-                                if (modInstallation.blackShips.removeSuffixes)
+                                if (modInstallation.BlackShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Massachusetts";
                                     break;
@@ -2980,7 +2990,7 @@ namespace PureHistory
 
                             //PJSD014	Tachibana L
                             case "IDS_PJSD014":
-                                if (modInstallation.limaShips.removeSuffixes)
+                                if (modInstallation.LimaShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Tachibana";
                                     break;
@@ -2990,7 +3000,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSD014_DESCR":
-                                if (modInstallation.limaShips.updateDescription)
+                                if (modInstallation.LimaShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Tachibana Lima)\r\n" + line.Translated;
                                     break;
@@ -3000,7 +3010,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSD014_FULL":
-                                if (modInstallation.limaShips.removeSuffixes)
+                                if (modInstallation.LimaShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Tachibana";
                                     break;
@@ -3012,7 +3022,7 @@ namespace PureHistory
 
                             //PRSC010	Diana L
                             case "IDS_PRSC010":
-                                if (modInstallation.limaShips.removeSuffixes)
+                                if (modInstallation.LimaShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Diana";
                                     break;
@@ -3022,7 +3032,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PRSC010_DESCR":
-                                if (modInstallation.limaShips.updateDescription)
+                                if (modInstallation.LimaShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Diana Lima)\r\n" + line.Translated;
                                     break;
@@ -3032,7 +3042,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PRSC010_FULL":
-                                if (modInstallation.limaShips.removeSuffixes)
+                                if (modInstallation.LimaShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Diana";
                                     break;
@@ -3044,7 +3054,7 @@ namespace PureHistory
 
                             //PASC045	Marblehead L
                             case "IDS_PASC045":
-                                if (modInstallation.limaShips.removeSuffixes)
+                                if (modInstallation.LimaShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Marblehead";
                                     break;
@@ -3054,7 +3064,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASC045_DESCR":
-                                if (modInstallation.limaShips.updateDescription)
+                                if (modInstallation.LimaShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Marblehead Lima)\r\n" + line.Translated;
                                     break;
@@ -3064,7 +3074,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASC045_FULL":
-                                if (modInstallation.limaShips.removeSuffixes)
+                                if (modInstallation.LimaShipOptions.RemoveSuffixes)
                                 {
                                     line.Translated = "Marblehead";
                                     break;
@@ -3078,7 +3088,7 @@ namespace PureHistory
 
                             //PZSA508	Sanzang
                             case "IDS_PZSA508":
-                                if (modInstallation.lunarNewYearShips.replaceNames)
+                                if (modInstallation.LunarNewYearShipOptions.ReplaceNames)
                                 {
                                     line.Translated = "Saipan";
                                     break;
@@ -3088,7 +3098,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PZSA508_DESCR":
-                                if (modInstallation.lunarNewYearShips.updateDescription)
+                                if (modInstallation.LunarNewYearShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Sanzang)\r\n" + line.Translated;
                                     break;
@@ -3098,7 +3108,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PZSA508_FULL":
-                                if (modInstallation.lunarNewYearShips.replaceNames)
+                                if (modInstallation.LunarNewYearShipOptions.ReplaceNames)
                                 {
                                     line.Translated = "Saipan";
                                     break;
@@ -3110,7 +3120,7 @@ namespace PureHistory
 
                             //PZSB509	Bajie
                             case "IDS_PZSB509":
-                                if (modInstallation.lunarNewYearShips.replaceNames)
+                                if (modInstallation.LunarNewYearShipOptions.ReplaceNames)
                                 {
                                     line.Translated = "Izumo";
                                     break;
@@ -3120,7 +3130,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PZSB509_DESCR":
-                                if (modInstallation.lunarNewYearShips.updateDescription)
+                                if (modInstallation.LunarNewYearShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Bajie)\r\n" + line.Translated;
                                     break;
@@ -3130,7 +3140,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PZSB509_FULL":
-                                if (modInstallation.lunarNewYearShips.replaceNames)
+                                if (modInstallation.LunarNewYearShipOptions.ReplaceNames)
                                 {
                                     line.Translated = "Izumo";
                                     break;
@@ -3142,7 +3152,7 @@ namespace PureHistory
 
                             //PZSB519	Wujing
                             case "IDS_PZSB519":
-                                if (modInstallation.lunarNewYearShips.replaceNames)
+                                if (modInstallation.LunarNewYearShipOptions.ReplaceNames)
                                 {
                                     line.Translated = "Alsace";
                                     break;
@@ -3152,7 +3162,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PZSB519_DESCR":
-                                if (modInstallation.lunarNewYearShips.updateDescription)
+                                if (modInstallation.LunarNewYearShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Wujing)\r\n" + line.Translated;
                                     break;
@@ -3162,7 +3172,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PZSB519_FULL":
-                                if (modInstallation.lunarNewYearShips.replaceNames)
+                                if (modInstallation.LunarNewYearShipOptions.ReplaceNames)
                                 {
                                     line.Translated = "Alsace";
                                     break;
@@ -3174,7 +3184,7 @@ namespace PureHistory
 
                             //PZSC518	Wukong
                             case "IDS_PZSC518":
-                                if (modInstallation.lunarNewYearShips.replaceNames)
+                                if (modInstallation.LunarNewYearShipOptions.ReplaceNames)
                                 {
                                     line.Translated = "Charles Martel";
                                     break;
@@ -3184,7 +3194,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PZSC518_DESCR":
-                                if (modInstallation.lunarNewYearShips.updateDescription)
+                                if (modInstallation.LunarNewYearShipOptions.UpdateDescription)
                                 {
                                     line.Translated = "(Wukong)\r\n" + line.Translated;
                                     break;
@@ -3194,7 +3204,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PZSC518_FULL":
-                                if (modInstallation.lunarNewYearShips.replaceNames)
+                                if (modInstallation.LunarNewYearShipOptions.ReplaceNames)
                                 {
                                     line.Translated = "Charles Martel";
                                     break;
@@ -3208,7 +3218,7 @@ namespace PureHistory
 
                             //PJSD026	Kamikaze R
                             case "IDS_PJSD026":
-                                if (modInstallation.miscellaneous.kamikaze_removeSuffix)
+                                if (modInstallation.MiscellaneousOptions.KamikazeR_RemoveSuffix)
                                 {
                                     line.Translated = "Kamikaze";
                                     break;
@@ -3218,7 +3228,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSD026_DESCR":
-                                if (modInstallation.miscellaneous.kamikaze_updateDescription)
+                                if (modInstallation.MiscellaneousOptions.KamikazeR_UpdateDescription)
                                 {
                                     line.Translated = "(Kamikaze R)\r\n" + line.Translated;
                                     break;
@@ -3228,7 +3238,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSD026_FULL":
-                                if (modInstallation.miscellaneous.kamikaze_removeSuffix)
+                                if (modInstallation.MiscellaneousOptions.KamikazeR_RemoveSuffix)
                                 {
                                     line.Translated = "Kamikaze";
                                     break;
@@ -3240,7 +3250,7 @@ namespace PureHistory
 
                             //PASB708	Alabama ST
                             case "IDS_PASB708":
-                                if (modInstallation.miscellaneous.alabama_removeSuffix)
+                                if (modInstallation.MiscellaneousOptions.AlabamaST_RemoveSuffix)
                                 {
                                     line.Translated = "Alabama";
                                     break;
@@ -3250,7 +3260,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASB708_DESCR":
-                                if (modInstallation.miscellaneous.alabama_updateDescription)
+                                if (modInstallation.MiscellaneousOptions.AlabamaST_UpdateDescription)
                                 {
                                     line.Translated = "(Alabama ST)\r\n" + line.Translated;
                                     break;
@@ -3260,7 +3270,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASB708_FULL":
-                                if (modInstallation.miscellaneous.alabama_removeSuffix)
+                                if (modInstallation.MiscellaneousOptions.AlabamaST_RemoveSuffix)
                                 {
                                     line.Translated = "Alabama";
                                     break;
@@ -3272,7 +3282,7 @@ namespace PureHistory
 
                             //PJSC026	Iwaki A
                             case "IDS_PJSC026":
-                                if (modInstallation.miscellaneous.iwaki_removeSuffix)
+                                if (modInstallation.MiscellaneousOptions.IwakiA_RemoveSuffix)
                                 {
                                     line.Translated = "Iwaki";
                                     break;
@@ -3282,7 +3292,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PJSC026_FULL":
-                                if (modInstallation.miscellaneous.iwaki_removeSuffix)
+                                if (modInstallation.MiscellaneousOptions.IwakiA_RemoveSuffix)
                                 {
                                     line.Translated = "Iwaki";
                                     break;
@@ -3294,7 +3304,7 @@ namespace PureHistory
 
                             //PASB013	Arkansas B
                             case "IDS_PASB013":
-                                if (modInstallation.miscellaneous.arkansas_removeSuffix)
+                                if (modInstallation.MiscellaneousOptions.ArkansasB_RemoveSuffix)
                                 {
                                     line.Translated = "Arkansas";
                                     break;
@@ -3304,7 +3314,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASB013_FULL":
-                                if (modInstallation.miscellaneous.arkansas_removeSuffix)
+                                if (modInstallation.MiscellaneousOptions.ArkansasB_RemoveSuffix)
                                 {
                                     line.Translated = "Arkansas";
                                     break;
@@ -3316,7 +3326,7 @@ namespace PureHistory
 
                             //PASB507	W. Virginia 1941
                             case "IDS_PASB507":
-                                if (modInstallation.miscellaneous.westVirginia_correctName)
+                                if (modInstallation.MiscellaneousOptions.WestVirginia41_CorrectName)
                                 {
                                     line.Translated = "West Virginia";
                                     break;
@@ -3326,7 +3336,7 @@ namespace PureHistory
                                     break;
                                 }
                             case "IDS_PASB507_FULL":
-                                if (modInstallation.miscellaneous.westVirginia_correctName)
+                                if (modInstallation.MiscellaneousOptions.WestVirginia41_CorrectName)
                                 {
                                     line.Translated = "West Virginia";
                                     break;
@@ -3353,8 +3363,8 @@ namespace PureHistory
                 }
                 catch (Exception ex)
                 {
-                    WriteLine(Resources.Error);
-                    WriteLine(Resources.ErrorDuringInstallation);
+                    WriteLine(Resources.GenericError);
+                    WriteLine(Resources.InstallationError);
                     WriteLine(ex.Message);
                     ReadKey();
                     Environment.Exit(0);
@@ -3369,7 +3379,7 @@ namespace PureHistory
                 }
 
                 //Display info that the installation is complete.
-                WriteLine(Resources.InstallationComplete);
+                WriteLine(Resources.InstallationFinished);
             }
             else
             {

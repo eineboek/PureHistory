@@ -43,6 +43,7 @@ namespace PureHistory
         {
             WriteLine(_title + "\r\n");
 
+            //Determine the White Space required to align the options
             int highestStringLength = 0;
             foreach (string choice in _choices)
             {
@@ -59,12 +60,14 @@ namespace PureHistory
 
                 if (i == selectedIndex)
                 {
+                    //Color accentuation and asterisk prefix
                     prefix = "*";
                     ForegroundColor = ConsoleColor.Black;
                     BackgroundColor = ConsoleColor.White;
                 }
                 else
                 {
+                    //Np color accentuation and no prefix
                     prefix = " ";
                     ForegroundColor = ConsoleColor.White;
                     BackgroundColor = ConsoleColor.Black;
@@ -127,6 +130,11 @@ namespace PureHistory
             }
         }
 
+        /// <summary>
+        /// Returns a set amount of white space in a string
+        /// </summary>
+        /// <param name="amount">The amount of white spaces</param>
+        /// <returns></returns>
         private string WhiteSpace(int amount)
         {
             string whiteSpace = string.Empty;
@@ -140,13 +148,16 @@ namespace PureHistory
         }
     }
 
+    /// <summary>
+    /// The class that holds Properties to evaluate the response of the User in a Multiple Choice Option
+    /// </summary>
     internal class MultipleChoiceResponse
     {
-        public bool ReturnToPrevious { get; private set; }
+        public bool ReturnToPrevious { get; private set; } //Determines if the user has pressed the left arrow key
 
-        public bool ContinueToNext { get; private set; }
+        public bool ContinueToNext { get; private set; } //Determines if the user has pressed the right arrow key
 
-        public int? ToggleSelectedIndex { get; private set; }
+        public int? ToggleSelectedIndex { get; private set; } //Determines the index at which the user has pressed ENTER. If ENTER hasnt been pressed, it is set to null
 
         public MultipleChoiceResponse(bool returnToPrevious, bool continueToNext, int? toggleSelectedIndex)
         {

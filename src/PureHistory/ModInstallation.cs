@@ -5,15 +5,15 @@
     /// </summary>
     internal class ModInstallation
     {
-        public ArpeggioOptions arpeggio { get; set; }
-        public AzurLaneOptions azurLane { get; set; }
-        public HighSchoolFleetOptions highSchoolFleet { get; set; }
-        public Warhammer40KOptions warhammer40K { get; set; }
-        public DragonShipOptions dragonShips { get; set; }
-        public LunarNewYearShipOptions lunarNewYearShips { get; set; }
-        public BlackShipOptions blackShips { get; set; }
-        public LimaShipOptions limaShips { get; set; }
-        public MiscellaneousOptions miscellaneous { get; set; }
+        public ArpeggioOptions ArpeggioOptions { get; set; }
+        public AzurLaneOptions AzurLaneOptions { get; set; }
+        public HighSchoolFleetOptions HighSchoolFleetOptions { get; set; }
+        public Warhammer40KOptions Warhammer40KOptions { get; set; }
+        public DragonShipOptions DragonShipOptions { get; set; }
+        public LunarNewYearShipOptions LunarNewYearShipOptions { get; set; }
+        public BlackShipOptions BlackShipOptions { get; set; }
+        public LimaShipOptions LimaShipOptions { get; set; }
+        public MiscellaneousOptions MiscellaneousOptions { get; set; }
     }
 
     /// <summary>
@@ -21,12 +21,12 @@
     /// </summary>
     internal class ArpeggioOptions
     {
-        public bool removePrefixes { get; set; }
-        public bool replaceNames { get; set; }
-        public bool updateDescription { get; set; }
-        public bool replaceSilhouettes { get; set; }
-        public bool replacePreviews { get; set; }
-        public bool replaceFlags { get; set; }
+        public bool RemovePrefixes { get; set; }
+        public bool ReplaceNames { get; set; }
+        public bool UpdateDescription { get; set; }
+        public bool ReplaceSilhouettes { get; set; }
+        public bool ReplacePreviews { get; set; }
+        public bool ReplaceFlags { get; set; }
     }
 
     /// <summary>
@@ -34,10 +34,10 @@
     /// </summary>
     internal class AzurLaneOptions
     {
-        public bool removePrefixes { get; set; }
-        public bool replaceNames { get; set; }
-        public bool updateDescription { get; set; }
-        public bool replacePreviews { get; set; }
+        public bool RemovePrefixes { get; set; }
+        public bool ReplaceNames { get; set; }
+        public bool UpdateDescription { get; set; }
+        public bool ReplacePreviews { get; set; }
     }
 
     /// <summary>
@@ -45,14 +45,14 @@
     /// </summary>
     internal class HighSchoolFleetOptions
     {
-        public bool harekaze_RemovePrefix { get; set; }
-        public bool harekaze_ReplaceName { get; set; }
-        public bool harekaze_UpdateDescription { get; set; }
-        public bool harekaze_ReplacePreview { get; set; }
+        public bool Harekaze_RemovePrefix { get; set; }
+        public bool Harekaze_ReplaceName { get; set; }
+        public bool Harekaze_UpdateDescription { get; set; }
+        public bool Harekaze_ReplacePreview { get; set; }
 
-        public bool spee_RemovePrefix { get; set; }
-        public bool spee_UpdateDescription { get; set; }
-        public bool spee_ReplacePreview { get; set; }
+        public bool Spee_RemovePrefix { get; set; }
+        public bool Spee_UpdateDescription { get; set; }
+        public bool Spee_ReplacePreview { get; set; }
     }
 
     /// <summary>
@@ -60,10 +60,10 @@
     /// </summary>
     internal class Warhammer40KOptions
     {
-        public bool replaceNames { get; set; }
-        public bool updateDescription { get; set; }
-        public bool replacePreviews { get; set; }
-        public bool replaceFlags { get; set; }
+        public bool ReplaceNames { get; set; }
+        public bool UpdateDescription { get; set; }
+        public bool ReplacePreviews { get; set; }
+        public bool ReplaceFlags { get; set; }
     }
 
     /// <summary>
@@ -71,11 +71,11 @@
     /// </summary>
     internal class DragonShipOptions
     {
-        public bool replaceNames { get; set; }
-        public bool updateDescription { get; set; }
-        public bool replaceSilhouettes { get; set; }
-        public bool replacePreviews { get; set; }
-        public bool replaceFlags { get; set; }
+        public bool ReplaceNames { get; set; }
+        public bool UpdateDescription { get; set; }
+        public bool ReplaceSilhouettes { get; set; }
+        public bool ReplacePreviews { get; set; }
+        public bool ReplaceFlags { get; set; }
     }
 
     /// <summary>
@@ -83,11 +83,11 @@
     /// </summary>
     internal class LunarNewYearShipOptions
     {
-        public bool replaceNames { get; set; }
-        public bool updateDescription { get; set; }
-        public bool replacePreviews { get; set; }
-        public bool replaceFlags_Panasia { get; set; }
-        public bool replaceFlags_RespectiveCountry { get; set; }
+        public bool ReplaceNames { get; set; }
+        public bool UpdateDescription { get; set; }
+        public bool ReplacePreviews { get; set; }
+        public bool ReplaceFlagsPanasia { get; set; }
+        public bool ReplaceFlagsRespectiveCountry { get; set; }
     }
 
     /// <summary>
@@ -95,9 +95,9 @@
     /// </summary>
     internal class BlackShipOptions
     {
-        public bool removeSuffixes { get; set; }
-        public bool updateDescription { get; set; }
-        public bool replacePreviews { get; set; }
+        public bool RemoveSuffixes { get; set; }
+        public bool UpdateDescription { get; set; }
+        public bool ReplacePreviews { get; set; }
     }
 
     /// <summary>
@@ -105,9 +105,9 @@
     /// </summary>
     internal class LimaShipOptions
     {
-        public bool removeSuffixes { get; set; }
-        public bool updateDescription { get; set; }
-        public bool replacePreviews { get; set; }
+        public bool RemoveSuffixes { get; set; }
+        public bool UpdateDescription { get; set; }
+        public bool ReplacePreviews { get; set; }
     }
 
     /// <summary>
@@ -115,16 +115,16 @@
     /// </summary>
     internal class MiscellaneousOptions
     {
-        public bool kamikaze_removeSuffix { get; set; }
-        public bool kamikaze_updateDescription { get; set; }
-        public bool kamikaze_replacePreview { get; set; }
+        public bool KamikazeR_RemoveSuffix { get; set; }
+        public bool KamikazeR_UpdateDescription { get; set; }
+        public bool KamikazeR_ReplacePreview { get; set; }
 
-        public bool alabama_removeSuffix { get; set; }
-        public bool alabama_updateDescription { get; set; }
-        public bool alabama_replacePreview { get; set; }
+        public bool AlabamaST_RemoveSuffix { get; set; }
+        public bool AlabamaST_UpdateDescription { get; set; }
+        public bool AlabamaST_ReplacePreview { get; set; }
 
-        public bool iwaki_removeSuffix { get; set; }
-        public bool arkansas_removeSuffix { get; set; }
-        public bool westVirginia_correctName { get; set; }
+        public bool IwakiA_RemoveSuffix { get; set; }
+        public bool ArkansasB_RemoveSuffix { get; set; }
+        public bool WestVirginia41_CorrectName { get; set; }
     }
 }
