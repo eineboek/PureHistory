@@ -21,6 +21,7 @@
     <RepositoryType>GitHub</RepositoryType>
     <EnableNETAnalyzers>false</EnableNETAnalyzers>
     <PackageLicenseFile></PackageLicenseFile>
+    <AssemblyName>purehistory</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
