@@ -1304,8 +1304,7 @@ namespace PureHistory
                         WriteLine(Resources.GenericError);
                         WriteLine(Resources.InstallationError);
                         WriteLine(ex.Message);
-                        ReadKey();
-                        Environment.Exit(0);
+                        return;
                     }
                 }
 
@@ -1327,8 +1326,7 @@ namespace PureHistory
                     WriteLine(Resources.GenericError);
                     WriteLine(Resources.InstallationError);
                     WriteLine(ex.Message);
-                    ReadKey();
-                    Environment.Exit(0);
+                    return;
                 }
 
                 #endregion Determine the Client language from game_info.xml
@@ -1859,8 +1857,7 @@ namespace PureHistory
                     WriteLine(Resources.GenericError);
                     WriteLine(Resources.InstallationError);
                     WriteLine(ex.Message);
-                    ReadKey();
-                    Environment.Exit(0);
+                    return;
                 }
 
                 #endregion Copy files to mod folder
@@ -3558,8 +3555,7 @@ namespace PureHistory
                     WriteLine(Resources.GenericError);
                     WriteLine(Resources.InstallationError);
                     WriteLine(ex.Message);
-                    ReadKey();
-                    Environment.Exit(0);
+                    return;
                 }
 
                 #endregion Edit the Translation file
