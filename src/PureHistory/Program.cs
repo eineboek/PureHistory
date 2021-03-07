@@ -288,6 +288,17 @@ namespace PureHistory
 
             if (response.ReturnToPrevious) //Pressing the left arrow key leads back to the Client Selection screen
             {
+                //Set the values of the selection to the options instance
+                arpeggioOptions.RemovePrefixes = optionSelection[0];
+                arpeggioOptions.ReplaceNames = optionSelection[1];
+                arpeggioOptions.UpdateDescription = optionSelection[2];
+                arpeggioOptions.ReplaceSilhouettes = optionSelection[3];
+                arpeggioOptions.ReplacePreviews = optionSelection[4];
+                arpeggioOptions.ReplaceFlags = optionSelection[5];
+
+                //Pass the options to the modInstallation instance
+                modInstallation.ArpeggioOptions = arpeggioOptions;
+
                 ClientSelection();
             }
             else if (response.ContinueToNext) //Pressing the right arrow key leads to the next selection
@@ -384,6 +395,13 @@ namespace PureHistory
 
             if (response.ReturnToPrevious)
             {
+                azurLaneOptions.RemovePrefixes = optionSelection[0];
+                azurLaneOptions.ReplaceNames = optionSelection[1];
+                azurLaneOptions.UpdateDescription = optionSelection[2];
+                azurLaneOptions.ReplacePreviews = optionSelection[3];
+
+                modInstallation.AzurLaneOptions = azurLaneOptions;
+
                 ArpeggioSelection();
             }
             else if (response.ContinueToNext)
@@ -478,6 +496,13 @@ namespace PureHistory
 
             if (response.ReturnToPrevious)
             {
+                hsfOptions.Harekaze_RemovePrefix = optionSelection[0];
+                hsfOptions.Harekaze_ReplaceName = optionSelection[1];
+                hsfOptions.Harekaze_UpdateDescription = optionSelection[2];
+                hsfOptions.Harekaze_ReplacePreview = optionSelection[3];
+
+                modInstallation.HighSchoolFleetOptions = hsfOptions;
+
                 AzurLaneSelection();
             }
             else if (response.ContinueToNext)
@@ -562,6 +587,12 @@ namespace PureHistory
 
             if (response.ReturnToPrevious)
             {
+                hsfOptions.Spee_RemovePrefix = optionSelection[0];
+                hsfOptions.Spee_UpdateDescription = optionSelection[1];
+                hsfOptions.Spee_ReplacePreview = optionSelection[2];
+
+                modInstallation.HighSchoolFleetOptions = hsfOptions;
+
                 HSFHarekazeSelection();
             }
             else if (response.ContinueToNext)
@@ -641,6 +672,13 @@ namespace PureHistory
 
             if (response.ReturnToPrevious)
             {
+                warhammerOptions.ReplaceNames = optionSelection[0];
+                warhammerOptions.UpdateDescription = optionSelection[1];
+                warhammerOptions.ReplacePreviews = optionSelection[2];
+                warhammerOptions.ReplaceFlags = optionSelection[3];
+
+                modInstallation.Warhammer40KOptions = warhammerOptions;
+
                 HSFSpeeSelection();
             }
             else if (response.ContinueToNext)
@@ -723,6 +761,14 @@ namespace PureHistory
 
             if (response.ReturnToPrevious)
             {
+                dragonShipOptions.ReplaceNames = optionSelection[0];
+                dragonShipOptions.UpdateDescription = optionSelection[1];
+                dragonShipOptions.ReplaceSilhouettes = optionSelection[2];
+                dragonShipOptions.ReplacePreviews = optionSelection[3];
+                dragonShipOptions.ReplaceFlags = optionSelection[4];
+
+                modInstallation.DragonShipOptions = dragonShipOptions;
+
                 Warhammer40KSelection();
             }
             else if (response.ContinueToNext)
@@ -815,6 +861,14 @@ namespace PureHistory
 
             if (response.ReturnToPrevious)
             {
+                lunarOptions.ReplaceNames = optionSelection[0];
+                lunarOptions.UpdateDescription = optionSelection[1];
+                lunarOptions.ReplacePreviews = optionSelection[2];
+                lunarOptions.ReplaceFlagsPanasia = optionSelection[3];
+                lunarOptions.ReplaceFlagsRespectiveCountry = optionSelection[4];
+
+                modInstallation.LunarNewYearShipOptions = lunarOptions;
+
                 DragonSelection();
             }
             else if (response.ContinueToNext)
@@ -894,6 +948,12 @@ namespace PureHistory
 
             if (response.ReturnToPrevious)
             {
+                blackShipOptions.RemoveSuffixes = optionSelection[0];
+                blackShipOptions.UpdateDescription = optionSelection[1];
+                blackShipOptions.ReplacePreviews = optionSelection[2];
+
+                modInstallation.BlackShipOptions = blackShipOptions;
+
                 LunarNewYearSelection();
             }
             else if (response.ContinueToNext)
@@ -971,6 +1031,12 @@ namespace PureHistory
 
             if (response.ReturnToPrevious)
             {
+                limaShipOptions.RemoveSuffixes = optionSelection[0];
+                limaShipOptions.UpdateDescription = optionSelection[1];
+                limaShipOptions.ReplacePreviews = optionSelection[2];
+
+                modInstallation.LimaShipOptions = limaShipOptions;
+
                 BlackSelection();
             }
             else if (response.ContinueToNext)
@@ -1065,6 +1131,18 @@ namespace PureHistory
 
             if (response.ReturnToPrevious)
             {
+                miscellaneousOptions.KamikazeR_RemoveSuffix = optionSelection[0];
+                miscellaneousOptions.KamikazeR_UpdateDescription = optionSelection[1];
+                miscellaneousOptions.KamikazeR_ReplacePreview = optionSelection[2];
+                miscellaneousOptions.AlabamaST_RemoveSuffix = optionSelection[3];
+                miscellaneousOptions.AlabamaST_UpdateDescription = optionSelection[4];
+                miscellaneousOptions.AlabamaST_ReplacePreview = optionSelection[5];
+                miscellaneousOptions.IwakiA_RemoveSuffix = optionSelection[6];
+                miscellaneousOptions.ArkansasB_RemoveSuffix = optionSelection[7];
+                miscellaneousOptions.WestVirginia41_CorrectName = optionSelection[8];
+
+                modInstallation.MiscellaneousOptions = miscellaneousOptions;
+
                 LimaSelection();
             }
             else if (response.ContinueToNext)
@@ -1107,7 +1185,12 @@ namespace PureHistory
                 string executingPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                 string dataPath = Path.Combine(executingPath, "data.zip");
 
-                if (!Directory.Exists(Path.Combine(executingPath, "gui")))
+                //If the archive has already been extracted, delete the folder
+                if (Directory.Exists(Path.Combine(executingPath, "gui")))
+                {
+                    Directory.Delete(Path.Combine(executingPath, "gui"), true);
+                }
+                else
                 {
                     try
                     {
