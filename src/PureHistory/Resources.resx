@@ -226,14 +226,10 @@ Please install this mod after using the ModStation, as the ModStation will overr
     <value>PureHistory Version 1.1.0</value>
     <comment>This string is not translated to other languages.</comment>
   </data>
-  <data name="NavigationHelpArrowVertical" xml:space="preserve">
-    <value>Arrow Keys up/down for movement between options</value>
-  </data>
-  <data name="NavigationHelpEnter" xml:space="preserve">
-    <value>ENTER to toggle/select an option</value>
-  </data>
-  <data name="NavigationHelpArrowHorizontal" xml:space="preserve">
-    <value>Arrow Keys left/right to move to the previous/next page</value>
+  <data name="NavigationHelp" xml:space="preserve">
+    <value>Arrow Keys left/right to move to the previous/next page
+Arrow Keys up/down for movement between options
+ENTER to toggle/select an option</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
@@ -263,8 +259,9 @@ Please install this mod after using the ModStation, as the ModStation will overr
     <value>Select Language / Sprache auswählen :</value>
     <comment>This string is not translated to other languages.</comment>
   </data>
-  <data name="StartInstallationNoticeGoBack" xml:space="preserve">
-    <value>Press left arrow key to go back</value>
+  <data name="StartInstallationNotice" xml:space="preserve">
+    <value>Press left arrow key to go back
+Press ENTER to start the mod installation ...</value>
   </data>
   <data name="UpdateDescription" xml:space="preserve">
     <value>• Update ship description for distinction in port</value>
@@ -286,9 +283,6 @@ Replacing the ship name with the regular counterpart could lead to a misjudgemen
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
-  <data name="StartInstallationNoticeStart" xml:space="preserve">
-    <value>Press ENTER to start the mod installation ...</value>
-  </data>
   <data name="ReplacePreviewMisc" xml:space="preserve">
     <value>• Replace ship preview</value>
   </data>
@@ -300,6 +294,15 @@ Replacing the ship name with the regular counterpart could lead to a misjudgemen
   </data>
   <data name="AlreadyExists" xml:space="preserve">
     <value>already exists in the mod folder. Should it be overwritten?</value>
+  </data>
+  <data name="CopyProgressString1" xml:space="preserve">
+    <value>Successfully copied file</value>
+  </data>
+  <data name="CopyProgressString2" xml:space="preserve">
+    <value>to</value>
+  </data>
+  <data name="CopyProgressString3" xml:space="preserve">
+    <value />
   </data>
   <data name="File" xml:space="preserve">
     <value>The file</value>
@@ -315,14 +318,5 @@ Replacing the ship name with the regular counterpart could lead to a misjudgemen
   </data>
   <data name="InstallationSettingsTitle" xml:space="preserve">
     <value>Installation settings</value>
-  </data>
-  <data name="ProgressString1" xml:space="preserve">
-    <value>Successfully copied file</value>
-  </data>
-  <data name="ProgressString2" xml:space="preserve">
-    <value>to</value>
-  </data>
-  <data name="ProgressString3" xml:space="preserve">
-    <value />
   </data>
 </root>

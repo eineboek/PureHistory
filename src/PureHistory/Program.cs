@@ -47,14 +47,12 @@ namespace PureHistory
             Title = "PureHistory Mod Installer";
 
             //Display information about the mod and the compatible WoWs version
-            WriteLine(Resources.ModVersion + " - " + Resources.Creator + "\r\n");
-            WriteLine(Resources.WoWsVersion + "\r\n");
+            WriteLine($"{Resources.ModVersion} - {Resources.Creator}\r\n");
+            WriteLine($"{Resources.WoWsVersion}\r\n");
 
             //Display information about how to navigate the program
             WriteLine("Navigation");
-            WriteLine(Resources.NavigationHelpArrowVertical);
-            WriteLine(Resources.NavigationHelpEnter);
-            WriteLine(Resources.NavigationHelpArrowHorizontal + "\r\n");
+            WriteLine($"{Resources.NavigationHelp}\r\n");
 
             //User presses any key to continue
             WriteLine(Resources.PressAnyKey);
@@ -105,10 +103,10 @@ namespace PureHistory
             Clear();
 
             //Display info about the Path format and examples
-            WriteLine(Resources.ClientSelectionTitle + "\r\n");
+            WriteLine($"{Resources.ClientSelectionTitle}\r\n");
             WriteLine(Resources.PathFormatExamples);
             WriteLine(@"C:\Games\World_of_Warships");
-            WriteLine(@"C:\Program Files (x86)\Steam\steamapps\common\World of Warships" + "\r\n");
+            WriteLine(string.Concat(@"C:\Program Files (x86)\Steam\steamapps\common\World of Warships", "\r\n"));
 
             //Read user input to wowsPath
             wowsPath = ReadLine();
@@ -130,7 +128,7 @@ namespace PureHistory
             else
             {
                 //Give the user the ability to check his input with a Yes/No prompt
-                WriteLine(Resources.PathCorrection + " (Y/N) : " + wowsPath);
+                WriteLine($"{Resources.PathCorrection} (Y/N) : {wowsPath}");
                 ConsoleKey response = ReadKey(true).Key;
 
                 //If response is no, restart the selection
@@ -170,7 +168,7 @@ namespace PureHistory
                     }
                     else //If the client wasnt found in the specified path, display information to the user wether he would like to continue regardless
                     {
-                        WriteLine(Resources.WoWsNotFound + " (Y/N) : ");
+                        WriteLine($"{Resources.WoWsNotFound} (Y/N) : ");
                         response = ReadKey(true).Key;
 
                         //The user can restart the selection once again
@@ -1301,7 +1299,7 @@ namespace PureHistory
                 overwriteStatus = false;
             }
 
-            WriteLine(Resources.StartInstallationNoticeGoBack + "\r\n" + Resources.StartInstallationNoticeStart);
+            WriteLine($"{Resources.StartInstallationNotice}\r\n");
             WriteLine();
 
             ConsoleKey response = ReadKey(true).Key;
@@ -1543,7 +1541,6 @@ namespace PureHistory
                         File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSC705.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSC705.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC705.png"));
 
-
                         //PJSC707	ARP Ashigara
                         File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSC707.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSC707.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSC707.png"));
@@ -1657,7 +1654,6 @@ namespace PureHistory
 
                         File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSC727.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSC727.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC727.png"));
-
                     }
                     if (modInstallation.LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry)
                     {
@@ -1758,7 +1754,6 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSB700.png"), Path.Combine(shipOwnIconsDestPath, "PJSB700.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSB700.png"));
 
-
                         //PJSB705	ARP Kongō
                         File.Copy(Path.Combine(shipIconsSrcPath, "PJSB705.png"), Path.Combine(shipIconsDestPath, "PJSB705.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSB705.png"));
@@ -1768,7 +1763,6 @@ namespace PureHistory
 
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSB705.png"), Path.Combine(shipOwnIconsDestPath, "PJSB705.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSB705.png"));
-
 
                         //PJSB706	ARP Kirishima
                         File.Copy(Path.Combine(shipIconsSrcPath, "PJSB706.png"), Path.Combine(shipIconsDestPath, "PJSB706.png"), overwriteStatus);
@@ -1780,7 +1774,6 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSB706.png"), Path.Combine(shipOwnIconsDestPath, "PJSB706.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSB706.png"));
 
-
                         //PJSB707	ARP Haruna
                         File.Copy(Path.Combine(shipIconsSrcPath, "PJSB707.png"), Path.Combine(shipIconsDestPath, "PJSB707.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSB707.png"));
@@ -1790,7 +1783,6 @@ namespace PureHistory
 
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSB707.png"), Path.Combine(shipOwnIconsDestPath, "PJSB707.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSB707.png"));
-
 
                         //PJSB708	ARP Hiei
                         File.Copy(Path.Combine(shipIconsSrcPath, "PJSB708.png"), Path.Combine(shipIconsDestPath, "PJSB708.png"), overwriteStatus);
@@ -1802,7 +1794,6 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSB708.png"), Path.Combine(shipOwnIconsDestPath, "PJSB708.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSB708.png"));
 
-
                         //PJSB799	ARP Kirishima
                         File.Copy(Path.Combine(shipIconsSrcPath, "PJSB799.png"), Path.Combine(shipIconsDestPath, "PJSB799.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSB799.png"));
@@ -1812,7 +1803,6 @@ namespace PureHistory
 
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSB799.png"), Path.Combine(shipOwnIconsDestPath, "PJSB799.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSB799.png"));
-
 
                         //PJSC705	ARP Myōkō
                         File.Copy(Path.Combine(shipIconsSrcPath, "PJSC705.png"), Path.Combine(shipIconsDestPath, "PJSC705.png"), overwriteStatus);
@@ -1824,7 +1814,6 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC705.png"), Path.Combine(shipOwnIconsDestPath, "PJSC705.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC705.png"));
 
-
                         //PJSC707	ARP Ashigara
                         File.Copy(Path.Combine(shipIconsSrcPath, "PJSC707.png"), Path.Combine(shipIconsDestPath, "PJSC707.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSC707.png"));
@@ -1834,7 +1823,6 @@ namespace PureHistory
 
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC707.png"), Path.Combine(shipOwnIconsDestPath, "PJSC707.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC707.png"));
-
 
                         //PJSC708	ARP Takao
                         File.Copy(Path.Combine(shipIconsSrcPath, "PJSC708.png"), Path.Combine(shipIconsDestPath, "PJSC708.png"), overwriteStatus);
@@ -1846,7 +1834,6 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC708.png"), Path.Combine(shipOwnIconsDestPath, "PJSC708.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC708.png"));
 
-
                         //PJSC709	ARP Haguro
                         File.Copy(Path.Combine(shipIconsSrcPath, "PJSC709.png"), Path.Combine(shipIconsDestPath, "PJSC709.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSC709.png"));
@@ -1856,7 +1843,6 @@ namespace PureHistory
 
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC709.png"), Path.Combine(shipOwnIconsDestPath, "PJSC709.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC709.png"));
-
 
                         //PJSC718	ARP Maya
                         File.Copy(Path.Combine(shipIconsSrcPath, "PJSC718.png"), Path.Combine(shipIconsDestPath, "PJSC718.png"), overwriteStatus);
@@ -1868,7 +1854,6 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC718.png"), Path.Combine(shipOwnIconsDestPath, "PJSC718.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC718.png"));
 
-
                         //PJSC737	ARP Nachi
                         File.Copy(Path.Combine(shipIconsSrcPath, "PJSC737.png"), Path.Combine(shipIconsDestPath, "PJSC737.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSC737.png"));
@@ -1878,7 +1863,6 @@ namespace PureHistory
 
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC737.png"), Path.Combine(shipOwnIconsDestPath, "PJSC737.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC737.png"));
-
                     }
                     if (modInstallation.DragonShipOptions.ReplaceSilhouettes)
                     {
@@ -1901,7 +1885,6 @@ namespace PureHistory
 
                         File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC727.png"), Path.Combine(shipOwnIconsDestPath, "PJSC727.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC727.png"));
-
                     }
 
                     //Ship previews (ship_previews / ship_previews_ds)
@@ -1914,7 +1897,6 @@ namespace PureHistory
 
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB700.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB700.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSB700.png"));
-
 
                         //PJSB705	ARP Kongō
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB705.png"), Path.Combine(shipPreviewsDestPath, "PJSB705.png"), overwriteStatus);
@@ -1929,7 +1911,6 @@ namespace PureHistory
 
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB706.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB706.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSB706.png"));
-
 
                         //PJSB707 ARP Haruna
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB707.png"), Path.Combine(shipPreviewsDestPath, "PJSB707.png"), overwriteStatus);
@@ -1980,7 +1961,6 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC709.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC709.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSC709.png"));
 
-
                         //PJSC718	ARP Maya
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC718.png"), Path.Combine(shipPreviewsDestPath, "PJSC718.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSC718.png"));
@@ -2004,7 +1984,6 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSD718.png"), Path.Combine(shipPreviewsDsDestPath, "PJSD718.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSD718.png"));
 
-
                         //PISB708	AL Littorio
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PISB708.png"), Path.Combine(shipPreviewsDestPath, "PISB708.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PISB708.png"));
@@ -2012,14 +1991,12 @@ namespace PureHistory
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PISB708.png"), Path.Combine(shipPreviewsDsDestPath, "PISB708.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PISB708.png"));
 
-
                         //PASC718	AL Montpelier
                         File.Copy(Path.Combine(shipPreviewsSrcPath, "PASC718.png"), Path.Combine(shipPreviewsDestPath, "PASC718.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PASC718.png"));
 
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASC718.png"), Path.Combine(shipPreviewsDsDestPath, "PASC718.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PASC718.png"));
-
                     }
                     if (modInstallation.HighSchoolFleetOptions.Harekaze_ReplacePreview)
                     {
@@ -2029,7 +2006,6 @@ namespace PureHistory
 
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSD708.png"), Path.Combine(shipPreviewsDsDestPath, "PJSD708.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSD708.png"));
-
                     }
                     if (modInstallation.HighSchoolFleetOptions.Spee_ReplacePreview)
                     {
@@ -2039,7 +2015,6 @@ namespace PureHistory
 
                         File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PGSC706.png"), Path.Combine(shipPreviewsDsDestPath, "PGSC706.png"), overwriteStatus);
                         ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PGSC706.png"));
-
                     }
                     if (modInstallation.Warhammer40KOptions.ReplacePreviews)
                     {
@@ -3944,7 +3919,7 @@ namespace PureHistory
                 //Detect ModStation
                 if (File.Exists(Path.Combine(modsPath, "ModStation.txt")))
                 {
-                    WriteLine("\r\n" + Resources.ModStationWarning + "\r\n");
+                    WriteLine($"{Resources.ModStationWarning}\r\n");
                 }
 
                 //Display info that the installation is complete.
@@ -3959,13 +3934,12 @@ namespace PureHistory
             }
         }
 
-        private static void ReportFileCopy(string fullpath) => WriteLine($"{Resources.ProgressString1} \"{Path.GetFileName(fullpath)}\" {Resources.ProgressString2} {Path.GetDirectoryName(fullpath) + "\\"} {Resources.ProgressString3}");
+        private static void ReportFileCopy(string fullpath) => WriteLine($"{Resources.CopyProgressString1} \"{Path.GetFileName(fullpath)}\" {Resources.CopyProgressString2} {Path.GetDirectoryName(fullpath) + "\\"} {Resources.CopyProgressString3}");
 
         private static void ReportFileConflict(string fullpath)
         {
             if (modInstallation.InstallationOptions.AskForEach)
             {
-
             }
         }
     }

@@ -161,6 +161,33 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Successfully copied file ähnelt.
+        /// </summary>
+        internal static string CopyProgressString1 {
+            get {
+                return ResourceManager.GetString("CopyProgressString1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die to ähnelt.
+        /// </summary>
+        internal static string CopyProgressString2 {
+            get {
+                return ResourceManager.GetString("CopyProgressString2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        internal static string CopyProgressString3 {
+            get {
+                return ResourceManager.GetString("CopyProgressString3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Created by eineboek ähnelt.
         /// </summary>
         internal static string Creator {
@@ -433,29 +460,13 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Keys left/right to move to the previous/next page ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Keys left/right to move to the previous/next page
+        ///Arrow Keys up/down for movement between options
+        ///ENTER to toggle/select an option ähnelt.
         /// </summary>
-        internal static string NavigationHelpArrowHorizontal {
+        internal static string NavigationHelp {
             get {
-                return ResourceManager.GetString("NavigationHelpArrowHorizontal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Keys up/down for movement between options ähnelt.
-        /// </summary>
-        internal static string NavigationHelpArrowVertical {
-            get {
-                return ResourceManager.GetString("NavigationHelpArrowVertical", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die ENTER to toggle/select an option ähnelt.
-        /// </summary>
-        internal static string NavigationHelpEnter {
-            get {
-                return ResourceManager.GetString("NavigationHelpEnter", resourceCulture);
+                return ResourceManager.GetString("NavigationHelp", resourceCulture);
             }
         }
         
@@ -501,33 +512,6 @@ namespace PureHistory {
         internal static string PressAnyKey {
             get {
                 return ResourceManager.GetString("PressAnyKey", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Successfully copied file ähnelt.
-        /// </summary>
-        internal static string ProgressString1 {
-            get {
-                return ResourceManager.GetString("ProgressString1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die to ähnelt.
-        /// </summary>
-        internal static string ProgressString2 {
-            get {
-                return ResourceManager.GetString("ProgressString2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
-        /// </summary>
-        internal static string ProgressString3 {
-            get {
-                return ResourceManager.GetString("ProgressString3", resourceCulture);
             }
         }
         
@@ -595,20 +579,12 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Press left arrow key to go back ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Press left arrow key to go back
+        ///Press ENTER to start the mod installation ... ähnelt.
         /// </summary>
-        internal static string StartInstallationNoticeGoBack {
+        internal static string StartInstallationNotice {
             get {
-                return ResourceManager.GetString("StartInstallationNoticeGoBack", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Press ENTER to start the mod installation ... ähnelt.
-        /// </summary>
-        internal static string StartInstallationNoticeStart {
-            get {
-                return ResourceManager.GetString("StartInstallationNoticeStart", resourceCulture);
+                return ResourceManager.GetString("StartInstallationNotice", resourceCulture);
             }
         }
         
