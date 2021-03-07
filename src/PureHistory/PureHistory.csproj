@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Platforms>x64</Platforms>
     <StartupObject>PureHistory.Program</StartupObject>
-    <ApplicationIcon></ApplicationIcon>
+    <ApplicationIcon>purehistory.ico</ApplicationIcon>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageIcon></PackageIcon>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
