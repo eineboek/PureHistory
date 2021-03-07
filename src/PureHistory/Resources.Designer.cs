@@ -61,6 +61,15 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die already exists in the mod folder. Should it be overwritten? ähnelt.
+        /// </summary>
+        internal static string AlreadyExists {
+            get {
+                return ResourceManager.GetString("AlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;ARP&apos; prefix ähnelt.
         /// </summary>
         internal static string ArpeggioPrefix {
@@ -187,6 +196,15 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The file ähnelt.
+        /// </summary>
+        internal static string File {
+            get {
+                return ResourceManager.GetString("File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die An error has occured : ähnelt.
         /// </summary>
         internal static string GenericError {
@@ -250,6 +268,42 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ask for each file independently ähnelt.
+        /// </summary>
+        internal static string InstallationSettingsAskForEach {
+            get {
+                return ResourceManager.GetString("InstallationSettingsAskForEach", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Don&apos;t overwrite any existing files ähnelt.
+        /// </summary>
+        internal static string InstallationSettingsNoOverwrite {
+            get {
+                return ResourceManager.GetString("InstallationSettingsNoOverwrite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Overwrite all conflicting files ähnelt.
+        /// </summary>
+        internal static string InstallationSettingsOverwriteAll {
+            get {
+                return ResourceManager.GetString("InstallationSettingsOverwriteAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Installation settings ähnelt.
+        /// </summary>
+        internal static string InstallationSettingsTitle {
+            get {
+                return ResourceManager.GetString("InstallationSettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Invalid Response. ähnelt.
         /// </summary>
         internal static string InvalidResponse {
@@ -277,7 +331,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Replace custom flag with flag of respective country ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship preview background flag with flag of respective country ähnelt.
         /// </summary>
         internal static string LunarNewYearFlagOptionOriginal {
             get {
@@ -286,7 +340,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Replace custom flag with pan-asian flag ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship preview background flag with pan-asian flag ähnelt.
         /// </summary>
         internal static string LunarNewYearFlagOptionPanasia {
             get {
@@ -448,11 +502,29 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Replace custom flag ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Successfully copied file ähnelt.
         /// </summary>
-        internal static string ReplaceFlag {
+        internal static string ProgressString1 {
             get {
-                return ResourceManager.GetString("ReplaceFlag", resourceCulture);
+                return ResourceManager.GetString("ProgressString1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die to ähnelt.
+        /// </summary>
+        internal static string ProgressString2 {
+            get {
+                return ResourceManager.GetString("ProgressString2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        internal static string ProgressString3 {
+            get {
+                return ResourceManager.GetString("ProgressString3", resourceCulture);
             }
         }
         
@@ -462,6 +534,15 @@ namespace PureHistory {
         internal static string ReplacePreview {
             get {
                 return ResourceManager.GetString("ReplacePreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ship preview background flag ähnelt.
+        /// </summary>
+        internal static string ReplacePreviewBg {
+            get {
+                return ResourceManager.GetString("ReplacePreviewBg", resourceCulture);
             }
         }
         
@@ -493,7 +574,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Replace sillhouette ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace sillhouette in battle overview ähnelt.
         /// </summary>
         internal static string ReplaceSillouette {
             get {

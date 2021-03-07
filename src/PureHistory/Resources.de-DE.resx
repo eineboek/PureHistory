@@ -190,10 +190,10 @@
     <value>'Lima'-Suffix entfernen</value>
   </data>
   <data name="LunarNewYearFlagOptionPanasia" xml:space="preserve">
-    <value>Flagge mit Pan-Asiatischer Flagge ersetzen</value>
+    <value>Hintergrundflagge der Schiffsvorschau mit Pan-Asiatischer Flagge ersetzen</value>
   </data>
   <data name="LunarNewYearFlagOptionOriginal" xml:space="preserve">
-    <value>Flagge mit der des jeweiligen Originals ersetzen</value>
+    <value>Hintergrundflagge der Schiffsvorschau mit der des jeweiligen Originals ersetzen</value>
   </data>
   <data name="LunarNewYearTitle" xml:space="preserve">
     <value>Einstellungen für Mondneujahr-Schiffe</value>
@@ -237,8 +237,8 @@
   <data name="PressAnyKey" xml:space="preserve">
     <value>Zum Fortfahren beliebige Taste drücken ...</value>
   </data>
-  <data name="ReplaceFlag" xml:space="preserve">
-    <value>Flagge ersetzen</value>
+  <data name="ReplacePreviewBg" xml:space="preserve">
+    <value>Hintergrundflagge der Schiffsvorschau ersetzen</value>
   </data>
   <data name="ReplacePreview" xml:space="preserve">
     <value>Schiffsvorschau ersetzen</value>
@@ -250,7 +250,7 @@
     <value>Schiffsnamen mit regulärem Gegenstück ersetzen</value>
   </data>
   <data name="ReplaceSillouette" xml:space="preserve">
-    <value>Sillhouette ersetzen</value>
+    <value>Sillhouette in der Gefechtsübersicht ersetzen</value>
   </data>
   <data name="StartInstallationNoticeGoBack" xml:space="preserve">
     <value>Zurück: linke Pfeiltaste drücken</value>
@@ -281,5 +281,32 @@
   </data>
   <data name="PathDoesntExist" xml:space="preserve">
     <value>Der angegebene Pfad konnte nicht gefunden werden. Bitte versuchen sie es erneut.</value>
+  </data>
+  <data name="AlreadyExists" xml:space="preserve">
+    <value>existiert bereits im Mod-Ordner. Soll sie überschrieben werden?</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Die Datei</value>
+  </data>
+  <data name="InstallationSettingsAskForEach" xml:space="preserve">
+    <value>Für jede Datei einzeln nachfragen</value>
+  </data>
+  <data name="InstallationSettingsNoOverwrite" xml:space="preserve">
+    <value>Vorhandene Dateien nicht überschreiben</value>
+  </data>
+  <data name="InstallationSettingsOverwriteAll" xml:space="preserve">
+    <value>Alle kollidierenden Dateien überschreiben</value>
+  </data>
+  <data name="InstallationSettingsTitle" xml:space="preserve">
+    <value>Einstellungen für die Installation</value>
+  </data>
+  <data name="ProgressString1" xml:space="preserve">
+    <value>Die Datei</value>
+  </data>
+  <data name="ProgressString2" xml:space="preserve">
+    <value>wurde erfolgreich nach</value>
+  </data>
+  <data name="ProgressString3" xml:space="preserve">
+    <value>kopiert</value>
   </data>
 </root>

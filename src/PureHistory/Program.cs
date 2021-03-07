@@ -261,7 +261,7 @@ namespace PureHistory
 
             //Display the options to the user
             string title = Resources.ArpeggioTitle;
-            string[] options = { Resources.ArpeggioPrefix, Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag };
+            string[] options = { Resources.ArpeggioPrefix, Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplacePreviewBg };
             MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
@@ -631,7 +631,7 @@ namespace PureHistory
 
             string title = Resources.WarhammerTitle;
             string warning = Resources.WarhammerWarning;
-            string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.ReplaceFlag };
+            string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.ReplacePreviewBg };
             MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, warning, options, optionSelection);
             MultipleChoiceResponse response;
 
@@ -713,7 +713,7 @@ namespace PureHistory
             }
 
             string title = Resources.DragonShipTitle;
-            string[] options = { Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplaceFlag };
+            string[] options = { Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplacePreviewBg };
             MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
             MultipleChoiceResponse response;
 
@@ -1105,6 +1105,84 @@ namespace PureHistory
 
                 modInstallation.MiscellaneousOptions = miscellaneousOptions;
 
+                InstallationSettings();
+            }
+        }
+
+        private static void InstallationSettings()
+        {
+            Clear();
+
+            InstallationOptions installationOptions;
+
+            bool[] optionSelection = new bool[3];
+
+            if (modInstallation.InstallationOptions != null)
+            {
+                installationOptions = modInstallation.InstallationOptions;
+
+                optionSelection[0] = installationOptions.NoOverwrite;
+                optionSelection[1] = installationOptions.AskForEach;
+                optionSelection[2] = installationOptions.OverwriteAllConflicts;
+            }
+            else
+            {
+                installationOptions = new InstallationOptions();
+
+                optionSelection[0] = false;
+                optionSelection[1] = false;
+                optionSelection[2] = false;
+            }
+
+            string title = Resources.InstallationSettingsTitle;
+            string[] options = { Resources.InstallationSettingsNoOverwrite, Resources.InstallationSettingsAskForEach, Resources.InstallationSettingsOverwriteAll};
+            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceResponse response;
+
+            while (true)
+            {
+                response = multipleChoice.Init();
+
+                if (response.ReturnToPrevious || response.ContinueToNext)
+                {
+                    break;
+                }
+                else if (response.ToggleSelectedIndex != null)
+                {
+                    int amountSelectedOptions = 0;
+                    foreach(bool option in optionSelection)
+                    {
+                        if (option)
+                        {
+                            amountSelectedOptions++;
+                        }
+                    }
+
+                    if (optionSelection[(int)response.ToggleSelectedIndex])
+                    {
+                        optionSelection[(int)response.ToggleSelectedIndex] = false;
+                    }
+                    else if (!optionSelection[(int)response.ToggleSelectedIndex] && amountSelectedOptions == 0)
+                    {
+                        optionSelection[(int)response.ToggleSelectedIndex] = true;
+                    }
+
+                    multipleChoice.UpdateOptionSelection(optionSelection);
+                }
+            }
+
+            if (response.ReturnToPrevious)
+            {
+                MiscellaneousSelection();
+            }
+            else if (response.ContinueToNext)
+            {
+                installationOptions.NoOverwrite = optionSelection[0];
+                installationOptions.AskForEach = optionSelection[1];
+                installationOptions.OverwriteAllConflicts = optionSelection[2];
+
+                modInstallation.InstallationOptions = installationOptions;
+
                 PerformInstallation();
             }
         }
@@ -1122,7 +1200,7 @@ namespace PureHistory
             //The user can abort the installation by pressing left arrow key, any other key starts the installation
             if (response == ConsoleKey.LeftArrow)
             {
-                MiscellaneousSelection();
+                InstallationSettings();
             }
             else if (response == ConsoleKey.Enter)
             {

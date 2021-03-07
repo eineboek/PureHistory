@@ -14,6 +14,7 @@
         public BlackShipOptions BlackShipOptions { get; set; }
         public LimaShipOptions LimaShipOptions { get; set; }
         public MiscellaneousOptions MiscellaneousOptions { get; set; }
+        public InstallationOptions InstallationOptions { get; set; }
     }
 
     /// <summary>
@@ -126,5 +127,12 @@
         public bool IwakiA_RemoveSuffix { get; set; }
         public bool ArkansasB_RemoveSuffix { get; set; }
         public bool WestVirginia41_CorrectName { get; set; }
+    }
+
+    internal class InstallationOptions
+    {
+        public bool NoOverwrite { get; set; }
+        public bool AskForEach { get; set; }
+        public bool OverwriteAllConflicts { get; set; }
     }
 }
