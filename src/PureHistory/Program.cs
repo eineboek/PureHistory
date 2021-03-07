@@ -1316,7 +1316,11 @@ namespace PureHistory
                 string executingPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                 string dataPath = Path.Combine(executingPath, "data.zip");
 
-                if (!Directory.Exists(Path.Combine(executingPath, "gui")))
+                if (Directory.Exists(Path.Combine(executingPath, "gui")))
+                {
+                    Directory.Delete(Path.Combine(executingPath, "gui"), true);
+                }
+                else
                 {
                     try
                     {
