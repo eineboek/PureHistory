@@ -133,7 +133,8 @@
     <value>Einstellungen für Azur Lane-Schiffe</value>
   </data>
   <data name="AzurLaneWarning" xml:space="preserve">
-    <value>Achtung : Azur Lane-Schiffe haben ähnliche, aber nicht identische Eigenschaften zu ihren regulären Gegenstücken. Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
+    <value>Achtung : Azur Lane-Schiffe haben ähnliche, aber nicht identische Eigenschaften zu ihren regulären Gegenstücken.
+Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
   </data>
   <data name="BlackShipTitle" xml:space="preserve">
     <value>Einstellungen für Black-Friday-Schiffe</value>
@@ -169,7 +170,8 @@
     <value>Einstellungen für HSF Harekaze</value>
   </data>
   <data name="HSFHarekazeWarning" xml:space="preserve">
-    <value>Achtung : HSF Harekaze hat mehrere Rumpfmöglichkeiten mit unterschiedlichen Eigenschaften.  Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks (Kagerō) kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
+    <value>Achtung : HSF Harekaze hat mehrere Rumpfmöglichkeiten mit unterschiedlichen Eigenschaften.
+Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks (Kagerō) kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
   </data>
   <data name="HSFPrefix" xml:space="preserve">
     <value>'HSF'-Prefix entfernen</value>
@@ -217,7 +219,8 @@
     <value>Entfernen der '1941' bei der West Virginia 1941</value>
   </data>
   <data name="ModStationWarning" xml:space="preserve">
-    <value>World of Warships ModStation wurde erkannt. Bitte installieren sie diesen Mod nach der Ausführung der ModStation, da die ModStation alle anderen Mods im Ordner überschreibt.</value>
+    <value>World of Warships ModStation wurde erkannt.
+Bitte installieren sie diesen Mod nach der Ausführung der ModStation, da die ModStation alle anderen Mods im Ordner überschreibt.</value>
   </data>
   <data name="NavigationHelpArrowVertical" xml:space="preserve">
     <value>Pfeiltaste oben/unten zum Bewegen zwischen Optionen</value>
@@ -262,7 +265,8 @@
     <value>Einstellungen für Warhammer 40.000-Schiffe</value>
   </data>
   <data name="WarhammerWarning" xml:space="preserve">
-    <value>Achtung : Warhammer 40.000-Schiffe haben ähnliche, aber nicht identische Eigenschaften zu ihren regulären Gegenstücken (Amagi). Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
+    <value>Achtung : Warhammer 40.000-Schiffe haben ähnliche, aber nicht identische Eigenschaften zu ihren regulären Gegenstücken (Amagi).
+Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
   </data>
   <data name="WoWsNotFound" xml:space="preserve">
     <value>World of Warships scheint nicht unter diesem Pfad installiert zu sein. Installation trotzdem fortsetzen?</value>
@@ -307,6 +311,6 @@
     <value>wurde erfolgreich nach</value>
   </data>
   <data name="ProgressString3" xml:space="preserve">
-    <value>kopiert</value>
+    <value>kopiert.</value>
   </data>
 </root>

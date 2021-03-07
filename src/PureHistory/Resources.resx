@@ -133,7 +133,8 @@
     <value>Settings for Azur Lane Ships</value>
   </data>
   <data name="AzurLaneWarning" xml:space="preserve">
-    <value>Caution : Azur Lane ships have similar, but not identical performance to their regular counterparts. Replacing the ship name with the regular counterpart name could lead to a misjudgement of the battle situation.</value>
+    <value>Caution : Azur Lane ships have similar, but not identical performance to their regular counterparts.
+Replacing the ship name with the regular counterpart name could lead to a misjudgement of the battle situation.</value>
   </data>
   <data name="BlackShipTitle" xml:space="preserve">
     <value>Settings for Black Friday Ships</value>
@@ -169,7 +170,8 @@
     <value>Settings for HSF Harekaze</value>
   </data>
   <data name="HSFHarekazeWarning" xml:space="preserve">
-    <value>Caution : HSF Harekaze is a unique ship capable of fitting multiple hulls with differing performance. Replacing the ship name with the regular counterpart name (Kagerō) could lead to a misjudgement of the battle situation.</value>
+    <value>Caution : HSF Harekaze is a unique ship capable of fitting multiple hulls with differing performance.
+Replacing the ship name with the regular counterpart name (Kagerō) could lead to a misjudgement of the battle situation.</value>
   </data>
   <data name="HSFPrefix" xml:space="preserve">
     <value>Remove 'HSF' prefix</value>
@@ -217,7 +219,8 @@
     <value>Remove the '1941' from West Virginia 1941</value>
   </data>
   <data name="ModStationWarning" xml:space="preserve">
-    <value>World of Warships ModStation was found. Please install this mod after using the ModStation, as the ModStation will override all other mod files.</value>
+    <value>World of Warships ModStation was found.
+Please install this mod after using the ModStation, as the ModStation will override all other mod files.</value>
   </data>
   <data name="ModVersion" xml:space="preserve">
     <value>PureHistory Version 1.1.0</value>
@@ -270,7 +273,8 @@
     <value>Settings for Warhammer 40.000 ships</value>
   </data>
   <data name="WarhammerWarning" xml:space="preserve">
-    <value>Caution : Warhammer 40.000 ships have similar, but not identical performance to their regular counterparts (Amagi). Replacing the ship name with the regular counterpart could lead to a misjudgement of the battle situation.</value>
+    <value>Caution : Warhammer 40.000 ships have similar, but not identical performance to their regular counterparts (Amagi).
+Replacing the ship name with the regular counterpart could lead to a misjudgement of the battle situation.</value>
   </data>
   <data name="WoWsNotFound" xml:space="preserve">
     <value>World of Warships does not seem to be installed at the specified path. Continue installation regardless?</value>

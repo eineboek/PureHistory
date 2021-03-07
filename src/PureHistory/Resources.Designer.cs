@@ -106,7 +106,8 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Caution : Azur Lane ships have similar, but not identical performance to their regular counterparts. Replacing the ship name with the regular counterpart name could lead to a misjudgement of the battle situation. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Caution : Azur Lane ships have similar, but not identical performance to their regular counterparts.
+        ///Replacing the ship name with the regular counterpart name could lead to a misjudgement of the battle situation. ähnelt.
         /// </summary>
         internal static string AzurLaneWarning {
             get {
@@ -223,7 +224,8 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Caution : HSF Harekaze is a unique ship capable of fitting multiple hulls with differing performance. Replacing the ship name with the regular counterpart name (Kagerō) could lead to a misjudgement of the battle situation. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Caution : HSF Harekaze is a unique ship capable of fitting multiple hulls with differing performance.
+        ///Replacing the ship name with the regular counterpart name (Kagerō) could lead to a misjudgement of the battle situation. ähnelt.
         /// </summary>
         internal static string HSFHarekazeWarning {
             get {
@@ -412,7 +414,8 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die World of Warships ModStation was found. Please install this mod after using the ModStation, as the ModStation will override all other mod files. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die World of Warships ModStation was found.
+        ///Please install this mod after using the ModStation, as the ModStation will override all other mod files. ähnelt.
         /// </summary>
         internal static string ModStationWarning {
             get {
@@ -628,7 +631,8 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Caution : Warhammer 40.000 ships have similar, but not identical performance to their regular counterparts (Amagi). Replacing the ship name with the regular counterpart could lead to a misjudgement of the battle situation. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Caution : Warhammer 40.000 ships have similar, but not identical performance to their regular counterparts (Amagi).
+        ///Replacing the ship name with the regular counterpart could lead to a misjudgement of the battle situation. ähnelt.
         /// </summary>
         internal static string WarhammerWarning {
             get {
