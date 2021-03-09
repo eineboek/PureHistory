@@ -307,4 +307,10 @@ Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu ein
   <data name="CopyProgressString3" xml:space="preserve">
     <value>kopiert.</value>
   </data>
+  <data name="DoNotOverwrite" xml:space="preserve">
+    <value>Datei nicht überschreiben</value>
+  </data>
+  <data name="Overwrite" xml:space="preserve">
+    <value>Datei überschreiben</value>
+  </data>
 </root>

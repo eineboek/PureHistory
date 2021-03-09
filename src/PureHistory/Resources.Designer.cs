@@ -197,6 +197,15 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Don&apos;t overwrite file ähnelt.
+        /// </summary>
+        internal static string DoNotOverwrite {
+            get {
+                return ResourceManager.GetString("DoNotOverwrite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Settings for Dragon Ships ähnelt.
         /// </summary>
         internal static string DragonShipTitle {
@@ -476,6 +485,15 @@ namespace PureHistory {
         internal static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Overwrite file ähnelt.
+        /// </summary>
+        internal static string Overwrite {
+            get {
+                return ResourceManager.GetString("Overwrite", resourceCulture);
             }
         }
         

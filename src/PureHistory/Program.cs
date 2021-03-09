@@ -21,6 +21,8 @@ namespace PureHistory
 
         private static ModInstallation modInstallation;
 
+        public static ConsoleLogger consoleLogger;
+
         #endregion Private fields
 
         /// <summary>
@@ -29,8 +31,11 @@ namespace PureHistory
         /// <param name="args">Standard arguments for execution via command line. Not used yet in this program</param>
         private static void Main(string[] args)
         {
+            //Log the contents of the Console using the Helper class
+            consoleLogger = new ConsoleLogger();
+
             //Set the Encoding to support Unicode characters such as this funky dot -> •
-            OutputEncoding = Encoding.UTF8;
+            //OutputEncoding = Encoding.UTF8;
 
             //Set Window Size so that all lines will be displayed as one and not wrap
             SetWindowSize(WindowWidth + 15, WindowHeight);
@@ -64,6 +69,9 @@ namespace PureHistory
             //After the installation : User presses any key to exit the program
             WriteLine(Resources.ExitProgramAnyKey);
             ReadKey();
+
+            //Dispose the Console Logger
+            consoleLogger.Dispose();
         }
 
         /// <summary>
@@ -1461,7 +1469,6 @@ namespace PureHistory
 
                 //Flags (nation_flags folder)
 
-
                 if (modInstallation.ArpeggioOptions.ReplaceFlags)
                 {
                     //Idk what flag this is, seems Arpeggio to me ¯\_(ツ)_/¯
@@ -1483,7 +1490,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_Ashigara.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_Ashigara.png"), Path.Combine(bigNationFlagsDestPath, "flag_Ashigara.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_Ashigara.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1506,7 +1524,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_Ashigara.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_Ashigara.png"), Path.Combine(smallNationFlagsDestPath, "flag_Ashigara.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_Ashigara.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1529,7 +1558,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_Ashigara.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_Ashigara.png"), Path.Combine(tinyNationFlagsDestPath, "flag_Ashigara.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_Ashigara.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1553,7 +1593,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSB700.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSB700.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSB700.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSB700.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1576,7 +1627,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSB700.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSB700.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSB700.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSB700.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1599,7 +1661,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB700.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSB700.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSB700.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB700.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1623,7 +1696,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSB705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSB705.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSB705.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSB705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1646,7 +1730,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSB705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSB705.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSB705.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSB705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1669,7 +1764,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSB705.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSB705.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1693,7 +1799,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSB706.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSB706.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSB706.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSB706.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1716,7 +1833,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSB706.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSB706.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSB706.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSB706.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1739,7 +1867,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB706.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSB706.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSB706.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB706.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1763,7 +1902,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSB707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSB707.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSB707.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSB707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1786,7 +1936,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSB707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSB707.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSB707.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSB707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1809,7 +1970,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSB707.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSB707.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1833,7 +2005,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSB708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSB708.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSB708.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSB708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1856,7 +2039,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSB708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSB708.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSB708.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSB708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1879,7 +2073,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSB708.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSB708.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1903,7 +2108,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSB799.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSB799.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSB799.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSB799.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1926,7 +2142,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSB799.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSB799.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSB799.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSB799.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1949,7 +2176,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB799.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSB799.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSB799.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB799.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1973,7 +2211,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSC705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSC705.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSC705.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSC705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1996,7 +2245,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSC705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSC705.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSC705.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSC705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2019,7 +2279,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSC705.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSC705.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2043,7 +2314,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSC707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSC707.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSC707.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSC707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2066,7 +2348,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSC707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSC707.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSC707.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSC707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2089,7 +2382,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSC707.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSC707.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2113,7 +2417,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSC708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSC708.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSC708.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSC708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2136,7 +2451,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSC708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSC708.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSC708.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSC708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2159,7 +2485,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSC708.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSC708.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2183,7 +2520,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSC709.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSC709.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSC709.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSC709.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2206,7 +2554,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSC709.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSC709.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSC709.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSC709.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2229,7 +2588,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC709.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSC709.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSC709.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC709.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2253,7 +2623,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSC718.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSC718.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSC718.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSC718.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2276,7 +2657,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSC718.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSC718.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSC718.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSC718.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2299,7 +2691,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC718.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSC718.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSC718.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC718.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2323,7 +2726,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSC737.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSC737.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSC737.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSC737.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2346,7 +2760,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSC737.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSC737.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSC737.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSC737.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2369,7 +2794,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC737.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSC737.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSC737.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC737.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2393,7 +2829,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSX701.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSX701.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSX701.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSX701.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2416,7 +2863,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSX701.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSX701.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSX701.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSX701.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2439,7 +2897,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSX701.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSX701.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSX701.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSX701.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2463,7 +2932,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSX702.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSX702.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSX702.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSX702.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2486,7 +2966,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSX702.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSX702.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSX702.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSX702.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2509,11 +3000,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSX702.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSX702.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSX702.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSX702.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
                 }
                 if (modInstallation.Warhammer40KOptions.ReplaceFlags)
                 {
@@ -2536,7 +3037,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSB878.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSB878.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSB878.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSB878.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2559,7 +3071,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSB878.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSB878.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSB878.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSB878.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2582,7 +3105,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB878.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSB878.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSB878.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB878.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2606,7 +3140,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSB888.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSB888.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSB888.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSB888.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2629,7 +3174,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSB888.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSB888.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSB888.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSB888.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2652,11 +3208,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB888.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSB888.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSB888.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSB888.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
                 }
                 if (modInstallation.DragonShipOptions.ReplaceFlags)
                 {
@@ -2679,11 +3245,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSC717.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSC717.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSC717.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSC717.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
 
                     try
                     {
@@ -2703,7 +3279,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSC717.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSC717.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSC717.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSC717.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2726,7 +3313,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC717.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSC717.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSC717.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC717.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2750,7 +3348,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PJSC727.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PJSC727.png"), Path.Combine(bigNationFlagsDestPath, "flag_PJSC727.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PJSC727.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2773,7 +3382,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PJSC727.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PJSC727.png"), Path.Combine(smallNationFlagsDestPath, "flag_PJSC727.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PJSC727.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2796,11 +3416,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC727.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PJSC727.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PJSC727.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PJSC727.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
                 }
                 if (modInstallation.LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry)
                 {
@@ -2823,11 +3453,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PZSA508.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PZSA508.png"), Path.Combine(bigNationFlagsDestPath, "flag_PZSA508.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PZSA508.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
 
                     try
                     {
@@ -2847,11 +3487,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PZSA508.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PZSA508.png"), Path.Combine(smallNationFlagsDestPath, "flag_PZSA508.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PZSA508.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
 
                     try
                     {
@@ -2871,7 +3521,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PZSA508.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PZSA508.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PZSA508.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PZSA508.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2895,7 +3556,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PZSB509.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PZSB509.png"), Path.Combine(bigNationFlagsDestPath, "flag_PZSB509.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PZSB509.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2918,7 +3590,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PZSB509.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PZSB509.png"), Path.Combine(smallNationFlagsDestPath, "flag_PZSB509.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PZSB509.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2941,7 +3624,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PZSB509.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PZSB509.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PZSB509.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PZSB509.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2965,7 +3659,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PZSB519.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PZSB519.png"), Path.Combine(bigNationFlagsDestPath, "flag_PZSB519.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PZSB519.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -2988,7 +3693,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PZSB519.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PZSB519.png"), Path.Combine(smallNationFlagsDestPath, "flag_PZSB519.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PZSB519.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3011,7 +3727,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PZSB519.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PZSB519.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PZSB519.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PZSB519.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3035,7 +3762,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PZSC518.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_PZSC518.png"), Path.Combine(bigNationFlagsDestPath, "flag_PZSC518.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PZSC518.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3058,7 +3796,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PZSC518.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsSrcPath, "flag_PZSC518.png"), Path.Combine(smallNationFlagsDestPath, "flag_PZSC518.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PZSC518.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3081,11 +3830,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PZSC518.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsSrcPath, "flag_PZSC518.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PZSC518.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PZSC518.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
                 }
                 else if (modInstallation.LunarNewYearShipOptions.ReplaceFlagsPanasia)
                 {
@@ -3108,11 +3867,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PZSA508.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsAltPath, "flag_PZSA508.png"), Path.Combine(bigNationFlagsDestPath, "flag_PZSA508.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PZSA508.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
 
                     try
                     {
@@ -3132,11 +3901,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PZSA508.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsAltPath, "flag_PZSA508.png"), Path.Combine(smallNationFlagsDestPath, "flag_PZSA508.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PZSA508.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
 
                     try
                     {
@@ -3156,7 +3935,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PZSA508.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsAltPath, "flag_PZSA508.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PZSA508.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PZSA508.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3180,7 +3970,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PZSB509.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsAltPath, "flag_PZSB509.png"), Path.Combine(bigNationFlagsDestPath, "flag_PZSB509.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PZSB509.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3203,7 +4004,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PZSB509.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsAltPath, "flag_PZSB509.png"), Path.Combine(smallNationFlagsDestPath, "flag_PZSB509.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PZSB509.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3226,7 +4038,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PZSB509.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsAltPath, "flag_PZSB509.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PZSB509.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PZSB509.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3250,7 +4073,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PZSB519.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsAltPath, "flag_PZSB519.png"), Path.Combine(bigNationFlagsDestPath, "flag_PZSB519.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PZSB519.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3273,7 +4107,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PZSB519.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsAltPath, "flag_PZSB519.png"), Path.Combine(smallNationFlagsDestPath, "flag_PZSB519.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PZSB519.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3296,7 +4141,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PZSB519.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsAltPath, "flag_PZSB519.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PZSB519.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PZSB519.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3320,7 +4176,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_PZSC518.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(bigNationFlagsAltPath, "flag_PZSC518.png"), Path.Combine(bigNationFlagsDestPath, "flag_PZSC518.png"), true);
+                                    ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_PZSC518.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3343,7 +4210,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(smallNationFlagsDestPath, "flag_PZSC518.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(smallNationFlagsAltPath, "flag_PZSC518.png"), Path.Combine(smallNationFlagsDestPath, "flag_PZSC518.png"), true);
+                                    ReportFileCopy(Path.Combine(smallNationFlagsDestPath, "flag_PZSC518.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3366,7 +4244,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(tinyNationFlagsDestPath, "flag_PZSC518.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(tinyNationFlagsAltPath, "flag_PZSC518.png"), Path.Combine(tinyNationFlagsDestPath, "flag_PZSC518.png"), true);
+                                    ReportFileCopy(Path.Combine(tinyNationFlagsDestPath, "flag_PZSC518.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3395,7 +4284,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSB700.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSB700.png"), Path.Combine(shipIconsDestPath, "PJSB700.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSB700.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3418,7 +4318,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSB700.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSB700.png"), Path.Combine(shipDeadIconsDestPath, "PJSB700.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSB700.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3441,7 +4352,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSB700.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSB700.png"), Path.Combine(shipOwnIconsDestPath, "PJSB700.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSB700.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3465,7 +4387,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSB705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSB705.png"), Path.Combine(shipIconsDestPath, "PJSB705.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSB705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3488,7 +4421,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSB705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSB705.png"), Path.Combine(shipDeadIconsDestPath, "PJSB705.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSB705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3511,7 +4455,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSB705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSB705.png"), Path.Combine(shipOwnIconsDestPath, "PJSB705.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSB705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3535,7 +4490,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSB706.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSB706.png"), Path.Combine(shipIconsDestPath, "PJSB706.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSB706.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3558,7 +4524,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSB706.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSB706.png"), Path.Combine(shipDeadIconsDestPath, "PJSB706.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSB706.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3581,7 +4558,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSB706.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSB706.png"), Path.Combine(shipOwnIconsDestPath, "PJSB706.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSB706.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3605,7 +4593,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSB707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSB707.png"), Path.Combine(shipIconsDestPath, "PJSB707.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSB707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3628,7 +4627,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSB707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSB707.png"), Path.Combine(shipDeadIconsDestPath, "PJSB707.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSB707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3651,7 +4661,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSB707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSB707.png"), Path.Combine(shipOwnIconsDestPath, "PJSB707.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSB707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3675,7 +4696,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSB708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSB708.png"), Path.Combine(shipIconsDestPath, "PJSB708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSB708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3698,7 +4730,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSB708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSB708.png"), Path.Combine(shipDeadIconsDestPath, "PJSB708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSB708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3721,7 +4764,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSB708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSB708.png"), Path.Combine(shipOwnIconsDestPath, "PJSB708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSB708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3745,7 +4799,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSB799.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSB799.png"), Path.Combine(shipIconsDestPath, "PJSB799.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSB799.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3768,7 +4833,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSB799.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSB799.png"), Path.Combine(shipDeadIconsDestPath, "PJSB799.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSB799.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3791,7 +4867,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSB799.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSB799.png"), Path.Combine(shipOwnIconsDestPath, "PJSB799.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSB799.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3815,7 +4902,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSC705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSC705.png"), Path.Combine(shipIconsDestPath, "PJSC705.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSC705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3838,7 +4936,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSC705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSC705.png"), Path.Combine(shipDeadIconsDestPath, "PJSC705.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSC705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3861,10 +4970,20 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSC705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC705.png"), Path.Combine(shipOwnIconsDestPath, "PJSC705.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
-
                     }
                     //PJSC707	ARP Ashigara
                     try
@@ -3885,7 +5004,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSC707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSC707.png"), Path.Combine(shipIconsDestPath, "PJSC707.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSC707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3908,7 +5038,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSC707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSC707.png"), Path.Combine(shipDeadIconsDestPath, "PJSC707.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSC707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3931,7 +5072,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSC707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC707.png"), Path.Combine(shipOwnIconsDestPath, "PJSC707.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3955,7 +5107,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSC708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSC708.png"), Path.Combine(shipIconsDestPath, "PJSC708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSC708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -3978,10 +5141,20 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSC708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSC708.png"), Path.Combine(shipDeadIconsDestPath, "PJSC708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSC708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
-
                     }
                     try
                     {
@@ -4001,7 +5174,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSC708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC708.png"), Path.Combine(shipOwnIconsDestPath, "PJSC708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4025,7 +5209,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSC709.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSC709.png"), Path.Combine(shipIconsDestPath, "PJSC709.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSC709.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4048,10 +5243,20 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSC709.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSC709.png"), Path.Combine(shipDeadIconsDestPath, "PJSC709.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSC709.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
-
                     }
                     try
                     {
@@ -4071,7 +5276,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSC709.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC709.png"), Path.Combine(shipOwnIconsDestPath, "PJSC709.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC709.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4095,7 +5311,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSC718.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSC718.png"), Path.Combine(shipIconsDestPath, "PJSC718.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSC718.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4118,7 +5345,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSC718.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSC718.png"), Path.Combine(shipDeadIconsDestPath, "PJSC718.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSC718.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4141,7 +5379,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSC718.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC718.png"), Path.Combine(shipOwnIconsDestPath, "PJSC718.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC718.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4165,7 +5414,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSC737.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSC737.png"), Path.Combine(shipIconsDestPath, "PJSC737.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSC737.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4188,7 +5448,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSC737.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSC737.png"), Path.Combine(shipDeadIconsDestPath, "PJSC737.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSC737.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4211,11 +5482,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSC737.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC737.png"), Path.Combine(shipOwnIconsDestPath, "PJSC737.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC737.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
                 }
                 if (modInstallation.DragonShipOptions.ReplaceSilhouettes)
                 {
@@ -4238,10 +5519,20 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSC717.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSC717.png"), Path.Combine(shipIconsDestPath, "PJSC717.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSC717.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
-
                     }
 
                     try
@@ -4262,11 +5553,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSC717.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSC717.png"), Path.Combine(shipDeadIconsDestPath, "PJSC717.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSC717.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
 
                     try
                     {
@@ -4286,7 +5587,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSC717.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC717.png"), Path.Combine(shipOwnIconsDestPath, "PJSC717.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC717.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4310,7 +5622,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipIconsDestPath, "PJSC727.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipIconsSrcPath, "PJSC727.png"), Path.Combine(shipIconsDestPath, "PJSC727.png"), true);
+                                    ReportFileCopy(Path.Combine(shipIconsDestPath, "PJSC727.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4333,7 +5656,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipDeadIconsDestPath, "PJSC727.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipDeadIconsSrcPath, "PJSC727.png"), Path.Combine(shipDeadIconsDestPath, "PJSC727.png"), true);
+                                    ReportFileCopy(Path.Combine(shipDeadIconsDestPath, "PJSC727.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4356,11 +5690,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipOwnIconsDestPath, "PJSC727.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipOwnIconsSrcPath, "PJSC727.png"), Path.Combine(shipOwnIconsDestPath, "PJSC727.png"), true);
+                                    ReportFileCopy(Path.Combine(shipOwnIconsDestPath, "PJSC727.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
                 }
 
                 //Ship previews (ship_previews / ship_previews_ds)
@@ -4386,7 +5730,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSB700.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB700.png"), Path.Combine(shipPreviewsDestPath, "PJSB700.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSB700.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4409,7 +5764,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSB700.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB700.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB700.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSB700.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4433,10 +5799,20 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSB705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB705.png"), Path.Combine(shipPreviewsDestPath, "PJSB705.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSB705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
-
                     }
                     try
                     {
@@ -4456,7 +5832,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSB705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB705.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB705.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSB705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4480,7 +5867,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSB706.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB706.png"), Path.Combine(shipPreviewsDestPath, "PJSB706.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSB706.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4503,7 +5901,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSB706.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB706.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB706.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSB706.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4527,7 +5936,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSB707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB707.png"), Path.Combine(shipPreviewsDestPath, "PJSB707.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSB707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4550,7 +5970,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSB707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB707.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB707.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSB707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4574,7 +6005,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSB708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB708.png"), Path.Combine(shipPreviewsDestPath, "PJSB708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSB708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4597,7 +6039,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSB708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB708.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSB708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4621,7 +6074,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSB799.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB799.png"), Path.Combine(shipPreviewsDestPath, "PJSB799.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSB799.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4644,7 +6108,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSB799.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB799.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB799.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSB799.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4668,7 +6143,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSC705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC705.png"), Path.Combine(shipPreviewsDestPath, "PJSC705.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSC705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4691,7 +6177,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSC705.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC705.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC705.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSC705.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4715,7 +6212,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSC707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC707.png"), Path.Combine(shipPreviewsDestPath, "PJSC707.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSC707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4738,7 +6246,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSC707.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC707.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC707.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSC707.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4762,7 +6281,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSC708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC708.png"), Path.Combine(shipPreviewsDestPath, "PJSC708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSC708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4785,7 +6315,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSC708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC708.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSC708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4809,7 +6350,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSC709.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC709.png"), Path.Combine(shipPreviewsDestPath, "PJSC709.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSC709.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4832,7 +6384,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSC709.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC709.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC709.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSC709.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4856,10 +6419,20 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSC718.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC718.png"), Path.Combine(shipPreviewsDestPath, "PJSC718.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSC718.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
-
                     }
                     try
                     {
@@ -4879,7 +6452,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSC718.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC718.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC718.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSC718.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4903,7 +6487,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSC737.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC737.png"), Path.Combine(shipPreviewsDestPath, "PJSC737.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSC737.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4926,11 +6521,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSC737.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC737.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC737.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSC737.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
                 }
                 if (modInstallation.AzurLaneOptions.ReplacePreviews)
                 {
@@ -4953,7 +6558,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSD718.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSD718.png"), Path.Combine(shipPreviewsDestPath, "PJSD718.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSD718.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -4976,10 +6592,20 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSD718.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSD718.png"), Path.Combine(shipPreviewsDsDestPath, "PJSD718.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSD718.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
-
                     }
                     //PISB708	AL Littorio
                     try
@@ -5000,7 +6626,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PISB708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PISB708.png"), Path.Combine(shipPreviewsDestPath, "PISB708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PISB708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5023,7 +6660,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PISB708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PISB708.png"), Path.Combine(shipPreviewsDsDestPath, "PISB708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PISB708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5047,7 +6695,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PASC718.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PASC718.png"), Path.Combine(shipPreviewsDestPath, "PASC718.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PASC718.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5070,11 +6729,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PASC718.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASC718.png"), Path.Combine(shipPreviewsDsDestPath, "PASC718.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PASC718.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
                 }
                 if (modInstallation.HighSchoolFleetOptions.Harekaze_ReplacePreview)
                 {
@@ -5097,7 +6766,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSD708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSD708.png"), Path.Combine(shipPreviewsDestPath, "PJSD708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSD708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5120,11 +6800,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSD708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSD708.png"), Path.Combine(shipPreviewsDsDestPath, "PJSD708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSD708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
                 }
                 if (modInstallation.HighSchoolFleetOptions.Spee_ReplacePreview)
                 {
@@ -5147,7 +6837,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PGSC706.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PGSC706.png"), Path.Combine(shipPreviewsDestPath, "PGSC706.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PGSC706.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5170,11 +6871,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PGSC706.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PGSC706.png"), Path.Combine(shipPreviewsDsDestPath, "PGSC706.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PGSC706.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
                 }
                 if (modInstallation.Warhammer40KOptions.ReplacePreviews)
                 {
@@ -5197,7 +6908,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSB878.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB878.png"), Path.Combine(shipPreviewsDestPath, "PJSB878.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSB878.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5220,7 +6942,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSB878.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB878.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB878.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSB878.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5244,7 +6977,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSB888.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSB888.png"), Path.Combine(shipPreviewsDestPath, "PJSB888.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSB888.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5267,7 +7011,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSB888.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSB888.png"), Path.Combine(shipPreviewsDsDestPath, "PJSB888.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSB888.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5293,7 +7048,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSC717.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC717.png"), Path.Combine(shipPreviewsDestPath, "PJSC717.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSC717.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5316,7 +7082,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSC717.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC717.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC717.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSC717.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5340,7 +7117,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSC727.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC727.png"), Path.Combine(shipPreviewsDestPath, "PJSC727.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSC727.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5363,7 +7151,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSC727.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC727.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC727.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSC727.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5389,7 +7188,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PZSA508.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PZSA508.png"), Path.Combine(shipPreviewsDestPath, "PZSA508.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PZSA508.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5412,7 +7222,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PZSA508.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PZSA508.png"), Path.Combine(shipPreviewsDsDestPath, "PZSA508.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PZSA508.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5436,7 +7257,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PZSB509.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PZSB509.png"), Path.Combine(shipPreviewsDestPath, "PZSB509.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PZSB509.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5459,7 +7291,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PZSB509.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PZSB509.png"), Path.Combine(shipPreviewsDsDestPath, "PZSB509.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PZSB509.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5483,7 +7326,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PZSB519.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PZSB519.png"), Path.Combine(shipPreviewsDestPath, "PZSB519.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PZSB519.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5506,7 +7360,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PZSB519.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PZSB519.png"), Path.Combine(shipPreviewsDsDestPath, "PZSB519.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PZSB519.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5530,7 +7395,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PZSC518.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PZSC518.png"), Path.Combine(shipPreviewsDestPath, "PZSC518.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PZSC518.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5553,11 +7429,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PZSC518.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PZSC518.png"), Path.Combine(shipPreviewsDsDestPath, "PZSC518.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PZSC518.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
                 }
                 if (modInstallation.BlackShipOptions.ReplacePreviews)
                 {
@@ -5580,7 +7466,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PFSB599.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PFSB599.png"), Path.Combine(shipPreviewsDestPath, "PFSB599.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PFSB599.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5603,7 +7500,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PFSB599.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PFSB599.png"), Path.Combine(shipPreviewsDsDestPath, "PFSB599.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PFSB599.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5627,7 +7535,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PGSB597.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PGSB597.png"), Path.Combine(shipPreviewsDestPath, "PGSB597.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PGSB597.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5650,7 +7569,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PGSB597.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PGSB597.png"), Path.Combine(shipPreviewsDsDestPath, "PGSB597.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PGSB597.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5674,10 +7604,20 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PGSA598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PGSA598.png"), Path.Combine(shipPreviewsDestPath, "PGSA598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PGSA598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
-
                     }
                     try
                     {
@@ -5697,7 +7637,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PGSA598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PGSA598.png"), Path.Combine(shipPreviewsDsDestPath, "PGSA598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PGSA598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5721,7 +7672,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PGSB598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PGSB598.png"), Path.Combine(shipPreviewsDestPath, "PGSB598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PGSB598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5744,7 +7706,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PGSB598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PGSB598.png"), Path.Combine(shipPreviewsDsDestPath, "PGSB598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PGSB598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5768,7 +7741,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSA598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSA598.png"), Path.Combine(shipPreviewsDestPath, "PJSA598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSA598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5791,7 +7775,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSA598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSA598.png"), Path.Combine(shipPreviewsDsDestPath, "PJSA598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSA598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5815,7 +7810,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSC598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSC598.png"), Path.Combine(shipPreviewsDestPath, "PJSC598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSC598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5838,7 +7844,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSC598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSC598.png"), Path.Combine(shipPreviewsDsDestPath, "PJSC598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSC598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5862,7 +7879,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSD598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSD598.png"), Path.Combine(shipPreviewsDestPath, "PJSD598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSD598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5885,7 +7913,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSD598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSD598.png"), Path.Combine(shipPreviewsDsDestPath, "PJSD598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSD598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5909,7 +7948,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PBSD598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PBSD598.png"), Path.Combine(shipPreviewsDestPath, "PBSD598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PBSD598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5932,7 +7982,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PBSD598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PBSD598.png"), Path.Combine(shipPreviewsDsDestPath, "PBSD598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PBSD598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5956,7 +8017,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PASC587.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PASC587.png"), Path.Combine(shipPreviewsDestPath, "PASC587.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PASC587.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -5979,7 +8051,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PASC587.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASC587.png"), Path.Combine(shipPreviewsDsDestPath, "PASC587.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PASC587.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -6003,7 +8086,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PASC599.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PASC599.png"), Path.Combine(shipPreviewsDestPath, "PASC599.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PASC599.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -6026,7 +8120,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PASC599.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASC599.png"), Path.Combine(shipPreviewsDsDestPath, "PASC599.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PASC599.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -6050,7 +8155,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PASD597.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PASD597.png"), Path.Combine(shipPreviewsDestPath, "PASD597.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PASD597.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -6073,7 +8189,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PASD597.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASD597.png"), Path.Combine(shipPreviewsDsDestPath, "PASD597.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PASD597.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -6097,7 +8224,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PASB598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PASB598.png"), Path.Combine(shipPreviewsDestPath, "PASB598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PASB598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -6120,11 +8258,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PASB598.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASB598.png"), Path.Combine(shipPreviewsDsDestPath, "PASB598.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PASB598.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
                 }
                 if (modInstallation.LimaShipOptions.ReplacePreviews)
                 {
@@ -6147,7 +8295,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSD014.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSD014.png"), Path.Combine(shipPreviewsDestPath, "PJSD014.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSD014.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -6170,7 +8329,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSD014.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSD014.png"), Path.Combine(shipPreviewsDsDestPath, "PJSD014.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSD014.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -6194,7 +8364,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PRSC010.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PRSC010.png"), Path.Combine(shipPreviewsDestPath, "PRSC010.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PRSC010.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -6217,7 +8398,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PRSC010.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PRSC010.png"), Path.Combine(shipPreviewsDsDestPath, "PRSC010.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PRSC010.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -6241,10 +8433,20 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PASC045.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PASC045.png"), Path.Combine(shipPreviewsDestPath, "PASC045.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PASC045.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
-
                     }
                     try
                     {
@@ -6264,10 +8466,20 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PASC045.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASC045.png"), Path.Combine(shipPreviewsDsDestPath, "PASC045.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PASC045.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
-
                     }
                 }
                 if (modInstallation.MiscellaneousOptions.KamikazeR_ReplacePreview)
@@ -6291,7 +8503,18 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PJSD026.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PJSD026.png"), Path.Combine(shipPreviewsDestPath, "PJSD026.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PJSD026.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -6314,11 +8537,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PJSD026.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PJSD026.png"), Path.Combine(shipPreviewsDsDestPath, "PJSD026.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PJSD026.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
                 }
                 if (modInstallation.MiscellaneousOptions.AlabamaST_ReplacePreview)
                 {
@@ -6341,11 +8574,21 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDestPath, "PASB708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsSrcPath, "PASB708.png"), Path.Combine(shipPreviewsDestPath, "PASB708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDestPath, "PASB708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
-
 
                     try
                     {
@@ -6365,12 +8608,22 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(shipPreviewsDsDestPath, "PASB708.png")))
                             {
-                                //Overwrite File with trycatch again
+                                try
+                                {
+                                    File.Copy(Path.Combine(shipPreviewsDsSrcPath, "PASB708.png"), Path.Combine(shipPreviewsDsDestPath, "PASB708.png"), true);
+                                    ReportFileCopy(Path.Combine(shipPreviewsDsDestPath, "PASB708.png"));
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
                             }
                         }
                     }
                 }
-
 
                 #endregion Copy files to mod folder
 
@@ -8092,18 +10345,34 @@ namespace PureHistory
             }
         }
 
-        private static void ReportFileCopy(string fullpath) => WriteLine($"{Resources.CopyProgressString1} \"{Path.GetFileName(fullpath)}\" {Resources.CopyProgressString2} {Path.GetDirectoryName(fullpath) + "\\"} {Resources.CopyProgressString3}");
+        private static void ReportFileCopy(string fullpath) => WriteLine($"{Resources.CopyProgressString1} \"{Path.GetFileName(fullpath)}\" {Resources.CopyProgressString2} {Path.GetDirectoryName(fullpath)} {Resources.CopyProgressString3}");
 
         private static bool ReportFileConflict(string fullpath)
         {
             if (modInstallation.InstallationOptions.AskForEach)
             {
-                return true;
+                string title = $"{consoleLogger.GetLog()}\r\n{Resources.File} \"{Path.GetFileName(fullpath)}\" {Resources.AlreadyExists}";
+                string[] options = { Resources.DoNotOverwrite, Resources.Overwrite };
+                Menu selectLanguageMenu = new Menu(title, options);
+                int selectedIndex = selectLanguageMenu.Init();
+
+                return selectedIndex switch
+                {
+                    0 => false,
+                    1 => true,
+                    _ => false,
+                };
             }
             else
             {
                 return false;
             }
+        }
+
+        private static void Clear()
+        {
+            consoleLogger.Reset();
+            Console.Clear();
         }
     }
 }

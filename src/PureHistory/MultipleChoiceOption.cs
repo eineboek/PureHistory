@@ -165,6 +165,12 @@ namespace PureHistory
 
             return whiteSpace;
         }
+
+        private static void Clear()
+        {
+            Program.consoleLogger.Reset();
+            Console.Clear();
+        }
     }
 
     /// <summary>

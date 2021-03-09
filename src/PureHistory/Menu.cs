@@ -88,5 +88,11 @@ namespace PureHistory
 
             return selectedIndex;
         }
+
+        private static void Clear()
+        {
+            Program.consoleLogger.Reset();
+            Console.Clear();
+        }
     }
 }

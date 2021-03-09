@@ -319,4 +319,10 @@ Replacing the ship name with the regular counterpart could lead to a misjudgemen
   <data name="InstallationSettingsTitle" xml:space="preserve">
     <value>Installation settings</value>
   </data>
+  <data name="DoNotOverwrite" xml:space="preserve">
+    <value>Don't overwrite file</value>
+  </data>
+  <data name="Overwrite" xml:space="preserve">
+    <value>Overwrite file</value>
+  </data>
 </root>
