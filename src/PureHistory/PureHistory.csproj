@@ -6,7 +6,7 @@
     <Platforms>x64</Platforms>
     <StartupObject>PureHistory.Program</StartupObject>
     <ApplicationIcon>purehistory.ico</ApplicationIcon>
-    <NeutralLanguage>en</NeutralLanguage>
+    <NeutralLanguage></NeutralLanguage>
     <PackageIcon></PackageIcon>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Authors>eineboek</Authors>

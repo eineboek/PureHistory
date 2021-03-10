@@ -6,7 +6,7 @@ namespace PureHistory
     /// <summary>
     /// Used to display a meu to the console with multiple selection choices
     /// </summary>
-    internal class Menu
+    internal class Menu : ConsoleLog
     {
         private int selectedIndex;
         private string[] _options;
@@ -87,12 +87,6 @@ namespace PureHistory
             while (keyPressed != ConsoleKey.Enter);
 
             return selectedIndex;
-        }
-
-        private static void Clear()
-        {
-            Program.consoleLogger.Reset();
-            Console.Clear();
         }
     }
 }

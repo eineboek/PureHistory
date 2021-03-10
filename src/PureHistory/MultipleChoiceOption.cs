@@ -6,7 +6,7 @@ namespace PureHistory
     /// <summary>
     /// Slightly changed copy of the Menu class with selection for Yes/No
     /// </summary>
-    internal class MultipleChoiceOption
+    internal class MultipleChoiceOption : ConsoleLog
     {
         private int selectedIndex;
         private string _title;
@@ -164,12 +164,6 @@ namespace PureHistory
             }
 
             return whiteSpace;
-        }
-
-        private static void Clear()
-        {
-            Program.consoleLogger.Reset();
-            Console.Clear();
         }
     }
 

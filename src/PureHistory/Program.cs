@@ -11,7 +11,7 @@ using static System.Console;
 
 namespace PureHistory
 {
-    internal class Program
+    internal class Program : ConsoleLog
     {
         #region Private fields
 
@@ -21,8 +21,6 @@ namespace PureHistory
 
         private static ModInstallation modInstallation;
 
-        public static ConsoleLogger consoleLogger;
-
         #endregion Private fields
 
         /// <summary>
@@ -31,11 +29,8 @@ namespace PureHistory
         /// <param name="args">Standard arguments for execution via command line. Not used yet in this program</param>
         private static void Main(string[] args)
         {
-            //Log the contents of the Console using the Helper class
-            consoleLogger = new ConsoleLogger();
-
             //Set the Encoding to support Unicode characters such as this funky dot -> •
-            //OutputEncoding = Encoding.UTF8;
+            OutputEncoding = Encoding.UTF8;
 
             //Set Window Size so that all lines will be displayed as one and not wrap
             SetWindowSize(WindowWidth + 15, WindowHeight);
@@ -69,9 +64,6 @@ namespace PureHistory
             //After the installation : User presses any key to exit the program
             WriteLine(Resources.ExitProgramAnyKey);
             ReadKey();
-
-            //Dispose the Console Logger
-            consoleLogger.Dispose();
         }
 
         /// <summary>
@@ -1490,8 +1482,10 @@ namespace PureHistory
                         {
                             if (ReportFileConflict(Path.Combine(bigNationFlagsDestPath, "flag_Ashigara.png")))
                             {
+
                                 try
                                 {
+                                    
                                     File.Copy(Path.Combine(bigNationFlagsSrcPath, "flag_Ashigara.png"), Path.Combine(bigNationFlagsDestPath, "flag_Ashigara.png"), true);
                                     ReportFileCopy(Path.Combine(bigNationFlagsDestPath, "flag_Ashigara.png"));
                                 }
@@ -10351,7 +10345,7 @@ namespace PureHistory
         {
             if (modInstallation.InstallationOptions.AskForEach)
             {
-                string title = $"{consoleLogger.GetLog()}\r\n{Resources.File} \"{Path.GetFileName(fullpath)}\" {Resources.AlreadyExists}";
+                string title = $"{Log}\r\n{Resources.File} \"{Path.GetFileName(fullpath)}\" {Resources.AlreadyExists}";
                 string[] options = { Resources.DoNotOverwrite, Resources.Overwrite };
                 Menu selectLanguageMenu = new Menu(title, options);
                 int selectedIndex = selectLanguageMenu.Init();
@@ -10367,12 +10361,6 @@ namespace PureHistory
             {
                 return false;
             }
-        }
-
-        private static void Clear()
-        {
-            consoleLogger.Reset();
-            Console.Clear();
         }
     }
 }
