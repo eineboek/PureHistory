@@ -1,18 +1,112 @@
 ﻿using System;
+using System.Diagnostics;
 using static System.Console;
 
 namespace PureHistory
 {
+    /// <summary>
+    /// Used to display a meu to the console with multiple selection choices
+    /// </summary>
+    internal class Menu : ConsoleLog
+    {
+        private int selectedIndex;
+        private string[] options;
+        private string[] consoleContent;
+
+        /// <summary>
+        /// Creates a new instance of the Menu class
+        /// </summary>
+        /// <param name="_title">The line of text to be displayed at the top of the menu</param>
+        /// <param name="_options">The available options</param>
+        public Menu(string[] consoleContent, string[] options)
+        {
+            this.consoleContent = consoleContent;
+            this.options = options;
+            selectedIndex = 0;
+        }
+
+        /// <summary>
+        /// Draws the menu to the console with color accentuation for what item is selected
+        /// </summary>
+        private void Draw()
+        {
+            foreach (string line in consoleContent)
+            {
+                WriteLine(line);
+            }
+
+            for (int i = 0; i < options.Length; i++)
+            {
+                string currentOption = options[i];
+                string prefix;
+
+                if (i == selectedIndex)
+                {
+                    prefix = "*";
+                    ForegroundColor = ConsoleColor.Black;
+                    BackgroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    prefix = " ";
+                    ForegroundColor = ConsoleColor.White;
+                    BackgroundColor = ConsoleColor.Black;
+                }
+                Write($"{prefix} << {currentOption} >>");
+                ResetColor();
+                Write("\r\n");
+            }
+        }
+
+        /// <summary>
+        /// Initializes the options screen
+        /// </summary>
+        /// <returns>The index of the item that the user has clicked enter at</returns>
+        public int Init()
+        {
+            ConsoleKey keyPressed;
+            do
+            {
+                Clear();
+                Draw();
+
+                ConsoleKeyInfo keyInfo = ReadKey(true);
+                keyPressed = keyInfo.Key;
+
+                if (keyPressed == ConsoleKey.UpArrow)
+                {
+                    selectedIndex--;
+                    if (selectedIndex == -1)
+                    {
+                        selectedIndex = options.Length - 1;
+                    }
+                }
+                else if (keyPressed == ConsoleKey.DownArrow)
+                {
+                    selectedIndex++;
+                    if (selectedIndex == options.Length)
+                    {
+                        selectedIndex = 0;
+                    }
+                }
+            }
+            while (keyPressed != ConsoleKey.Enter);
+
+            ResetColor();
+            return selectedIndex;
+        }
+    }
+
     /// <summary>
     /// Slightly changed copy of the Menu class with selection for Yes/No
     /// </summary>
     internal class MultipleChoiceOption : ConsoleLog
     {
         private int selectedIndex;
-        private string _title;
-        private string _warning;
-        private string[] _choices;
-        private bool[] _choiceSelection;
+        private string title;
+        private string warning;
+        private string[] choices;
+        private bool[] choiceSelection;
 
         /// <summary>
         /// Creates a new Option class instance
@@ -22,19 +116,19 @@ namespace PureHistory
         /// <param name="choiceSelection">Which of the options is selected. Standard should be : all false</param>
         public MultipleChoiceOption(string title, string warning, string[] choices, bool[] choiceSelection)
         {
-            _title = title;
-            _warning = warning;
-            _choices = choices;
-            _choiceSelection = choiceSelection;
+            this.title = title;
+            this.warning = warning;
+            this.choices = choices;
+            this.choiceSelection = choiceSelection;
             selectedIndex = 0;
         }
 
         public MultipleChoiceOption(string title, string[] choices, bool[] choiceSelection)
         {
-            _title = title;
-            _warning = null;
-            _choices = choices;
-            _choiceSelection = choiceSelection;
+            this.title = title;
+            warning = null;
+            this.choices = choices;
+            this.choiceSelection = choiceSelection;
             selectedIndex = 0;
         }
 
@@ -44,7 +138,7 @@ namespace PureHistory
         /// <param name="choiceSelection">The updated array</param>
         public void UpdateOptionSelection(bool[] choiceSelection)
         {
-            _choiceSelection = choiceSelection;
+            this.choiceSelection = choiceSelection;
         }
 
         /// <summary>
@@ -52,19 +146,19 @@ namespace PureHistory
         /// </summary>
         private void Draw()
         {
-            WriteLine(_title);
+            WriteLine(title);
 
             //If there is a warning to be displayed, it is drawn in red.
-            if (_warning != null)
+            if (warning != null)
             {
                 ForegroundColor = ConsoleColor.DarkRed;
-                WriteLine(_warning);
+                WriteLine(warning);
                 ResetColor();
             }
 
             //Determine the White Space required to align the options
             int highestStringLength = 0;
-            foreach (string choice in _choices)
+            foreach (string choice in choices)
             {
                 if (choice.Length > highestStringLength)
                 {
@@ -72,9 +166,9 @@ namespace PureHistory
                 }
             }
 
-            for (int i = 0; i < _choices.Length; i++)
+            for (int i = 0; i < choices.Length; i++)
             {
-                string currentChoice = _choices[i];
+                string currentChoice = choices[i];
                 string prefix;
 
                 if (i == selectedIndex)
@@ -86,21 +180,22 @@ namespace PureHistory
                 }
                 else
                 {
-                    //Np color accentuation and no prefix
+                    //No color accentuation and no prefix
                     prefix = " ";
                     ForegroundColor = ConsoleColor.White;
                     BackgroundColor = ConsoleColor.Black;
                 }
-                if (_choiceSelection[i])
+                if (choiceSelection[i])
                 {
                     WriteLine($"{prefix} {currentChoice} " + WhiteSpace(highestStringLength - currentChoice.Length) + ">> " + "[X]");
                 }
-                else if (!_choiceSelection[i])
+                else if (!choiceSelection[i])
                 {
                     WriteLine($"{prefix} {currentChoice} " + WhiteSpace(highestStringLength - currentChoice.Length) + ">> " + "[ ]");
                 }
             }
             ResetColor();
+            WriteLine();
         }
 
         /// <summary>
@@ -123,27 +218,30 @@ namespace PureHistory
                     selectedIndex--;
                     if (selectedIndex == -1)
                     {
-                        selectedIndex = _choices.Length - 1;
+                        selectedIndex = choices.Length - 1;
                     }
                 }
                 else if (keyPressed == ConsoleKey.DownArrow) //Down Arrow Key : Navigate down between choices
                 {
                     selectedIndex++;
-                    if (selectedIndex == _choices.Length)
+                    if (selectedIndex == choices.Length)
                     {
                         selectedIndex = 0;
                     }
                 }
                 else if (keyPressed == ConsoleKey.Enter) //ENTER key : Toggle option - returns the selected option as an integer
                 {
+                    ResetColor();
                     return new MultipleChoiceResponse(false, false, selectedIndex);
                 }
                 else if (keyPressed == ConsoleKey.LeftArrow) //Left Arrow Key : Go back to previous page
                 {
+                    ResetColor();
                     return new MultipleChoiceResponse(true, false, null);
                 }
                 else if (keyPressed == ConsoleKey.RightArrow) //Right Arrow Key : Continue to next page
                 {
+                    ResetColor();
                     return new MultipleChoiceResponse(false, true, null);
                 }
             }
