@@ -16,33 +16,29 @@ namespace PureHistory
             Console.Clear();
         }
 
-        public static void WriteLine(string output)
+        public static void WriteLine(string value)
         {
-            log.Add(output);
-            Console.WriteLine(output);
+            log.Add(value);
+            Console.WriteLine(value);
         }
 
-        public static void WriteLine()
-        {
-            WriteLine(null);
-        }
+        public static void WriteLine() => WriteLine(string.Empty);
 
-        public static void Write(string output)
+        public static void Write(string value)
         {
-            if (output == "\r\n")
+            if (value == Environment.NewLine)
             {
-                tempValues.Add(output);
-                string[] tempArray = tempValues.ToArray();
-                log.Add(string.Concat(tempArray));
-                tempArray = null;
+                log.Add(string.Concat(tempValues.ToArray()));
                 tempValues = new List<string>();
+                Console.Write(Environment.NewLine);
             }
             else
             {
-                tempValues.Add(output);
+                tempValues.Add(value);
+                Console.Write(value);
             }
-            Console.Write(output);
         }
+
         public static string[] GetLog() => log.ToArray();
     }
 }

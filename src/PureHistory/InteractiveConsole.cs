@@ -53,7 +53,7 @@ namespace PureHistory
                 }
                 Write($"{prefix} << {currentOption} >>");
                 ResetColor();
-                Write("\r\n");
+                Write(Environment.NewLine);
             }
         }
 

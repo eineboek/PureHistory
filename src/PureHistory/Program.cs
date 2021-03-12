@@ -13,6 +13,7 @@ namespace PureHistory
     {
         #region Private fields
 
+        private static string dlt = Environment.NewLine; // Default Line Terminator
         private static string wowsPath; //Holds the Path for the selected World of Warships installation
         private static string binPath; //Holds the Path for the latest build (highest number) in the WoWs "bin" folder
         private static string modsPath; //Holds the Path for the res_mods folder that the mod will be installed in
@@ -45,12 +46,15 @@ namespace PureHistory
             Title = "PureHistory Mod Installer";
 
             //Display information about the mod and the compatible WoWs version
-            WriteLine($"{Resources.ModVersion} - {Resources.Creator}\r\n");
-            WriteLine($"{Resources.WoWsVersion}\r\n");
+            WriteLine($"{Resources.ModVersion} - {Resources.Creator}");
+            WriteLine();
+            WriteLine(Resources.WoWsVersion);
+            WriteLine();
 
             //Display information about how to navigate the program
             WriteLine("Navigation");
-            WriteLine($"{Resources.NavigationHelp}\r\n");
+            WriteLine(Resources.NavigationHelp);
+            WriteLine();
 
             //User presses any key to continue
             WriteLine(Resources.PressAnyKey);
@@ -101,13 +105,16 @@ namespace PureHistory
             Clear();
 
             //Display info about the Path format and examples
-            WriteLine($"{Resources.ClientSelectionTitle}\r\n");
+            WriteLine(Resources.ClientSelectionTitle);
+            WriteLine();
             WriteLine(Resources.PathFormatExamples);
             WriteLine(@"C:\Games\World_of_Warships");
-            WriteLine(string.Concat(@"C:\Program Files (x86)\Steam\steamapps\common\World of Warships", "\r\n"));
+            WriteLine(@"C:\Program Files (x86)\Steam\steamapps\common\World of Warships");
+            WriteLine();
 
             //Read user input to wowsPath
-            wowsPath = ReadLine();
+            //Get formatted string with extension method
+            wowsPath = ReadLine().ParsePath();
 
             if (string.IsNullOrWhiteSpace(wowsPath))
             {
@@ -125,24 +132,25 @@ namespace PureHistory
             }
             else
             {
-                //Give the user the ability to check his input with a Yes/No prompt
-                WriteLine($"{Resources.PathCorrection} (Y/N) : {wowsPath}");
-                ConsoleKey response = ReadKey(true).Key;
+                string[] log = GetLog();
 
-                //If response is no, restart the selection
-                if (response == ConsoleKey.N)
+                string[] consoleContent = new string[log.Length + 1];
+                for (int i = 0; i < log.Length; i++)
                 {
-                    ClientSelection();
+                    consoleContent[i] = log[i];
                 }
-                else if (response == ConsoleKey.Y) //If response is yes, check the specified path for the WoWs client
+                consoleContent[^1] = $"{Resources.PathCorrection}: {wowsPath}";
+
+                string[] options = { Resources.Yes, Resources.No };
+                Menu selectLanguageMenu = new Menu(consoleContent, options);
+                int selectedIndex = selectLanguageMenu.Init();
+
+                if (selectedIndex == 0) //If response is yes, check the specified path for the WoWs client
                 {
                     if (File.Exists(Path.Combine(wowsPath, "WorldOfWarships.exe")))
                     {
                         try
                         {
-                            //Get formatted string with extension method
-                            wowsPath = wowsPath.ParsePath();
-
                             //Get the Path of the latest build and res_mods folder by listing all available builds
                             string buildPath = Path.Combine(wowsPath, "bin");
                             List<int> buildList = new List<int>();
@@ -157,6 +165,7 @@ namespace PureHistory
                         }
                         catch //In case of an error, the selection will be restarted
                         {
+                            WriteLine();
                             WriteLine(Resources.GenericError);
                             WriteLine(Resources.CannotFindStructure);
                             WriteLine(Resources.PressAnyKey);
@@ -166,15 +175,22 @@ namespace PureHistory
                     }
                     else //If the client wasnt found in the specified path, display information to the user wether he would like to continue regardless
                     {
-                        WriteLine($"{Resources.WoWsNotFound} (Y/N) : ");
-                        response = ReadKey(true).Key;
+                        WriteLine();
 
-                        //The user can restart the selection once again
-                        if (response == ConsoleKey.N)
+                        log = GetLog();
+
+                        consoleContent = new string[log.Length + 1];
+
+                        for (int i = 0; i < log.Length; i++)
                         {
-                            ClientSelection();
+                            consoleContent[i] = log[i];
                         }
-                        else if (response == ConsoleKey.Y) //Continue regardless
+                        consoleContent[^1] = Resources.WoWsNotFound;
+
+                        selectLanguageMenu = new Menu(consoleContent, options);
+                        selectedIndex = selectLanguageMenu.Init();
+
+                        if (selectedIndex == 0) //Continue regardless
                         {
                             try
                             {
@@ -193,6 +209,7 @@ namespace PureHistory
                             }
                             catch
                             {
+                                WriteLine();
                                 WriteLine(Resources.GenericError);
                                 WriteLine(Resources.CannotFindStructure);
                                 WriteLine(Resources.PressAnyKey);
@@ -200,20 +217,14 @@ namespace PureHistory
                                 ClientSelection();
                             }
                         }
-                        else //If the user press any other key than Y/N, restart the selection
+                        else if (selectedIndex == 1) //If response is no, restart the selection
                         {
-                            WriteLine(Resources.InvalidResponse);
-                            WriteLine(Resources.PressAnyKey);
-                            ReadKey();
                             ClientSelection();
                         }
                     }
                 }
-                else //If the user press any other key than Y/N, restart the selection
+                else if (selectedIndex == 1) //If response is no, restart the selection
                 {
-                    WriteLine(Resources.InvalidResponse);
-                    WriteLine(Resources.PressAnyKey);
-                    ReadKey();
                     ClientSelection();
                 }
 

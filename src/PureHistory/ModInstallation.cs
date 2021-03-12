@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.IO.Compression;
 using System.Reflection;
 using System.Xml;
 using static System.Console;
@@ -166,7 +167,7 @@ namespace PureHistory
                 overwriteStatus = false;
             }
 
-            WriteLine($"{Resources.StartInstallationNotice}\r\n");
+            WriteLine(Resources.StartInstallationNotice);
             WriteLine();
 
             ConsoleKey response = ReadKey(true).Key;
@@ -211,7 +212,7 @@ namespace PureHistory
 
                 try
                 {
-                    System.IO.Compression.ZipFile.ExtractToDirectory(dataPath, executingPath);
+                    ZipFile.ExtractToDirectory(dataPath, executingPath);
                 }
                 catch (Exception ex)
                 {
@@ -220,7 +221,6 @@ namespace PureHistory
                     WriteLine(ex.Message);
                     return;
                 }
-
 
                 #endregion Extract files from the data archive
 
@@ -7507,6 +7507,7 @@ namespace PureHistory
 
                 #region Edit the Translation file
 
+                //TODO : Remove all default line terminators and replace them with Environment.NewLine
                 try
                 {
                     MOReader moReader = new MOReader(moFilePath); //Create a new instance of the MOReader class and load the file
@@ -9239,8 +9240,7 @@ namespace PureHistory
                 }
                 consoleContent[^1] = $"\r\n{Resources.File} \"{Path.GetFileName(fullpath)}\" {Resources.AlreadyExists}";
 
-                //string[] options = { Resources.DoNotOverwrite, Resources.Overwrite };
-                string[] options = { "laal", "lool" };
+                string[] options = { Resources.DoNotOverwrite, Resources.Overwrite };
                 Menu selectLanguageMenu = new Menu(consoleContent, options);
                 int selectedIndex = selectLanguageMenu.Init();
 
