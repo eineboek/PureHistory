@@ -13,7 +13,6 @@ namespace PureHistory
     {
         #region Private fields
 
-        private static string dlt = Environment.NewLine; // Default Line Terminator
         private static string wowsPath; //Holds the Path for the selected World of Warships installation
         private static string binPath; //Holds the Path for the latest build (highest number) in the WoWs "bin" folder
         private static string modsPath; //Holds the Path for the res_mods folder that the mod will be installed in

@@ -1,0 +1,637 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <StartupObject>ModData.Program</StartupObject>
+    <AssemblyName>createmoddata</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="filetree\gui\nation_flags\big\alternative_flags\flag_PZSA508.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\alternative_flags\flag_PZSB509.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\alternative_flags\flag_PZSB519.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\alternative_flags\flag_PZSC518.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_Ashigara.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSB700.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSB705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSB706.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSB707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSB708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSB799.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSB878.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSB888.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSC705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSC707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSC708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSC709.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSC717.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSC718.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSC727.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSC737.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSX701.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PJSX702.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PZSA508.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PZSB509.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PZSB519.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\big\flag_PZSC518.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\alternative_flags\flag_PZSA508.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\alternative_flags\flag_PZSB509.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\alternative_flags\flag_PZSB519.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\alternative_flags\flag_PZSC518.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_Ashigara.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSB700.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSB705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSB706.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSB707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSB708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSB799.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSB878.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSB888.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSC705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSC707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSC708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSC709.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSC717.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSC718.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSC727.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSC737.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSX701.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PJSX702.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PZSA508.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PZSB509.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PZSB519.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\small\flag_PZSC518.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\alternative_flags\flag_PZSA508.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\alternative_flags\flag_PZSB509.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\alternative_flags\flag_PZSB519.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\alternative_flags\flag_PZSC518.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_Ashigara.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSB700.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSB705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSB706.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSB707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSB708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSB799.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSB878.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSB888.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSC705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSC707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSC708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSC709.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSC717.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSC718.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSC727.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSC737.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSX701.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PJSX702.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PZSA508.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PZSB509.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PZSB519.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\nation_flags\tiny\flag_PZSC518.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSB700.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSB705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSB706.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSB707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSB708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSB799.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSC705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSC707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSC708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSC709.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSC717.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSC718.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSC727.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_dead_icons\PJSC737.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSB700.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSB705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSB706.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSB707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSB708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSB799.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSC705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSC707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSC708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSC709.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSC717.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSC718.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSC727.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_icons\PJSC737.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSB700.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSB705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSB706.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSB707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSB708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSB799.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSC705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSC707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSC708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSC709.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSC717.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSC718.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSC727.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_own_icons\PJSC737.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PASB598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PASB708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PASC045.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PASC587.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PASC599.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PASC718.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PASD597.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PBSD598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PFSB599.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PGSA598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PGSB597.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PGSB598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PGSC706.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PISB708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSA598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSB700.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSB705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSB706.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSB707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSB708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSB799.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSB878.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSB888.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSC598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSC705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSC707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSC708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSC709.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSC717.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSC718.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSC727.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSC737.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSD014.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSD026.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSD598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSD708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSD718.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PRSC010.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PZSA508.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PZSB509.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PZSB519.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PZSC518.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PASB598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PASB708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PASC045.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PASC587.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PASC599.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PASC718.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PASD597.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PBSD598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PFSB599.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PGSA598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PGSB597.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PGSB598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PGSC706.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PISB708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSA598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSB700.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSB705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSB706.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSB707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSB708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSB799.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSB878.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSB888.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSC598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSC705.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSC707.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSC708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSC709.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSC717.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSC718.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSC727.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSC737.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSD014.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSD026.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSD598.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSD708.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSD718.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PRSC010.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PZSA508.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PZSB509.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PZSB519.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PZSC518.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ModData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
