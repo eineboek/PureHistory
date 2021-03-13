@@ -1,5 +1,1424 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <data>
-  <filetree></filetree>
-  <mostrings></mostrings>
+  <filetree>
+    <folder name="gui">
+      <dependents>
+      </dependents>
+      <folder name="nation_flags">
+        <dependents></dependents>
+        <folder name="big">
+          <dependents></dependents>
+          <!---->
+          <file name="flag_Ashigara.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB700.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB705.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB706.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB707.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB708.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB799.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB878.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB888.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC705.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC707.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC708.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC709.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC717.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC718.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC727.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC737.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSX701.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSX702.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PZSA508.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PZSB509.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PZSB519.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PZSC518.png">
+            <dependents></dependents>
+          </file>
+          <folder name="alternative_flags">
+            <dependents></dependents>
+            <file name="flag_PZSA508.png">
+              <dependents></dependents>
+            </file>
+            <file name="flag_PZSB509.png">
+              <dependents></dependents>
+            </file>
+            <file name="flag_PZSB519.png">
+              <dependents></dependents>
+            </file>
+            <file name="flag_PZSC518.png">
+              <dependents></dependents>
+            </file>
+          </folder>
+        </folder>
+        <folder name="small">
+          <dependents></dependents>
+          <file name="flag_Ashigara.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB700.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB705.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB706.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB707.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB708.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB799.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB878.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB888.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC705.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC707.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC708.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC709.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC717.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC718.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC727.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC737.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSX701.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSX702.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PZSA508.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PZSB509.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PZSB519.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PZSC518.png">
+            <dependents></dependents>
+          </file>
+          <folder name="alternative_flags">
+            <dependents></dependents>
+            <file name="flag_PZSA508.png">
+              <dependents></dependents>
+            </file>
+            <file name="flag_PZSB509.png">
+              <dependents></dependents>
+            </file>
+            <file name="flag_PZSB519.png">
+              <dependents></dependents>
+            </file>
+            <file name="flag_PZSC518.png">
+              <dependents></dependents>
+            </file>
+          </folder>
+        </folder>
+        <folder name="tiny">
+          <dependents></dependents>
+          <file name="flag_Ashigara.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB700.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB705.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB706.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB707.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB708.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB799.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB878.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSB888.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC705.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC707.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC708.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC709.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC717.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC718.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC727.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSC737.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSX701.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PJSX702.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PZSA508.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PZSB509.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PZSB519.png">
+            <dependents></dependents>
+          </file>
+          <file name="flag_PZSC518.png">
+            <dependents></dependents>
+          </file>
+          <folder name="alternative_flags">
+            <dependents></dependents>
+            <file name="flag_PZSA508.png">
+              <dependents></dependents>
+            </file>
+            <file name="flag_PZSB509.png">
+              <dependents></dependents>
+            </file>
+            <file name="flag_PZSB519.png">
+              <dependents></dependents>
+            </file>
+            <file name="flag_PZSC518.png">
+              <dependents></dependents>
+            </file>
+          </folder>
+        </folder>
+      </folder>
+      <folder name="ship_dead_icons">
+        <dependents></dependents>
+        <file name="PJSB700.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB705.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB706.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB707.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB799.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC705.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC707.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC709.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC717.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC718.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC727.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC737.png">
+          <dependents></dependents>
+        </file>
+      </folder>
+      <folder name="ship_icons">
+        <dependents></dependents>
+        <file name="PJSB700.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB705.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB706.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB707.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB799.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC705.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC707.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC709.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC717.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC718.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC727.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC737.png">
+          <dependents></dependents>
+        </file>
+      </folder>
+      <folder name="ship_own_icons">
+        <dependents></dependents>
+        <file name="PJSB700.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB705.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB706.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB707.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB799.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC705.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC707.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC709.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC717.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC718.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC727.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC737.png">
+          <dependents></dependents>
+        </file>
+      </folder>
+      <folder name="ship_previews">
+        <dependents></dependents>
+        <file name="PASB598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PASB708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PASC045.png">
+          <dependents></dependents>
+        </file>
+        <file name="PASC587.png">
+          <dependents></dependents>
+        </file>
+        <file name="PASC599.png">
+          <dependents></dependents>
+        </file>
+        <file name="PASC718.png">
+          <dependents></dependents>
+        </file>
+        <file name="PASD597.png">
+          <dependents></dependents>
+        </file>
+        <file name="PBSD598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PFSB599.png">
+          <dependents></dependents>
+        </file>
+        <file name="PGSA598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PGSB597.png">
+          <dependents></dependents>
+        </file>
+        <file name="PGSB598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PGSC706.png">
+          <dependents></dependents>
+        </file>
+        <file name="PISB708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSA598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB700.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB705.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB706.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB707.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB799.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB878.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC705.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC707.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC709.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC717.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC718.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC727.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC737.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSD014.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSD026.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSD598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSD708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSD718.png">
+          <dependents></dependents>
+        </file>
+        <file name="PRSC010.png">
+          <dependents></dependents>
+        </file>
+        <file name="PZSA508.png">
+          <dependents></dependents>
+        </file>
+        <file name="PZSB509.png">
+          <dependents></dependents>
+        </file>
+        <file name="PZSB519.png">
+          <dependents></dependents>
+        </file>
+        <file name="PZSC518.png">
+          <dependents></dependents>
+        </file>
+      </folder>
+      <folder name="ship_previews_ds">
+        <dependents></dependents>
+        <file name="PASB598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PASB708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PASC045.png">
+          <dependents></dependents>
+        </file>
+        <file name="PASC587.png">
+          <dependents></dependents>
+        </file>
+        <file name="PASC599.png">
+          <dependents></dependents>
+        </file>
+        <file name="PASC718.png">
+          <dependents></dependents>
+        </file>
+        <file name="PASD597.png">
+          <dependents></dependents>
+        </file>
+        <file name="PBSD598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PFSB599.png">
+          <dependents></dependents>
+        </file>
+        <file name="PGSA598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PGSB597.png">
+          <dependents></dependents>
+        </file>
+        <file name="PGSB598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PGSC706.png">
+          <dependents></dependents>
+        </file>
+        <file name="PISB708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSA598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB700.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB705.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB706.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB707.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB799.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSB878.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC705.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC707.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC709.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC717.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC718.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC727.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSC737.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSD014.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSD026.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSD598.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSD708.png">
+          <dependents></dependents>
+        </file>
+        <file name="PJSD718.png">
+          <dependents></dependents>
+        </file>
+        <file name="PRSC010.png">
+          <dependents></dependents>
+        </file>
+        <file name="PZSA508.png">
+          <dependents></dependents>
+        </file>
+        <file name="PZSB509.png">
+          <dependents></dependents>
+        </file>
+        <file name="PZSB519.png">
+          <dependents></dependents>
+        </file>
+        <file name="PZSC518.png">
+          <dependents></dependents>
+        </file>
+      </folder>
+    </folder>
+  </filetree>
+  <mostrings>
+    <!--PJSB700	ARP Yamato-->
+    <entry id="IDS_PJSB700">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Yamato</content>
+    </entry>
+    <entry id="IDS_PJSB700_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP Yamato)</content>
+    </entry>
+    <entry id="IDS_PJSB700_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Yamato</content>
+    </entry>
+    <!--PJSB705	ARP Kongō-->
+    <entry id="IDS_PJSB705">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Kongō</content>
+    </entry>
+    <entry id="IDS_PJSB705_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP Kongō)</content>
+    </entry>
+    <entry id="IDS_PJSB705_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Kongō</content>
+    </entry>
+    <!--PJSB706	ARP Kirishima-->
+    <entry id="IDS_PJSB706">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Kirishima</content>
+    </entry>
+    <entry id="IDS_PJSB706_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP Kirishima)</content>
+    </entry>
+    <entry id="IDS_PJSB706_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Kirishima</content>
+    </entry>
+    <!--PJSB707	ARP Haruna -->
+    <entry id="IDS_PJSB707">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Haruna</content>
+    </entry>
+    <entry id="IDS_PJSB707_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP Haruna)</content>
+    </entry>
+    <entry id="IDS_PJSB707_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Haruna</content>
+    </entry>
+    <!--PJSB708	ARP Hiei -->
+    <entry id="IDS_PJSB708">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Hiei</content>
+    </entry>
+    <entry id="IDS_PJSB708_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP Hiei)</content>
+    </entry>
+    <entry id="IDS_PJSB708_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Hiei</content>
+    </entry>
+    <!--PJSB799	ARP Kirishima -->
+    <entry id="IDS_PJSB799">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Kirishima</content>
+    </entry>
+    <entry id="IDS_PJSB799_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP Kirishima)</content>
+    </entry>
+    <entry id="IDS_PJSB799_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Kirishima</content>
+    </entry>
+    <!--PJSC705	ARP Myōkō -->
+    <entry id="IDS_PJSC705">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Myōkō</content>
+    </entry>
+    <entry id="IDS_PJSC705_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP Myōkō)</content>
+    </entry>
+    <entry id="IDS_PJSC705_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Myōkō</content>
+    </entry>
+    <!--PJSC707	ARP Ashigara -->
+    <entry id="IDS_PJSC707">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Ashigara</content>
+    </entry>
+    <entry id="IDS_PJSC707_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP Ashigara)</content>
+    </entry>
+    <entry id="IDS_PJSC707_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Ashigara</content>
+    </entry>
+    <!--PJSC708	ARP Takao -->
+    <entry id="IDS_PJSC708">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Takao</content>
+    </entry>
+    <entry id="IDS_PJSC708_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP Takao)</content>
+    </entry>
+    <entry id="IDS_PJSC708_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Takao</content>
+    </entry>
+    <!--PJSC709	ARP Haguro -->
+    <entry id="IDS_PJSC709">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Haguro</content>
+    </entry>
+    <entry id="IDS_PJSC709_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP Haguro)</content>
+    </entry>
+    <entry id="IDS_PJSC709_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Haguro</content>
+    </entry>
+    <!--PJSC718	ARP Maya -->
+    <entry id="IDS_PJSC718">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Maya</content>
+    </entry>
+    <entry id="IDS_PJSC718_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP Maya)</content>
+    </entry>
+    <entry id="IDS_PJSC718_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Maya</content>
+    </entry>
+    <!--PJSC737	ARP Nachi -->
+    <entry id="IDS_PJSC737">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Nachi</content>
+    </entry>
+    <entry id="IDS_PJSC737_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP Nachi)</content>
+    </entry>
+    <entry id="IDS_PJSC737_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Nachi</content>
+    </entry>
+    <!--PJSC799	ARP Takao -->
+    <entry id="IDS_PJSC799">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Takao</content>
+    </entry>
+    <entry id="IDS_PJSC799_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP Takao)</content>
+    </entry>
+    <entry id="IDS_PJSC799_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Takao</content>
+    </entry>
+    <!--PJSX701	ARP I-401 -->
+    <entry id="IDS_PJSX701">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>I-401</content>
+    </entry>
+    <entry id="IDS_PJSX701_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP I-401)</content>
+    </entry>
+    <entry id="IDS_PJSX701_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>I-401</content>
+    </entry>
+    <!--PJSX702   ARP I-401 -->
+    <entry id="IDS_PJSX702">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>I-401</content>
+    </entry>
+    <entry id="IDS_PJSX702_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(ARP I-401)</content>
+    </entry>
+    <entry id="IDS_PJSX702_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>I-401</content>
+    </entry>
+    <!--Azur Lane-->
+    <!--PJSD718	AL Yukikaze -->
+    <entry id="IDS_PJSD718">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Yukikaze</content>
+    </entry>
+    <entry id="IDS_PJSD718_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(AL Yukikaze)</content>
+    </entry>
+    <entry id="IDS_PJSD718_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Yukikaze</content>
+    </entry>
+    <!--PISB708	AL Littorio -->
+    <entry id="IDS_PISB708">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Littorio</content>
+    </entry>
+    <entry id="IDS_PISB708_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(AL Littorio)</content>
+    </entry>
+    <entry id="IDS_PISB708_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Littorio</content>
+    </entry>
+    <!--PASC718	AL Montpelier -->
+    <entry id="IDS_PASC718">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Montpelier</content>
+    </entry>
+    <entry id="IDS_PASC718_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(AL Montpelier)</content>
+    </entry>
+    <entry id="IDS_PASC718_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Montpelier</content>
+    </entry>
+    <!--High School Fleet-->
+    <!--//PJSD708	HSF Harekaze -->
+    <entry id="IDS_PJSD708">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Harekaze</content>
+    </entry>
+    <entry id="IDS_PJSD708_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(HSF Harekaze)</content>
+    </entry>
+    <entry id="IDS_PJSD708_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Harekaze</content>
+    </entry>
+    <!--PGSC706	HSF Graf Spee -->
+    <entry id="IDS_PGSC706">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Graf Spee</content>
+    </entry>
+    <entry id="IDS_PGSC706_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(HSF Graf Spee)</content>
+    </entry>
+    <entry id="IDS_PGSC706_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Admiral Graf Spee</content>
+    </entry>
+    <!--Dragon Ships-->
+    <!--PJSC717	S. Dragon -->
+    <entry id="IDS_PJSC717">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Myōkō</content>
+    </entry>
+    <entry id="IDS_PJSC717_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Southern Dragon)</content>
+    </entry>
+    <entry id="IDS_PJSC717_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Myōkō</content>
+    </entry>
+    <!--PJSC727	E. Dragon -->
+    <entry id="IDS_PJSC727">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Myōkō</content>
+    </entry>
+    <entry id="IDS_PJSC727_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Eastern Dragon)</content>
+    </entry>
+    <entry id="IDS_PJSC727_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Myōkō</content>
+    </entry>
+    <!--Warhammer 40.000-->
+    <!--PJSB878	Ignis Purgatio -->
+    <entry id="IDS_PJSB878">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Amagi</content>
+    </entry>
+    <entry id="IDS_PJSB878_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Ignis Purgatio)</content>
+    </entry>
+    <entry id="IDS_PJSB878_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Amagi</content>
+    </entry>
+    <!--PJSB888	Ragnarok -->
+    <entry id="IDS_PJSB888">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Amagi</content>
+    </entry>
+    <entry id="IDS_PJSB888_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Ragnarok)</content>
+    </entry>
+    <entry id="IDS_PJSB888_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Amagi</content>
+    </entry>
+    <!--Black Friday Ships-->
+    <!--PFSB599	Jean Bart B -->
+    <entry id="IDS_PFSB599">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Jean Bart</content>
+    </entry>
+    <entry id="IDS_PFSB599_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Jean Bart B)</content>
+    </entry>
+    <entry id="IDS_PFSB599_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Jean Bart</content>
+    </entry>
+    <!--PGSB597	Scharnhorst B -->
+    <entry id="IDS_PGSB597">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Scharnhorst</content>
+    </entry>
+    <entry id="IDS_PGSB597_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Scharnhorst B)</content>
+    </entry>
+    <entry id="IDS_PGSB597_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Scharnhorst</content>
+    </entry>
+    <!--PGSA598	Graf Zeppelin B -->
+    <entry id="IDS_PGSA598">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Graf Zeppelin</content>
+    </entry>
+    <entry id="IDS_PGSA598_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Graf Zeppelin B)</content>
+    </entry>
+    <entry id="IDS_PGSA598_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Graf Zeppelin</content>
+    </entry>
+    <!--PGSB598	Tirpitz B -->
+    <entry id="IDS_PGSB598">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Tirpitz</content>
+    </entry>
+    <entry id="IDS_PGSB598_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Tirpitz B)</content>
+    </entry>
+    <entry id="IDS_PGSB598_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Tirpitz</content>
+    </entry>
+    <!--PJSA598	Kaga B -->
+    <entry id="IDS_PJSA598">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Kaga</content>
+    </entry>
+    <entry id="IDS_PJSA598_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Kaga B)</content>
+    </entry>
+    <entry id="IDS_PJSA598_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Kaga</content>
+    </entry>
+    <!--PJSC598	Atago B -->
+    <entry id="IDS_PJSC598">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Atago</content>
+    </entry>
+    <entry id="IDS_PJSC598_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Atago B)</content>
+    </entry>
+    <entry id="IDS_PJSC598_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Atago</content>
+    </entry>
+    <!--PJSD598	Asashio B -->
+    <entry id="IDS_PJSD598">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Asashio</content>
+    </entry>
+    <entry id="IDS_PJSD598_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Asashio B)</content>
+    </entry>
+    <entry id="IDS_PJSD598_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Asashio</content>
+    </entry>
+    <!--PBSD598	Cossack B -->
+    <entry id="IDS_PBSD598">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Cossack</content>
+    </entry>
+    <entry id="IDS_PBSD598_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Cossack B)</content>
+    </entry>
+    <entry id="IDS_PBSD598_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Cossack</content>
+    </entry>
+    <!--PASC587	Atlanta B -->
+    <entry id="IDS_PASC587">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Atlanta</content>
+    </entry>
+    <entry id="IDS_PASC587_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Atlanta B)</content>
+    </entry>
+    <entry id="IDS_PASC587_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Atlanta</content>
+    </entry>
+    <!--PASC599	Alaska B -->
+    <entry id="IDS_PASC599">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Alaska</content>
+    </entry>
+    <entry id="IDS_PASC599_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Alaska B)</content>
+    </entry>
+    <entry id="IDS_PASC599_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Alaska</content>
+    </entry>
+    <!--PASD597	Sims B -->
+    <entry id="IDS_PASD597">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Sims</content>
+    </entry>
+    <entry id="IDS_PASD597_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Sims B)</content>
+    </entry>
+    <entry id="IDS_PASD597_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Sims</content>
+    </entry>
+    <!--PASB598	Massachusetts B -->
+    <entry id="IDS_PASB598">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Massachusetts</content>
+    </entry>
+    <entry id="IDS_PASB598_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Massachusetts B)</content>
+    </entry>
+    <entry id="IDS_PASB598_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Massachusetts</content>
+    </entry>
+    <!--Lima Ships-->
+    <!--PJSD014	Tachibana L -->
+    <entry id="IDS_PJSD014">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Tachibana</content>
+    </entry>
+    <entry id="IDS_PJSD014_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Tachibana Lima)</content>
+    </entry>
+    <entry id="IDS_PJSD014_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Tachibana</content>
+    </entry>
+    <!--PRSC010	Diana L -->
+    <entry id="IDS_PRSC010">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Diana</content>
+    </entry>
+    <entry id="IDS_PRSC010_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Diana Lima)</content>
+    </entry>
+    <entry id="IDS_PRSC010_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Diana</content>
+    </entry>
+    <!--PASC045	Marblehead L -->
+    <entry id="IDS_PASC045">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Marblehead</content>
+    </entry>
+    <entry id="IDS_PASC045_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Marblehead Lima)</content>
+    </entry>
+    <entry id="IDS_PASC045_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Marblehead</content>
+    </entry>
+    <!--Lunar New Year Ships-->
+    <!--PZSA508	Sanzang -->
+    <entry id="IDS_PZSA508">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Saipan</content>
+    </entry>
+    <entry id="IDS_PZSA508_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Sanzang)</content>
+    </entry>
+    <entry id="IDS_PZSA508_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Saipan</content>
+    </entry>
+    <!--PZSB509	Bajie -->
+    <entry id="IDS_PZSB509">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Izumo</content>
+    </entry>
+    <entry id="IDS_PZSB509_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Bajie)</content>
+    </entry>
+    <entry id="IDS_PZSB509_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Izumo</content>
+    </entry>
+    <!--PZSB519	Wujing -->
+    <entry id="IDS_PZSB519">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Alsace</content>
+    </entry>
+    <entry id="IDS_PZSB519_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Wujing)</content>
+    </entry>
+    <entry id="IDS_PZSB519_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Alsace</content>
+    </entry>
+    <!--PZSC518	Wukong -->
+    <entry id="IDS_PZSC518">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Charles Martel</content>
+    </entry>
+    <entry id="IDS_PZSC518_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Wukong)</content>
+    </entry>
+    <entry id="IDS_PZSC518_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Charles Martel</content>
+    </entry>
+    <!--Miscellaneous-->
+    <!--PJSD026	Kamikaze R -->
+    <entry id="IDS_PJSD026">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Kamikaze</content>
+    </entry>
+    <entry id="IDS_PJSD026_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Kamikaze R)</content>
+    </entry>
+    <entry id="IDS_PJSD026_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Kamikaze</content>
+    </entry>
+    <!--PASB708	Alabama ST -->
+    <entry id="IDS_PASB708">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Alabama</content>
+    </entry>
+    <entry id="IDS_PASB708_DESCR">
+      <type>DESCR</type>
+      <dependents></dependents>
+      <content>(Alabama ST)</content>
+    </entry>
+    <entry id="IDS_PASB708_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Alabama</content>
+    </entry>
+    <!--PJSC026	Iwaki A -->
+    <entry id="IDS_PJSC026">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Iwaki</content>
+    </entry>
+    <entry id="IDS_PJSC026_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Iwaki</content>
+    </entry>
+    <!--PASB013	Arkansas B -->
+    <entry id="PASB013">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>Arkansas</content>
+    </entry>
+    <entry id="PASB013_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>Arkansas</content>
+    </entry>
+    <!--PASB507	W. Virginia 1941 -->
+    <entry id="IDS_PASB507">
+      <type>NAME</type>
+      <dependents></dependents>
+      <content>West Virginia</content>
+    </entry>
+    <entry id="IDS_PASB507_FULL">
+      <type>NAME_FULL</type>
+      <dependents></dependents>
+      <content>West Virginia</content>
+    </entry>
+  </mostrings>
 </data>
