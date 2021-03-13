@@ -24,11 +24,19 @@
       </dependents>
       <folder name="nation_flags">
         <dependents>
-          ArpeggioOptions.ReplaceFlags,Warhammer40KOptions.ReplaceFlags,DragonShipOptions.ReplaceFlags,LunarNewYearShipOptions.ReplaceFlagsPanasia,LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
+          ArpeggioOptions.ReplaceFlags
+          ,Warhammer40KOptions.ReplaceFlags
+          ,DragonShipOptions.ReplaceFlags
+          ,LunarNewYearShipOptions.ReplaceFlagsPanasia
+          ,LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
         </dependents>
         <folder name="big">
           <dependents>
-            ArpeggioOptions.ReplaceFlags,Warhammer40KOptions.ReplaceFlags,DragonShipOptions.ReplaceFlags,LunarNewYearShipOptions.ReplaceFlagsPanasia,LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
+            ArpeggioOptions.ReplaceFlags
+            ,Warhammer40KOptions.ReplaceFlags
+            ,DragonShipOptions.ReplaceFlags
+            ,LunarNewYearShipOptions.ReplaceFlagsPanasia
+            ,LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
           </dependents>
           <!--Idk what flag this is, seems Arpeggio to me ¯\_(ツ)_/¯-->
           <file name="flag_Ashigara.png">
@@ -144,7 +152,11 @@
         </folder>
         <folder name="small">
           <dependents>
-            ArpeggioOptions.ReplaceFlags,Warhammer40KOptions.ReplaceFlags,DragonShipOptions.ReplaceFlags,LunarNewYearShipOptions.ReplaceFlagsPanasia,LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
+            ArpeggioOptions.ReplaceFlags
+            ,Warhammer40KOptions.ReplaceFlags
+            ,DragonShipOptions.ReplaceFlags
+            ,LunarNewYearShipOptions.ReplaceFlagsPanasia
+            ,LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
           </dependents>
           <!--Idk what flag this is, seems Arpeggio to me ¯\_(ツ)_/¯-->
           <file name="flag_Ashigara.png">
@@ -260,7 +272,11 @@
         </folder>
         <folder name="tiny">
           <dependents>
-            ArpeggioOptions.ReplaceFlags,Warhammer40KOptions.ReplaceFlags,DragonShipOptions.ReplaceFlags,LunarNewYearShipOptions.ReplaceFlagsPanasia,LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
+            ArpeggioOptions.ReplaceFlags
+            ,Warhammer40KOptions.ReplaceFlags
+            ,DragonShipOptions.ReplaceFlags
+            ,LunarNewYearShipOptions.ReplaceFlagsPanasia
+            ,LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
           </dependents>
           <!--Idk what flag this is, seems Arpeggio to me ¯\_(ツ)_/¯-->
           <file name="flag_Ashigara.png">
@@ -560,7 +576,17 @@
       </folder>
       <folder name="ship_previews">
         <dependents>
-          ArpeggioOptions.ReplacePreviews,AzurLaneOptions.ReplacePreviews,HighSchoolFleetOptions.Harekaze_ReplacePreview,HighSchoolFleetOptions.Spee_ReplacePreview,Warhammer40KOptions.ReplacePreviews,DragonShipOptions.ReplacePreviews,LunarNewYearShipOptions.ReplacePreviews,BlackShipOptions.ReplacePreviews,LimaShipOptions.ReplacePreviews,MiscellaneousOptions.KamikazeR_ReplacePreview,MiscellaneousOptions.AlabamaST_ReplacePreview
+          ArpeggioOptions.ReplacePreviews
+          ,AzurLaneOptions.ReplacePreviews
+          ,HighSchoolFleetOptions.Harekaze_ReplacePreview
+          ,HighSchoolFleetOptions.Spee_ReplacePreview
+          ,Warhammer40KOptions.ReplacePreviews
+          ,DragonShipOptions.ReplacePreviews
+          ,LunarNewYearShipOptions.ReplacePreviews
+          ,BlackShipOptions.ReplacePreviews
+          ,LimaShipOptions.ReplacePreviews
+          ,MiscellaneousOptions.KamikazeR_ReplacePreview
+          ,MiscellaneousOptions.AlabamaST_ReplacePreview
         </dependents>
         <!--PASB598	Massachusetts B-->
         <file name="PASB598.png">
@@ -733,7 +759,17 @@
       </folder>
       <folder name="ship_previews_ds">
         <dependents>
-          ArpeggioOptions.ReplacePreviews,AzurLaneOptions.ReplacePreviews,HighSchoolFleetOptions.Harekaze_ReplacePreview,HighSchoolFleetOptions.Spee_ReplacePreview,Warhammer40KOptions.ReplacePreviews,DragonShipOptions.ReplacePreviews,LunarNewYearShipOptions.ReplacePreviews,BlackShipOptions.ReplacePreviews,LimaShipOptions.ReplacePreviews,MiscellaneousOptions.KamikazeR_ReplacePreview,MiscellaneousOptions.AlabamaST_ReplacePreview
+          ArpeggioOptions.ReplacePreviews
+          ,AzurLaneOptions.ReplacePreviews
+          ,HighSchoolFleetOptions.Harekaze_ReplacePreview
+          ,HighSchoolFleetOptions.Spee_ReplacePreview
+          ,Warhammer40KOptions.ReplacePreviews
+          ,DragonShipOptions.ReplacePreviews
+          ,LunarNewYearShipOptions.ReplacePreviews
+          ,BlackShipOptions.ReplacePreviews
+          ,LimaShipOptions.ReplacePreviews
+          ,MiscellaneousOptions.KamikazeR_ReplacePreview
+          ,MiscellaneousOptions.AlabamaST_ReplacePreview
         </dependents>
         <!--PASB598	Massachusetts B-->
         <file name="PASB598.png">
