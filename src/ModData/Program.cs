@@ -11,7 +11,7 @@ namespace ModData
         /// </summary>
         private static void Main()
         {
-            //This assembly is not meant for publishing, only run in Debug/Release mode.
+            //This assembly is not meant for executing manually. It is automatically compiled and executed when the PureHistory project is compiled.
             //The program creates a zip file from the file tree and a xml file with file associations and the mo strings.
             //Those files are then moved to the Resource folder of the PureHistory project.
 

@@ -480,6 +480,33 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Updating translation file ... ähnelt.
+        /// </summary>
+        internal static string MOProgress {
+            get {
+                return ResourceManager.GetString("MOProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Successfully saved translation file to ähnelt.
+        /// </summary>
+        internal static string MOProgressFinished1 {
+            get {
+                return ResourceManager.GetString("MOProgressFinished1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        internal static string MOProgressFinished2 {
+            get {
+                return ResourceManager.GetString("MOProgressFinished2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Arrow Keys left/right to move to the previous/next page
         ///Arrow Keys up/down for movement between options
         ///ENTER to toggle/select an option ähnelt.

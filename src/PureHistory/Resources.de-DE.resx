@@ -318,4 +318,13 @@ Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu ein
 Einige Optionen sind voneinander abhängig und lassen sich nur anwählen, wenn eine andere Option angewählt ist.
 Beispiel: Entweder wird ein Teil eines Schiffsnamens ersetzt oder der ganze Schiffsname durch einen anderen.</value>
   </data>
+  <data name="MOProgress" xml:space="preserve">
+    <value>Aktualisiere Übersetzungsdatei ...</value>
+  </data>
+  <data name="MOProgressFinished1" xml:space="preserve">
+    <value>Die Übersetzungsdatei wurde erfolgreich nach</value>
+  </data>
+  <data name="MOProgressFinished2" xml:space="preserve">
+    <value>gespeichert.</value>
+  </data>
 </root>

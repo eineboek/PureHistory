@@ -22,6 +22,8 @@
     <EnableNETAnalyzers>false</EnableNETAnalyzers>
     <PackageLicenseFile></PackageLicenseFile>
     <AssemblyName>purehistory</AssemblyName>
+    <PackageId>PureHistory</PackageId>
+    <Product>PureHistory</Product>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

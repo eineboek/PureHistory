@@ -330,4 +330,13 @@ Replacing the ship name with the regular counterpart could lead to a misjudgemen
 Some options are dependent on each other, and can only be enabled if another option is enabled as well.
 Example: Either a part of a ship name is replaced or the whole ship name with another.</value>
   </data>
+  <data name="MOProgress" xml:space="preserve">
+    <value>Updating translation file ...</value>
+  </data>
+  <data name="MOProgressFinished1" xml:space="preserve">
+    <value>Successfully saved translation file to</value>
+  </data>
+  <data name="MOProgressFinished2" xml:space="preserve">
+    <value />
+  </data>
 </root>

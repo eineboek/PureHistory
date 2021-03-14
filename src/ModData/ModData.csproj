@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <StartupObject>ModData.Program</StartupObject>
     <AssemblyName>createmoddata</AssemblyName>
+    <Platforms>x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

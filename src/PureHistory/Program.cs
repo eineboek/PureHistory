@@ -33,6 +33,9 @@ namespace PureHistory
             //Set the Encoding to support Unicode characters such as this funky dot -> •
             OutputEncoding = Encoding.UTF8;
 
+            //Set the console window title
+            Title = "PureHistory Mod Installer";
+
             //Set Window Size so that all lines will be displayed as one and not wrap
             SetWindowSize(WindowWidth + 15, WindowHeight);
 
@@ -43,9 +46,6 @@ namespace PureHistory
 
             //Create a new ModInstallation class instance to save the user's choices in
             modInstallation = new ModInstallation();
-
-            //Set the console window title
-            Title = "PureHistory Mod Installer";
 
             //Display information about the mod and the compatible WoWs version
             WriteLine($"{Resources.ModVersion} - {Resources.Creator}");
@@ -1742,6 +1742,7 @@ namespace PureHistory
 
                     try
                     {
+                        WriteLine(Resources.MOProgress);
                         MOReader moReader = new MOReader(moFilePath); //Create a new instance of the MOReader class and load the file
                         for (int i = 0; i < moReader.Count; i++)
                         {
@@ -1773,6 +1774,8 @@ namespace PureHistory
                         File.Delete(moFilePath);
                         File.Move(moFilePath + ".edit.mo", moFilePath);
                         File.Delete(moFilePath + ".edit");
+
+                        WriteLine($"{Resources.MOProgressFinished1} {moFilePath} {Resources.MOProgressFinished2}");
 
                         //Delete the folder extracted by the data.zip archive
                         Directory.Delete(modsSrcPath, true);
