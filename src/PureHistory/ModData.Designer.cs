@@ -61,22 +61,34 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt; 
-        /// ähnelt.
-        /// </summary>
-        internal static string ModData {
-            get {
-                return ResourceManager.GetString("ModData", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
         internal static byte[] ModDataArchive {
             get {
                 object obj = ResourceManager.GetObject("ModDataArchive", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;data&gt;
+        ///  &lt;filetree&gt;
+        ///    &lt;folder name=&quot;gui&quot;&gt;
+        ///      &lt;dependents&gt;
+        ///        ArpeggioOptions.ReplaceSilhouettes
+        ///        ,ArpeggioOptions.ReplacePreviews
+        ///        ,ArpeggioOptions.ReplaceFlags
+        ///        ,AzurLaneOptions.ReplacePreviews
+        ///        ,HighSchoolFleetOptions.Harekaze_ReplacePreview
+        ///        ,HighSchoolFleetOptions.Spee_ReplacePreview
+        ///        ,Warhammer40KOptions.ReplacePreviews
+        ///        ,Warhammer40KOptions.ReplaceFlags
+        ///        ,DragonShipOptions.ReplaceSilh [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string ModDataTable {
+            get {
+                return ResourceManager.GetString("ModDataTable", resourceCulture);
             }
         }
     }

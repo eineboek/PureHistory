@@ -488,6 +488,9 @@
     <None Update="filetree\gui\ship_previews\PJSD718.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="filetree\gui\ship_previews\PRSB709.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="filetree\gui\ship_previews\PRSC010.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -612,6 +615,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="filetree\gui\ship_previews_ds\PJSD718.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PRSB709.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="filetree\gui\ship_previews_ds\PRSC010.png">

@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
+using System.Xml;
 using static System.Console;
 
 namespace PureHistory
 {
-    internal partial class Program : ConsoleLog
+    internal class Program : ConsoleLog
     {
         #region Private fields
 
@@ -193,9 +196,7 @@ namespace PureHistory
                         {
                             try
                             {
-                                //Get formatted string with extension method
-                                wowsPath = wowsPath.ParsePath();
-
+                                //Get the Path of the latest build and res_mods folder by listing all available builds
                                 string buildPath = Path.Combine(wowsPath, "bin");
                                 List<int> buildList = new List<int>();
                                 foreach (string build in Directory.GetDirectories(buildPath).Select(d => Path.GetRelativePath(buildPath, d)))
@@ -204,9 +205,10 @@ namespace PureHistory
                                 }
                                 buildList = buildList.OrderByDescending(p => p).ToList();
                                 int[] buildListArray = buildList.ToArray();
-                                modsPath = Path.Combine(buildPath, buildListArray[0].ToString(), "res_mods");
+                                binPath = Path.Combine(buildPath, buildListArray[0].ToString());
+                                modsPath = Path.Combine(binPath, "res_mods");
                             }
-                            catch
+                            catch //In case of an error, the selection will be restarted
                             {
                                 WriteLine();
                                 WriteLine(Resources.GenericError);
@@ -1283,6 +1285,629 @@ namespace PureHistory
 
                 PerformInstallation();
             }
+        }
+
+        private static void PerformInstallation()
+        {
+            Clear();
+
+            WriteLine(Resources.StartInstallationNotice);
+            WriteLine();
+
+            ConsoleKey response = ReadKey(true).Key;
+
+            //The user can abort the installation by pressing left arrow key, any other key starts the installation
+            if (response == ConsoleKey.LeftArrow)
+            {
+                InstallationSettings();
+            }
+            else if (response == ConsoleKey.Enter)
+            {
+                InstallationProperties installation = new InstallationProperties();
+
+                //Determine the Overwrite Status that the User selected earlier
+                if (modInstallation.InstallationOptions.NoOverwrite || modInstallation.InstallationOptions.AskForEach)
+                {
+                    installation.Overwrite = false;
+                }
+                else if (modInstallation.InstallationOptions.OverwriteAllConflicts)
+                {
+                    installation.Overwrite = true;
+                }
+                else
+                {
+                    installation.Overwrite = false;
+                }
+
+                #region Extract files from the data archive
+
+                string executingPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                string dataPath = Path.Combine(executingPath, "ModData.zip");
+
+                //If the data archive already exists, delete it
+                if (File.Exists(dataPath))
+                {
+                    File.Delete(dataPath);
+                }
+
+                //Write the Mod Data Resource to a File
+                try
+                {
+                    File.WriteAllBytes(dataPath, ModData.ModDataArchive);
+                }
+                catch (Exception ex)
+                {
+                    WriteLine(Resources.GenericError);
+                    WriteLine(Resources.InstallationError);
+                    WriteLine(ex.Message);
+                    return;
+                }
+
+                string modsSrcPath = Path.Combine(executingPath, "data");
+
+                if (Directory.Exists(modsSrcPath))
+                {
+                    Directory.Delete(modsSrcPath, true);
+                }
+
+                try
+                {
+                    ZipFile.ExtractToDirectory(dataPath, modsSrcPath);
+                }
+                catch (Exception ex)
+                {
+                    WriteLine(Resources.GenericError);
+                    WriteLine(Resources.InstallationError);
+                    WriteLine(ex.Message);
+                    return;
+                }
+
+                #endregion Extract files from the data archive
+
+                #region Determine the Client language from game_info.xml
+
+                string clientLang;
+                try
+                {
+                    XmlDocument gameinfo = new XmlDocument();
+                    gameinfo.Load(Path.Combine(wowsPath, "game_info.xml"));
+                    XmlNode node = gameinfo.DocumentElement.SelectSingleNode("/protocol/game/content_localizations/content_localization");
+                    clientLang = node.InnerText.ToLower();
+                }
+                catch (Exception ex)
+                {
+                    WriteLine(Resources.GenericError);
+                    WriteLine(Resources.InstallationError);
+                    WriteLine(ex.Message);
+                    return;
+                }
+
+                #endregion Determine the Client language from game_info.xml
+
+                #region Installation
+
+                installation.InstallMO = false;
+
+                if (modInstallation.ArpeggioOptions.RemovePrefixes)
+                {
+                    installation.DependencyList.Add("ArpeggioOptions.RemovePrefixes");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.ArpeggioOptions.ReplaceNames)
+                {
+                    installation.DependencyList.Add("ArpeggioOptions.ReplaceNames");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.ArpeggioOptions.UpdateDescription)
+                {
+                    installation.DependencyList.Add("ArpeggioOptions.UpdateDescription");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.ArpeggioOptions.ReplaceSilhouettes)
+                {
+                    installation.DependencyList.Add("ArpeggioOptions.ReplaceSilhouettes");
+                }
+                if (modInstallation.ArpeggioOptions.ReplacePreviews)
+                {
+                    installation.DependencyList.Add("ArpeggioOptions.ReplacePreviews");
+                }
+                if (modInstallation.ArpeggioOptions.ReplaceFlags)
+                {
+                    installation.DependencyList.Add("ArpeggioOptions.ReplaceFlags");
+                }
+                if (modInstallation.AzurLaneOptions.RemovePrefixes)
+                {
+                    installation.DependencyList.Add("AzurLaneOptions.RemovePrefixes");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.AzurLaneOptions.ReplaceNames)
+                {
+                    installation.DependencyList.Add("AzurLaneOptions.ReplaceNames");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.AzurLaneOptions.UpdateDescription)
+                {
+                    installation.DependencyList.Add("AzurLaneOptions.UpdateDescription");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.AzurLaneOptions.ReplacePreviews)
+                {
+                    installation.DependencyList.Add("AzurLaneOptions.ReplacePreviews");
+                }
+                if (modInstallation.HighSchoolFleetOptions.Harekaze_RemovePrefix)
+                {
+                    installation.DependencyList.Add("HighSchoolFleetOptions.Harekaze_RemovePrefix");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.HighSchoolFleetOptions.Harekaze_ReplaceName)
+                {
+                    installation.DependencyList.Add("HighSchoolFleetOptions.Harekaze_ReplaceName");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.HighSchoolFleetOptions.Harekaze_UpdateDescription)
+                {
+                    installation.DependencyList.Add("HighSchoolFleetOptions.Harekaze_UpdateDescription");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.HighSchoolFleetOptions.Harekaze_ReplacePreview)
+                {
+                    installation.DependencyList.Add("HighSchoolFleetOptions.Harekaze_ReplacePreview");
+                }
+                if (modInstallation.HighSchoolFleetOptions.Spee_RemovePrefix)
+                {
+                    installation.DependencyList.Add("HighSchoolFleetOptions.Spee_RemovePrefix");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.HighSchoolFleetOptions.Spee_UpdateDescription)
+                {
+                    installation.DependencyList.Add("HighSchoolFleetOptions.Spee_UpdateDescription");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.HighSchoolFleetOptions.Spee_ReplacePreview)
+                {
+                    installation.DependencyList.Add("HighSchoolFleetOptions.Spee_ReplacePreview");
+                }
+                if (modInstallation.Warhammer40KOptions.ReplaceNames)
+                {
+                    installation.DependencyList.Add("Warhammer40KOptions.ReplaceNames");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.Warhammer40KOptions.UpdateDescription)
+                {
+                    installation.DependencyList.Add("Warhammer40KOptions.UpdateDescription");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.Warhammer40KOptions.ReplacePreviews)
+                {
+                    installation.DependencyList.Add("Warhammer40KOptions.ReplacePreviews");
+                }
+                if (modInstallation.Warhammer40KOptions.ReplaceFlags)
+                {
+                    installation.DependencyList.Add("Warhammer40KOptions.ReplaceFlags");
+                }
+                if (modInstallation.DragonShipOptions.ReplaceNames)
+                {
+                    installation.DependencyList.Add("DragonShipOptions.ReplaceNames");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.DragonShipOptions.UpdateDescription)
+                {
+                    installation.DependencyList.Add("DragonShipOptions.UpdateDescription");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.DragonShipOptions.ReplaceSilhouettes)
+                {
+                    installation.DependencyList.Add("DragonShipOptions.ReplaceSilhouettes");
+                }
+                if (modInstallation.DragonShipOptions.ReplacePreviews)
+                {
+                    installation.DependencyList.Add("DragonShipOptions.ReplacePreviews");
+                }
+                if (modInstallation.DragonShipOptions.ReplaceFlags)
+                {
+                    installation.DependencyList.Add("DragonShipOptions.ReplaceFlags");
+                }
+                if (modInstallation.LunarNewYearShipOptions.ReplaceNames)
+                {
+                    installation.DependencyList.Add("LunarNewYearShipOptions.ReplaceNames");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.LunarNewYearShipOptions.UpdateDescription)
+                {
+                    installation.DependencyList.Add("LunarNewYearShipOptions.UpdateDescription");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.LunarNewYearShipOptions.ReplacePreviews)
+                {
+                    installation.DependencyList.Add("LunarNewYearShipOptions.ReplacePreviews");
+                }
+                if (modInstallation.LunarNewYearShipOptions.ReplaceFlagsPanasia)
+                {
+                    installation.DependencyList.Add("LunarNewYearShipOptions.ReplaceFlagsPanasia");
+                }
+                if (modInstallation.LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry)
+                {
+                    installation.DependencyList.Add("LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry");
+                }
+                if (modInstallation.BlackShipOptions.RemoveSuffixes)
+                {
+                    installation.DependencyList.Add("BlackShipOptions.RemoveSuffixes");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.BlackShipOptions.UpdateDescription)
+                {
+                    installation.DependencyList.Add("BlackShipOptions.UpdateDescription");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.BlackShipOptions.ReplacePreviews)
+                {
+                    installation.DependencyList.Add("BlackShipOptions.ReplacePreviews");
+                }
+                if (modInstallation.LimaShipOptions.RemoveSuffixes)
+                {
+                    installation.DependencyList.Add("LimaShipOptions.RemoveSuffixes");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.LimaShipOptions.UpdateDescription)
+                {
+                    installation.DependencyList.Add("LimaShipOptions.UpdateDescription");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.LimaShipOptions.ReplacePreviews)
+                {
+                    installation.DependencyList.Add("LimaShipOptions.ReplacePreviews");
+                }
+                if (modInstallation.MiscellaneousOptions.KamikazeR_RemoveSuffix)
+                {
+                    installation.DependencyList.Add("MiscellaneousOptions.KamikazeR_RemoveSuffix");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.MiscellaneousOptions.KamikazeR_UpdateDescription)
+                {
+                    installation.DependencyList.Add("MiscellaneousOptions.KamikazeR_UpdateDescription");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.MiscellaneousOptions.KamikazeR_ReplacePreview)
+                {
+                    installation.DependencyList.Add("MiscellaneousOptions.KamikazeR_ReplacePreview");
+                }
+                if (modInstallation.MiscellaneousOptions.AlabamaST_RemoveSuffix)
+                {
+                    installation.DependencyList.Add("MiscellaneousOptions.AlabamaST_RemoveSuffix");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.MiscellaneousOptions.AlabamaST_UpdateDescription)
+                {
+                    installation.DependencyList.Add("MiscellaneousOptions.AlabamaST_UpdateDescription");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.MiscellaneousOptions.AlabamaST_ReplacePreview)
+                {
+                    installation.DependencyList.Add("MiscellaneousOptions.AlabamaST_ReplacePreview");
+                }
+                if (modInstallation.MiscellaneousOptions.IwakiA_RemoveSuffix)
+                {
+                    installation.DependencyList.Add("MiscellaneousOptions.IwakiA_RemoveSuffix");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.MiscellaneousOptions.ArkansasB_RemoveSuffix)
+                {
+                    installation.DependencyList.Add("MiscellaneousOptions.ArkansasB_RemoveSuffix");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.MiscellaneousOptions.WestVirginia41_CorrectName)
+                {
+                    installation.DependencyList.Add("MiscellaneousOptions.WestVirginia41_CorrectName");
+                    installation.InstallMO = true;
+                }
+
+                XmlDocument modDataTable = new XmlDocument();
+                modDataTable.LoadXml(ModData.ModDataTable);
+                XmlNode rootNode = modDataTable.SelectSingleNode("data");
+
+                XmlNode filetreeNode = rootNode.ChildNodes[0];
+                XmlNode moStringsNode = rootNode.ChildNodes[1];
+
+                installation = ReadFiletreeRecursive(filetreeNode.ChildNodes, installation);
+
+                for (int i = 0; i < moStringsNode.ChildNodes.Count; i++)
+                {
+                    XmlNode entryNode = moStringsNode.ChildNodes[i];
+                    if (entryNode.HasChildNodes)
+                    {
+                        bool addEntry = false;
+                        foreach (string dependency in installation.DependencyList)
+                        {
+                            string[] xmlDependencies = entryNode.ChildNodes[1].InnerText.Split(Environment.NewLine).Split(',');
+
+                            foreach (string specifiedDependency in xmlDependencies)
+                            {
+                                if (specifiedDependency == dependency)
+                                {
+                                    addEntry = true;
+                                }
+                            }
+                        }
+
+                        if (addEntry)
+                        {
+                            MOEntry entry = new MOEntry();
+
+                            entry.ID = entryNode.Attributes["id"].InnerText;
+                            if (entryNode.ChildNodes[0].InnerText == "NAME")
+                            {
+                                entry.ContentType = MOEntry.MOContentType.NAME;
+                            }
+                            else if (entryNode.ChildNodes[0].InnerText == "NAME_FULL")
+                            {
+                                entry.ContentType = MOEntry.MOContentType.NAME_FULL;
+                            }
+                            else if (entryNode.ChildNodes[0].InnerText == "DESCR")
+                            {
+                                entry.ContentType = MOEntry.MOContentType.DESCR;
+                            }
+                            else
+                            {
+                                WriteLine(Resources.GenericError);
+                                WriteLine(Resources.InstallationError);
+                                return;
+                            }
+                            entry.Content = entryNode.ChildNodes[2].InnerText;
+                            installation.MOEntries.Add(entry);
+                        }
+                    }
+                }
+
+                foreach (string directory in installation.DirectoryList)
+                {
+                    if (!Directory.Exists(Path.Combine(modsPath, directory)) && !directory.Contains("alternative"))
+                    {
+                        Directory.CreateDirectory(Path.Combine(modsPath, directory));
+                    }
+                }
+
+                foreach (string file in installation.FileList)
+                {
+                    string sourcePath = Path.Combine(modsSrcPath, file);
+                    string destinationPath = Path.Combine(modsPath, file);
+
+                    if (destinationPath.Contains("alternative"))
+                    {
+                        destinationPath = Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(destinationPath)), Path.GetFileName(destinationPath));
+                    }
+
+                    try
+                    {
+                        File.Copy(sourcePath, destinationPath, installation.Overwrite);
+                        ReportFileCopy(destinationPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        if (installation.Overwrite)
+                        {
+                            WriteLine(Resources.GenericError);
+                            WriteLine(Resources.InstallationError);
+                            WriteLine(ex.Message);
+                            return;
+                        }
+                        else
+                        {
+                            if (ReportFileConflict(destinationPath))
+                            {
+                                try
+                                {
+                                    File.Copy(sourcePath, destinationPath, true);
+                                    ReportFileCopy(destinationPath);
+                                }
+                                catch (Exception exp)
+                                {
+                                    WriteLine(Resources.GenericError);
+                                    WriteLine(Resources.InstallationError);
+                                    WriteLine(exp.Message);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (installation.InstallMO)
+                {
+                    //Folders for the Installation of the global.mo file
+
+                    if (!Directory.Exists(Path.Combine(modsPath, "texts")))
+                    {
+                        Directory.CreateDirectory(Path.Combine(modsPath, "texts"));
+                    }
+
+                    if (!Directory.Exists(Path.Combine(modsPath, "texts", clientLang)))
+                    {
+                        Directory.CreateDirectory(Path.Combine(modsPath, "texts", clientLang));
+                    }
+
+                    if (!Directory.Exists(Path.Combine(modsPath, "texts", clientLang, "LC_MESSAGES")))
+                    {
+                        Directory.CreateDirectory(Path.Combine(modsPath, "texts", clientLang, "LC_MESSAGES"));
+                    }
+
+                    //If there is already an .mo file in res_mods, the program will use it. If not, it will copy the original from the res folder
+                    string moFilePath = Path.Combine(modsPath, "texts", clientLang, "LC_MESSAGES", "global.mo");
+                    if (!File.Exists(moFilePath))
+                    {
+                        File.Copy(Path.Combine(binPath, "res", "texts", clientLang, "LC_MESSAGES", "global.mo"), moFilePath);
+                    }
+
+                    try
+                    {
+                        MOReader moReader = new MOReader(moFilePath); //Create a new instance of the MOReader class and load the file
+                        for (int i = 0; i < moReader.Count; i++)
+                        {
+                            MOLine line = moReader[i];
+                            for (int j = 0; j < installation.MOEntries.Count; j++)
+                            {
+                                MOEntry entry = installation.MOEntries[j];
+
+                                if (line.Original == entry.ID)
+                                {
+                                    if (entry.ContentType == MOEntry.MOContentType.NAME || entry.ContentType == MOEntry.MOContentType.NAME_FULL)
+                                    {
+                                        line.Translated = entry.Content;
+                                    }
+                                    else if (entry.ContentType == MOEntry.MOContentType.DESCR)
+                                    {
+                                        line.Translated = $"{entry.Content}{Environment.NewLine}{line.Translated}";
+                                    }
+                                }
+                                moReader[i] = line;
+                            }
+                        }
+
+                        //Save edited mo File to a temporary location
+                        moReader.SaveMOFile(moFilePath + ".edit.mo");
+                        moReader.Dispose();
+
+                        //Delete the original file and rename the edited file
+                        File.Delete(moFilePath);
+                        File.Move(moFilePath + ".edit.mo", moFilePath);
+                        File.Delete(moFilePath + ".edit");
+
+                        //Delete the folder extracted by the data.zip archive
+                        Directory.Delete(modsSrcPath, true);
+                        File.Delete(dataPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        WriteLine(Resources.GenericError);
+                        WriteLine(Resources.InstallationError);
+                        WriteLine(ex.Message);
+                        return;
+                    }
+                }
+
+                #endregion Installation
+
+                WriteLine();
+
+                //Detect ModStation
+                if (File.Exists(Path.Combine(modsPath, "ModStation.txt")))
+                {
+                    WriteLine($"{Resources.ModStationWarning}\r\n");
+                }
+
+                //Display info that the installation is complete.
+                WriteLine(Resources.InstallationFinished);
+            }
+            else
+            {
+                WriteLine(Resources.InvalidResponse);
+                WriteLine(Resources.PressAnyKey);
+                ReadKey();
+                PerformInstallation();
+            }
+        }
+
+        private static void ReportFileCopy(string fullpath) => WriteLine($"{Resources.CopyProgressString1} \"{Path.GetFileName(fullpath)}\" {Resources.CopyProgressString2} {Path.GetDirectoryName(fullpath)} {Resources.CopyProgressString3}");
+
+        private static bool ReportFileConflict(string fullpath)
+        {
+            if (modInstallation.InstallationOptions.AskForEach)
+            {
+                string[] log = GetLog();
+
+                string[] consoleContent = new string[log.Length + 1];
+                for (int i = 0; i < log.Length; i++)
+                {
+                    consoleContent[i] = log[i];
+                }
+                consoleContent[^1] = $"\r\n{Resources.File} \"{Path.GetFileName(fullpath)}\" {Resources.AlreadyExists}";
+
+                string[] options = { Resources.DoNotOverwrite, Resources.Overwrite };
+                Menu selectLanguageMenu = new Menu(consoleContent, options);
+                int selectedIndex = selectLanguageMenu.Init();
+
+                return selectedIndex switch
+                {
+                    0 => false,
+                    1 => true,
+                    _ => false, //Standard case
+                };
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private static InstallationProperties ReadFiletreeRecursive(XmlNodeList nodes, InstallationProperties installation)
+        {
+            foreach (XmlNode node in nodes)
+            {
+                if (node.Name == "folder" || node.Name == "file")
+                {
+                    if (node.Name == "folder")
+                    {
+                        bool addEntry = false;
+                        foreach (string dependency in installation.DependencyList)
+                        {
+                            string[] xmlDependencies = node.ChildNodes[0].InnerText.Split(Environment.NewLine);
+
+                            foreach (string specifiedDependency in xmlDependencies)
+                            {
+                                if (specifiedDependency.Trim() == dependency)
+                                {
+                                    addEntry = true;
+                                }
+                            }
+                        }
+
+                        if (addEntry)
+                        {
+                            string fullDirectoryPath = node.Attributes[0].InnerText;
+                            XmlNode currentNode = node;
+                            while (currentNode.ParentNode.Name == "folder")
+                            {
+                                fullDirectoryPath = $"{currentNode.ParentNode.Attributes[0].InnerText}\\{fullDirectoryPath}";
+                                currentNode = currentNode.ParentNode;
+                            }
+                            installation.DirectoryList.Add(fullDirectoryPath);
+                        }
+                    }
+                    else if (node.Name == "file")
+                    {
+                        bool addEntry = false;
+                        foreach (string dependency in installation.DependencyList)
+                        {
+                            string[] xmlDependencies = node.ChildNodes[0].InnerText.Split(Environment.NewLine);
+
+                            foreach (string specifiedDependency in xmlDependencies)
+                            {
+                                if (specifiedDependency.Trim() == dependency)
+                                {
+                                    addEntry = true;
+                                }
+                            }
+                        }
+
+                        if (addEntry)
+                        {
+                            string fullFilePath = node.Attributes[0].InnerText;
+                            XmlNode currentNode = node;
+                            while (currentNode.ParentNode.Name == "folder")
+                            {
+                                fullFilePath = $"{currentNode.ParentNode.Attributes[0].InnerText}\\{fullFilePath}";
+                                currentNode = currentNode.ParentNode;
+                            }
+                            installation.FileList.Add(fullFilePath);
+                        }
+                    }
+
+                    if (node.HasChildNodes)
+                    {
+                        ReadFiletreeRecursive(node.ChildNodes, installation);
+                    }
+                }
+            }
+            return installation;
         }
     }
 }

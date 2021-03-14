@@ -4,39 +4,39 @@
     <folder name="gui">
       <dependents>
         ArpeggioOptions.ReplaceSilhouettes
-        ,ArpeggioOptions.ReplacePreviews
-        ,ArpeggioOptions.ReplaceFlags
-        ,AzurLaneOptions.ReplacePreviews
-        ,HighSchoolFleetOptions.Harekaze_ReplacePreview
-        ,HighSchoolFleetOptions.Spee_ReplacePreview
-        ,Warhammer40KOptions.ReplacePreviews
-        ,Warhammer40KOptions.ReplaceFlags
-        ,DragonShipOptions.ReplaceSilhouettes
-        ,DragonShipOptions.ReplacePreviews
-        ,DragonShipOptions.ReplaceFlags
-        ,LunarNewYearShipOptions.ReplacePreviews
-        ,LunarNewYearShipOptions.ReplaceFlagsPanasia
-        ,LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
-        ,BlackShipOptions.ReplacePreviews
-        ,LimaShipOptions.ReplacePreviews
-        ,MiscellaneousOptions.KamikazeR_ReplacePreview
-        ,MiscellaneousOptions.AlabamaST_ReplacePreview
+        ArpeggioOptions.ReplacePreviews
+        ArpeggioOptions.ReplaceFlags
+        AzurLaneOptions.ReplacePreviews
+        HighSchoolFleetOptions.Harekaze_ReplacePreview
+        HighSchoolFleetOptions.Spee_ReplacePreview
+        Warhammer40KOptions.ReplacePreviews
+        Warhammer40KOptions.ReplaceFlags
+        DragonShipOptions.ReplaceSilhouettes
+        DragonShipOptions.ReplacePreviews
+        DragonShipOptions.ReplaceFlags
+        LunarNewYearShipOptions.ReplacePreviews
+        LunarNewYearShipOptions.ReplaceFlagsPanasia
+        LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
+        BlackShipOptions.ReplacePreviews
+        LimaShipOptions.ReplacePreviews
+        MiscellaneousOptions.KamikazeR_ReplacePreview
+        MiscellaneousOptions.AlabamaST_ReplacePreview
       </dependents>
       <folder name="nation_flags">
         <dependents>
           ArpeggioOptions.ReplaceFlags
-          ,Warhammer40KOptions.ReplaceFlags
-          ,DragonShipOptions.ReplaceFlags
-          ,LunarNewYearShipOptions.ReplaceFlagsPanasia
-          ,LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
+          Warhammer40KOptions.ReplaceFlags
+          DragonShipOptions.ReplaceFlags
+          LunarNewYearShipOptions.ReplaceFlagsPanasia
+          LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
         </dependents>
         <folder name="big">
           <dependents>
             ArpeggioOptions.ReplaceFlags
-            ,Warhammer40KOptions.ReplaceFlags
-            ,DragonShipOptions.ReplaceFlags
-            ,LunarNewYearShipOptions.ReplaceFlagsPanasia
-            ,LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
+            Warhammer40KOptions.ReplaceFlags
+            DragonShipOptions.ReplaceFlags
+            LunarNewYearShipOptions.ReplaceFlagsPanasia
+            LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
           </dependents>
           <!--Idk what flag this is, seems Arpeggio to me ¯\_(ツ)_/¯-->
           <file name="flag_Ashigara.png">
@@ -153,10 +153,10 @@
         <folder name="small">
           <dependents>
             ArpeggioOptions.ReplaceFlags
-            ,Warhammer40KOptions.ReplaceFlags
-            ,DragonShipOptions.ReplaceFlags
-            ,LunarNewYearShipOptions.ReplaceFlagsPanasia
-            ,LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
+            Warhammer40KOptions.ReplaceFlags
+            DragonShipOptions.ReplaceFlags
+            LunarNewYearShipOptions.ReplaceFlagsPanasia
+            LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
           </dependents>
           <!--Idk what flag this is, seems Arpeggio to me ¯\_(ツ)_/¯-->
           <file name="flag_Ashigara.png">
@@ -273,10 +273,10 @@
         <folder name="tiny">
           <dependents>
             ArpeggioOptions.ReplaceFlags
-            ,Warhammer40KOptions.ReplaceFlags
-            ,DragonShipOptions.ReplaceFlags
-            ,LunarNewYearShipOptions.ReplaceFlagsPanasia
-            ,LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
+            Warhammer40KOptions.ReplaceFlags
+            DragonShipOptions.ReplaceFlags
+            LunarNewYearShipOptions.ReplaceFlagsPanasia
+            LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry
           </dependents>
           <!--Idk what flag this is, seems Arpeggio to me ¯\_(ツ)_/¯-->
           <file name="flag_Ashigara.png">
@@ -368,7 +368,7 @@
           </file>
           <!--PZSC518	Wukong-->
           <file name="flag_PZSC518.png">
-            <dependents></dependents>
+            <dependents>LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry</dependents>
           </file>
           <folder name="alternative_flags">
             <dependents>LunarNewYearShipOptions.ReplaceFlagsPanasia</dependents>
@@ -393,7 +393,8 @@
       </folder>
       <folder name="ship_dead_icons">
         <dependents>
-          ArpeggioOptions.ReplaceSilhouettes,DragonShipOptions.ReplaceSilhouettes
+          ArpeggioOptions.ReplaceSilhouettes
+          DragonShipOptions.ReplaceSilhouettes
         </dependents>
         <!--PJSB700	ARP Yamato-->
         <file name="PJSB700.png">
@@ -454,7 +455,8 @@
       </folder>
       <folder name="ship_icons">
         <dependents>
-          ArpeggioOptions.ReplaceSilhouettes,DragonShipOptions.ReplaceSilhouettes
+          ArpeggioOptions.ReplaceSilhouettes
+          DragonShipOptions.ReplaceSilhouettes
         </dependents>
         <!--PJSB700	ARP Yamato-->
         <file name="PJSB700.png">
@@ -515,7 +517,8 @@
       </folder>
       <folder name="ship_own_icons">
         <dependents>
-          ArpeggioOptions.ReplaceSilhouettes,DragonShipOptions.ReplaceSilhouettes
+          ArpeggioOptions.ReplaceSilhouettes
+          DragonShipOptions.ReplaceSilhouettes
         </dependents>
         <!--PJSB700	ARP Yamato-->
         <file name="PJSB700.png">
@@ -577,16 +580,16 @@
       <folder name="ship_previews">
         <dependents>
           ArpeggioOptions.ReplacePreviews
-          ,AzurLaneOptions.ReplacePreviews
-          ,HighSchoolFleetOptions.Harekaze_ReplacePreview
-          ,HighSchoolFleetOptions.Spee_ReplacePreview
-          ,Warhammer40KOptions.ReplacePreviews
-          ,DragonShipOptions.ReplacePreviews
-          ,LunarNewYearShipOptions.ReplacePreviews
-          ,BlackShipOptions.ReplacePreviews
-          ,LimaShipOptions.ReplacePreviews
-          ,MiscellaneousOptions.KamikazeR_ReplacePreview
-          ,MiscellaneousOptions.AlabamaST_ReplacePreview
+          AzurLaneOptions.ReplacePreviews
+          HighSchoolFleetOptions.Harekaze_ReplacePreview
+          HighSchoolFleetOptions.Spee_ReplacePreview
+          Warhammer40KOptions.ReplacePreviews
+          DragonShipOptions.ReplacePreviews
+          LunarNewYearShipOptions.ReplacePreviews
+          BlackShipOptions.ReplacePreviews
+          LimaShipOptions.ReplacePreviews
+          MiscellaneousOptions.KamikazeR_ReplacePreview
+          MiscellaneousOptions.AlabamaST_ReplacePreview
         </dependents>
         <!--PASB598	Massachusetts B-->
         <file name="PASB598.png">
@@ -734,6 +737,10 @@
         </file>
         <!--PJSD718	AL Yukikaze-->
         <file name="PJSD718.png">
+          <dependents>AzurLaneOptions.ReplacePreviews</dependents>
+        </file>
+        <!--PRSB709	AL S. Rossija-->
+        <file name="PRSB709.png">
           <dependents>AzurLaneOptions.ReplacePreviews</dependents>
         </file>
         <!--PRSC010	Diana L-->
@@ -760,16 +767,16 @@
       <folder name="ship_previews_ds">
         <dependents>
           ArpeggioOptions.ReplacePreviews
-          ,AzurLaneOptions.ReplacePreviews
-          ,HighSchoolFleetOptions.Harekaze_ReplacePreview
-          ,HighSchoolFleetOptions.Spee_ReplacePreview
-          ,Warhammer40KOptions.ReplacePreviews
-          ,DragonShipOptions.ReplacePreviews
-          ,LunarNewYearShipOptions.ReplacePreviews
-          ,BlackShipOptions.ReplacePreviews
-          ,LimaShipOptions.ReplacePreviews
-          ,MiscellaneousOptions.KamikazeR_ReplacePreview
-          ,MiscellaneousOptions.AlabamaST_ReplacePreview
+          AzurLaneOptions.ReplacePreviews
+          HighSchoolFleetOptions.Harekaze_ReplacePreview
+          HighSchoolFleetOptions.Spee_ReplacePreview
+          Warhammer40KOptions.ReplacePreviews
+          DragonShipOptions.ReplacePreviews
+          LunarNewYearShipOptions.ReplacePreviews
+          BlackShipOptions.ReplacePreviews
+          LimaShipOptions.ReplacePreviews
+          MiscellaneousOptions.KamikazeR_ReplacePreview
+          MiscellaneousOptions.AlabamaST_ReplacePreview
         </dependents>
         <!--PASB598	Massachusetts B-->
         <file name="PASB598.png">
@@ -917,6 +924,10 @@
         </file>
         <!--PJSD718	AL Yukikaze-->
         <file name="PJSD718.png">
+          <dependents>AzurLaneOptions.ReplacePreviews</dependents>
+        </file>
+        <!--PRSB709	AL S. Rossija-->
+        <file name="PRSB709.png">
           <dependents>AzurLaneOptions.ReplacePreviews</dependents>
         </file>
         <!--PRSC010	Diana L-->
@@ -948,12 +959,18 @@
     <!--PJSB700	ARP Yamato-->
     <entry id="IDS_PJSB700">
       <type>NAME</type>
-      <dependents>ArpeggioOptions.RemovePrefixes,ArpeggioOptions.ReplaceNames</dependents>
+      <dependents>
+        ArpeggioOptions.RemovePrefixes
+        ArpeggioOptions.ReplaceNames
+      </dependents>
       <content>Yamato</content>
     </entry>
     <entry id="IDS_PJSB700_FULL">
       <type>NAME_FULL</type>
-      <dependents>ArpeggioOptions.RemovePrefixes,ArpeggioOptions.ReplaceNames</dependents>
+      <dependents>
+        ArpeggioOptions.RemovePrefixes
+        ArpeggioOptions.ReplaceNames
+      </dependents>
       <content>Yamato</content>
     </entry>
     <entry id="IDS_PJSB700_DESCR">
@@ -965,12 +982,18 @@
     <!--PJSB705	ARP Kongō-->
     <entry id="IDS_PJSB705">
       <type>NAME</type>
-      <dependents>ArpeggioOptions.RemovePrefixes,ArpeggioOptions.ReplaceNames</dependents>
+      <dependents>
+        ArpeggioOptions.RemovePrefixes
+        ArpeggioOptions.ReplaceNames
+      </dependents>
       <content>Kongō</content>
     </entry>
     <entry id="IDS_PJSB705_FULL">
       <type>NAME_FULL</type>
-      <dependents>ArpeggioOptions.RemovePrefixes,ArpeggioOptions.ReplaceNames</dependents>
+      <dependents>
+        ArpeggioOptions.RemovePrefixes
+        ArpeggioOptions.ReplaceNames
+      </dependents>
       <content>Kongō</content>
     </entry>
     <entry id="IDS_PJSB705_DESCR">
@@ -1090,12 +1113,18 @@
     <!--PJSC705	ARP Myōkō -->
     <entry id="IDS_PJSC705">
       <type>NAME</type>
-      <dependents>ArpeggioOptions.RemovePrefixes,ArpeggioOptions.ReplaceNames</dependents>
+      <dependents>
+        ArpeggioOptions.RemovePrefixes
+        ArpeggioOptions.ReplaceNames
+      </dependents>
       <content>Myōkō</content>
     </entry>
     <entry id="IDS_PJSC705_FULL">
       <type>NAME_FULL</type>
-      <dependents>ArpeggioOptions.RemovePrefixes,ArpeggioOptions.ReplaceNames</dependents>
+      <dependents>
+        ArpeggioOptions.RemovePrefixes
+        ArpeggioOptions.ReplaceNames
+      </dependents>
       <content>Myōkō</content>
     </entry>
     <entry id="IDS_PJSC705_DESCR">
@@ -1269,12 +1298,18 @@
     <!--PJSX701	ARP I-401 -->
     <entry id="IDS_PJSX701">
       <type>NAME</type>
-      <dependents>ArpeggioOptions.RemovePrefixes,ArpeggioOptions.ReplaceNames</dependents>
+      <dependents>
+        ArpeggioOptions.RemovePrefixes
+        ArpeggioOptions.ReplaceNames
+      </dependents>
       <content>I-401</content>
     </entry>
     <entry id="IDS_PJSX701_FULL">
       <type>NAME_FULL</type>
-      <dependents>ArpeggioOptions.RemovePrefixes,ArpeggioOptions.ReplaceNames</dependents>
+      <dependents>
+        ArpeggioOptions.RemovePrefixes
+        ArpeggioOptions.ReplaceNames
+      </dependents>
       <content>I-401</content>
     </entry>
     <entry id="IDS_PJSX701_DESCR">
@@ -1286,12 +1321,18 @@
     <!--PJSX702   ARP I-401 -->
     <entry id="IDS_PJSX702">
       <type>NAME</type>
-      <dependents>ArpeggioOptions.RemovePrefixes,ArpeggioOptions.ReplaceNames</dependents>
+      <dependents>
+        ArpeggioOptions.RemovePrefixes
+        ArpeggioOptions.ReplaceNames
+      </dependents>
       <content>I-401</content>
     </entry>
     <entry id="IDS_PJSX702_FULL">
       <type>NAME_FULL</type>
-      <dependents>ArpeggioOptions.RemovePrefixes,ArpeggioOptions.ReplaceNames</dependents>
+      <dependents>
+        ArpeggioOptions.RemovePrefixes
+        ArpeggioOptions.ReplaceNames
+      </dependents>
       <content>I-401</content>
     </entry>
     <entry id="IDS_PJSX702_DESCR">
@@ -1383,6 +1424,33 @@
       <content>(AL Montpelier)</content>
     </entry>
 
+    <!--PRSB709	AL S. Rossija -->
+    <entry id="IDS_PRSB709">
+      <type>NAME</type>
+      <dependents>AzurLaneOptions.RemovePrefixes</dependents>
+      <content>S. Rossija</content>
+    </entry>
+    <entry id="IDS_PRSB709">
+      <type>NAME</type>
+      <dependents>AzurLaneOptions.ReplaceNames</dependents>
+      <content>Sowj. Sojus</content>
+    </entry>
+    <entry id="IDS_PRSB709_FULL">
+      <type>NAME_FULL</type>
+      <dependents>AzurLaneOptions.RemovePrefixes</dependents>
+      <content>S. Rossija</content>
+    </entry>
+    <entry id="IDS_PRSB709_FULL">
+      <type>NAME_FULL</type>
+      <dependents>AzurLaneOptions.ReplaceNames</dependents>
+      <content>Sowjetski Sojus</content>
+    </entry>
+    <entry id="IDS_PRSB709_DESCR">
+      <type>DESCR</type>
+      <dependents>AzurLaneOptions.UpdateDescription</dependents>
+      <content>(AL S. Rossija)</content>
+    </entry>
+
     <!--High School Fleet-->
 
     <!--//PJSD708	HSF Harekaze -->
@@ -1434,12 +1502,12 @@
     <!--PJSC717	S. Dragon -->
     <entry id="IDS_PJSC717">
       <type>NAME</type>
-      <dependents></dependents>
+      <dependents>DragonShipOptions.ReplaceNames</dependents>
       <content>Myōkō</content>
     </entry>
     <entry id="IDS_PJSC717_FULL">
       <type>NAME_FULL</type>
-      <dependents></dependents>
+      <dependents>DragonShipOptions.ReplaceNames</dependents>
       <content>Myōkō</content>
     </entry>
     <entry id="IDS_PJSC717_DESCR">
@@ -1879,12 +1947,12 @@
     </entry>
 
     <!--PASB013	Arkansas B -->
-    <entry id="PASB013">
+    <entry id="IDS_PASB013">
       <type>NAME</type>
       <dependents>MiscellaneousOptions.ArkansasB_RemoveSuffix</dependents>
       <content>Arkansas</content>
     </entry>
-    <entry id="PASB013_FULL">
+    <entry id="IDS_PASB013_FULL">
       <type>NAME_FULL</type>
       <dependents>MiscellaneousOptions.ArkansasB_RemoveSuffix</dependents>
       <content>Arkansas</content>
