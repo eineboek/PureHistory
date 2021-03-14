@@ -1618,7 +1618,7 @@ namespace PureHistory
                         bool addEntry = false;
                         foreach (string dependency in installation.DependencyList)
                         {
-                            string[] xmlDependencies = entryNode.ChildNodes[1].InnerText.Split(Environment.NewLine).Split(',');
+                            string[] xmlDependencies = entryNode.ChildNodes[1].InnerText.Split(Environment.NewLine);
 
                             foreach (string specifiedDependency in xmlDependencies)
                             {

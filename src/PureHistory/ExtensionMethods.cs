@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
-using System.IO;
-
-namespace PureHistory
+﻿namespace PureHistory
 {
     internal static class ExtensionMethods
     {
         /// <summary>
-        /// TODO
+        /// Transforms a given input path to the correct Windows Type format (\ instead of /, no double-slashes)
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
@@ -23,27 +20,5 @@ namespace PureHistory
 
             return path;
         }
-
-        /// <summary>
-        /// TODO
-        /// </summary>
-        /// <param name="inputArray"></param>
-        /// <param name="separator"></param>
-        /// <returns></returns>
-        public static string[] Split(this string[] inputArray, string separator)
-        {
-            List<string> outputList = new List<string>();
-            foreach (string inputString in inputArray)
-            {
-                string[] tempSplit = inputString.Split(separator);
-                foreach (string tempSplitMember in tempSplit)
-                {
-                    outputList.Add(tempSplitMember);
-                }
-            }
-            return outputList.ToArray();
-        }
-
-        public static string[] Split(this string[] inputArray, char separator) => Split(inputArray, separator.ToString());
     }
 }
