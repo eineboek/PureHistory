@@ -155,13 +155,13 @@ Replacing the ship name with the regular counterpart name could lead to a misjud
     <value>Settings for Dragon Ships</value>
   </data>
   <data name="GenericError" xml:space="preserve">
-    <value>An error has occured :</value>
+    <value>An error has occured:</value>
   </data>
   <data name="InstallationError" xml:space="preserve">
     <value>Error during installation. Please try again or contact the author.</value>
   </data>
   <data name="PathFormatExamples" xml:space="preserve">
-    <value>Examples :</value>
+    <value>Examples:</value>
   </data>
   <data name="ExitProgramAnyKey" xml:space="preserve">
     <value>Press any key to exit the program ...</value>
@@ -324,5 +324,10 @@ Replacing the ship name with the regular counterpart could lead to a misjudgemen
   </data>
   <data name="Overwrite" xml:space="preserve">
     <value>Overwrite file</value>
+  </data>
+  <data name="InfoScreenNote" xml:space="preserve">
+    <value>Note:
+Some options are dependent on each other, and can only be enabled if another option is enabled as well.
+Example: Either a part of a ship name is replaced or the whole ship name with another.</value>
   </data>
 </root>

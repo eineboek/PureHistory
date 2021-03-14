@@ -155,13 +155,13 @@ Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu ein
     <value>Einstellungen für Drachen-Schiffe</value>
   </data>
   <data name="GenericError" xml:space="preserve">
-    <value>Es ist ein Fehler aufgetreten :</value>
+    <value>Es ist ein Fehler aufgetreten:</value>
   </data>
   <data name="InstallationError" xml:space="preserve">
     <value>Fehler während der Installation. Bitte versuchen sie es erneut oder kontaktieren sie den Autor.</value>
   </data>
   <data name="PathFormatExamples" xml:space="preserve">
-    <value>Beispiele :</value>
+    <value>Beispiele:</value>
   </data>
   <data name="ExitProgramAnyKey" xml:space="preserve">
     <value>Zum Beenden des Programms beliebige Taste drücken ...</value>
@@ -312,5 +312,10 @@ Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu ein
   </data>
   <data name="Overwrite" xml:space="preserve">
     <value>Datei überschreiben</value>
+  </data>
+  <data name="InfoScreenNote" xml:space="preserve">
+    <value>Anmerkung:
+Einige Optionen sind voneinander abhängig und lassen sich nur anwählen, wenn eine andere Option angewählt ist.
+Beispiel: Entweder wird ein Teil eines Schiffsnamens ersetzt oder der ganze Schiffsname durch einen anderen.</value>
   </data>
 </root>

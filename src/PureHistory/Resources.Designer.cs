@@ -242,7 +242,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die An error has occured : ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die An error has occured: ähnelt.
         /// </summary>
         internal static string GenericError {
             get {
@@ -284,6 +284,17 @@ namespace PureHistory {
         internal static string HSFSpeeTitle {
             get {
                 return ResourceManager.GetString("HSFSpeeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Note:
+        ///Some options are dependent on each other, and can only be enabled if another option is enabled as well.
+        ///Example: Either a part of a ship name is replaced or the whole ship name with another. ähnelt.
+        /// </summary>
+        internal static string InfoScreenNote {
+            get {
+                return ResourceManager.GetString("InfoScreenNote", resourceCulture);
             }
         }
         
@@ -516,7 +527,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Examples : ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Examples: ähnelt.
         /// </summary>
         internal static string PathFormatExamples {
             get {

@@ -58,6 +58,9 @@ namespace PureHistory
             WriteLine(Resources.NavigationHelp);
             WriteLine();
 
+            WriteLine(Resources.InfoScreenNote);
+            WriteLine();
+
             //User presses any key to continue
             WriteLine(Resources.PressAnyKey);
             ReadKey();
