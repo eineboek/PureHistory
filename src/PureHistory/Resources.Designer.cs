@@ -471,7 +471,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die PureHistory Version 1.1.1 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die PureHistory Version 1.2.0 ähnelt.
         /// </summary>
         internal static string ModVersion {
             get {
