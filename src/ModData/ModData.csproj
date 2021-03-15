@@ -5,7 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <StartupObject>ModData.Program</StartupObject>
     <AssemblyName>createmoddata</AssemblyName>
-    <Platforms>x64</Platforms>
+    <Platforms>x86</Platforms>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
 
   <ItemGroup>
@@ -640,5 +641,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="$(OutDir)\createmoddata.exe" />
+  </Target>
 
 </Project>

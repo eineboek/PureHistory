@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.IO.Compression;
 using System.Reflection;
 
@@ -11,7 +12,7 @@ namespace ModData
         /// </summary>
         private static void Main()
         {
-            //This assembly is not meant for executing manually. It is automatically compiled and executed when the PureHistory project is compiled.
+            //This assembly is not meant for executing manually. It is automatically built and executed when the PureHistory project is built.
             //The program creates a zip file from the file tree and a xml file with file associations and the mo strings.
             //Those files are then moved to the Resource folder of the PureHistory project.
 
@@ -28,7 +29,7 @@ namespace ModData
 
             ZipFile.CreateFromDirectory(dataPath, zipSrcPath);
 
-            string pureHistoryProjectPath = Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(executingPath)))), "PureHistory");
+            string pureHistoryProjectPath = Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(executingPath))))), "PureHistory");
             string resourcePath = Path.Combine(pureHistoryProjectPath, "Resources");
 
             string zipDestPath = Path.Combine(resourcePath, "ModData.zip");
@@ -36,6 +37,8 @@ namespace ModData
 
             File.Copy(zipSrcPath, zipDestPath, true);
             File.Copy(xmlSrcPath, xmlDestPath, true);
+
+            Environment.Exit(0);
         }
     }
 }

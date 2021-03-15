@@ -1611,7 +1611,7 @@ namespace PureHistory
                 XmlNode filetreeNode = rootNode.ChildNodes[0];
                 XmlNode moStringsNode = rootNode.ChildNodes[1];
 
-                installation = ReadFiletreeRecursive(filetreeNode.ChildNodes, installation);
+                installation = ReadFiletree(filetreeNode.ChildNodes, installation);
 
                 for (int i = 0; i < moStringsNode.ChildNodes.Count; i++)
                 {
@@ -1844,7 +1844,7 @@ namespace PureHistory
             }
         }
 
-        private static InstallationProperties ReadFiletreeRecursive(XmlNodeList nodes, InstallationProperties installation)
+        private static InstallationProperties ReadFiletree(XmlNodeList nodes, InstallationProperties installation)
         {
             foreach (XmlNode node in nodes)
             {
@@ -1909,7 +1909,7 @@ namespace PureHistory
 
                     if (node.HasChildNodes)
                     {
-                        ReadFiletreeRecursive(node.ChildNodes, installation);
+                        ReadFiletree(node.ChildNodes, installation);
                     }
                 }
             }
