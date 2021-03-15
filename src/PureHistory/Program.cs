@@ -14,15 +14,11 @@ namespace PureHistory
 {
     internal class Program : ConsoleLog
     {
-        #region Private fields
-
         private static string wowsPath; //Holds the Path for the selected World of Warships installation
         private static string binPath; //Holds the Path for the latest build (highest number) in the WoWs "bin" folder
-        private static string modsPath; //Holds the Path for the res_mods folder that the mod will be installed in
+        private static string resModsPath; //Holds the Path for the res_mods folder that the mod will be installed in
 
         private static ModInstallation modInstallation;
-
-        #endregion Private fields
 
         /// <summary>
         /// The main entry point for the application.
@@ -82,7 +78,7 @@ namespace PureHistory
             string[] title = { Resources.SelectLanguage };
             string[] options = { "English", "Deutsch" };
             Menu selectLanguageMenu = new Menu(title, options);
-            int selectedIndex = selectLanguageMenu.Init();
+            int selectedIndex = selectLanguageMenu.AwaitResponse();
 
             //Depending on the selected index of the Menu, the language will be set
             CultureInfo selectedCulture = CultureInfo.CurrentCulture;
@@ -148,7 +144,7 @@ namespace PureHistory
 
                 string[] options = { Resources.Yes, Resources.No };
                 Menu selectLanguageMenu = new Menu(consoleContent, options);
-                int selectedIndex = selectLanguageMenu.Init();
+                int selectedIndex = selectLanguageMenu.AwaitResponse();
 
                 if (selectedIndex == 0) //If response is yes, check the specified path for the WoWs client
                 {
@@ -166,7 +162,7 @@ namespace PureHistory
                             buildList = buildList.OrderByDescending(p => p).ToList();
                             int[] buildListArray = buildList.ToArray();
                             binPath = Path.Combine(buildPath, buildListArray[0].ToString());
-                            modsPath = Path.Combine(binPath, "res_mods");
+                            resModsPath = Path.Combine(binPath, "res_mods");
                         }
                         catch //In case of an error, the selection will be restarted
                         {
@@ -193,7 +189,7 @@ namespace PureHistory
                         consoleContent[^1] = Resources.WoWsNotFound;
 
                         selectLanguageMenu = new Menu(consoleContent, options);
-                        selectedIndex = selectLanguageMenu.Init();
+                        selectedIndex = selectLanguageMenu.AwaitResponse();
 
                         if (selectedIndex == 0) //Continue regardless
                         {
@@ -209,7 +205,7 @@ namespace PureHistory
                                 buildList = buildList.OrderByDescending(p => p).ToList();
                                 int[] buildListArray = buildList.ToArray();
                                 binPath = Path.Combine(buildPath, buildListArray[0].ToString());
-                                modsPath = Path.Combine(binPath, "res_mods");
+                                resModsPath = Path.Combine(binPath, "res_mods");
                             }
                             catch //In case of an error, the selection will be restarted
                             {
@@ -282,7 +278,7 @@ namespace PureHistory
             //Continuous loop until either right/left arrow key is pressed
             while (true)
             {
-                response = multipleChoice.Init();
+                response = multipleChoice.AwaitResponse();
 
                 //If right or left arrow key was pressed, break the loop
                 if (response.ReturnToPrevious || response.ContinueToNext)
@@ -394,7 +390,7 @@ namespace PureHistory
 
             while (true)
             {
-                response = multipleChoice.Init();
+                response = multipleChoice.AwaitResponse();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -496,7 +492,7 @@ namespace PureHistory
 
             while (true)
             {
-                response = multipleChoice.Init();
+                response = multipleChoice.AwaitResponse();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -596,7 +592,7 @@ namespace PureHistory
 
             while (true)
             {
-                response = multipleChoice.Init();
+                response = multipleChoice.AwaitResponse();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -682,7 +678,7 @@ namespace PureHistory
 
             while (true)
             {
-                response = multipleChoice.Init();
+                response = multipleChoice.AwaitResponse();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -771,7 +767,7 @@ namespace PureHistory
 
             while (true)
             {
-                response = multipleChoice.Init();
+                response = multipleChoice.AwaitResponse();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -862,7 +858,7 @@ namespace PureHistory
 
             while (true)
             {
-                response = multipleChoice.Init();
+                response = multipleChoice.AwaitResponse();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -958,7 +954,7 @@ namespace PureHistory
 
             while (true)
             {
-                response = multipleChoice.Init();
+                response = multipleChoice.AwaitResponse();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -1041,7 +1037,7 @@ namespace PureHistory
 
             while (true)
             {
-                response = multipleChoice.Init();
+                response = multipleChoice.AwaitResponse();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -1136,7 +1132,7 @@ namespace PureHistory
 
             while (true)
             {
-                response = multipleChoice.Init();
+                response = multipleChoice.AwaitResponse();
 
                 if (response.ReturnToPrevious || response.ContinueToNext)
                 {
@@ -1233,7 +1229,7 @@ namespace PureHistory
 
             while (true)
             {
-                response = multipleChoice.Init();
+                response = multipleChoice.AwaitResponse();
 
                 int amountSelectedOptions = 0;
 
@@ -1290,6 +1286,9 @@ namespace PureHistory
             }
         }
 
+        /// <summary>
+        /// Performs the mod installation
+        /// </summary>
         private static void PerformInstallation()
         {
             Clear();
@@ -1325,18 +1324,18 @@ namespace PureHistory
                 #region Extract files from the data archive
 
                 string executingPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string dataPath = Path.Combine(executingPath, "ModData.zip");
+                string dataArchivePath = Path.Combine(executingPath, "ModData.zip");
 
                 //If the data archive already exists, delete it
-                if (File.Exists(dataPath))
+                if (File.Exists(dataArchivePath))
                 {
-                    File.Delete(dataPath);
+                    File.Delete(dataArchivePath);
                 }
 
                 //Write the Mod Data Resource to a File
                 try
                 {
-                    File.WriteAllBytes(dataPath, ModData.ModDataArchive);
+                    File.WriteAllBytes(dataArchivePath, ModData.ModDataArchive);
                 }
                 catch (Exception ex)
                 {
@@ -1346,16 +1345,16 @@ namespace PureHistory
                     return;
                 }
 
-                string modsSrcPath = Path.Combine(executingPath, "data");
+                string dataSourcePath = Path.Combine(executingPath, "data");
 
-                if (Directory.Exists(modsSrcPath))
+                if (Directory.Exists(dataSourcePath))
                 {
-                    Directory.Delete(modsSrcPath, true);
+                    Directory.Delete(dataSourcePath, true);
                 }
 
                 try
                 {
-                    ZipFile.ExtractToDirectory(dataPath, modsSrcPath);
+                    ZipFile.ExtractToDirectory(dataArchivePath, dataSourcePath);
                 }
                 catch (Exception ex)
                 {
@@ -1391,6 +1390,7 @@ namespace PureHistory
 
                 installation.InstallMO = false;
 
+                //Set the dependencies for comparison with the values in the xml file
                 if (modInstallation.ArpeggioOptions.RemovePrefixes)
                 {
                     installation.DependencyList.Add("ArpeggioOptions.RemovePrefixes");
@@ -1604,6 +1604,7 @@ namespace PureHistory
                     installation.InstallMO = true;
                 }
 
+                //Load the xml file
                 XmlDocument modDataTable = new XmlDocument();
                 modDataTable.LoadXml(ModData.ModDataTable);
                 XmlNode rootNode = modDataTable.SelectSingleNode("data");
@@ -1611,8 +1612,10 @@ namespace PureHistory
                 XmlNode filetreeNode = rootNode.ChildNodes[0];
                 XmlNode moStringsNode = rootNode.ChildNodes[1];
 
+                //Populate FileList and DirectoryList structures by reading the xml tree recursively
                 installation = ReadFiletree(filetreeNode.ChildNodes, installation);
 
+                //Read the MO Entries of the xml file
                 for (int i = 0; i < moStringsNode.ChildNodes.Count; i++)
                 {
                     XmlNode entryNode = moStringsNode.ChildNodes[i];
@@ -1661,18 +1664,20 @@ namespace PureHistory
                     }
                 }
 
+                //Create folders
                 foreach (string directory in installation.DirectoryList)
                 {
-                    if (!Directory.Exists(Path.Combine(modsPath, directory)) && !directory.Contains("alternative"))
+                    if (!Directory.Exists(Path.Combine(resModsPath, directory)) && !directory.Contains("alternative"))
                     {
-                        Directory.CreateDirectory(Path.Combine(modsPath, directory));
+                        Directory.CreateDirectory(Path.Combine(resModsPath, directory));
                     }
                 }
 
+                //Copy files
                 foreach (string file in installation.FileList)
                 {
-                    string sourcePath = Path.Combine(modsSrcPath, file);
-                    string destinationPath = Path.Combine(modsPath, file);
+                    string sourcePath = Path.Combine(dataSourcePath, file);
+                    string destinationPath = Path.Combine(resModsPath, file);
 
                     if (destinationPath.Contains("alternative"))
                     {
@@ -1718,28 +1723,29 @@ namespace PureHistory
                 {
                     //Folders for the Installation of the global.mo file
 
-                    if (!Directory.Exists(Path.Combine(modsPath, "texts")))
+                    if (!Directory.Exists(Path.Combine(resModsPath, "texts")))
                     {
-                        Directory.CreateDirectory(Path.Combine(modsPath, "texts"));
+                        Directory.CreateDirectory(Path.Combine(resModsPath, "texts"));
                     }
 
-                    if (!Directory.Exists(Path.Combine(modsPath, "texts", clientLang)))
+                    if (!Directory.Exists(Path.Combine(resModsPath, "texts", clientLang)))
                     {
-                        Directory.CreateDirectory(Path.Combine(modsPath, "texts", clientLang));
+                        Directory.CreateDirectory(Path.Combine(resModsPath, "texts", clientLang));
                     }
 
-                    if (!Directory.Exists(Path.Combine(modsPath, "texts", clientLang, "LC_MESSAGES")))
+                    if (!Directory.Exists(Path.Combine(resModsPath, "texts", clientLang, "LC_MESSAGES")))
                     {
-                        Directory.CreateDirectory(Path.Combine(modsPath, "texts", clientLang, "LC_MESSAGES"));
+                        Directory.CreateDirectory(Path.Combine(resModsPath, "texts", clientLang, "LC_MESSAGES"));
                     }
 
                     //If there is already an .mo file in res_mods, the program will use it. If not, it will copy the original from the res folder
-                    string moFilePath = Path.Combine(modsPath, "texts", clientLang, "LC_MESSAGES", "global.mo");
+                    string moFilePath = Path.Combine(resModsPath, "texts", clientLang, "LC_MESSAGES", "global.mo");
                     if (!File.Exists(moFilePath))
                     {
                         File.Copy(Path.Combine(binPath, "res", "texts", clientLang, "LC_MESSAGES", "global.mo"), moFilePath);
                     }
 
+                    //Update the translation file
                     try
                     {
                         WriteLine(Resources.MOProgress);
@@ -1778,8 +1784,8 @@ namespace PureHistory
                         WriteLine($"{Resources.MOProgressFinished1} {moFilePath} {Resources.MOProgressFinished2}");
 
                         //Delete the folder extracted by the data.zip archive
-                        Directory.Delete(modsSrcPath, true);
-                        File.Delete(dataPath);
+                        Directory.Delete(dataSourcePath, true);
+                        File.Delete(dataArchivePath);
                     }
                     catch (Exception ex)
                     {
@@ -1795,7 +1801,7 @@ namespace PureHistory
                 WriteLine();
 
                 //Detect ModStation
-                if (File.Exists(Path.Combine(modsPath, "ModStation.txt")))
+                if (File.Exists(Path.Combine(resModsPath, "ModStation.txt")))
                 {
                     WriteLine($"{Resources.ModStationWarning}\r\n");
                 }
@@ -1812,8 +1818,17 @@ namespace PureHistory
             }
         }
 
+        /// <summary>
+        /// Reports a successful file copy to the user
+        /// </summary>
+        /// <param name="fullpath">The file with full path</param>
         private static void ReportFileCopy(string fullpath) => WriteLine($"{Resources.CopyProgressString1} \"{Path.GetFileName(fullpath)}\" {Resources.CopyProgressString2} {Path.GetDirectoryName(fullpath)} {Resources.CopyProgressString3}");
 
+        /// <summary>
+        /// Reports a file conflict to the user.
+        /// </summary>
+        /// <param name="fullpath">The conflicting file with full path</param>
+        /// <returns></returns>
         private static bool ReportFileConflict(string fullpath)
         {
             if (modInstallation.InstallationOptions.AskForEach)
@@ -1829,7 +1844,7 @@ namespace PureHistory
 
                 string[] options = { Resources.DoNotOverwrite, Resources.Overwrite };
                 Menu selectLanguageMenu = new Menu(consoleContent, options);
-                int selectedIndex = selectLanguageMenu.Init();
+                int selectedIndex = selectLanguageMenu.AwaitResponse();
 
                 return selectedIndex switch
                 {
@@ -1844,6 +1859,12 @@ namespace PureHistory
             }
         }
 
+        /// <summary>
+        /// Reads the Xml file tree recursively and returns the InstallationProperties instance back
+        /// </summary>
+        /// <param name="nodes"></param>
+        /// <param name="installation"></param>
+        /// <returns></returns>
         private static InstallationProperties ReadFiletree(XmlNodeList nodes, InstallationProperties installation)
         {
             foreach (XmlNode node in nodes)

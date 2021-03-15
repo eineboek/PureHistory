@@ -131,6 +131,9 @@ namespace PureHistory
         public bool WestVirginia41_CorrectName { get; set; }
     }
 
+    /// <summary>
+    /// Holds the options for file copy behaviour
+    /// </summary>
     internal class InstallationOptions
     {
         public bool NoOverwrite { get; set; }
@@ -138,6 +141,9 @@ namespace PureHistory
         public bool OverwriteAllConflicts { get; set; }
     }
 
+    /// <summary>
+    /// Class for storing information about the current mod installation
+    /// </summary>
     internal class InstallationProperties
     {
         public InstallationProperties()
@@ -148,14 +154,17 @@ namespace PureHistory
             MOEntries = new List<MOEntry>();
         }
 
-        public bool Overwrite { get; set; }
+        public bool Overwrite { get; set; } //Boolean value used for the File.Copy() method
         public List<string> DependencyList { get; set; }
         public List<string> FileList { get; set; }
         public List<string> DirectoryList { get; set; }
-        public bool InstallMO { get; set; }
+        public bool InstallMO { get; set; } //Whether the User has selected any game strings to be changed
         public List<MOEntry> MOEntries { get; set; }
     }
 
+    /// <summary>
+    /// Describes a line in the translation (.mo) file
+    /// </summary>
     internal class MOEntry
     {
         public enum MOContentType
@@ -165,8 +174,8 @@ namespace PureHistory
             DESCR
         }
 
-        public string ID { get; set; }
-        public string Content { get; set; }
-        public MOContentType ContentType { get; set; }
+        public string ID { get; set; } //Internal identifier e.g. IDS_EXAMPLE
+        public string Content { get; set; } //The content assigned to the identifier
+        public MOContentType ContentType { get; set; } //Type of content
     }
 }

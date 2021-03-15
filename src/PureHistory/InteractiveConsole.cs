@@ -13,10 +13,10 @@ namespace PureHistory
         private string[] consoleContent;
 
         /// <summary>
-        /// Creates a new instance of the Menu class
+        /// Standard constructor for the Menu class
         /// </summary>
-        /// <param name="_title">The line of text to be displayed at the top of the menu</param>
-        /// <param name="_options">The available options</param>
+        /// <param name="consoleContent">The Console content to be displayed on top of the menu, including title</param>
+        /// <param name="options">The available options</param>
         public Menu(string[] consoleContent, string[] options)
         {
             this.consoleContent = consoleContent;
@@ -29,6 +29,7 @@ namespace PureHistory
         /// </summary>
         private void Draw()
         {
+            //Write the Console Content
             foreach (string line in consoleContent)
             {
                 WriteLine(line);
@@ -61,7 +62,7 @@ namespace PureHistory
         /// Initializes the options screen
         /// </summary>
         /// <returns>The index of the item that the user has clicked enter at</returns>
-        public int Init()
+        public int AwaitResponse()
         {
             ConsoleKey keyPressed;
             do
@@ -111,6 +112,7 @@ namespace PureHistory
         /// Creates a new Option class instance
         /// </summary>
         /// <param name="title">The line of text to be displayed at the top of the options</param>
+        /// <param name="warning">A text displayed under the title with red color accentuation</param>
         /// <param name="choices">The available choices</param>
         /// <param name="choiceSelection">Which of the options is selected. Standard should be : all false</param>
         public MultipleChoiceOption(string title, string warning, string[] choices, bool[] choiceSelection)
@@ -122,6 +124,12 @@ namespace PureHistory
             selectedIndex = 0;
         }
 
+        /// <summary>
+        /// Creates a new Option class instance
+        /// </summary>
+        /// <param name="title">The line of text to be displayed at the top of the options</param>
+        /// <param name="choices">The available choices</param>
+        /// <param name="choiceSelection">Which of the options is selected. Standard should be : all false</param>
         public MultipleChoiceOption(string title, string[] choices, bool[] choiceSelection)
         {
             this.title = title;
@@ -200,8 +208,8 @@ namespace PureHistory
         /// <summary>
         /// Initializes the options screen
         /// </summary>
-        /// <returns>This method returns a MultipleChocieResponse object which stores the data</returns>
-        public MultipleChoiceResponse Init()
+        /// <returns>This method returns a MultipleChoiceResponse object which stores the response data</returns>
+        public MultipleChoiceResponse AwaitResponse()
         {
             ConsoleKey keyPressed;
             while (true)

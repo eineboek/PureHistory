@@ -8,7 +8,7 @@ namespace ModData
     internal class Program
     {
         /// <summary>
-        /// This program is a helper project to compile the mod files for the PureHistory Application.
+        /// This program is a helper project to copy the mod files for the PureHistory Application.
         /// </summary>
         private static void Main()
         {
