@@ -20,7 +20,7 @@
         BlackShipOptions.ReplacePreviews
         LimaShipOptions.ReplacePreviews
         MiscellaneousOptions.KamikazeR_ReplacePreview
-        MiscellaneousOptions.AlabamaST_ReplacePreview
+        MiscellaneousOptions.AlabamaVersions_ReplacePreview
       </dependents>
       <folder name="nation_flags">
         <dependents>
@@ -589,15 +589,19 @@
           BlackShipOptions.ReplacePreviews
           LimaShipOptions.ReplacePreviews
           MiscellaneousOptions.KamikazeR_ReplacePreview
-          MiscellaneousOptions.AlabamaST_ReplacePreview
+          MiscellaneousOptions.AlabamaVersions_ReplacePreview
         </dependents>
+        <!--PASB528	Alabama VL-->
+        <file name="PASB528.png">
+          <dependents>MiscellaneousOptions.AlabamaVersions_ReplacePreview</dependents>
+        </file>
         <!--PASB598	Massachusetts B-->
         <file name="PASB598.png">
           <dependents>BlackShipOptions.ReplacePreviews</dependents>
         </file>
         <!--PASB708	Alabama ST-->
         <file name="PASB708.png">
-          <dependents>MiscellaneousOptions.AlabamaST_ReplacePreview</dependents>
+          <dependents>MiscellaneousOptions.AlabamaVersions_ReplacePreview</dependents>
         </file>
         <!--PASC045	Marblehead L-->
         <file name="PASC045.png">
@@ -776,15 +780,19 @@
           BlackShipOptions.ReplacePreviews
           LimaShipOptions.ReplacePreviews
           MiscellaneousOptions.KamikazeR_ReplacePreview
-          MiscellaneousOptions.AlabamaST_ReplacePreview
+          MiscellaneousOptions.AlabamaVersions_ReplacePreview
         </dependents>
+        <!--PASB528	Alabama VL-->
+        <file name="PASB528.png">
+          <dependents>MiscellaneousOptions.AlabamaVersions_ReplacePreview</dependents>
+        </file>
         <!--PASB598	Massachusetts B-->
         <file name="PASB598.png">
           <dependents>BlackShipOptions.ReplacePreviews</dependents>
         </file>
         <!--PASB708	Alabama ST-->
         <file name="PASB708.png">
-          <dependents>MiscellaneousOptions.AlabamaST_ReplacePreview</dependents>
+          <dependents>MiscellaneousOptions.AlabamaVersions_ReplacePreview</dependents>
         </file>
         <!--PASC045	Marblehead L-->
         <file name="PASC045.png">
@@ -1920,18 +1928,35 @@
     <!--PASB708	Alabama ST -->
     <entry id="IDS_PASB708">
       <type>NAME</type>
-      <dependents>MiscellaneousOptions.AlabamaST_RemoveSuffix</dependents>
+      <dependents>MiscellaneousOptions.AlabamaVersions_RemoveSuffix</dependents>
       <content>Alabama</content>
     </entry>
     <entry id="IDS_PASB708_FULL">
       <type>NAME_FULL</type>
-      <dependents>MiscellaneousOptions.AlabamaST_RemoveSuffix</dependents>
+      <dependents>MiscellaneousOptions.AlabamaVersions_RemoveSuffix</dependents>
       <content>Alabama</content>
     </entry>
     <entry id="IDS_PASB708_DESCR">
       <type>DESCR</type>
-      <dependents>MiscellaneousOptions.AlabamaST_UpdateDescription</dependents>
+      <dependents>MiscellaneousOptions.AlabamaVersions_UpdateDescription</dependents>
       <content>(Alabama ST)</content>
+    </entry>
+
+    <!--PASB528 Alabama VL-->
+    <entry id="IDS_PASB528">
+      <type>NAME</type>
+      <dependents>MiscellaneousOptions.AlabamaVersions_RemoveSuffix</dependents>
+      <content>Alabama</content>
+    </entry>
+    <entry id="IDS_PASB528_FULL">
+      <type>NAME_FULL</type>
+      <dependents>MiscellaneousOptions.AlabamaVersions_RemoveSuffix</dependents>
+      <content>Alabama</content>
+    </entry>
+    <entry id="IDS_PASB528_DESCR">
+      <type>DESCR</type>
+      <dependents>MiscellaneousOptions.AlabamaVersions_UpdateDescription</dependents>
+      <content>(Alabama VL)</content>
     </entry>
 
     <!--PJSC026	Iwaki A -->

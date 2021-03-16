@@ -6,7 +6,7 @@
     <StartupObject>ModData.Program</StartupObject>
     <AssemblyName>createmoddata</AssemblyName>
     <Platforms>x86</Platforms>
-    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
 
   <ItemGroup>
@@ -379,6 +379,9 @@
     <None Update="filetree\gui\ship_own_icons\PJSC737.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="filetree\gui\ship_previews\PASB528.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="filetree\gui\ship_previews\PASB598.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -506,6 +509,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="filetree\gui\ship_previews\PZSC518.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PASB528.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="filetree\gui\ship_previews_ds\PASB598.png">

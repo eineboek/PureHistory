@@ -143,7 +143,17 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Enter the path to the desired World of Warships installation ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enter the path to the selected World of Warships installation.
+        ///The path should point to the res_mods folder. ähnelt.
+        /// </summary>
+        internal static string ClientManualSelectionTitle {
+            get {
+                return ResourceManager.GetString("ClientManualSelectionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select the desired World of Warships version ähnelt.
         /// </summary>
         internal static string ClientSelectionTitle {
             get {
@@ -407,7 +417,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;ST&apos; suffix of Alabama ST ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove suffixes of all Alabama duplicates (ST/VL) ähnelt.
         /// </summary>
         internal static string MiscAlabamaSuffix {
             get {
@@ -631,6 +641,15 @@ namespace PureHistory {
         internal static string SelectLanguage {
             get {
                 return ResourceManager.GetString("SelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select manually ähnelt.
+        /// </summary>
+        internal static string SelectManual {
+            get {
+                return ResourceManager.GetString("SelectManual", resourceCulture);
             }
         }
         

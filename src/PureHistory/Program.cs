@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
@@ -15,7 +16,7 @@ namespace PureHistory
     internal class Program : ConsoleLog
     {
         private static string wowsPath; //Holds the Path for the selected World of Warships installation
-        private static string binPath; //Holds the Path for the latest build (highest number) in the WoWs "bin" folder
+        private static string binPath; //Holds the Path for the selected build in the WoWs "bin" folder
         private static string resModsPath; //Holds the Path for the res_mods folder that the mod will be installed in
 
         private static ModInstallation modInstallation;
@@ -99,136 +100,194 @@ namespace PureHistory
         }
 
         /// <summary>
-        /// The user specifies the path of his client installation.
+        /// The program determines the available World of Warships Installation and the user can select one
         /// </summary>
         private static void ClientSelection()
         {
             Clear();
 
+            List<string> wowsPaths = new List<string>();
+            List<string> resModsPaths = new List<string>();
+            List<string> optionNames = new List<string>();
+            List<string> optionVersions = new List<string>();
+
+            string wgAppDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "Wargaming.net", "GameCenter", "apps");
+
+            if (Directory.Exists(wgAppDataPath))
+            {
+                foreach (string app in Directory.GetDirectories(wgAppDataPath))
+                {
+                    if (app.Contains("wows"))
+                    {
+                        string pathInfo = null;
+
+                        try
+                        {
+                            pathInfo = Directory.GetFiles(app)[0]; //There should only be one file in that folder
+                        }
+                        catch
+                        {
+                        }
+
+                        if (pathInfo != null)
+                        {
+                            using StreamReader streamReader = new StreamReader(pathInfo);
+                            {
+                                string proposedWowsPath = streamReader.ReadToEnd();
+
+                                if (!wowsPaths.Contains(proposedWowsPath) && Directory.Exists(proposedWowsPath))
+                                {
+                                    wowsPaths.Add(proposedWowsPath);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            foreach (string propsedWowsPath in wowsPaths)
+            {
+                if (File.Exists(Path.Combine(propsedWowsPath, "WorldOfWarships.exe")))
+                {
+                    try
+                    {
+                        XmlDocument gameinfo = new XmlDocument();
+                        gameinfo.Load(Path.Combine(propsedWowsPath, "game_info.xml"));
+                        XmlNode node = gameinfo.DocumentElement.SelectSingleNode("/protocol/game/id");
+                        if (node.InnerText == "WOWS.WW.PRODUCTION")
+                        {
+                            optionNames.Add("World of Warships");
+                        }
+                        else if (node.InnerText == "WOWS.PT.PRODUCTION")
+                        {
+                            optionNames.Add("World of Warships Public Test");
+                        }
+                        else
+                        {
+                            optionNames.Add(node.InnerText);
+                        }
+
+                        string proposedBinDir = Path.Combine(propsedWowsPath, "bin");
+                        List<string> proposedBinPaths = Directory.GetDirectories(proposedBinDir).ToList();
+                        foreach (string proposedVersionPath in proposedBinPaths)
+                        {
+                            if (File.Exists(Path.Combine(proposedVersionPath, "bin64", "WorldOfWarships64.exe")) && Directory.Exists(Path.Combine(proposedVersionPath, "res_mods")))
+                            {
+                                optionVersions.Add(FileVersionInfo.GetVersionInfo(Path.Combine(proposedVersionPath, "bin64", "WorldOfWarships64.exe")).FileVersion.Replace(',', '.'));
+                                resModsPaths.Add(Path.Combine(proposedVersionPath, "res_mods"));
+                            }
+                        }
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+
+            string[] title = { Resources.ClientSelectionTitle };
+
+            string[] options = new string[optionNames.Count + 1];
+            for (int i = 0; i < optionNames.Count; i++)
+            {
+                options[i] = $"{optionNames[i]} - Version {optionVersions[i]}";
+            }
+            options[^1] = Resources.SelectManual;
+
+            Menu selectLanguageMenu = new Menu(title, options);
+            int selectedIndex = selectLanguageMenu.AwaitResponse();
+
+            //
+            if (selectedIndex < options.Length - 1)
+            {
+                resModsPath = resModsPaths[selectedIndex];
+                binPath = Path.GetDirectoryName(resModsPath);
+                wowsPath = Path.GetDirectoryName(Path.GetDirectoryName(binPath));
+            }
+            else
+            {
+                ClientManualSelection();
+                return;
+            }
+
+            //Start the first option screen
+            ArpeggioSelection();
+        }
+
+        /// <summary>
+        /// The program determines the available World of Warships Installation and the user can select one
+        /// </summary>
+        private static void ClientManualSelection()
+        {
+            Clear();
+
             //Display info about the Path format and examples
-            WriteLine(Resources.ClientSelectionTitle);
+            WriteLine(Resources.ClientManualSelectionTitle);
             WriteLine();
             WriteLine(Resources.PathFormatExamples);
-            WriteLine(@"C:\Games\World_of_Warships");
-            WriteLine(@"C:\Program Files (x86)\Steam\steamapps\common\World of Warships");
+            WriteLine(@"C:\Games\World_of_Warships\bin\xxxxxxx\res_mods");
+            WriteLine(@"C:\Program Files (x86)\Steam\steamapps\common\World of Warships\bin\xxxxxxx\res_mods");
             WriteLine();
 
-            //Read user input to wowsPath
+            //Read user input to resModsPath
             //Get formatted string with extension method
-            wowsPath = ReadLine().ParsePath();
+            resModsPath = ReadLine().ParsePath();
 
-            if (string.IsNullOrWhiteSpace(wowsPath))
+            if (string.IsNullOrWhiteSpace(resModsPath))
             {
                 WriteLine(Resources.EmptyPath);
                 WriteLine(Resources.PressAnyKey);
                 ReadKey();
-                ClientSelection();
+                ClientManualSelection();
             }
-            else if (!Directory.Exists(wowsPath))
+            else if (!Directory.Exists(resModsPath))
             {
                 WriteLine(Resources.PathDoesntExist);
                 WriteLine(Resources.PressAnyKey);
                 ReadKey();
-                ClientSelection();
+                ClientManualSelection();
             }
             else
             {
-                string[] log = GetLog();
+                binPath = Path.GetDirectoryName(resModsPath);
+                wowsPath = Path.GetDirectoryName(Path.GetDirectoryName(binPath));
 
-                string[] consoleContent = new string[log.Length + 1];
-                for (int i = 0; i < log.Length; i++)
+                if (File.Exists(Path.Combine(wowsPath, "WorldOfWarships.exe")))
                 {
-                    consoleContent[i] = log[i];
-                }
-                consoleContent[^1] = $"{Resources.PathCorrection}: {wowsPath}";
+                    string[] log = GetLog();
 
-                string[] options = { Resources.Yes, Resources.No };
-                Menu selectLanguageMenu = new Menu(consoleContent, options);
-                int selectedIndex = selectLanguageMenu.AwaitResponse();
-
-                if (selectedIndex == 0) //If response is yes, check the specified path for the WoWs client
-                {
-                    if (File.Exists(Path.Combine(wowsPath, "WorldOfWarships.exe")))
+                    string[] consoleContent = new string[log.Length + 1];
+                    for (int i = 0; i < log.Length; i++)
                     {
-                        try
-                        {
-                            //Get the Path of the latest build and res_mods folder by listing all available builds
-                            string buildPath = Path.Combine(wowsPath, "bin");
-                            List<int> buildList = new List<int>();
-                            foreach (string build in Directory.GetDirectories(buildPath).Select(d => Path.GetRelativePath(buildPath, d)))
-                            {
-                                buildList.Add(Convert.ToInt32(build));
-                            }
-                            buildList = buildList.OrderByDescending(p => p).ToList();
-                            int[] buildListArray = buildList.ToArray();
-                            binPath = Path.Combine(buildPath, buildListArray[0].ToString());
-                            resModsPath = Path.Combine(binPath, "res_mods");
-                        }
-                        catch //In case of an error, the selection will be restarted
-                        {
-                            WriteLine();
-                            WriteLine(Resources.GenericError);
-                            WriteLine(Resources.CannotFindStructure);
-                            WriteLine(Resources.PressAnyKey);
-                            ReadKey();
-                            ClientSelection();
-                        }
+                        consoleContent[i] = log[i];
                     }
-                    else //If the client wasnt found in the specified path, display information to the user wether he would like to continue regardless
+                    consoleContent[^1] = $"{Resources.PathCorrection}: {resModsPath}";
+
+                    string[] options = { Resources.Yes, Resources.No };
+                    Menu selectLanguageMenu = new Menu(consoleContent, options);
+                    int selectedIndex = selectLanguageMenu.AwaitResponse();
+
+                    switch (selectedIndex) //If response is yes, the client selection is finished
                     {
-                        WriteLine();
+                        case 0:
+                            break;
 
-                        log = GetLog();
+                        case 1:
+                            ClientManualSelection();
+                            break;
 
-                        consoleContent = new string[log.Length + 1];
-
-                        for (int i = 0; i < log.Length; i++)
-                        {
-                            consoleContent[i] = log[i];
-                        }
-                        consoleContent[^1] = Resources.WoWsNotFound;
-
-                        selectLanguageMenu = new Menu(consoleContent, options);
-                        selectedIndex = selectLanguageMenu.AwaitResponse();
-
-                        if (selectedIndex == 0) //Continue regardless
-                        {
-                            try
-                            {
-                                //Get the Path of the latest build and res_mods folder by listing all available builds
-                                string buildPath = Path.Combine(wowsPath, "bin");
-                                List<int> buildList = new List<int>();
-                                foreach (string build in Directory.GetDirectories(buildPath).Select(d => Path.GetRelativePath(buildPath, d)))
-                                {
-                                    buildList.Add(Convert.ToInt32(build));
-                                }
-                                buildList = buildList.OrderByDescending(p => p).ToList();
-                                int[] buildListArray = buildList.ToArray();
-                                binPath = Path.Combine(buildPath, buildListArray[0].ToString());
-                                resModsPath = Path.Combine(binPath, "res_mods");
-                            }
-                            catch //In case of an error, the selection will be restarted
-                            {
-                                WriteLine();
-                                WriteLine(Resources.GenericError);
-                                WriteLine(Resources.CannotFindStructure);
-                                WriteLine(Resources.PressAnyKey);
-                                ReadKey();
-                                ClientSelection();
-                            }
-                        }
-                        else if (selectedIndex == 1) //If response is no, restart the selection
-                        {
-                            ClientSelection();
-                        }
+                        default:
+                            break;
                     }
                 }
-                else if (selectedIndex == 1) //If response is no, restart the selection
+                else //If the client wasnt found, the user cant install the mod at this path
                 {
-                    ClientSelection();
+                    WriteLine();
+                    WriteLine(Resources.GenericError);
+                    WriteLine(Resources.CannotFindStructure);
+                    WriteLine(Resources.PressAnyKey);
+                    ReadKey();
+                    ClientManualSelection();
                 }
-
-                //Start the first option screen
                 ArpeggioSelection();
             }
         }
@@ -1103,9 +1162,9 @@ namespace PureHistory
                 optionSelection[0] = miscellaneousOptions.KamikazeR_RemoveSuffix;
                 optionSelection[1] = miscellaneousOptions.KamikazeR_UpdateDescription;
                 optionSelection[2] = miscellaneousOptions.KamikazeR_ReplacePreview;
-                optionSelection[3] = miscellaneousOptions.AlabamaST_RemoveSuffix;
-                optionSelection[4] = miscellaneousOptions.AlabamaST_UpdateDescription;
-                optionSelection[5] = miscellaneousOptions.AlabamaST_ReplacePreview;
+                optionSelection[3] = miscellaneousOptions.AlabamaVersions_RemoveSuffix;
+                optionSelection[4] = miscellaneousOptions.AlabamaVersions_UpdateDescription;
+                optionSelection[5] = miscellaneousOptions.AlabamaVersions_ReplacePreview;
                 optionSelection[6] = miscellaneousOptions.IwakiA_RemoveSuffix;
                 optionSelection[7] = miscellaneousOptions.ArkansasB_RemoveSuffix;
                 optionSelection[8] = miscellaneousOptions.WestVirginia41_CorrectName;
@@ -1168,9 +1227,9 @@ namespace PureHistory
                 miscellaneousOptions.KamikazeR_RemoveSuffix = optionSelection[0];
                 miscellaneousOptions.KamikazeR_UpdateDescription = optionSelection[1];
                 miscellaneousOptions.KamikazeR_ReplacePreview = optionSelection[2];
-                miscellaneousOptions.AlabamaST_RemoveSuffix = optionSelection[3];
-                miscellaneousOptions.AlabamaST_UpdateDescription = optionSelection[4];
-                miscellaneousOptions.AlabamaST_ReplacePreview = optionSelection[5];
+                miscellaneousOptions.AlabamaVersions_RemoveSuffix = optionSelection[3];
+                miscellaneousOptions.AlabamaVersions_UpdateDescription = optionSelection[4];
+                miscellaneousOptions.AlabamaVersions_ReplacePreview = optionSelection[5];
                 miscellaneousOptions.IwakiA_RemoveSuffix = optionSelection[6];
                 miscellaneousOptions.ArkansasB_RemoveSuffix = optionSelection[7];
                 miscellaneousOptions.WestVirginia41_CorrectName = optionSelection[8];
@@ -1184,9 +1243,9 @@ namespace PureHistory
                 miscellaneousOptions.KamikazeR_RemoveSuffix = optionSelection[0];
                 miscellaneousOptions.KamikazeR_UpdateDescription = optionSelection[1];
                 miscellaneousOptions.KamikazeR_ReplacePreview = optionSelection[2];
-                miscellaneousOptions.AlabamaST_RemoveSuffix = optionSelection[3];
-                miscellaneousOptions.AlabamaST_UpdateDescription = optionSelection[4];
-                miscellaneousOptions.AlabamaST_ReplacePreview = optionSelection[5];
+                miscellaneousOptions.AlabamaVersions_RemoveSuffix = optionSelection[3];
+                miscellaneousOptions.AlabamaVersions_UpdateDescription = optionSelection[4];
+                miscellaneousOptions.AlabamaVersions_ReplacePreview = optionSelection[5];
                 miscellaneousOptions.IwakiA_RemoveSuffix = optionSelection[6];
                 miscellaneousOptions.ArkansasB_RemoveSuffix = optionSelection[7];
                 miscellaneousOptions.WestVirginia41_CorrectName = optionSelection[8];
@@ -1574,19 +1633,19 @@ namespace PureHistory
                 {
                     installation.DependencyList.Add("MiscellaneousOptions.KamikazeR_ReplacePreview");
                 }
-                if (modInstallation.MiscellaneousOptions.AlabamaST_RemoveSuffix)
+                if (modInstallation.MiscellaneousOptions.AlabamaVersions_RemoveSuffix)
                 {
-                    installation.DependencyList.Add("MiscellaneousOptions.AlabamaST_RemoveSuffix");
+                    installation.DependencyList.Add("MiscellaneousOptions.AlabamaVersions_RemoveSuffix");
                     installation.InstallMO = true;
                 }
-                if (modInstallation.MiscellaneousOptions.AlabamaST_UpdateDescription)
+                if (modInstallation.MiscellaneousOptions.AlabamaVersions_UpdateDescription)
                 {
-                    installation.DependencyList.Add("MiscellaneousOptions.AlabamaST_UpdateDescription");
+                    installation.DependencyList.Add("MiscellaneousOptions.AlabamaVersions_UpdateDescription");
                     installation.InstallMO = true;
                 }
-                if (modInstallation.MiscellaneousOptions.AlabamaST_ReplacePreview)
+                if (modInstallation.MiscellaneousOptions.AlabamaVersions_ReplacePreview)
                 {
-                    installation.DependencyList.Add("MiscellaneousOptions.AlabamaST_ReplacePreview");
+                    installation.DependencyList.Add("MiscellaneousOptions.AlabamaVersions_ReplacePreview");
                 }
                 if (modInstallation.MiscellaneousOptions.IwakiA_RemoveSuffix)
                 {

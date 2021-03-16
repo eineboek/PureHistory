@@ -145,9 +145,6 @@ Replacing the ship name with the regular counterpart name could lead to a misjud
   <data name="CannotFindStructure" xml:space="preserve">
     <value>PureHistory cannot be installed to the specified path.</value>
   </data>
-  <data name="ClientSelectionTitle" xml:space="preserve">
-    <value>Enter the path to the desired World of Warships installation</value>
-  </data>
   <data name="Continue" xml:space="preserve">
     <value>Continue</value>
   </data>
@@ -201,7 +198,7 @@ Replacing the ship name with the regular counterpart name (Kagerō) could lead t
     <value>Settings for Lunar New Year Ships</value>
   </data>
   <data name="MiscAlabamaSuffix" xml:space="preserve">
-    <value>Remove 'ST' suffix of Alabama ST</value>
+    <value>Remove suffixes of all Alabama duplicates (ST/VL)</value>
   </data>
   <data name="MiscArkansasSuffix" xml:space="preserve">
     <value>Remove 'B' suffix of Arkansas Beta</value>
@@ -338,5 +335,15 @@ Example: Either a part of a ship name is replaced or the whole ship name with an
   </data>
   <data name="MOProgressFinished2" xml:space="preserve">
     <value />
+  </data>
+  <data name="ClientManualSelectionTitle" xml:space="preserve">
+    <value>Enter the path to the selected World of Warships installation.
+The path should point to the res_mods folder.</value>
+  </data>
+  <data name="ClientSelectionTitle" xml:space="preserve">
+    <value>Select the desired World of Warships version</value>
+  </data>
+  <data name="SelectManual" xml:space="preserve">
+    <value>Select manually</value>
   </data>
 </root>

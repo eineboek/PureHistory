@@ -145,8 +145,9 @@ Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu ein
   <data name="CannotFindStructure" xml:space="preserve">
     <value>PureHistory kann in der angegebenen Ordnerstruktur nicht installiert werden.</value>
   </data>
-  <data name="ClientSelectionTitle" xml:space="preserve">
-    <value>Geben sie den Pfad der gewünschten World of Warships-Installation ein</value>
+  <data name="ClientManualSelectionTitle" xml:space="preserve">
+    <value>Geben sie den Pfad der gewünschten World of Warships-Installation ein.
+Der Pfad sollte auf den res_mods-Ordner verweisen.</value>
   </data>
   <data name="Continue" xml:space="preserve">
     <value>Weiter</value>
@@ -201,7 +202,7 @@ Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks (Kagerō) k
     <value>Einstellungen für Mondneujahr-Schiffe</value>
   </data>
   <data name="MiscAlabamaSuffix" xml:space="preserve">
-    <value>'ST'-Suffix von Alabama ST entfernen</value>
+    <value>Suffixe der Alabama-Duplikate (ST/VL) entfernen</value>
   </data>
   <data name="MiscArkansasSuffix" xml:space="preserve">
     <value>'B'-Suffix von Arkansas Beta entfernen</value>
@@ -326,5 +327,11 @@ Beispiel: Entweder wird ein Teil eines Schiffsnamens ersetzt oder der ganze Schi
   </data>
   <data name="MOProgressFinished2" xml:space="preserve">
     <value>gespeichert.</value>
+  </data>
+  <data name="ClientSelectionTitle" xml:space="preserve">
+    <value>Wählen sie die gewünschte World of Warships-Installation aus</value>
+  </data>
+  <data name="SelectManual" xml:space="preserve">
+    <value>Manuell auswählen</value>
   </data>
 </root>

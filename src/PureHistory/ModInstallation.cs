@@ -122,9 +122,9 @@ namespace PureHistory
         public bool KamikazeR_UpdateDescription { get; set; }
         public bool KamikazeR_ReplacePreview { get; set; }
 
-        public bool AlabamaST_RemoveSuffix { get; set; }
-        public bool AlabamaST_UpdateDescription { get; set; }
-        public bool AlabamaST_ReplacePreview { get; set; }
+        public bool AlabamaVersions_RemoveSuffix { get; set; }
+        public bool AlabamaVersions_UpdateDescription { get; set; }
+        public bool AlabamaVersions_ReplacePreview { get; set; }
 
         public bool IwakiA_RemoveSuffix { get; set; }
         public bool ArkansasB_RemoveSuffix { get; set; }
