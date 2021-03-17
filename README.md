@@ -3,7 +3,7 @@
 
 Information about the mod/tool can be found here:
 
-https://forum.worldofwarships.eu/topic/147200-0101-purehistory-–-replacing-collaboration-content-and-other-aesthetical-changes/
+https://forum.worldofwarships.eu/topic/147200-0102-purehistory-–-tool-for-customizing-collaboration-content-and-other-aesthetical-changes/
 
 ## Navigation
 Arrow keys up/down for cursor movement between options
