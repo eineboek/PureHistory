@@ -11,7 +11,8 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Authors>eineboek</Authors>
     <Company>eineboek</Company>
-    <Description>This mod customizes collaboration content in the Wargaming.net game World of Warships.</Description>
+    <Description>This mod customizes collaboration content in the Wargaming.net game World of Warships.
+Compatible to World of Warships version 0.10.2 or below</Description>
     <Copyright>GNU General Public License v3.0</Copyright>
     <PackageLicenseExpression>GNU General Public License v3.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/eineboek/PureHistory</PackageProjectUrl>
