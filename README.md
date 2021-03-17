@@ -11,3 +11,6 @@ Arrow keys up/down for cursor movement between options
 ENTER key to toggle/select an option
 
 Arrow keys up/down to move to the previous/next page
+
+## Code License
+[GNU General Public License v3.0](https://github.com/eineboek/PureHistory/blob/master/LICENSE)
