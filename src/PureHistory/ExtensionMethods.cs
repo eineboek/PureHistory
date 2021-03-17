@@ -1,4 +1,6 @@
-﻿namespace PureHistory
+﻿using System.Collections.Generic;
+
+namespace PureHistory
 {
     internal static class ExtensionMethods
     {
@@ -19,6 +21,17 @@
             }
 
             return path;
+        }
+
+        public static List<WoWSInstallation> FilterDuplicates(this List<WoWSInstallation> list)
+        {
+            List<string> resModsPaths = new List<string>();
+            for (int i = 0; i < list.Count; i++)
+            {
+                WoWSInstallation installation = list[i];
+                resModsPaths.Add(installation.resModsPath);
+            }
+            return list;
         }
     }
 }

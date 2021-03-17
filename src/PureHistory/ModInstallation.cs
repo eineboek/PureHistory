@@ -178,4 +178,14 @@ namespace PureHistory
         public string Content { get; set; } //The content assigned to the identifier
         public MOContentType ContentType { get; set; } //Type of content
     }
+
+    internal class WoWSInstallation
+    {
+        public string wowsPath { get; set; }
+        public string binPath { get; set; }
+        public string resModsPath { get; set; }
+
+        public string Name { get; set; }
+        public string Version { get; set; }
+    }
 }

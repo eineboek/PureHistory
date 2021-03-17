@@ -15,9 +15,7 @@ namespace PureHistory
 {
     internal class Program : ConsoleLog
     {
-        private static string wowsPath; //Holds the Path for the selected World of Warships installation
-        private static string binPath; //Holds the Path for the selected build in the WoWs "bin" folder
-        private static string resModsPath; //Holds the Path for the res_mods folder that the mod will be installed in
+        private static WoWSInstallation wowsInstallation;
 
         private static ModInstallation modInstallation;
 
@@ -106,111 +104,107 @@ namespace PureHistory
         {
             Clear();
 
-            List<string> wowsPaths = new List<string>();
-            List<string> resModsPaths = new List<string>();
-            List<string> optionNames = new List<string>();
-            List<string> optionVersions = new List<string>();
+            List<WoWSInstallation> proposedInstallations = new List<WoWSInstallation>();
+            List<string> checkDuplicates = new List<string>();
 
             string wgAppDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "Wargaming.net", "GameCenter", "apps");
 
             if (Directory.Exists(wgAppDataPath))
             {
-                foreach (string app in Directory.GetDirectories(wgAppDataPath))
+                try
                 {
-                    if (app.Contains("wows"))
+                    foreach (string app in Directory.GetDirectories(wgAppDataPath))
                     {
-                        string pathInfo = null;
-
-                        try
+                        if (app.Contains("wows"))
                         {
+                            string pathInfo = null;
+
                             pathInfo = Directory.GetFiles(app)[0]; //There should only be one file in that folder
-                        }
-                        catch
-                        {
-                        }
 
-                        if (pathInfo != null)
-                        {
-                            using StreamReader streamReader = new StreamReader(pathInfo);
+                            if (pathInfo != null)
                             {
-                                string proposedWowsPath = streamReader.ReadToEnd();
-
-                                if (!wowsPaths.Contains(proposedWowsPath) && Directory.Exists(proposedWowsPath))
+                                using StreamReader streamReader = new StreamReader(pathInfo);
                                 {
-                                    wowsPaths.Add(proposedWowsPath);
+                                    string proposedWowsPath = streamReader.ReadToEnd();
+                                    if (Directory.Exists(proposedWowsPath) && !checkDuplicates.Contains(proposedWowsPath))
+                                    {
+                                        checkDuplicates.Add(proposedWowsPath);
+
+                                        if (File.Exists(Path.Combine(proposedWowsPath, "WorldOfWarships.exe")))
+                                        {
+                                            XmlDocument gameinfo = new XmlDocument();
+                                            gameinfo.Load(Path.Combine(proposedWowsPath, "game_info.xml"));
+                                            XmlNode node = gameinfo.DocumentElement.SelectSingleNode("/protocol/game/id");
+
+                                            string installationName = null;
+                                            if (node.InnerText == "WOWS.WW.PRODUCTION")
+                                            {
+                                                installationName = "World of Warships";
+                                            }
+                                            else if (node.InnerText == "WOWS.PT.PRODUCTION")
+                                            {
+                                                installationName = "World of Warships Public Test";
+                                            }
+                                            else
+                                            {
+                                                installationName = node.InnerText;
+                                            }
+
+                                            string proposedBinDir = Path.Combine(proposedWowsPath, "bin");
+                                            List<string> proposedBinPaths = Directory.GetDirectories(proposedBinDir).ToList();
+                                            foreach (string proposedVersionPath in proposedBinPaths)
+                                            {
+                                                if (File.Exists(Path.Combine(proposedVersionPath, "bin64", "WorldOfWarships64.exe")) && Directory.Exists(Path.Combine(proposedVersionPath, "res_mods")) && installationName != null)
+                                                {
+                                                    WoWSInstallation proposedInstallation = new WoWSInstallation
+                                                    {
+                                                        wowsPath = proposedWowsPath,
+                                                        binPath = proposedVersionPath,
+                                                        resModsPath = Path.Combine(proposedVersionPath, "res_mods"),
+                                                        Name = installationName,
+                                                        Version = FileVersionInfo.GetVersionInfo(Path.Combine(proposedVersionPath, "bin64", "WorldOfWarships64.exe")).FileVersion.Replace(',', '.') + " Build " + Path.GetRelativePath(proposedBinDir, proposedVersionPath)
+                                                    };
+
+                                                    proposedInstallations.Add(proposedInstallation);
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
-
-            foreach (string propsedWowsPath in wowsPaths)
-            {
-                if (File.Exists(Path.Combine(propsedWowsPath, "WorldOfWarships.exe")))
+                catch
                 {
-                    try
-                    {
-                        XmlDocument gameinfo = new XmlDocument();
-                        gameinfo.Load(Path.Combine(propsedWowsPath, "game_info.xml"));
-                        XmlNode node = gameinfo.DocumentElement.SelectSingleNode("/protocol/game/id");
-                        if (node.InnerText == "WOWS.WW.PRODUCTION")
-                        {
-                            optionNames.Add("World of Warships");
-                        }
-                        else if (node.InnerText == "WOWS.PT.PRODUCTION")
-                        {
-                            optionNames.Add("World of Warships Public Test");
-                        }
-                        else
-                        {
-                            optionNames.Add(node.InnerText);
-                        }
-
-                        string proposedBinDir = Path.Combine(propsedWowsPath, "bin");
-                        List<string> proposedBinPaths = Directory.GetDirectories(proposedBinDir).ToList();
-                        foreach (string proposedVersionPath in proposedBinPaths)
-                        {
-                            if (File.Exists(Path.Combine(proposedVersionPath, "bin64", "WorldOfWarships64.exe")) && Directory.Exists(Path.Combine(proposedVersionPath, "res_mods")))
-                            {
-                                optionVersions.Add(FileVersionInfo.GetVersionInfo(Path.Combine(proposedVersionPath, "bin64", "WorldOfWarships64.exe")).FileVersion.Replace(',', '.'));
-                                resModsPaths.Add(Path.Combine(proposedVersionPath, "res_mods"));
-                            }
-                        }
-                    }
-                    catch
-                    {
-                    }
                 }
             }
 
             string[] title = { Resources.ClientSelectionTitle };
 
-            string[] options = new string[optionNames.Count + 1];
-            for (int i = 0; i < optionNames.Count; i++)
+            string[] options = new string[proposedInstallations.Count + 1];
+
+            for (int i = 0; i < proposedInstallations.Count; i++)
             {
-                options[i] = $"{optionNames[i]} - Version {optionVersions[i]}";
+                WoWSInstallation iInstallation = proposedInstallations[i];
+                options[i] = $"{iInstallation.Name} / Version {iInstallation.Version}";
             }
             options[^1] = Resources.SelectManual;
 
             Menu selectLanguageMenu = new Menu(title, options);
             int selectedIndex = selectLanguageMenu.AwaitResponse();
 
-            //
             if (selectedIndex < options.Length - 1)
             {
-                resModsPath = resModsPaths[selectedIndex];
-                binPath = Path.GetDirectoryName(resModsPath);
-                wowsPath = Path.GetDirectoryName(Path.GetDirectoryName(binPath));
+                wowsInstallation = proposedInstallations[selectedIndex];
+
+                //Start the first option screen
+                ArpeggioSelection();
             }
             else
             {
                 ClientManualSelection();
-                return;
             }
-
-            //Start the first option screen
-            ArpeggioSelection();
         }
 
         /// <summary>
@@ -219,6 +213,8 @@ namespace PureHistory
         private static void ClientManualSelection()
         {
             Clear();
+
+            wowsInstallation = new WoWSInstallation();
 
             //Display info about the Path format and examples
             WriteLine(Resources.ClientManualSelectionTitle);
@@ -230,16 +226,16 @@ namespace PureHistory
 
             //Read user input to resModsPath
             //Get formatted string with extension method
-            resModsPath = ReadLine().ParsePath();
+            wowsInstallation.resModsPath = ReadLine().ParsePath();
 
-            if (string.IsNullOrWhiteSpace(resModsPath))
+            if (string.IsNullOrWhiteSpace(wowsInstallation.resModsPath))
             {
                 WriteLine(Resources.EmptyPath);
                 WriteLine(Resources.PressAnyKey);
                 ReadKey();
                 ClientManualSelection();
             }
-            else if (!Directory.Exists(resModsPath))
+            else if (!Directory.Exists(wowsInstallation.resModsPath))
             {
                 WriteLine(Resources.PathDoesntExist);
                 WriteLine(Resources.PressAnyKey);
@@ -248,10 +244,10 @@ namespace PureHistory
             }
             else
             {
-                binPath = Path.GetDirectoryName(resModsPath);
-                wowsPath = Path.GetDirectoryName(Path.GetDirectoryName(binPath));
+                wowsInstallation.binPath = Path.GetDirectoryName(wowsInstallation.resModsPath);
+                wowsInstallation.wowsPath = Path.GetDirectoryName(Path.GetDirectoryName(wowsInstallation.binPath));
 
-                if (File.Exists(Path.Combine(wowsPath, "WorldOfWarships.exe")))
+                if (File.Exists(Path.Combine(wowsInstallation.wowsPath, "WorldOfWarships.exe")))
                 {
                     string[] log = GetLog();
 
@@ -260,7 +256,7 @@ namespace PureHistory
                     {
                         consoleContent[i] = log[i];
                     }
-                    consoleContent[^1] = $"{Resources.PathCorrection}: {resModsPath}";
+                    consoleContent[^1] = $"{Resources.PathCorrection}: {wowsInstallation.resModsPath}";
 
                     string[] options = { Resources.Yes, Resources.No };
                     Menu selectLanguageMenu = new Menu(consoleContent, options);
@@ -288,6 +284,7 @@ namespace PureHistory
                     ReadKey();
                     ClientManualSelection();
                 }
+
                 ArpeggioSelection();
             }
         }
@@ -1431,7 +1428,7 @@ namespace PureHistory
                 try
                 {
                     XmlDocument gameinfo = new XmlDocument();
-                    gameinfo.Load(Path.Combine(wowsPath, "game_info.xml"));
+                    gameinfo.Load(Path.Combine(wowsInstallation.wowsPath, "game_info.xml"));
                     XmlNode node = gameinfo.DocumentElement.SelectSingleNode("/protocol/game/content_localizations/content_localization");
                     clientLang = node.InnerText.ToLower();
                 }
@@ -1726,9 +1723,9 @@ namespace PureHistory
                 //Create folders
                 foreach (string directory in installation.DirectoryList)
                 {
-                    if (!Directory.Exists(Path.Combine(resModsPath, directory)) && !directory.Contains("alternative"))
+                    if (!Directory.Exists(Path.Combine(wowsInstallation.resModsPath, directory)) && !directory.Contains("alternative"))
                     {
-                        Directory.CreateDirectory(Path.Combine(resModsPath, directory));
+                        Directory.CreateDirectory(Path.Combine(wowsInstallation.resModsPath, directory));
                     }
                 }
 
@@ -1736,7 +1733,7 @@ namespace PureHistory
                 foreach (string file in installation.FileList)
                 {
                     string sourcePath = Path.Combine(dataSourcePath, file);
-                    string destinationPath = Path.Combine(resModsPath, file);
+                    string destinationPath = Path.Combine(wowsInstallation.resModsPath, file);
 
                     if (destinationPath.Contains("alternative"))
                     {
@@ -1782,26 +1779,26 @@ namespace PureHistory
                 {
                     //Folders for the Installation of the global.mo file
 
-                    if (!Directory.Exists(Path.Combine(resModsPath, "texts")))
+                    if (!Directory.Exists(Path.Combine(wowsInstallation.resModsPath, "texts")))
                     {
-                        Directory.CreateDirectory(Path.Combine(resModsPath, "texts"));
+                        Directory.CreateDirectory(Path.Combine(wowsInstallation.resModsPath, "texts"));
                     }
 
-                    if (!Directory.Exists(Path.Combine(resModsPath, "texts", clientLang)))
+                    if (!Directory.Exists(Path.Combine(wowsInstallation.resModsPath, "texts", clientLang)))
                     {
-                        Directory.CreateDirectory(Path.Combine(resModsPath, "texts", clientLang));
+                        Directory.CreateDirectory(Path.Combine(wowsInstallation.resModsPath, "texts", clientLang));
                     }
 
-                    if (!Directory.Exists(Path.Combine(resModsPath, "texts", clientLang, "LC_MESSAGES")))
+                    if (!Directory.Exists(Path.Combine(wowsInstallation.resModsPath, "texts", clientLang, "LC_MESSAGES")))
                     {
-                        Directory.CreateDirectory(Path.Combine(resModsPath, "texts", clientLang, "LC_MESSAGES"));
+                        Directory.CreateDirectory(Path.Combine(wowsInstallation.resModsPath, "texts", clientLang, "LC_MESSAGES"));
                     }
 
                     //If there is already an .mo file in res_mods, the program will use it. If not, it will copy the original from the res folder
-                    string moFilePath = Path.Combine(resModsPath, "texts", clientLang, "LC_MESSAGES", "global.mo");
+                    string moFilePath = Path.Combine(wowsInstallation.resModsPath, "texts", clientLang, "LC_MESSAGES", "global.mo");
                     if (!File.Exists(moFilePath))
                     {
-                        File.Copy(Path.Combine(binPath, "res", "texts", clientLang, "LC_MESSAGES", "global.mo"), moFilePath);
+                        File.Copy(Path.Combine(wowsInstallation.binPath, "res", "texts", clientLang, "LC_MESSAGES", "global.mo"), moFilePath);
                     }
 
                     //Update the translation file
@@ -1860,7 +1857,7 @@ namespace PureHistory
                 WriteLine();
 
                 //Detect ModStation
-                if (File.Exists(Path.Combine(resModsPath, "ModStation.txt")))
+                if (File.Exists(Path.Combine(wowsInstallation.resModsPath, "ModStation.txt")))
                 {
                     WriteLine($"{Resources.ModStationWarning}\r\n");
                 }

@@ -701,7 +701,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die World of Warships Version 0.10.1 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die World of Warships Version 0.10.2 ähnelt.
         /// </summary>
         internal static string WoWsVersion {
             get {
