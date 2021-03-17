@@ -244,38 +244,51 @@ namespace PureHistory
             }
             else
             {
-                wowsInstallation.binPath = Path.GetDirectoryName(wowsInstallation.resModsPath);
-                wowsInstallation.wowsPath = Path.GetDirectoryName(Path.GetDirectoryName(wowsInstallation.binPath));
-
-                if (File.Exists(Path.Combine(wowsInstallation.wowsPath, "WorldOfWarships.exe")))
+                try
                 {
-                    string[] log = GetLog();
+                    wowsInstallation.binPath = Path.GetDirectoryName(wowsInstallation.resModsPath);
+                    wowsInstallation.wowsPath = Path.GetDirectoryName(Path.GetDirectoryName(wowsInstallation.binPath));
 
-                    string[] consoleContent = new string[log.Length + 1];
-                    for (int i = 0; i < log.Length; i++)
+                    if (File.Exists(Path.Combine(wowsInstallation.wowsPath, "WorldOfWarships.exe")))
                     {
-                        consoleContent[i] = log[i];
+                        string[] log = GetLog();
+
+                        string[] consoleContent = new string[log.Length + 1];
+                        for (int i = 0; i < log.Length; i++)
+                        {
+                            consoleContent[i] = log[i];
+                        }
+                        consoleContent[^1] = $"{Resources.PathCorrection}: {wowsInstallation.resModsPath}";
+
+                        string[] options = { Resources.Yes, Resources.No };
+                        Menu selectLanguageMenu = new Menu(consoleContent, options);
+                        int selectedIndex = selectLanguageMenu.AwaitResponse();
+
+                        switch (selectedIndex) //If response is yes, the client selection is finished
+                        {
+                            case 0:
+                                break;
+
+                            case 1:
+                                ClientManualSelection();
+                                break;
+
+                            default:
+                                break;
+                        }
                     }
-                    consoleContent[^1] = $"{Resources.PathCorrection}: {wowsInstallation.resModsPath}";
-
-                    string[] options = { Resources.Yes, Resources.No };
-                    Menu selectLanguageMenu = new Menu(consoleContent, options);
-                    int selectedIndex = selectLanguageMenu.AwaitResponse();
-
-                    switch (selectedIndex) //If response is yes, the client selection is finished
+                    else //If the client wasnt found, the user cant install the mod at this path
                     {
-                        case 0:
-                            break;
-
-                        case 1:
-                            ClientManualSelection();
-                            break;
-
-                        default:
-                            break;
+                        WriteLine();
+                        WriteLine(Resources.GenericError);
+                        WriteLine(Resources.CannotFindStructure);
+                        WriteLine(Resources.PressAnyKey);
+                        ReadKey();
+                        ClientManualSelection();
                     }
+                    ArpeggioSelection();
                 }
-                else //If the client wasnt found, the user cant install the mod at this path
+                catch
                 {
                     WriteLine();
                     WriteLine(Resources.GenericError);
@@ -284,8 +297,6 @@ namespace PureHistory
                     ReadKey();
                     ClientManualSelection();
                 }
-
-                ArpeggioSelection();
             }
         }
 
