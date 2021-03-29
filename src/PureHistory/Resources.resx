@@ -346,4 +346,7 @@ The path should point to the res_mods folder.</value>
   <data name="SelectManual" xml:space="preserve">
     <value>Select manually</value>
   </data>
+  <data name="FatalError" xml:space="preserve">
+    <value>An unhandled Exception occurred. Please contact the Author with the following error message:</value>
+  </data>
 </root>

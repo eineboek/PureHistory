@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <Platforms>x86</Platforms>
     <StartupObject>PureHistory.Program</StartupObject>
     <ApplicationIcon>purehistory.ico</ApplicationIcon>

@@ -8,7 +8,8 @@ namespace PureHistory
     /// </summary>
     internal class ConsoleLog
     {
-        private static List<string> log; //The logged data. Each line is represented by a string in a list
+        public static List<string> Log { get; private set; } //The logged data. Each line is represented by a string in a list
+
         private static List<string> tempValues; //Stores temporary data until a default line terminator is read in the Write() method
 
         /// <summary>
@@ -17,7 +18,7 @@ namespace PureHistory
         public static void Clear()
         {
             Console.ResetColor();
-            log = new List<string>();
+            Log = new List<string>();
             tempValues = new List<string>();
             Console.Clear();
         }
@@ -28,7 +29,12 @@ namespace PureHistory
         /// <param name="value"></param>
         public static void WriteLine(string value)
         {
-            log.Add(value);
+            if (Log == null)
+            {
+                Log = new List<string>();
+            }
+            Log.Add(value);
+
             Console.WriteLine(value);
         }
 
@@ -43,9 +49,14 @@ namespace PureHistory
         /// <param name="value"></param>
         public static void Write(string value)
         {
+            if (Log == null)
+            {
+                Log = new List<string>();
+            }
+
             if (value == Environment.NewLine)
             {
-                log.Add(string.Concat(tempValues.ToArray()));
+                Log.Add(string.Concat(tempValues.ToArray()));
                 tempValues = new List<string>();
                 Console.Write(Environment.NewLine);
             }
@@ -55,11 +66,5 @@ namespace PureHistory
                 Console.Write(value);
             }
         }
-
-        /// <summary>
-        /// Returns the Console Log as a string array
-        /// </summary>
-        /// <returns>The Console log</returns>
-        public static string[] GetLog() => log.ToArray();
     }
 }

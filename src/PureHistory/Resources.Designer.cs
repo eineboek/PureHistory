@@ -243,6 +243,15 @@ namespace PureHistory {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die An unhandled Exception occurred. Please contact the Author with the following error message: ähnelt.
+        /// </summary>
+        internal static string FatalError {
+            get {
+                return ResourceManager.GetString("FatalError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die The file ähnelt.
         /// </summary>
         internal static string File {

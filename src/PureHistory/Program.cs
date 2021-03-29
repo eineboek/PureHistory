@@ -19,20 +19,32 @@ namespace PureHistory
 
         private static ModInstallation modInstallation;
 
+        [STAThread]
+        private static void OnCurrentDomainUnhandledException(object sender, UnhandledExceptionEventArgs args)
+        {
+            WriteLine();
+            Exception ex = (Exception)args.ExceptionObject;
+            WriteLine(Resources.FatalError);
+            WriteLine(ex.ToString());
+            ReadKey();
+            Environment.Exit(-1);
+        }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         private static void Main()
         {
+            //Set the unhandled Exception handler
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(OnCurrentDomainUnhandledException);
+
             //Set the Encoding to support Unicode characters such as this funky dot -> •
             OutputEncoding = Encoding.UTF8;
 
             //Set the console window title
             Title = "PureHistory Mod Installer";
 
-            //Set console window size
-            SetBufferSize(BufferWidth + 15, BufferHeight);
-            SetWindowSize(WindowWidth + 15, WindowHeight);
+            DisplayTools.MaximizeWindow();
 
             //Start the language selection
             LanguageSelection();
@@ -251,7 +263,7 @@ namespace PureHistory
 
                     if (File.Exists(Path.Combine(wowsInstallation.wowsPath, "WorldOfWarships.exe")))
                     {
-                        string[] log = GetLog();
+                        string[] log = Log.ToArray();
 
                         string[] consoleContent = new string[log.Length + 1];
                         for (int i = 0; i < log.Length; i++)
@@ -1900,7 +1912,7 @@ namespace PureHistory
         {
             if (modInstallation.InstallationOptions.AskForEach)
             {
-                string[] log = GetLog();
+                string[] log = Log.ToArray();
 
                 string[] consoleContent = new string[log.Length + 1];
                 for (int i = 0; i < log.Length; i++)

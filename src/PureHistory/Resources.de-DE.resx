@@ -334,4 +334,7 @@ Beispiel: Entweder wird ein Teil eines Schiffsnamens ersetzt oder der ganze Schi
   <data name="SelectManual" xml:space="preserve">
     <value>Manuell auswählen</value>
   </data>
+  <data name="FatalError" xml:space="preserve">
+    <value>Eine unbehandelte Ausnahme ist aufgetreten. Bitte den Autor dieses Programms mit folgender Fehlermeldung kontaktieren:</value>
+  </data>
 </root>
