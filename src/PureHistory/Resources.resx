@@ -220,7 +220,7 @@ Replacing the ship name with the regular counterpart name (Kagerō) could lead t
 Please install this mod after using the ModStation, as the ModStation will override all other mod files.</value>
   </data>
   <data name="ModVersion" xml:space="preserve">
-    <value>PureHistory Version 1.2.0</value>
+    <value>PureHistory Version 1.2.1</value>
     <comment>This string is not translated to other languages.</comment>
   </data>
   <data name="NavigationHelp" xml:space="preserve">
@@ -293,7 +293,7 @@ Replacing the ship name with the regular counterpart could lead to a misjudgemen
     <value>already exists in the mod folder. Should it be overwritten?</value>
   </data>
   <data name="CopyProgressString1" xml:space="preserve">
-    <value>Successfully copied file</value>
+    <value>Copied file</value>
   </data>
   <data name="CopyProgressString2" xml:space="preserve">
     <value>to</value>
@@ -331,7 +331,7 @@ Example: Either a part of a ship name is replaced or the whole ship name with an
     <value>Updating translation file ...</value>
   </data>
   <data name="MOProgressFinished1" xml:space="preserve">
-    <value>Successfully saved translation file to</value>
+    <value>Saved translation file to</value>
   </data>
   <data name="MOProgressFinished2" xml:space="preserve">
     <value />

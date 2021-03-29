@@ -22,17 +22,13 @@ namespace PureHistory
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        /// <param name="args">Standard arguments for execution via command line. Not used yet in this program</param>
-        private static void Main(string[] args)
+        private static void Main()
         {
             //Set the Encoding to support Unicode characters such as this funky dot -> •
             OutputEncoding = Encoding.UTF8;
 
             //Set the console window title
             Title = "PureHistory Mod Installer";
-
-            //Set Window Size so that all lines will be displayed as one and not wrap
-            SetWindowSize(WindowWidth + 15, WindowHeight);
 
             //Start the language selection
             LanguageSelection();
@@ -1830,7 +1826,7 @@ namespace PureHistory
                                     {
                                         line.Translated = entry.Content;
                                     }
-                                    else if (entry.ContentType == MOEntry.MOContentType.DESCR)
+                                    else if (entry.ContentType == MOEntry.MOContentType.DESCR && !line.Translated.Contains(entry.Content))
                                     {
                                         line.Translated = $"{entry.Content}{Environment.NewLine}{line.Translated}";
                                     }

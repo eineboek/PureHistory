@@ -18,7 +18,7 @@ Compatible to World of Warships version 0.10.2 or below</Description>
     <PackageProjectUrl>https://github.com/eineboek/PureHistory</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryUrl>https://github.com/eineboek/PureHistory</RepositoryUrl>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
     <RepositoryType>GitHub</RepositoryType>
     <EnableNETAnalyzers>false</EnableNETAnalyzers>
     <PackageLicenseFile></PackageLicenseFile>

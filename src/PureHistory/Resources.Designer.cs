@@ -171,7 +171,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Successfully copied file ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Copied file ähnelt.
         /// </summary>
         internal static string CopyProgressString1 {
             get {
@@ -481,7 +481,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die PureHistory Version 1.2.0 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die PureHistory Version 1.2.1 ähnelt.
         /// </summary>
         internal static string ModVersion {
             get {
@@ -499,7 +499,7 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Successfully saved translation file to ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Saved translation file to ähnelt.
         /// </summary>
         internal static string MOProgressFinished1 {
             get {

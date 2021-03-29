@@ -303,7 +303,7 @@ Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu ein
     <value>Die Datei</value>
   </data>
   <data name="CopyProgressString2" xml:space="preserve">
-    <value>wurde erfolgreich nach</value>
+    <value>wurde nach</value>
   </data>
   <data name="CopyProgressString3" xml:space="preserve">
     <value>kopiert.</value>
@@ -323,7 +323,7 @@ Beispiel: Entweder wird ein Teil eines Schiffsnamens ersetzt oder der ganze Schi
     <value>Aktualisiere Übersetzungsdatei ...</value>
   </data>
   <data name="MOProgressFinished1" xml:space="preserve">
-    <value>Die Übersetzungsdatei wurde erfolgreich nach</value>
+    <value>Die Übersetzungsdatei wurde nach</value>
   </data>
   <data name="MOProgressFinished2" xml:space="preserve">
     <value>gespeichert.</value>
