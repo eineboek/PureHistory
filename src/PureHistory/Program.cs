@@ -30,6 +30,10 @@ namespace PureHistory
             //Set the console window title
             Title = "PureHistory Mod Installer";
 
+            //Set console window size
+            SetBufferSize(Int16.MaxValue - 1, Int16.MaxValue - 1);
+            SetWindowSize(WindowWidth + 15, WindowHeight);
+
             //Start the language selection
             LanguageSelection();
 
