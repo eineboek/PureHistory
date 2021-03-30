@@ -88,7 +88,7 @@ namespace PureHistory
             //Show the language selection prompt using the Menu class
             string[] title = { Resources.SelectLanguage };
             string[] options = { "English", "Deutsch" };
-            Menu selectLanguageMenu = new Menu(title, options);
+            Menu selectLanguageMenu = new(title, options);
             int selectedIndex = selectLanguageMenu.AwaitResponse();
 
             //Depending on the selected index of the Menu, the language will be set
@@ -116,8 +116,8 @@ namespace PureHistory
         {
             Clear();
 
-            List<WoWSInstallation> proposedInstallations = new List<WoWSInstallation>();
-            List<string> checkDuplicates = new List<string>();
+            List<WoWSInstallation> proposedInstallations = new();
+            List<string> checkDuplicates = new();
 
             string wgAppDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "Wargaming.net", "GameCenter", "apps");
 
@@ -135,7 +135,7 @@ namespace PureHistory
 
                             if (pathInfo != null)
                             {
-                                using StreamReader streamReader = new StreamReader(pathInfo);
+                                using StreamReader streamReader = new(pathInfo);
                                 {
                                     string proposedWowsPath = streamReader.ReadToEnd();
                                     if (Directory.Exists(proposedWowsPath) && !checkDuplicates.Contains(proposedWowsPath))
@@ -144,7 +144,7 @@ namespace PureHistory
 
                                         if (File.Exists(Path.Combine(proposedWowsPath, "WorldOfWarships.exe")))
                                         {
-                                            XmlDocument gameinfo = new XmlDocument();
+                                            XmlDocument gameinfo = new();
                                             gameinfo.Load(Path.Combine(proposedWowsPath, "game_info.xml"));
                                             XmlNode node = gameinfo.DocumentElement.SelectSingleNode("/protocol/game/id");
 
@@ -168,7 +168,7 @@ namespace PureHistory
                                             {
                                                 if (File.Exists(Path.Combine(proposedVersionPath, "bin64", "WorldOfWarships64.exe")) && Directory.Exists(Path.Combine(proposedVersionPath, "res_mods")) && installationName != null)
                                                 {
-                                                    WoWSInstallation proposedInstallation = new WoWSInstallation
+                                                    WoWSInstallation proposedInstallation = new()
                                                     {
                                                         wowsPath = proposedWowsPath,
                                                         binPath = proposedVersionPath,
@@ -203,7 +203,7 @@ namespace PureHistory
             }
             options[^1] = Resources.SelectManual;
 
-            Menu selectLanguageMenu = new Menu(title, options);
+            Menu selectLanguageMenu = new(title, options);
             int selectedIndex = selectLanguageMenu.AwaitResponse();
 
             if (selectedIndex < options.Length - 1)
@@ -273,7 +273,7 @@ namespace PureHistory
                         consoleContent[^1] = $"{Resources.PathCorrection}: {wowsInstallation.resModsPath}";
 
                         string[] options = { Resources.Yes, Resources.No };
-                        Menu selectLanguageMenu = new Menu(consoleContent, options);
+                        Menu selectLanguageMenu = new(consoleContent, options);
                         int selectedIndex = selectLanguageMenu.AwaitResponse();
 
                         switch (selectedIndex) //If response is yes, the client selection is finished
@@ -351,7 +351,7 @@ namespace PureHistory
             //Display the options to the user
             string title = Resources.ArpeggioTitle;
             string[] options = { Resources.ArpeggioPrefix, Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplacePreviewBg };
-            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             //Continuous loop until either right/left arrow key is pressed
@@ -464,7 +464,7 @@ namespace PureHistory
             string title = Resources.AzurLaneTitle;
             string warning = Resources.AzurLaneWarning;
             string[] options = { Resources.AzurLanePrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, warning, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new(title, warning, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -566,7 +566,7 @@ namespace PureHistory
             string title = Resources.HSFHarekazeTitle;
             string warning = Resources.HSFHarekazeWarning;
             string[] options = { Resources.HSFPrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, warning, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new(title, warning, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -666,7 +666,7 @@ namespace PureHistory
 
             string title = Resources.HSFSpeeTitle;
             string[] options = { Resources.HSFPrefix, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -752,7 +752,7 @@ namespace PureHistory
             string title = Resources.WarhammerTitle;
             string warning = Resources.WarhammerWarning;
             string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.ReplacePreviewBg };
-            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, warning, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new(title, warning, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -841,7 +841,7 @@ namespace PureHistory
 
             string title = Resources.DragonShipTitle;
             string[] options = { Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplaceSillouette, Resources.ReplacePreview, Resources.ReplacePreviewBg };
-            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -932,7 +932,7 @@ namespace PureHistory
 
             string title = Resources.LunarNewYearTitle;
             string[] options = { Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview, Resources.LunarNewYearFlagOptionPanasia, Resources.LunarNewYearFlagOptionOriginal };
-            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -1028,7 +1028,7 @@ namespace PureHistory
 
             string title = Resources.BlackShipTitle;
             string[] options = { Resources.BlackShipsSuffix, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -1111,7 +1111,7 @@ namespace PureHistory
 
             string title = Resources.LimaShipTitle;
             string[] options = { Resources.LimaShipsSuffix, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -1206,7 +1206,7 @@ namespace PureHistory
 
             string title = Resources.MiscellaneousTitle;
             string[] options = { Resources.MiscKamikazeSuffix, Resources.UpdateDescription, Resources.ReplacePreviewMisc, Resources.MiscAlabamaSuffix, Resources.UpdateDescription, Resources.ReplacePreviewMisc, Resources.MiscIwakiSuffix, Resources.MiscArkansasSuffix, Resources.MiscWestVirginiaName };
-            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -1303,7 +1303,7 @@ namespace PureHistory
 
             string title = Resources.InstallationSettingsTitle;
             string[] options = { Resources.InstallationSettingsNoOverwrite, Resources.InstallationSettingsAskForEach, Resources.InstallationSettingsOverwriteAll };
-            MultipleChoiceOption multipleChoice = new MultipleChoiceOption(title, options, optionSelection);
+            MultipleChoiceOption multipleChoice = new(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -1384,7 +1384,7 @@ namespace PureHistory
             }
             else if (response == ConsoleKey.Enter)
             {
-                InstallationProperties installation = new InstallationProperties();
+                InstallationProperties installation = new();
 
                 //Determine the Overwrite Status that the User selected earlier
                 if (modInstallation.InstallationOptions.NoOverwrite || modInstallation.InstallationOptions.AskForEach)
@@ -1450,7 +1450,7 @@ namespace PureHistory
                 string clientLang;
                 try
                 {
-                    XmlDocument gameinfo = new XmlDocument();
+                    XmlDocument gameinfo = new();
                     gameinfo.Load(Path.Combine(wowsInstallation.wowsPath, "game_info.xml"));
                     XmlNode node = gameinfo.DocumentElement.SelectSingleNode("/protocol/game/content_localizations/content_localization");
                     clientLang = node.InnerText.ToLower();
@@ -1684,7 +1684,7 @@ namespace PureHistory
                 }
 
                 //Load the xml file
-                XmlDocument modDataTable = new XmlDocument();
+                XmlDocument modDataTable = new();
                 modDataTable.LoadXml(ModData.ModDataTable);
                 XmlNode rootNode = modDataTable.SelectSingleNode("data");
 
@@ -1716,7 +1716,7 @@ namespace PureHistory
 
                         if (addEntry)
                         {
-                            MOEntry entry = new MOEntry();
+                            MOEntry entry = new();
 
                             entry.ID = entryNode.Attributes["id"].InnerText;
                             if (entryNode.ChildNodes[0].InnerText == "NAME")
@@ -1828,7 +1828,7 @@ namespace PureHistory
                     try
                     {
                         WriteLine(Resources.MOProgress);
-                        MOReader moReader = new MOReader(moFilePath); //Create a new instance of the MOReader class and load the file
+                        MOReader moReader = new(moFilePath); //Create a new instance of the MOReader class and load the file
                         for (int i = 0; i < moReader.Count; i++)
                         {
                             MOLine line = moReader[i];
@@ -1922,7 +1922,7 @@ namespace PureHistory
                 consoleContent[^1] = $"\r\n{Resources.File} \"{Path.GetFileName(fullpath)}\" {Resources.AlreadyExists}";
 
                 string[] options = { Resources.DoNotOverwrite, Resources.Overwrite };
-                Menu selectLanguageMenu = new Menu(consoleContent, options);
+                Menu selectLanguageMenu = new(consoleContent, options);
                 int selectedIndex = selectLanguageMenu.AwaitResponse();
 
                 return selectedIndex switch

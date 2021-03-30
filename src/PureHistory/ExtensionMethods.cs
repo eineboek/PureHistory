@@ -25,7 +25,7 @@ namespace PureHistory
 
         public static List<WoWSInstallation> FilterDuplicates(this List<WoWSInstallation> list)
         {
-            List<string> resModsPaths = new List<string>();
+            List<string> resModsPaths = new();
             for (int i = 0; i < list.Count; i++)
             {
                 WoWSInstallation installation = list[i];

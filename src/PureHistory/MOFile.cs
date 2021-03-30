@@ -233,7 +233,7 @@ T + ((N-1)*8)| length & offset (N-1)th translation      |  | | | |
         public void SaveMOFile(string fileName)
         {
             FileStream outFile = File.Open(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
-            BinaryWriter writer = new BinaryWriter(outFile);
+            BinaryWriter writer = new(outFile);
 
             // magic
             writer.Write(0x950412de);
