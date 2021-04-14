@@ -537,24 +537,113 @@ namespace PureHistory
 
             HighSchoolFleetOptions hsfOptions;
 
-            bool[] optionSelection = new bool[4];
+            bool[] optionSelection = new bool[3];
 
             if (modInstallation.HighSchoolFleetOptions != null)
             {
                 hsfOptions = modInstallation.HighSchoolFleetOptions;
 
                 optionSelection[0] = hsfOptions.Harekaze_RemovePrefix;
-                optionSelection[1] = hsfOptions.Harekaze_ReplaceName;
-                optionSelection[2] = hsfOptions.Harekaze_UpdateDescription;
-                optionSelection[3] = hsfOptions.Harekaze_ReplacePreview;
+                optionSelection[1] = hsfOptions.Harekaze_UpdateDescription;
+                optionSelection[2] = hsfOptions.Harekaze_ReplacePreview;
             }
             else
             {
                 hsfOptions = new HighSchoolFleetOptions
                 {
-                    Spee_RemovePrefix = false,
-                    Spee_UpdateDescription = false,
-                    Spee_ReplacePreview = false
+                    RemovePrefixes = false,
+                    ReplaceNames = false,
+                    UpdateDescription = false,
+                    ReplacePreviews = false
+                };
+
+                optionSelection[0] = false;
+                optionSelection[1] = false;
+                optionSelection[2] = false;
+            }
+
+            string title = Resources.HSFHarekazeTitle;
+            string[] options = { Resources.HSFPrefix, Resources.UpdateDescription, Resources.ReplacePreview };
+            MultipleChoiceOption multipleChoice = new(title, options, optionSelection);
+            MultipleChoiceResponse response;
+
+            while (true)
+            {
+                response = multipleChoice.AwaitResponse();
+
+                if (response.ReturnToPrevious || response.ContinueToNext)
+                {
+                    break;
+                }
+                else if (response.ToggleSelectedIndex != null)
+                {
+                    if (optionSelection[(int)response.ToggleSelectedIndex])
+                    {
+                        optionSelection[(int)response.ToggleSelectedIndex] = false;
+                    }
+                    else if (!optionSelection[(int)response.ToggleSelectedIndex])
+                    {
+                        optionSelection[(int)response.ToggleSelectedIndex] = true;
+                    }
+
+                    if (optionSelection[1] && !optionSelection[0])
+                    {
+                        optionSelection[1] = false;
+                    }
+
+                    multipleChoice.UpdateOptionSelection(optionSelection);
+                }
+            }
+
+            if (response.ReturnToPrevious)
+            {
+                hsfOptions.Harekaze_RemovePrefix = optionSelection[0];
+                hsfOptions.Harekaze_UpdateDescription = optionSelection[1];
+                hsfOptions.Harekaze_ReplacePreview = optionSelection[2];
+
+                modInstallation.HighSchoolFleetOptions = hsfOptions;
+
+                AzurLaneSelection();
+            }
+            else if (response.ContinueToNext)
+            {
+                hsfOptions.Harekaze_RemovePrefix = optionSelection[0];
+                hsfOptions.Harekaze_UpdateDescription = optionSelection[1];
+                hsfOptions.Harekaze_ReplacePreview = optionSelection[2];
+
+                modInstallation.HighSchoolFleetOptions = hsfOptions;
+
+                HSFSelection();
+            }
+        }
+
+        /// <summary>
+        /// User settings for content of High School Fleet
+        /// </summary>
+        private static void HSFSelection()
+        {
+            Clear();
+
+            HighSchoolFleetOptions hsfOptions;
+
+            bool[] optionSelection = new bool[4];
+
+            if (modInstallation.HighSchoolFleetOptions != null)
+            {
+                hsfOptions = modInstallation.HighSchoolFleetOptions;
+
+                optionSelection[0] = hsfOptions.RemovePrefixes;
+                optionSelection[1] = hsfOptions.ReplaceNames;
+                optionSelection[2] = hsfOptions.UpdateDescription;
+                optionSelection[3] = hsfOptions.ReplacePreviews;
+            }
+            else
+            {
+                hsfOptions = new HighSchoolFleetOptions
+                {
+                    Harekaze_RemovePrefix = false,
+                    Harekaze_UpdateDescription = false,
+                    Harekaze_ReplacePreview = false
                 };
 
                 optionSelection[0] = false;
@@ -563,10 +652,9 @@ namespace PureHistory
                 optionSelection[3] = false;
             }
 
-            string title = Resources.HSFHarekazeTitle;
-            string warning = Resources.HSFHarekazeWarning;
-            string[] options = { Resources.HSFPrefix, Resources.ReplaceShipNameCounterpart, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption multipleChoice = new(title, warning, options, optionSelection);
+            string title = Resources.HSFTitle;
+            string[] options = { Resources.HSFPrefix, Resources.ReplaceShipNameClassName, Resources.UpdateDescription, Resources.ReplacePreview };
+            MultipleChoiceOption multipleChoice = new(title, options, optionSelection);
             MultipleChoiceResponse response;
 
             while (true)
@@ -608,100 +696,10 @@ namespace PureHistory
 
             if (response.ReturnToPrevious)
             {
-                hsfOptions.Harekaze_RemovePrefix = optionSelection[0];
-                hsfOptions.Harekaze_ReplaceName = optionSelection[1];
-                hsfOptions.Harekaze_UpdateDescription = optionSelection[2];
-                hsfOptions.Harekaze_ReplacePreview = optionSelection[3];
-
-                modInstallation.HighSchoolFleetOptions = hsfOptions;
-
-                AzurLaneSelection();
-            }
-            else if (response.ContinueToNext)
-            {
-                hsfOptions.Harekaze_RemovePrefix = optionSelection[0];
-                hsfOptions.Harekaze_ReplaceName = optionSelection[1];
-                hsfOptions.Harekaze_UpdateDescription = optionSelection[2];
-                hsfOptions.Harekaze_ReplacePreview = optionSelection[3];
-
-                modInstallation.HighSchoolFleetOptions = hsfOptions;
-
-                HSFSpeeSelection();
-            }
-        }
-
-        /// <summary>
-        /// User settings for content of High School Fleet - HSF Graf Spee
-        /// </summary>
-        private static void HSFSpeeSelection()
-        {
-            Clear();
-
-            HighSchoolFleetOptions hsfOptions;
-
-            bool[] optionSelection = new bool[3];
-
-            if (modInstallation.HighSchoolFleetOptions != null)
-            {
-                hsfOptions = modInstallation.HighSchoolFleetOptions;
-
-                optionSelection[0] = hsfOptions.Spee_RemovePrefix;
-                optionSelection[1] = hsfOptions.Spee_UpdateDescription;
-                optionSelection[2] = hsfOptions.Spee_ReplacePreview;
-            }
-            else
-            {
-                hsfOptions = new HighSchoolFleetOptions
-                {
-                    Harekaze_RemovePrefix = false,
-                    Harekaze_ReplaceName = false,
-                    Harekaze_UpdateDescription = false,
-                    Harekaze_ReplacePreview = false
-                };
-
-                optionSelection[0] = false;
-                optionSelection[1] = false;
-                optionSelection[2] = false;
-            }
-
-            string title = Resources.HSFSpeeTitle;
-            string[] options = { Resources.HSFPrefix, Resources.UpdateDescription, Resources.ReplacePreview };
-            MultipleChoiceOption multipleChoice = new(title, options, optionSelection);
-            MultipleChoiceResponse response;
-
-            while (true)
-            {
-                response = multipleChoice.AwaitResponse();
-
-                if (response.ReturnToPrevious || response.ContinueToNext)
-                {
-                    break;
-                }
-                else if (response.ToggleSelectedIndex != null)
-                {
-                    if (optionSelection[(int)response.ToggleSelectedIndex])
-                    {
-                        optionSelection[(int)response.ToggleSelectedIndex] = false;
-                    }
-                    else if (!optionSelection[(int)response.ToggleSelectedIndex])
-                    {
-                        optionSelection[(int)response.ToggleSelectedIndex] = true;
-                    }
-
-                    if (optionSelection[1] && !optionSelection[0])
-                    {
-                        optionSelection[1] = false;
-                    }
-
-                    multipleChoice.UpdateOptionSelection(optionSelection);
-                }
-            }
-
-            if (response.ReturnToPrevious)
-            {
-                hsfOptions.Spee_RemovePrefix = optionSelection[0];
-                hsfOptions.Spee_UpdateDescription = optionSelection[1];
-                hsfOptions.Spee_ReplacePreview = optionSelection[2];
+                hsfOptions.RemovePrefixes = optionSelection[0];
+                hsfOptions.ReplaceNames = optionSelection[1];
+                hsfOptions.UpdateDescription = optionSelection[2];
+                hsfOptions.ReplacePreviews = optionSelection[3];
 
                 modInstallation.HighSchoolFleetOptions = hsfOptions;
 
@@ -709,9 +707,10 @@ namespace PureHistory
             }
             else if (response.ContinueToNext)
             {
-                hsfOptions.Spee_RemovePrefix = optionSelection[0];
-                hsfOptions.Spee_UpdateDescription = optionSelection[1];
-                hsfOptions.Spee_ReplacePreview = optionSelection[2];
+                hsfOptions.RemovePrefixes = optionSelection[0];
+                hsfOptions.ReplaceNames = optionSelection[1];
+                hsfOptions.UpdateDescription = optionSelection[2];
+                hsfOptions.ReplacePreviews = optionSelection[3];
 
                 modInstallation.HighSchoolFleetOptions = hsfOptions;
 
@@ -792,7 +791,7 @@ namespace PureHistory
 
                 modInstallation.Warhammer40KOptions = warhammerOptions;
 
-                HSFSpeeSelection();
+                HSFSelection();
             }
             else if (response.ContinueToNext)
             {
@@ -1521,11 +1520,6 @@ namespace PureHistory
                     installation.DependencyList.Add("HighSchoolFleetOptions.Harekaze_RemovePrefix");
                     installation.InstallMO = true;
                 }
-                if (modInstallation.HighSchoolFleetOptions.Harekaze_ReplaceName)
-                {
-                    installation.DependencyList.Add("HighSchoolFleetOptions.Harekaze_ReplaceName");
-                    installation.InstallMO = true;
-                }
                 if (modInstallation.HighSchoolFleetOptions.Harekaze_UpdateDescription)
                 {
                     installation.DependencyList.Add("HighSchoolFleetOptions.Harekaze_UpdateDescription");
@@ -1535,19 +1529,24 @@ namespace PureHistory
                 {
                     installation.DependencyList.Add("HighSchoolFleetOptions.Harekaze_ReplacePreview");
                 }
-                if (modInstallation.HighSchoolFleetOptions.Spee_RemovePrefix)
+                if (modInstallation.HighSchoolFleetOptions.RemovePrefixes)
                 {
-                    installation.DependencyList.Add("HighSchoolFleetOptions.Spee_RemovePrefix");
+                    installation.DependencyList.Add("HighSchoolFleetOptions.RemovePrefixes");
                     installation.InstallMO = true;
                 }
-                if (modInstallation.HighSchoolFleetOptions.Spee_UpdateDescription)
+                if (modInstallation.HighSchoolFleetOptions.ReplaceNames)
                 {
-                    installation.DependencyList.Add("HighSchoolFleetOptions.Spee_UpdateDescription");
+                    installation.DependencyList.Add("HighSchoolFleetOptions.ReplaceNames");
                     installation.InstallMO = true;
                 }
-                if (modInstallation.HighSchoolFleetOptions.Spee_ReplacePreview)
+                if (modInstallation.HighSchoolFleetOptions.UpdateDescription)
                 {
-                    installation.DependencyList.Add("HighSchoolFleetOptions.Spee_ReplacePreview");
+                    installation.DependencyList.Add("HighSchoolFleetOptions.UpdateDescription");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.HighSchoolFleetOptions.ReplacePreviews)
+                {
+                    installation.DependencyList.Add("HighSchoolFleetOptions.ReplacePreviews");
                 }
                 if (modInstallation.Warhammer40KOptions.ReplaceNames)
                 {

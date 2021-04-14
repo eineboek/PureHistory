@@ -8,7 +8,7 @@
         ArpeggioOptions.ReplaceFlags
         AzurLaneOptions.ReplacePreviews
         HighSchoolFleetOptions.Harekaze_ReplacePreview
-        HighSchoolFleetOptions.Spee_ReplacePreview
+        HighSchoolFleetOptions.ReplacePreviews
         Warhammer40KOptions.ReplacePreviews
         Warhammer40KOptions.ReplaceFlags
         DragonShipOptions.ReplaceSilhouettes
@@ -582,7 +582,7 @@
           ArpeggioOptions.ReplacePreviews
           AzurLaneOptions.ReplacePreviews
           HighSchoolFleetOptions.Harekaze_ReplacePreview
-          HighSchoolFleetOptions.Spee_ReplacePreview
+          HighSchoolFleetOptions.ReplacePreviews
           Warhammer40KOptions.ReplacePreviews
           DragonShipOptions.ReplacePreviews
           LunarNewYearShipOptions.ReplacePreviews
@@ -645,7 +645,7 @@
         </file>
         <!--PGSC706	HSF Graf Spee-->
         <file name="PGSC706.png">
-          <dependents>HighSchoolFleetOptions.Spee_ReplacePreview</dependents>
+          <dependents>HighSchoolFleetOptions.ReplacePreviews</dependents>
         </file>
         <!--PISB708	AL Littorio-->
         <file name="PISB708.png">
@@ -674,6 +674,10 @@
         <!--PJSB708	ARP Hiei-->
         <file name="PJSB708.png">
           <dependents>ArpeggioOptions.ReplacePreviews</dependents>
+        </file>
+        <!--PJSB715 HSF Hiei-->
+        <file name="PJSB715.png">
+          <dependents>HighSchoolFleetOptions.ReplacePreviews</dependents>
         </file>
         <!--PJSB799	ARP Kirishima-->
         <file name="PJSB799.png">
@@ -730,6 +734,10 @@
         <!--PJSD026	Kamikaze R-->
         <file name="PJSD026.png">
           <dependents>MiscellaneousOptions.KamikazeR_ReplacePreview</dependents>
+        </file>
+        <!--PJSD528	HSF Harekaze II-->
+        <file name="PJSD528.png">
+          <dependents>HighSchoolFleetOptions.ReplacePreviews</dependents>
         </file>
         <!--PJSD598	Asashio B-->
         <file name="PJSD598.png">
@@ -773,7 +781,7 @@
           ArpeggioOptions.ReplacePreviews
           AzurLaneOptions.ReplacePreviews
           HighSchoolFleetOptions.Harekaze_ReplacePreview
-          HighSchoolFleetOptions.Spee_ReplacePreview
+          HighSchoolFleetOptions.ReplacePreviews
           Warhammer40KOptions.ReplacePreviews
           DragonShipOptions.ReplacePreviews
           LunarNewYearShipOptions.ReplacePreviews
@@ -836,7 +844,7 @@
         </file>
         <!--PGSC706	HSF Graf Spee-->
         <file name="PGSC706.png">
-          <dependents>HighSchoolFleetOptions.Spee_ReplacePreview</dependents>
+          <dependents>HighSchoolFleetOptions.ReplacePreviews</dependents>
         </file>
         <!--PISB708	AL Littorio-->
         <file name="PISB708.png">
@@ -865,6 +873,10 @@
         <!--PJSB708	ARP Hiei-->
         <file name="PJSB708.png">
           <dependents>ArpeggioOptions.ReplacePreviews</dependents>
+        </file>
+        <!--PJSB715 HSF Hiei-->
+        <file name="PJSB715.png">
+          <dependents>HighSchoolFleetOptions.ReplacePreviews</dependents>
         </file>
         <!--PJSB799	ARP Kirishima-->
         <file name="PJSB799.png">
@@ -921,6 +933,10 @@
         <!--PJSD026	Kamikaze R-->
         <file name="PJSD026.png">
           <dependents>MiscellaneousOptions.KamikazeR_ReplacePreview</dependents>
+        </file>
+        <!--PJSD528	HSF Harekaze II-->
+        <file name="PJSD528.png">
+          <dependents>HighSchoolFleetOptions.ReplacePreviews</dependents>
         </file>
         <!--PJSD598	Asashio B-->
         <file name="PJSD598.png">
@@ -1461,26 +1477,16 @@
 
     <!--High School Fleet-->
 
-    <!--//PJSD708	HSF Harekaze -->
+    <!--PJSD708	HSF Harekaze -->
     <entry id="IDS_PJSD708">
       <type>NAME</type>
       <dependents>HighSchoolFleetOptions.Harekaze_RemovePrefix</dependents>
       <content>Harekaze</content>
     </entry>
-    <entry id="IDS_PJSD708">
-      <type>NAME</type>
-      <dependents>HighSchoolFleetOptions.Harekaze_ReplaceName</dependents>
-      <content>Kagerō</content>
-    </entry>
     <entry id="IDS_PJSD708_FULL">
       <type>NAME_FULL</type>
       <dependents>HighSchoolFleetOptions.Harekaze_RemovePrefix</dependents>
       <content>Harekaze</content>
-    </entry>
-    <entry id="IDS_PJSD708_FULL">
-      <type>NAME_FULL</type>
-      <dependents>HighSchoolFleetOptions.Harekaze_ReplaceName</dependents>
-      <content>Kagerō</content>
     </entry>
     <entry id="IDS_PJSD708_DESCR">
       <type>DESCR</type>
@@ -1491,18 +1497,62 @@
     <!--PGSC706	HSF Graf Spee -->
     <entry id="IDS_PGSC706">
       <type>NAME</type>
-      <dependents>HighSchoolFleetOptions.Spee_RemovePrefix</dependents>
+      <dependents>HighSchoolFleetOptions.RemovePrefixes</dependents>
       <content>Graf Spee</content>
     </entry>
     <entry id="IDS_PGSC706_FULL">
       <type>NAME_FULL</type>
-      <dependents>HighSchoolFleetOptions.Spee_RemovePrefix</dependents>
+      <dependents>HighSchoolFleetOptions.RemovePrefixes</dependents>
       <content>Admiral Graf Spee</content>
     </entry>
     <entry id="IDS_PGSC706_DESCR">
       <type>DESCR</type>
-      <dependents>HighSchoolFleetOptions.Spee_UpdateDescription</dependents>
+      <dependents>HighSchoolFleetOptions.UpdateDescription</dependents>
       <content>(HSF Graf Spee)</content>
+    </entry>
+
+    <!--PJSD528	HSF Harekaze II -->
+    <entry id="IDS_PJSD528">
+      <type>NAME</type>
+      <dependents>HighSchoolFleetOptions.Harekaze_RemovePrefix</dependents>
+      <content>Harekaze II</content>
+    </entry>
+    <entry id="IDS_PJSD528_FULL">
+      <type>NAME_FULL</type>
+      <dependents>HighSchoolFleetOptions.Harekaze_RemovePrefix</dependents>
+      <content>Harekaze II</content>
+    </entry>
+    <entry id="IDS_PJSD528_DESCR">
+      <type>DESCR</type>
+      <dependents>HighSchoolFleetOptions.Harekaze_UpdateDescription</dependents>
+      <content>(HSF Harekaze II)</content>
+    </entry>
+
+    <!--PJSB715	HSF Hiei -->
+    <entry id="IDS_PJSB715">
+      <type>NAME</type>
+      <dependents>HighSchoolFleetOptions.RemovePrefixes</dependents>
+      <content>Hiei</content>
+    </entry>
+    <entry id="IDS_PJSB715">
+      <type>NAME</type>
+      <dependents>HighSchoolFleetOptions.ReplaceNames</dependents>
+      <content>Kongō</content>
+    </entry>
+    <entry id="IDS_PJSB715_FULL">
+      <type>NAME_FULL</type>
+      <dependents>HighSchoolFleetOptions.RemovePrefixes</dependents>
+      <content>Hiei</content>
+    </entry>
+    <entry id="IDS_PJSB715_FULL">
+      <type>NAME_FULL</type>
+      <dependents>HighSchoolFleetOptions.ReplaceNames</dependents>
+      <content>Kongō</content>
+    </entry>
+    <entry id="IDS_PJSB715_DESCR">
+      <type>DESCR</type>
+      <dependents>HighSchoolFleetOptions.UpdateDescription</dependents>
+      <content>(HSF Hiei)</content>
     </entry>
 
     <!--Dragon Ships-->

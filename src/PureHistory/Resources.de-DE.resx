@@ -168,17 +168,13 @@ Der Pfad sollte auf den res_mods-Ordner verweisen.</value>
     <value>Zum Beenden des Programms beliebige Taste drücken ...</value>
   </data>
   <data name="HSFHarekazeTitle" xml:space="preserve">
-    <value>Einstellungen für HSF Harekaze</value>
-  </data>
-  <data name="HSFHarekazeWarning" xml:space="preserve">
-    <value>Achtung : HSF Harekaze hat mehrere Rumpfmöglichkeiten mit unterschiedlichen Eigenschaften.
-Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks (Kagerō) kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
+    <value>Einstellungen für HSF Harekaze I/II</value>
   </data>
   <data name="HSFPrefix" xml:space="preserve">
     <value>'HSF'-Prefix entfernen</value>
   </data>
-  <data name="HSFSpeeTitle" xml:space="preserve">
-    <value>Einstellungen für HSF Graf Spee</value>
+  <data name="HSFTitle" xml:space="preserve">
+    <value>Einstellungen für andere HSF-Schiffe</value>
   </data>
   <data name="InstallationFinished" xml:space="preserve">
     <value>Installation ist abgeschlossen.</value>

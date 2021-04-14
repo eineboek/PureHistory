@@ -442,6 +442,9 @@
     <None Update="filetree\gui\ship_previews\PJSB708.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="filetree\gui\ship_previews\PJSB715.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="filetree\gui\ship_previews\PJSB799.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -482,6 +485,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="filetree\gui\ship_previews\PJSD026.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews\PJSD528.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="filetree\gui\ship_previews\PJSD598.png">
@@ -574,6 +580,9 @@
     <None Update="filetree\gui\ship_previews_ds\PJSB708.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSB715.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="filetree\gui\ship_previews_ds\PJSB799.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -614,6 +623,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="filetree\gui\ship_previews_ds\PJSD026.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="filetree\gui\ship_previews_ds\PJSD528.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="filetree\gui\ship_previews_ds\PJSD598.png">

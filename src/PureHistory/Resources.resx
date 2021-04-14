@@ -164,17 +164,13 @@ Replacing the ship name with the regular counterpart name could lead to a misjud
     <value>Press any key to exit the program ...</value>
   </data>
   <data name="HSFHarekazeTitle" xml:space="preserve">
-    <value>Settings for HSF Harekaze</value>
-  </data>
-  <data name="HSFHarekazeWarning" xml:space="preserve">
-    <value>Caution : HSF Harekaze is a unique ship capable of fitting multiple hulls with differing performance.
-Replacing the ship name with the regular counterpart name (Kagerō) could lead to a misjudgement of the battle situation.</value>
+    <value>Settings for HSF Harekaze I/II</value>
   </data>
   <data name="HSFPrefix" xml:space="preserve">
     <value>Remove 'HSF' prefix</value>
   </data>
-  <data name="HSFSpeeTitle" xml:space="preserve">
-    <value>Settings for HSF Graf Spee</value>
+  <data name="HSFTitle" xml:space="preserve">
+    <value>Settings for other HSF ships</value>
   </data>
   <data name="InstallationFinished" xml:space="preserve">
     <value>Installation is finished</value>

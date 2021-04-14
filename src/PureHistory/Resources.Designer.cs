@@ -270,21 +270,11 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for HSF Harekaze ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for HSF Harekaze I/II ähnelt.
         /// </summary>
         internal static string HSFHarekazeTitle {
             get {
                 return ResourceManager.GetString("HSFHarekazeTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Caution : HSF Harekaze is a unique ship capable of fitting multiple hulls with differing performance.
-        ///Replacing the ship name with the regular counterpart name (Kagerō) could lead to a misjudgement of the battle situation. ähnelt.
-        /// </summary>
-        internal static string HSFHarekazeWarning {
-            get {
-                return ResourceManager.GetString("HSFHarekazeWarning", resourceCulture);
             }
         }
         
@@ -298,11 +288,11 @@ namespace PureHistory {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for HSF Graf Spee ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings for other HSF ships ähnelt.
         /// </summary>
-        internal static string HSFSpeeTitle {
+        internal static string HSFTitle {
             get {
-                return ResourceManager.GetString("HSFSpeeTitle", resourceCulture);
+                return ResourceManager.GetString("HSFTitle", resourceCulture);
             }
         }
         
