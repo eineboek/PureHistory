@@ -675,7 +675,7 @@ namespace PureHistory
                         optionSelection[0] = false;
                     }
 
-                    if (optionSelection[2] && !optionSelection[1])
+                    if (optionSelection[2] && !optionSelection[0] && !optionSelection[1])
                     {
                         optionSelection[2] = false;
                     }
