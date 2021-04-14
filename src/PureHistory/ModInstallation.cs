@@ -49,7 +49,6 @@ namespace PureHistory
     internal class HighSchoolFleetOptions
     {
         public bool Harekaze_RemovePrefix { get; set; }
-        public bool Harekaze_UpdateDescription { get; set; }
         public bool Harekaze_ReplacePreview { get; set; }
 
         public bool RemovePrefixes { get; set; }

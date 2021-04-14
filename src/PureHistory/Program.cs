@@ -537,15 +537,14 @@ namespace PureHistory
 
             HighSchoolFleetOptions hsfOptions;
 
-            bool[] optionSelection = new bool[3];
+            bool[] optionSelection = new bool[2];
 
             if (modInstallation.HighSchoolFleetOptions != null)
             {
                 hsfOptions = modInstallation.HighSchoolFleetOptions;
 
                 optionSelection[0] = hsfOptions.Harekaze_RemovePrefix;
-                optionSelection[1] = hsfOptions.Harekaze_UpdateDescription;
-                optionSelection[2] = hsfOptions.Harekaze_ReplacePreview;
+                optionSelection[1] = hsfOptions.Harekaze_ReplacePreview;
             }
             else
             {
@@ -559,11 +558,10 @@ namespace PureHistory
 
                 optionSelection[0] = false;
                 optionSelection[1] = false;
-                optionSelection[2] = false;
             }
 
             string title = Resources.HSFHarekazeTitle;
-            string[] options = { Resources.HSFPrefix, Resources.UpdateDescription, Resources.ReplacePreview };
+            string[] options = { Resources.HSFPrefix, Resources.ReplacePreview };
             MultipleChoiceOption multipleChoice = new(title, options, optionSelection);
             MultipleChoiceResponse response;
 
@@ -586,11 +584,6 @@ namespace PureHistory
                         optionSelection[(int)response.ToggleSelectedIndex] = true;
                     }
 
-                    if (optionSelection[1] && !optionSelection[0])
-                    {
-                        optionSelection[1] = false;
-                    }
-
                     multipleChoice.UpdateOptionSelection(optionSelection);
                 }
             }
@@ -598,8 +591,7 @@ namespace PureHistory
             if (response.ReturnToPrevious)
             {
                 hsfOptions.Harekaze_RemovePrefix = optionSelection[0];
-                hsfOptions.Harekaze_UpdateDescription = optionSelection[1];
-                hsfOptions.Harekaze_ReplacePreview = optionSelection[2];
+                hsfOptions.Harekaze_ReplacePreview = optionSelection[1];
 
                 modInstallation.HighSchoolFleetOptions = hsfOptions;
 
@@ -608,8 +600,7 @@ namespace PureHistory
             else if (response.ContinueToNext)
             {
                 hsfOptions.Harekaze_RemovePrefix = optionSelection[0];
-                hsfOptions.Harekaze_UpdateDescription = optionSelection[1];
-                hsfOptions.Harekaze_ReplacePreview = optionSelection[2];
+                hsfOptions.Harekaze_ReplacePreview = optionSelection[1];
 
                 modInstallation.HighSchoolFleetOptions = hsfOptions;
 
@@ -642,7 +633,6 @@ namespace PureHistory
                 hsfOptions = new HighSchoolFleetOptions
                 {
                     Harekaze_RemovePrefix = false,
-                    Harekaze_UpdateDescription = false,
                     Harekaze_ReplacePreview = false
                 };
 
@@ -1518,11 +1508,6 @@ namespace PureHistory
                 if (modInstallation.HighSchoolFleetOptions.Harekaze_RemovePrefix)
                 {
                     installation.DependencyList.Add("HighSchoolFleetOptions.Harekaze_RemovePrefix");
-                    installation.InstallMO = true;
-                }
-                if (modInstallation.HighSchoolFleetOptions.Harekaze_UpdateDescription)
-                {
-                    installation.DependencyList.Add("HighSchoolFleetOptions.Harekaze_UpdateDescription");
                     installation.InstallMO = true;
                 }
                 if (modInstallation.HighSchoolFleetOptions.Harekaze_ReplacePreview)

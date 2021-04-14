@@ -1488,11 +1488,6 @@
       <dependents>HighSchoolFleetOptions.Harekaze_RemovePrefix</dependents>
       <content>Harekaze</content>
     </entry>
-    <entry id="IDS_PJSD708_DESCR">
-      <type>DESCR</type>
-      <dependents>HighSchoolFleetOptions.Harekaze_UpdateDescription</dependents>
-      <content>(HSF Harekaze)</content>
-    </entry>
 
     <!--PGSC706	HSF Graf Spee -->
     <entry id="IDS_PGSC706">
@@ -1521,11 +1516,6 @@
       <type>NAME_FULL</type>
       <dependents>HighSchoolFleetOptions.Harekaze_RemovePrefix</dependents>
       <content>Harekaze II</content>
-    </entry>
-    <entry id="IDS_PJSD528_DESCR">
-      <type>DESCR</type>
-      <dependents>HighSchoolFleetOptions.Harekaze_UpdateDescription</dependents>
-      <content>(HSF Harekaze II)</content>
     </entry>
 
     <!--PJSB715	HSF Hiei -->
