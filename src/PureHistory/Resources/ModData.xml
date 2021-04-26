@@ -1492,17 +1492,25 @@
     <!--PGSC706	HSF Graf Spee -->
     <entry id="IDS_PGSC706">
       <type>NAME</type>
-      <dependents>HighSchoolFleetOptions.RemovePrefixes</dependents>
+      <dependents>
+        HighSchoolFleetOptions.RemovePrefixes
+        HighSchoolFleetOptions.ReplaceNames
+      </dependents>
       <content>Graf Spee</content>
     </entry>
     <entry id="IDS_PGSC706_FULL">
       <type>NAME_FULL</type>
-      <dependents>HighSchoolFleetOptions.RemovePrefixes</dependents>
+      <dependents>
+        HighSchoolFleetOptions.RemovePrefixes
+        HighSchoolFleetOptions.ReplaceNames
+      </dependents>
       <content>Admiral Graf Spee</content>
     </entry>
     <entry id="IDS_PGSC706_DESCR">
       <type>DESCR</type>
-      <dependents>HighSchoolFleetOptions.UpdateDescription</dependents>
+      <dependents>
+        HighSchoolFleetOptions.UpdateDescription
+      </dependents>
       <content>(HSF Graf Spee)</content>
     </entry>
 
