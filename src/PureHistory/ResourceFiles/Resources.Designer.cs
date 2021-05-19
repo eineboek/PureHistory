@@ -443,6 +443,15 @@ namespace PureHistory.ResourceFiles {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;43&apos; suffix of Belfast &apos;43 ähnelt.
+        /// </summary>
+        internal static string MiscBelfast43Suffix {
+            get {
+                return ResourceManager.GetString("MiscBelfast43Suffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Miscellaneous settings ähnelt.
         /// </summary>
         internal static string MiscellaneousTitle {
@@ -470,11 +479,29 @@ namespace PureHistory.ResourceFiles {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Remove the &apos;1941&apos; from West Virginia 1941 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;59&apos; suffix of Tiger &apos;59 ähnelt.
         /// </summary>
-        internal static string MiscWestVirginiaName {
+        internal static string MiscTiger59Suffix {
             get {
-                return ResourceManager.GetString("MiscWestVirginiaName", resourceCulture);
+                return ResourceManager.GetString("MiscTiger59Suffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;II&apos; suffix of Vampire II ähnelt.
+        /// </summary>
+        internal static string MiscVampireIISuffix {
+            get {
+                return ResourceManager.GetString("MiscVampireIISuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove &apos;1941&apos; suffix from West Virginia 1941 ähnelt.
+        /// </summary>
+        internal static string MiscWestVirginiaSuffix {
+            get {
+                return ResourceManager.GetString("MiscWestVirginiaSuffix", resourceCulture);
             }
         }
         

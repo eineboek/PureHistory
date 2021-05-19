@@ -2034,13 +2034,49 @@
     <!--PASB507	W. Virginia 1941 -->
     <entry id="IDS_PASB507">
       <type>NAME</type>
-      <dependents>MiscellaneousOptions.WestVirginia41_CorrectName</dependents>
+      <dependents>MiscellaneousOptions.WestVirginia41_RemoveSuffix</dependents>
       <content>West Virginia</content>
     </entry>
     <entry id="IDS_PASB507_FULL">
       <type>NAME_FULL</type>
-      <dependents>MiscellaneousOptions.WestVirginia41_CorrectName</dependents>
+      <dependents>MiscellaneousOptions.WestVirginia41_RemoveSuffix</dependents>
       <content>West Virginia</content>
+    </entry>
+
+    <!--PBSC528	Belfast ’43 -->
+    <entry id="IDS_PBSC528">
+      <type>NAME</type>
+      <dependents>MiscellaneousOptions.Belfast43_RemoveSuffix</dependents>
+      <content>Belfast</content>
+    </entry>
+    <entry id="IDS_PBSC528_FULL">
+      <type>NAME_FULL</type>
+      <dependents>MiscellaneousOptions.Belfast43_RemoveSuffix</dependents>
+      <content>Belfast</content>
+    </entry>
+
+    <!--PBSC518	Tiger ’59 -->
+    <entry id="IDS_PBSC518">
+      <type>NAME</type>
+      <dependents>MiscellaneousOptions.Tiger59_RemoveSuffix</dependents>
+      <content>Tiger</content>
+    </entry>
+    <entry id="IDS_PBSC518_FULL">
+      <type>NAME_FULL</type>
+      <dependents>MiscellaneousOptions.Tiger59_RemoveSuffix</dependents>
+      <content>Tiger</content>
+    </entry>
+
+    <!--PUSD510	Vampire II -->
+    <entry id="IDS_PUSD510">
+      <type>NAME</type>
+      <dependents>MiscellaneousOptions.VampireII_RemoveSuffix</dependents>
+      <content>Vampire</content>
+    </entry>
+    <entry id="IDS_PUSD510_FULL">
+      <type>NAME_FULL</type>
+      <dependents>MiscellaneousOptions.VampireII_RemoveSuffix</dependents>
+      <content>Vampire</content>
     </entry>
   </mostrings>
 </data>

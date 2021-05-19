@@ -208,8 +208,8 @@ Replacing the ship name with the regular counterpart name could lead to a misjud
   <data name="MiscKamikazeSuffix" xml:space="preserve">
     <value>Remove 'R' suffix of Kamikaze R</value>
   </data>
-  <data name="MiscWestVirginiaName" xml:space="preserve">
-    <value>Remove the '1941' from West Virginia 1941</value>
+  <data name="MiscWestVirginiaSuffix" xml:space="preserve">
+    <value>Remove '1941' suffix from West Virginia 1941</value>
   </data>
   <data name="ModStationWarning" xml:space="preserve">
     <value>World of Warships ModStation was found.
@@ -350,5 +350,14 @@ The path should point to the res_mods folder.</value>
   </data>
   <data name="OtherInstanceRunning" xml:space="preserve">
     <value>Another instance of this program is already running. Close the other window and try again.</value>
+  </data>
+  <data name="MiscBelfast43Suffix" xml:space="preserve">
+    <value>Remove '43' suffix of Belfast '43</value>
+  </data>
+  <data name="MiscTiger59Suffix" xml:space="preserve">
+    <value>Remove '59' suffix of Tiger '59</value>
+  </data>
+  <data name="MiscVampireIISuffix" xml:space="preserve">
+    <value>Remove 'II' suffix of Vampire II</value>
   </data>
 </root>

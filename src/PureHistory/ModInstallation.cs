@@ -128,7 +128,10 @@ namespace PureHistory
 
         public bool IwakiA_RemoveSuffix { get; set; }
         public bool ArkansasB_RemoveSuffix { get; set; }
-        public bool WestVirginia41_CorrectName { get; set; }
+        public bool WestVirginia41_RemoveSuffix { get; set; }
+        public bool Belfast43_RemoveSuffix { get; set; }
+        public bool Tiger59_RemoveSuffix { get; set; }
+        public bool VampireII_RemoveSuffix { get; set; }
     }
 
     /// <summary>

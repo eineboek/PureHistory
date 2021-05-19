@@ -212,8 +212,8 @@ Der Pfad sollte auf den res_mods-Ordner verweisen.</value>
   <data name="MiscKamikazeSuffix" xml:space="preserve">
     <value>'R' -Suffix von Kamikaze R entfernen</value>
   </data>
-  <data name="MiscWestVirginiaName" xml:space="preserve">
-    <value>Entfernen der '1941' bei der West Virginia 1941</value>
+  <data name="MiscWestVirginiaSuffix" xml:space="preserve">
+    <value>'1941'-Suffix von West Virginia 1941 entfernen</value>
   </data>
   <data name="ModStationWarning" xml:space="preserve">
     <value>World of Warships ModStation wurde erkannt.
@@ -338,5 +338,14 @@ Beispiel: Entweder wird ein Teil eines Schiffsnamens ersetzt oder der ganze Schi
   </data>
   <data name="OtherInstanceRunning" xml:space="preserve">
     <value>Eine weitere Instanz dieses Programms läuft bereits. Schließen sie das andere Fenster und versuchen sie es erneut.</value>
+  </data>
+  <data name="MiscBelfast43Suffix" xml:space="preserve">
+    <value>'43'-Suffix von Belfast '43 entfernen</value>
+  </data>
+  <data name="MiscTiger59Suffix" xml:space="preserve">
+    <value>'59'-Suffix von Tiger '59 entfernen</value>
+  </data>
+  <data name="MiscVampireIISuffix" xml:space="preserve">
+    <value>'II'-Suffix von Vampire II entfernen</value>
   </data>
 </root>

@@ -1189,7 +1189,7 @@ namespace PureHistory
 
             MiscellaneousOptions miscellaneousOptions;
 
-            bool[] optionSelection = new bool[9];
+            bool[] optionSelection = new bool[12];
 
             if (modInstallation.MiscellaneousOptions != null)
             {
@@ -1203,7 +1203,10 @@ namespace PureHistory
                 optionSelection[5] = miscellaneousOptions.AlabamaVersions_ReplacePreview;
                 optionSelection[6] = miscellaneousOptions.IwakiA_RemoveSuffix;
                 optionSelection[7] = miscellaneousOptions.ArkansasB_RemoveSuffix;
-                optionSelection[8] = miscellaneousOptions.WestVirginia41_CorrectName;
+                optionSelection[8] = miscellaneousOptions.WestVirginia41_RemoveSuffix;
+                optionSelection[9] = miscellaneousOptions.Belfast43_RemoveSuffix;
+                optionSelection[10] = miscellaneousOptions.Tiger59_RemoveSuffix;
+                optionSelection[11] = miscellaneousOptions.VampireII_RemoveSuffix;
             }
             else
             {
@@ -1218,10 +1221,13 @@ namespace PureHistory
                 optionSelection[6] = false;
                 optionSelection[7] = false;
                 optionSelection[8] = false;
+                optionSelection[9] = false;
+                optionSelection[10] = false;
+                optionSelection[11] = false;
             }
 
             string title = Resources.MiscellaneousTitle;
-            string[] options = { Resources.MiscKamikazeSuffix, Resources.UpdateDescription, Resources.ReplacePreviewMisc, Resources.MiscAlabamaSuffix, Resources.UpdateDescription, Resources.ReplacePreviewMisc, Resources.MiscIwakiSuffix, Resources.MiscArkansasSuffix, Resources.MiscWestVirginiaName };
+            string[] options = { Resources.MiscKamikazeSuffix, Resources.UpdateDescription, Resources.ReplacePreviewMisc, Resources.MiscAlabamaSuffix, Resources.UpdateDescription, Resources.ReplacePreviewMisc, Resources.MiscIwakiSuffix, Resources.MiscArkansasSuffix, Resources.MiscWestVirginiaSuffix, Resources.MiscBelfast43Suffix, Resources.MiscTiger59Suffix, Resources.MiscVampireIISuffix };
             MultipleChoiceOption multipleChoice = new(title, options, optionSelection);
             MultipleChoiceResponse response;
 
@@ -1268,7 +1274,10 @@ namespace PureHistory
                 miscellaneousOptions.AlabamaVersions_ReplacePreview = optionSelection[5];
                 miscellaneousOptions.IwakiA_RemoveSuffix = optionSelection[6];
                 miscellaneousOptions.ArkansasB_RemoveSuffix = optionSelection[7];
-                miscellaneousOptions.WestVirginia41_CorrectName = optionSelection[8];
+                miscellaneousOptions.WestVirginia41_RemoveSuffix = optionSelection[8];
+                miscellaneousOptions.Belfast43_RemoveSuffix = optionSelection[9];
+                miscellaneousOptions.Tiger59_RemoveSuffix = optionSelection[10];
+                miscellaneousOptions.VampireII_RemoveSuffix = optionSelection[11];
 
                 modInstallation.MiscellaneousOptions = miscellaneousOptions;
 
@@ -1284,7 +1293,10 @@ namespace PureHistory
                 miscellaneousOptions.AlabamaVersions_ReplacePreview = optionSelection[5];
                 miscellaneousOptions.IwakiA_RemoveSuffix = optionSelection[6];
                 miscellaneousOptions.ArkansasB_RemoveSuffix = optionSelection[7];
-                miscellaneousOptions.WestVirginia41_CorrectName = optionSelection[8];
+                miscellaneousOptions.WestVirginia41_RemoveSuffix = optionSelection[8];
+                miscellaneousOptions.Belfast43_RemoveSuffix = optionSelection[9];
+                miscellaneousOptions.Tiger59_RemoveSuffix = optionSelection[10];
+                miscellaneousOptions.VampireII_RemoveSuffix = optionSelection[11];
 
                 modInstallation.MiscellaneousOptions = miscellaneousOptions;
 
@@ -1697,9 +1709,24 @@ namespace PureHistory
                     installation.DependencyList.Add("MiscellaneousOptions.ArkansasB_RemoveSuffix");
                     installation.InstallMO = true;
                 }
-                if (modInstallation.MiscellaneousOptions.WestVirginia41_CorrectName)
+                if (modInstallation.MiscellaneousOptions.WestVirginia41_RemoveSuffix)
                 {
-                    installation.DependencyList.Add("MiscellaneousOptions.WestVirginia41_CorrectName");
+                    installation.DependencyList.Add("MiscellaneousOptions.WestVirginia41_RemoveSuffix");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.MiscellaneousOptions.Belfast43_RemoveSuffix)
+                {
+                    installation.DependencyList.Add("MiscellaneousOptions.Belfast43_RemoveSuffix");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.MiscellaneousOptions.Tiger59_RemoveSuffix)
+                {
+                    installation.DependencyList.Add("MiscellaneousOptions.Tiger59_RemoveSuffix");
+                    installation.InstallMO = true;
+                }
+                if (modInstallation.MiscellaneousOptions.VampireII_RemoveSuffix)
+                {
+                    installation.DependencyList.Add("MiscellaneousOptions.VampireII_RemoveSuffix");
                     installation.InstallMO = true;
                 }
 
