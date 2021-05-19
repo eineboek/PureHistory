@@ -489,7 +489,7 @@ namespace PureHistory.ResourceFiles {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die PureHistory Version 1.3.1 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die PureHistory Version 1.3.2 ähnelt.
         /// </summary>
         internal static string ModVersion {
             get {
