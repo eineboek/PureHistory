@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Creator" xml:space="preserve">
+    <value>Erstellt von eineboek</value>
+  </data>
+  <data name="ArpeggioPrefix" xml:space="preserve">
+    <value>'ARP'-Prefix entfernen</value>
+  </data>
+  <data name="ArpeggioTitle" xml:space="preserve">
+    <value>Einstellungen für Arpeggio-Schiffe</value>
+  </data>
+  <data name="AzurLanePrefix" xml:space="preserve">
+    <value>'AL'-Prefix entfernen</value>
+  </data>
+  <data name="AzurLaneTitle" xml:space="preserve">
+    <value>Einstellungen für Azur Lane-Schiffe</value>
+  </data>
+  <data name="AzurLaneWarning" xml:space="preserve">
+    <value>Achtung : Azur Lane-Schiffe haben ähnliche, aber nicht identische Eigenschaften zu ihren regulären Gegenstücken.
+Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
+  </data>
+  <data name="BlackShipTitle" xml:space="preserve">
+    <value>Einstellungen für Black-Friday-Schiffe</value>
+  </data>
+  <data name="BlackShipsSuffix" xml:space="preserve">
+    <value> 'B'-Suffix entfernen</value>
+  </data>
+  <data name="CannotFindStructure" xml:space="preserve">
+    <value>PureHistory kann in der angegebenen Ordnerstruktur nicht installiert werden.</value>
+  </data>
+  <data name="ClientManualSelectionTitle" xml:space="preserve">
+    <value>Geben sie den Pfad der gewünschten World of Warships-Installation ein.
+Der Pfad sollte auf den res_mods-Ordner verweisen.</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Weiter</value>
+  </data>
+  <data name="DragonShipTitle" xml:space="preserve">
+    <value>Einstellungen für Drachen-Schiffe</value>
+  </data>
+  <data name="GenericError" xml:space="preserve">
+    <value>Es ist ein Fehler aufgetreten:</value>
+  </data>
+  <data name="InstallationError" xml:space="preserve">
+    <value>Fehler während der Installation. Bitte versuchen sie es erneut oder kontaktieren sie den Autor.</value>
+  </data>
+  <data name="PathFormatExamples" xml:space="preserve">
+    <value>Beispiele:</value>
+  </data>
+  <data name="ExitProgramAnyKey" xml:space="preserve">
+    <value>Zum Beenden des Programms beliebige Taste drücken ...</value>
+  </data>
+  <data name="HSFHarekazeTitle" xml:space="preserve">
+    <value>Einstellungen für HSF Harekaze I/II</value>
+  </data>
+  <data name="HSFPrefix" xml:space="preserve">
+    <value>'HSF'-Prefix entfernen</value>
+  </data>
+  <data name="HSFTitle" xml:space="preserve">
+    <value>Einstellungen für andere HSF-Schiffe</value>
+  </data>
+  <data name="InstallationFinished" xml:space="preserve">
+    <value>Installation ist abgeschlossen.</value>
+  </data>
+  <data name="InvalidResponse" xml:space="preserve">
+    <value>Ungültige Eingabe.</value>
+  </data>
+  <data name="LimaShipTitle" xml:space="preserve">
+    <value>Einstellungen für Lima (ASUS Kollaboration)-Schiffe</value>
+  </data>
+  <data name="LimaShipsSuffix" xml:space="preserve">
+    <value>'Lima'-Suffix entfernen</value>
+  </data>
+  <data name="LunarNewYearFlagOptionPanasia" xml:space="preserve">
+    <value>Hintergrundflagge der Schiffsvorschau mit Pan-Asiatischer Flagge ersetzen</value>
+  </data>
+  <data name="LunarNewYearFlagOptionOriginal" xml:space="preserve">
+    <value>Hintergrundflagge der Schiffsvorschau mit der des jeweiligen Originals ersetzen</value>
+  </data>
+  <data name="LunarNewYearTitle" xml:space="preserve">
+    <value>Einstellungen für Mondneujahr-Schiffe</value>
+  </data>
+  <data name="MiscAlabamaSuffix" xml:space="preserve">
+    <value>Suffixe der Alabama-Duplikate (ST/VL) entfernen</value>
+  </data>
+  <data name="MiscArkansasSuffix" xml:space="preserve">
+    <value>'B'-Suffix von Arkansas Beta entfernen</value>
+  </data>
+  <data name="MiscellaneousTitle" xml:space="preserve">
+    <value>Sonstige Einstellungen</value>
+  </data>
+  <data name="MiscIwakiSuffix" xml:space="preserve">
+    <value>'A'-Suffix von Iwaki Alpha entfernen</value>
+  </data>
+  <data name="MiscKamikazeSuffix" xml:space="preserve">
+    <value>'R' -Suffix von Kamikaze R entfernen</value>
+  </data>
+  <data name="MiscWestVirginiaName" xml:space="preserve">
+    <value>Entfernen der '1941' bei der West Virginia 1941</value>
+  </data>
+  <data name="ModStationWarning" xml:space="preserve">
+    <value>World of Warships ModStation wurde erkannt.
+Bitte installieren sie diesen Mod nach der Ausführung der ModStation, da die ModStation alle anderen Mods im Ordner überschreibt.</value>
+  </data>
+  <data name="NavigationHelp" xml:space="preserve">
+    <value>Pfeiltaste links/rechts um zur vorherigen/nächsten Seite zu springen
+Pfeiltaste oben/unten zum Bewegen zwischen Optionen
+ENTER um eine Option zu ändern/auszuwählen</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="PathCorrection" xml:space="preserve">
+    <value>Ist dieser Pfad korrekt?</value>
+  </data>
+  <data name="PressAnyKey" xml:space="preserve">
+    <value>Zum Fortfahren beliebige Taste drücken ...</value>
+  </data>
+  <data name="ReplacePreviewBg" xml:space="preserve">
+    <value>Hintergrundflagge der Schiffsvorschau ersetzen</value>
+  </data>
+  <data name="ReplacePreview" xml:space="preserve">
+    <value>Schiffsvorschau ersetzen</value>
+  </data>
+  <data name="ReplaceShipNameClassName" xml:space="preserve">
+    <value>Schiffsnamen mit respektivem Klassennamen ersetzen</value>
+  </data>
+  <data name="ReplaceShipNameCounterpart" xml:space="preserve">
+    <value>Schiffsnamen mit regulärem Gegenstück ersetzen</value>
+  </data>
+  <data name="ReplaceSillouette" xml:space="preserve">
+    <value>Sillhouette in der Gefechtsübersicht ersetzen</value>
+  </data>
+  <data name="StartInstallationNotice" xml:space="preserve">
+    <value>Zurück: linke Pfeiltaste drücken
+Zum Beginnen der Installation ENTER drücken ...</value>
+  </data>
+  <data name="UpdateDescription" xml:space="preserve">
+    <value>• Schiffsbeschreibung zur Unterscheidung im Hafen anpassen</value>
+  </data>
+  <data name="WarhammerTitle" xml:space="preserve">
+    <value>Einstellungen für Warhammer 40.000-Schiffe</value>
+  </data>
+  <data name="WarhammerWarning" xml:space="preserve">
+    <value>Achtung : Warhammer 40.000-Schiffe haben ähnliche, aber nicht identische Eigenschaften zu ihren regulären Gegenstücken (Amagi).
+Das Ersetzen des Schiffsnamens durch den des regulären Gegenstücks kann zu einer Fehleinschätzung der Gefechtssituation führen.</value>
+  </data>
+  <data name="WoWsNotFound" xml:space="preserve">
+    <value>World of Warships scheint nicht unter diesem Pfad installiert zu sein. Installation trotzdem fortsetzen?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="ReplacePreviewMisc" xml:space="preserve">
+    <value>• Schiffsvorschau ersetzen</value>
+  </data>
+  <data name="EmptyPath" xml:space="preserve">
+    <value>Der Installationspfad darf nicht leer sein. Bitte versuchen sie es erneut.</value>
+  </data>
+  <data name="PathDoesntExist" xml:space="preserve">
+    <value>Der angegebene Pfad konnte nicht gefunden werden. Bitte versuchen sie es erneut.</value>
+  </data>
+  <data name="AlreadyExists" xml:space="preserve">
+    <value>existiert bereits im Mod-Ordner. Soll sie überschrieben werden?</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Die Datei</value>
+  </data>
+  <data name="InstallationSettingsAskForEach" xml:space="preserve">
+    <value>Für jede Datei einzeln nachfragen</value>
+  </data>
+  <data name="InstallationSettingsNoOverwrite" xml:space="preserve">
+    <value>Vorhandene Dateien nicht überschreiben</value>
+  </data>
+  <data name="InstallationSettingsOverwriteAll" xml:space="preserve">
+    <value>Alle kollidierenden Dateien überschreiben</value>
+  </data>
+  <data name="InstallationSettingsTitle" xml:space="preserve">
+    <value>Einstellungen für die Installation</value>
+  </data>
+  <data name="CopyProgressString1" xml:space="preserve">
+    <value>Die Datei</value>
+  </data>
+  <data name="CopyProgressString2" xml:space="preserve">
+    <value>wurde nach</value>
+  </data>
+  <data name="CopyProgressString3" xml:space="preserve">
+    <value>kopiert.</value>
+  </data>
+  <data name="DoNotOverwrite" xml:space="preserve">
+    <value>Datei nicht überschreiben</value>
+  </data>
+  <data name="Overwrite" xml:space="preserve">
+    <value>Datei überschreiben</value>
+  </data>
+  <data name="InfoScreenNote" xml:space="preserve">
+    <value>Anmerkung:
+Einige Optionen sind voneinander abhängig und lassen sich nur anwählen, wenn eine andere Option angewählt ist.
+Beispiel: Entweder wird ein Teil eines Schiffsnamens ersetzt oder der ganze Schiffsname durch einen anderen.</value>
+  </data>
+  <data name="MOProgress" xml:space="preserve">
+    <value>Aktualisiere Übersetzungsdatei ...</value>
+  </data>
+  <data name="MOProgressFinished1" xml:space="preserve">
+    <value>Die Übersetzungsdatei wurde nach</value>
+  </data>
+  <data name="MOProgressFinished2" xml:space="preserve">
+    <value>gespeichert.</value>
+  </data>
+  <data name="ClientSelectionTitle" xml:space="preserve">
+    <value>Wählen sie die gewünschte World of Warships-Installation aus</value>
+  </data>
+  <data name="SelectManual" xml:space="preserve">
+    <value>Manuell auswählen</value>
+  </data>
+  <data name="FatalError" xml:space="preserve">
+    <value>Eine unbehandelte Ausnahme ist aufgetreten. Bitte den Autor dieses Programms mit folgender Fehlermeldung kontaktieren:</value>
+  </data>
+  <data name="ExtractingDataArchive" xml:space="preserve">
+    <value>Mod-Daten vorbereiten ...</value>
+  </data>
+  <data name="OtherInstanceRunning" xml:space="preserve">
+    <value>Eine weitere Instanz dieses Programms läuft bereits. Schließen sie das andere Fenster und versuchen sie es erneut.</value>
+  </data>
+</root>

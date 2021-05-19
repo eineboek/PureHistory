@@ -1,7 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.IO.Compression;
 using System.Reflection;
+
+using SevenZip;
 
 namespace ModData
 {
@@ -19,23 +20,31 @@ namespace ModData
             string executingPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string dataPath = Path.Combine(executingPath, "filetree");
 
-            string zipSrcPath = Path.Combine(executingPath, "ModData.zip");
+            string compressedModDataSrcPath = Path.Combine(executingPath, "ModData.7z");
             string xmlSrcPath = Path.Combine(executingPath, "ModData.xml");
 
-            if (File.Exists(zipSrcPath))
+            if (File.Exists(compressedModDataSrcPath))
             {
-                File.Delete(zipSrcPath);
+                File.Delete(compressedModDataSrcPath);
             }
 
-            ZipFile.CreateFromDirectory(dataPath, zipSrcPath);
+            SevenZipBase.InitLib();
+            SevenZipCompressor compressor = new()
+            {
+                ArchiveFormat = OutArchiveFormat.SevenZip,
+                CompressionLevel = SevenZip.CompressionLevel.Ultra,
+                CompressionMethod = CompressionMethod.Lzma2
+            };
+
+            compressor.CompressDirectory(dataPath, compressedModDataSrcPath);
 
             string pureHistoryProjectPath = Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(executingPath))))), "PureHistory");
             string resourcePath = Path.Combine(pureHistoryProjectPath, "Resources");
 
-            string zipDestPath = Path.Combine(resourcePath, "ModData.zip");
+            string zipDestPath = Path.Combine(resourcePath, "ModData.7z");
             string xmlDestPath = Path.Combine(resourcePath, "ModData.xml");
 
-            File.Copy(zipSrcPath, zipDestPath, true);
+            File.Copy(compressedModDataSrcPath, zipDestPath, true);
             File.Copy(xmlSrcPath, xmlDestPath, true);
 
             Environment.Exit(0);

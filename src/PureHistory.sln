@@ -6,9 +6,17 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureHistory", "PureHistory\PureHistory.csproj", "{991640F9-2C79-45D6-B220-6F69A9D94EAD}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0E9C339F-A9E3-4160-AFFC-5679CF507987} = {0E9C339F-A9E3-4160-AFFC-5679CF507987}
+		{C3D504CF-D374-455D-9F4C-AEA147A193B9} = {C3D504CF-D374-455D-9F4C-AEA147A193B9}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModData", "ModData\ModData.csproj", "{0E9C339F-A9E3-4160-AFFC-5679CF507987}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C3D504CF-D374-455D-9F4C-AEA147A193B9} = {C3D504CF-D374-455D-9F4C-AEA147A193B9}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SevenZip", "External Libraries\SevenZipSharp\SevenZip.csproj", "{C3D504CF-D374-455D-9F4C-AEA147A193B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Libraries", "External Libraries", "{0933C398-19F9-49DF-93E0-984B775E794A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,9 +32,16 @@ Global
 		{0E9C339F-A9E3-4160-AFFC-5679CF507987}.Debug|x86.Build.0 = Debug|x86
 		{0E9C339F-A9E3-4160-AFFC-5679CF507987}.Release|x86.ActiveCfg = Release|x86
 		{0E9C339F-A9E3-4160-AFFC-5679CF507987}.Release|x86.Build.0 = Release|x86
+		{C3D504CF-D374-455D-9F4C-AEA147A193B9}.Debug|x86.ActiveCfg = Debug|x86
+		{C3D504CF-D374-455D-9F4C-AEA147A193B9}.Debug|x86.Build.0 = Debug|x86
+		{C3D504CF-D374-455D-9F4C-AEA147A193B9}.Release|x86.ActiveCfg = Release|x86
+		{C3D504CF-D374-455D-9F4C-AEA147A193B9}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C3D504CF-D374-455D-9F4C-AEA147A193B9} = {0933C398-19F9-49DF-93E0-984B775E794A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BDC50323-2564-4568-B9E8-5694DD70EB35}

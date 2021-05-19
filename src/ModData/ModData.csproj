@@ -2,12 +2,16 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <StartupObject>ModData.Program</StartupObject>
     <AssemblyName>createmoddata</AssemblyName>
     <Platforms>x86</Platforms>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\External Libraries\SevenZipSharp\SevenZip.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Update="filetree\gui\nation_flags\big\alternative_flags\flag_PZSA508.png">

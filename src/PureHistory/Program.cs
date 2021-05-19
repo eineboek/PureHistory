@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Xml;
 using static System.Console;
+
+using PureHistory.ResourceFiles;
+using SevenZip;
 
 namespace PureHistory
 {
@@ -46,38 +47,35 @@ namespace PureHistory
 
             DisplayTools.MaximizeWindow();
 
-            //Start the language selection
-            LanguageSelection();
+            Mutex mutex = new(false, "purehistory");
+            try
+            {
+                if (mutex.WaitOne(0, false))
+                {
+                    LanguageSelection();
 
-            Clear();
+                    TitleScreen();
 
-            //Create a new ModInstallation class instance to save the user's choices in
-            modInstallation = new ModInstallation();
+                    ClientSelection();
 
-            //Display information about the mod and the compatible WoWs version
-            WriteLine($"{Resources.ModVersion} - {Resources.Creator}");
-            WriteLine();
-            WriteLine(Resources.WoWsVersion);
-            WriteLine();
-
-            //Display information about how to navigate the program
-            WriteLine("Navigation");
-            WriteLine(Resources.NavigationHelp);
-            WriteLine();
-
-            WriteLine(Resources.InfoScreenNote);
-            WriteLine();
-
-            //User presses any key to continue
-            WriteLine(Resources.PressAnyKey);
-            ReadKey();
-
-            //Continue with Client Selection
-            ClientSelection();
-
-            //After the installation : User presses any key to exit the program
-            WriteLine(Resources.ExitProgramAnyKey);
-            ReadKey();
+                    //After the installation : User presses any key to exit the program
+                    WriteLine(Resources.ExitProgramAnyKey);
+                    ReadKey();
+                }
+                else
+                {
+                    WriteLine(Resources.OtherInstanceRunning);
+                    ReadKey();
+                }
+            }
+            finally
+            {
+                if (mutex != null)
+                {
+                    mutex.Close();
+                    mutex = null;
+                }
+            }
         }
 
         /// <summary>
@@ -107,6 +105,35 @@ namespace PureHistory
             //Apply the selected language to the program
             Thread.CurrentThread.CurrentCulture = selectedCulture;
             Thread.CurrentThread.CurrentUICulture = selectedCulture;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        private static void TitleScreen()
+        {
+            Clear();
+
+            //Create a new ModInstallation class instance to save the user's choices in
+            modInstallation = new ModInstallation();
+
+            //Display information about the mod and the compatible WoWs version
+            WriteLine($"{Resources.ModVersion} - {Resources.Creator}");
+            WriteLine();
+            WriteLine(Resources.WoWsVersion);
+            WriteLine();
+
+            //Display information about how to navigate the program
+            WriteLine("Navigation");
+            WriteLine(Resources.NavigationHelp);
+            WriteLine();
+
+            WriteLine(Resources.InfoScreenNote);
+            WriteLine();
+
+            //User presses any key to continue
+            WriteLine(Resources.PressAnyKey);
+            ReadKey();
         }
 
         /// <summary>
@@ -1391,8 +1418,10 @@ namespace PureHistory
 
                 #region Extract files from the data archive
 
-                string executingPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string dataArchivePath = Path.Combine(executingPath, "ModData.zip");
+                WriteLine(Resources.ExtractingDataArchive);
+
+                string executingPath = AppDomain.CurrentDomain.BaseDirectory;
+                string dataArchivePath = Path.Combine(executingPath, Path.GetRandomFileName() + ".7z");
 
                 //If the data archive already exists, delete it
                 if (File.Exists(dataArchivePath))
@@ -1409,7 +1438,7 @@ namespace PureHistory
                 {
                     WriteLine(Resources.GenericError);
                     WriteLine(Resources.InstallationError);
-                    WriteLine(ex.Message);
+                    WriteLine(ex.ToString());
                     return;
                 }
 
@@ -1422,15 +1451,22 @@ namespace PureHistory
 
                 try
                 {
-                    ZipFile.ExtractToDirectory(dataArchivePath, dataSourcePath);
+                    SevenZipBase.InitLib();
+                    using (SevenZipExtractor extractor = new(dataArchivePath))
+                    {
+                        extractor.ExtractArchive(dataSourcePath);
+                    }
                 }
                 catch (Exception ex)
                 {
                     WriteLine(Resources.GenericError);
                     WriteLine(Resources.InstallationError);
-                    WriteLine(ex.Message);
+                    WriteLine(ex.ToString());
                     return;
                 }
+
+                //Delete the archive
+                File.Delete(dataArchivePath);
 
                 #endregion Extract files from the data archive
 
@@ -1691,7 +1727,7 @@ namespace PureHistory
 
                             foreach (string specifiedDependency in xmlDependencies)
                             {
-                                if (specifiedDependency == dependency)
+                                if (specifiedDependency.Trim() == dependency)
                                 {
                                     addEntry = true;
                                 }

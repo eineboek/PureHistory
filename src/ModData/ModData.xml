@@ -128,7 +128,7 @@
           </file>
           <!--PZSC518	Wukong-->
           <file name="flag_PZSC518.png">
-            <dependents></dependents>
+            <dependents>LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry</dependents>
           </file>
           <folder name="alternative_flags">
             <dependents>LunarNewYearShipOptions.ReplaceFlagsPanasia</dependents>
@@ -248,7 +248,7 @@
           </file>
           <!--PZSC518	Wukong-->
           <file name="flag_PZSC518.png">
-            <dependents></dependents>
+            <dependents>LunarNewYearShipOptions.ReplaceFlagsRespectiveCountry</dependents>
           </file>
           <folder name="alternative_flags">
             <dependents>LunarNewYearShipOptions.ReplaceFlagsPanasia</dependents>
