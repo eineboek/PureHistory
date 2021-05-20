@@ -5,8 +5,6 @@ Information about the mod/tool can be found here:
 
 https://forum.worldofwarships.eu/topic/147200-0102-purehistory-–-tool-for-customizing-collaboration-content-and-other-aesthetical-changes/
 
-## [Roadmap](https://github.com/eineboek/PureHistory/blob/master/ROADMAP.md)
-
 ## Navigation
 Arrow keys up/down for cursor movement between options
 
