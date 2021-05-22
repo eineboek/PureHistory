@@ -5,11 +5,16 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <StartupObject>MOSearcher.App</StartupObject>
+    <Platforms>x86</Platforms>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
     <Optimize>true</Optimize>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="icons\" />
+  </ItemGroup>
 
 </Project>
