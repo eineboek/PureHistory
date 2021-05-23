@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace MOSearcher
 {
@@ -139,7 +140,6 @@ namespace MOSearcher
             }
             MOGrid.UpdateLayout();
             MOGrid.ScrollIntoView(MOGrid.Items[SearchResults[currentSearchResult]]);
-            MOGrid.SelectedItem = MOGrid.Items[SearchResults[currentSearchResult]];
             SearchResultsLabel.Text = $"{currentSearchResult + 1}/{SearchResults.Count}";
         }
 
@@ -152,7 +152,6 @@ namespace MOSearcher
             }
             MOGrid.UpdateLayout();
             MOGrid.ScrollIntoView(MOGrid.Items[SearchResults[currentSearchResult]]);
-            MOGrid.SelectedItem = MOGrid.Items[SearchResults[currentSearchResult]];
             SearchResultsLabel.Text = $"{currentSearchResult + 1}/{SearchResults.Count}";
         }
     }
