@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         Title="MO Searcher" Height="800" Width="1200" WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
     <Grid x:Name="MainGrid">
-        <DataGrid x:Name="MOGrid" Margin="0,50,0,0" Grid.RowSpan="2" AlternatingRowBackground="LightGray" CanUserDeleteRows="False" CanUserAddRows="False" SelectionMode="Single" CanUserReorderColumns="False" IsReadOnly="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="MOGrid" Margin="0,50,0,0" Grid.RowSpan="2" AlternatingRowBackground="LightGray" CanUserDeleteRows="False" CanUserAddRows="False" SelectionMode="Single" CanUserReorderColumns="False" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn CanUserResize="True" FontSize="12" Header="#" Width="40" Binding="{Binding index}" />
                 <DataGridTextColumn CanUserResize="True" FontSize="12" Header="Identifier" Width="300" Binding="{Binding identifier}" />
