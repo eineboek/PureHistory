@@ -6,22 +6,22 @@
         mc:Ignorable="d"
         Title="MO Searcher" Height="800" Width="1200" WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
     <Grid x:Name="MainGrid">
-        <DataGrid x:Name="MOGrid" Margin="0,50,0,0" Grid.RowSpan="2">
+        <DataGrid x:Name="MOGrid" Margin="0,50,0,0" Grid.RowSpan="2" AlternatingRowBackground="LightGray" CanUserDeleteRows="False" CanUserAddRows="False" SelectionMode="Single" CanUserReorderColumns="False" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn CanUserResize="True" FontSize="12" Header="#" Width="40" />
-                <DataGridTextColumn Header="Identifier" Width="300" />
-                <DataGridTextColumn Header="Content" Width="900" />
+                <DataGridTextColumn CanUserResize="True" FontSize="12" Header="#" Width="40" Binding="{Binding index}" />
+                <DataGridTextColumn CanUserResize="True" FontSize="12" Header="Identifier" Width="300" Binding="{Binding identifier}" />
+                <DataGridTextColumn CanUserResize="True" FontSize="12" Header="Content" Width="900" Binding="{Binding content}" />
             </DataGrid.Columns>
             <DataGrid.CellStyle>
                 <Style />
             </DataGrid.CellStyle>
         </DataGrid>
-        <Button x:Name="OpenFileButton" Content="" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="30" Height="30" Grid.RowSpan="2" BorderBrush="Black">
+        <Button x:Name="OpenFileButton" Content="" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="30" Height="30" Grid.RowSpan="2" BorderBrush="Black" Click="OpenFile" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/icons/file.png" />
             </Button.Background>
         </Button>
-        <Button x:Name="UnloadDataButton" Content="" HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top" Width="30" Height="30" Grid.RowSpan="2" BorderBrush="Black">
+        <Button x:Name="UnloadDataButton" Content="" HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top" Width="30" Height="30" Grid.RowSpan="2" BorderBrush="Black" Click="UnloadData" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/icons/clear.png" />
             </Button.Background>
@@ -32,17 +32,17 @@
             <ComboBoxItem Content="Both" />
         </ComboBox>
         <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Margin="460,12,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="350" Height="25" VerticalContentAlignment="Center" MaxHeight="25" MaxWidth="350" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" UseLayoutRounding="False" Grid.RowSpan="2" MaxLines="1" IsUndoEnabled="False" />
-        <Button x:Name="SearchButton" Content="" HorizontalAlignment="Left" Margin="825,10,0,0" VerticalAlignment="Top" Width="30" Height="30" Grid.RowSpan="2" BorderBrush="Black">
+        <Button x:Name="SearchButton" Content="" HorizontalAlignment="Left" Margin="825,10,0,0" VerticalAlignment="Top" Width="30" Height="30" Grid.RowSpan="2" BorderBrush="Black" Click="DoSearch" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/icons/search.png" />
             </Button.Background>
         </Button>
-        <Button x:Name="PreviousResultButton" Content="" HorizontalAlignment="Left" Margin="925,10,0,0" VerticalAlignment="Top" Width="30" Height="30" Grid.RowSpan="2" BorderBrush="Black">
+        <Button x:Name="PreviousResultButton" Content="" HorizontalAlignment="Left" Margin="925,10,0,0" VerticalAlignment="Top" Width="30" Height="30" Grid.RowSpan="2" BorderBrush="Black" Click="PreviousResult" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/icons/previous.png" />
             </Button.Background>
         </Button>
-        <Button x:Name="NextResultButton" Content="" HorizontalAlignment="Left" Margin="975,10,0,0" VerticalAlignment="Top" Width="30" Height="30" Grid.RowSpan="2" BorderBrush="Black">
+        <Button x:Name="NextResultButton" Content="" HorizontalAlignment="Left" Margin="975,10,0,0" VerticalAlignment="Top" Width="30" Height="30" Grid.RowSpan="2" BorderBrush="Black" Click="NextResult" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/icons/next.png" />
             </Button.Background>

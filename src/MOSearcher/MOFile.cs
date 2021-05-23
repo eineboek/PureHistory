@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace PureHistory
+namespace MOSearcher
 {
     /*
 	 * This program uses code from the GNU MO File Editor by OrletSoir under the GNU General Public License v3.0
@@ -227,104 +227,6 @@ T + ((N-1)*8)| length & offset (N-1)th translation      |  | | | |
         }
 
         #endregion private methods
-
-        #region data writer methods
-
-        public void SaveMOFile(string fileName)
-        {
-            FileStream outFile = File.Open(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
-            BinaryWriter writer = new BinaryWriter(outFile);
-
-            // magic
-            writer.Write(0x950412de);
-
-            // revision
-            writer.Write(_r);
-
-            // number of strings
-            writer.Write(_n);
-
-            // offset of table with original strings
-            writer.Write(OSOffset);
-
-            // offset of table with translation strings
-            writer.Write(_n * IndexEntrySize + OSOffset);
-
-            // size of hashing table
-            writer.Write(_s);
-
-            // offset of hashing table
-            uint hashOffset = _n * IndexEntrySize * 2 + OSOffset;
-            writer.Write(hashOffset);
-
-            // offsets and lengths
-            int[] osLengths = new int[_n];
-            uint[] osOffsets = new uint[_n];
-
-            int[] tsLengths = new int[_n];
-            uint[] tsOffsets = new uint[_n];
-
-            // get original string offsets
-            uint osOffs = hashOffset + _s * HashEntrySize;
-            uint tsOffs = 0;
-            for (int i = 0; i < _n; i++)
-            {
-                osLengths[i] = Encoding.UTF8.GetBytes(Lines[i].Original).Length;
-                tsLengths[i] = Encoding.UTF8.GetBytes(Lines[i].Translated).Length;
-
-                //if (tsLengths[i] != _translatedStringLengths[i])
-                //	throw new Exception(string.Format("Invalid lengths: original={0}, new={1}", tsLengths[i], _translatedStringLengths[i]));
-
-                osOffsets[i] = osOffs;
-
-                osOffs += (uint)osLengths[i] + 1;
-                tsOffs = osOffs;
-
-                // write original string offsets
-                writer.Write(osLengths[i]);
-                writer.Write(osOffsets[i]);
-            }
-
-            // get translated string offsets
-            for (int i = 0; i < _n; i++)
-            {
-                tsOffsets[i] = tsOffs;
-
-                tsOffs += 1 + (uint)tsLengths[i];
-
-                // write ranslated string offsets
-                writer.Write(tsLengths[i]);
-                writer.Write(tsOffsets[i]);
-            }
-
-            // dump original hash table
-            writer.Write(_hashTable);
-
-            // write original strings
-            for (int i = 0; i < _n; i++)
-            {
-                byte[] stringBytes = Encoding.UTF8.GetBytes(Lines[i].Original);
-
-                writer.Write(stringBytes);
-                writer.Write((byte)0);
-            }
-
-            // write translated strings
-            for (int i = 0; i < _n; i++)
-            {
-                byte[] stringBytes = Encoding.UTF8.GetBytes(Lines[i].Translated);
-
-                writer.Write(stringBytes);
-                writer.Write((byte)0);
-            }
-
-            // close and cleanup
-            writer.Close();
-            outFile.Close();
-            outFile.Dispose();
-        }
-
-        #endregion data writer methods
 
         #region Enumerator and Indexer shenanigans
 
