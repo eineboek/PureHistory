@@ -184,6 +184,10 @@ namespace PureHistory
                                             {
                                                 installationName = "World of Warships Public Test";
                                             }
+                                            else if (node.InnerText == "WOWS.TST.WGIE")
+                                            {
+                                                installationName = "World of Warships Submarine Test";
+                                            }
                                             else
                                             {
                                                 installationName = node.InnerText;
@@ -201,7 +205,7 @@ namespace PureHistory
                                                         binPath = proposedVersionPath,
                                                         resModsPath = Path.Combine(proposedVersionPath, "res_mods"),
                                                         Name = installationName,
-                                                        Version = FileVersionInfo.GetVersionInfo(Path.Combine(proposedVersionPath, "bin64", "WorldOfWarships64.exe")).FileVersion.Replace(',', '.') + " Build " + Path.GetRelativePath(proposedBinDir, proposedVersionPath)
+                                                        Version = $"{FileVersionInfo.GetVersionInfo(Path.Combine(proposedVersionPath, "bin64", "WorldOfWarships64.exe")).FileVersion.Replace(',', '.')} {Path.GetRelativePath(proposedBinDir, proposedVersionPath)}"
                                                     };
 
                                                     proposedInstallations.Add(proposedInstallation);
@@ -226,7 +230,7 @@ namespace PureHistory
             for (int i = 0; i < proposedInstallations.Count; i++)
             {
                 WoWSInstallation iInstallation = proposedInstallations[i];
-                options[i] = $"{iInstallation.Name} / Version {iInstallation.Version}";
+                options[i] = $"{iInstallation.Name}  [Version {iInstallation.Version}]";
             }
             options[^1] = Resources.SelectManual;
 
