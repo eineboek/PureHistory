@@ -216,7 +216,7 @@ Replacing the ship name with the regular counterpart name could lead to a misjud
 Please install this mod after using the ModStation, as the ModStation will override all other mod files.</value>
   </data>
   <data name="ModVersion" xml:space="preserve">
-    <value>PureHistory Version 1.4.0</value>
+    <value>PureHistory Version 1.4.1</value>
     <comment>This string is not translated to other languages.</comment>
   </data>
   <data name="NavigationHelp" xml:space="preserve">
@@ -270,7 +270,7 @@ Replacing the ship name with the regular counterpart could lead to a misjudgemen
     <value>World of Warships does not seem to be installed at the specified path. Continue installation regardless?</value>
   </data>
   <data name="WoWsVersion" xml:space="preserve">
-    <value>World of Warships Version 0.10.4</value>
+    <value>World of Warships Version 0.10.5</value>
     <comment>This string is not translated to other languages.</comment>
   </data>
   <data name="Yes" xml:space="preserve">

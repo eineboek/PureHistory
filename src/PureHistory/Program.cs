@@ -186,7 +186,7 @@ namespace PureHistory
                                             }
                                             else if (node.InnerText == "WOWS.TST.WGIE")
                                             {
-                                                installationName = "World of Warships Submarine Test";
+                                                installationName = "World of Warships Test Title";
                                             }
                                             else
                                             {

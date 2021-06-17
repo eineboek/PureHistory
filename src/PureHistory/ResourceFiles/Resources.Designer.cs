@@ -516,7 +516,7 @@ namespace PureHistory.ResourceFiles {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die PureHistory Version 1.4.0 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die PureHistory Version 1.4.1 ähnelt.
         /// </summary>
         internal static string ModVersion {
             get {
@@ -745,7 +745,7 @@ namespace PureHistory.ResourceFiles {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die World of Warships Version 0.10.4 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die World of Warships Version 0.10.5 ähnelt.
         /// </summary>
         internal static string WoWsVersion {
             get {
