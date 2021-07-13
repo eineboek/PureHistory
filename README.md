@@ -1,9 +1,8 @@
 # PureHistory
 ## Content Customization Tool for World of Warships
 
-Information about the mod/tool can be found here:
-
-https://forum.worldofwarships.eu/topic/147200-0102-purehistory-–-tool-for-customizing-collaboration-content-and-other-aesthetical-changes/
+## NOTE - 11th July 2021
+I am discontinuing this project for the time being as I have no interest in the World of Warhsips Community anymore. This means I won't provide any updates for game versions or new content anymore. I am, however, planning to do a last version with full user control so that the program can be rewritten with a simple text editor. After that, I will archive this repository.
 
 ## Navigation
 Arrow keys up/down for cursor movement between options
